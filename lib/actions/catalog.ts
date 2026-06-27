@@ -14,7 +14,9 @@ const SpeciesRow = z.object({
   name_ko: z.string().default(""),
   type1: z.string().nullable().optional(),
   type2: z.string().nullable().optional(),
-  sprite: z.string().optional(), // pokemon-sprites 버킷 내 경로
+  base_stats: z.record(z.string(), z.number()).optional(), // hp/attack/... (배틀용)
+  sprite: z.string().optional(), // 정면 스프라이트 경로 (pokemon-sprites 버킷)
+  icon: z.string().optional(), // 64x64 아이콘 경로
   chain: z.string().min(1), // 같은 진화 라인은 같은 키
   stage_order: z.number().int().min(1),
   min_level: z.number().int().min(1).default(1),
@@ -72,6 +74,7 @@ export async function seedCatalog(json: string): Promise<ActionResult> {
         name_ko: r.name_ko,
         type1: r.type1 ?? null,
         type2: r.type2 ?? null,
+        base_stats: r.base_stats ?? {},
       })),
       { onConflict: "pokedex_number" },
     )
@@ -95,14 +98,23 @@ export async function seedCatalog(json: string): Promise<ActionResult> {
     .upsert(stageRows, { onConflict: "chain_id,stage_order" });
   if (stErr) return { error: `진화 단계 업서트 실패: ${stErr.message}` };
 
-  // 4) 스프라이트 업서트 (species_id, variant 고유)
-  const spriteRows = rows
-    .filter((r) => r.sprite)
-    .map((r) => ({
-      species_id: speciesIdByDex.get(r.pokedex_number)!,
-      variant: "default" as const,
-      storage_path: r.sprite!,
-    }));
+  // 4) 스프라이트 업서트 (species_id, variant 고유) — 정면(default) + 아이콘(icon)
+  const spriteRows = [
+    ...rows
+      .filter((r) => r.sprite)
+      .map((r) => ({
+        species_id: speciesIdByDex.get(r.pokedex_number)!,
+        variant: "default" as const,
+        storage_path: r.sprite!,
+      })),
+    ...rows
+      .filter((r) => r.icon)
+      .map((r) => ({
+        species_id: speciesIdByDex.get(r.pokedex_number)!,
+        variant: "icon" as const,
+        storage_path: r.icon!,
+      })),
+  ];
   if (spriteRows.length > 0) {
     const { error: imgErr } = await supabase
       .from("sprites")
