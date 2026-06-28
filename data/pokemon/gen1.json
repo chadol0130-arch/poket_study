@@ -1,0 +1,3024 @@
+{
+  "species": [
+    {
+      "pokedex_number": 1,
+      "name": "Bulbasaur",
+      "name_ko": "이상해씨",
+      "type1": "grass",
+      "type2": "poison",
+      "base_stats": {
+        "hp": 45,
+        "attack": 49,
+        "defense": 49,
+        "special_attack": 65,
+        "special_defense": 65,
+        "speed": 45
+      },
+      "sprite": "front/1.png",
+      "icon": "icons/1.png",
+      "chain": "bulbasaur",
+      "stage_order": 1,
+      "min_level": 1
+    },
+    {
+      "pokedex_number": 2,
+      "name": "Ivysaur",
+      "name_ko": "이상해풀",
+      "type1": "grass",
+      "type2": "poison",
+      "base_stats": {
+        "hp": 60,
+        "attack": 62,
+        "defense": 63,
+        "special_attack": 80,
+        "special_defense": 80,
+        "speed": 60
+      },
+      "sprite": "front/2.png",
+      "icon": "icons/2.png",
+      "chain": "bulbasaur",
+      "stage_order": 2,
+      "min_level": 16
+    },
+    {
+      "pokedex_number": 3,
+      "name": "Venusaur",
+      "name_ko": "이상해꽃",
+      "type1": "grass",
+      "type2": "poison",
+      "base_stats": {
+        "hp": 80,
+        "attack": 82,
+        "defense": 83,
+        "special_attack": 100,
+        "special_defense": 100,
+        "speed": 80
+      },
+      "sprite": "front/3.png",
+      "icon": "icons/3.png",
+      "chain": "bulbasaur",
+      "stage_order": 3,
+      "min_level": 32
+    },
+    {
+      "pokedex_number": 4,
+      "name": "Charmander",
+      "name_ko": "파이리",
+      "type1": "fire",
+      "type2": null,
+      "base_stats": {
+        "hp": 39,
+        "attack": 52,
+        "defense": 43,
+        "special_attack": 60,
+        "special_defense": 50,
+        "speed": 65
+      },
+      "sprite": "front/4.png",
+      "icon": "icons/4.png",
+      "chain": "charmander",
+      "stage_order": 1,
+      "min_level": 1
+    },
+    {
+      "pokedex_number": 5,
+      "name": "Charmeleon",
+      "name_ko": "리자드",
+      "type1": "fire",
+      "type2": null,
+      "base_stats": {
+        "hp": 58,
+        "attack": 64,
+        "defense": 58,
+        "special_attack": 80,
+        "special_defense": 65,
+        "speed": 80
+      },
+      "sprite": "front/5.png",
+      "icon": "icons/5.png",
+      "chain": "charmander",
+      "stage_order": 2,
+      "min_level": 16
+    },
+    {
+      "pokedex_number": 6,
+      "name": "Charizard",
+      "name_ko": "리자몽",
+      "type1": "fire",
+      "type2": "flying",
+      "base_stats": {
+        "hp": 78,
+        "attack": 84,
+        "defense": 78,
+        "special_attack": 109,
+        "special_defense": 85,
+        "speed": 100
+      },
+      "sprite": "front/6.png",
+      "icon": "icons/6.png",
+      "chain": "charmander",
+      "stage_order": 3,
+      "min_level": 36
+    },
+    {
+      "pokedex_number": 7,
+      "name": "Squirtle",
+      "name_ko": "꼬부기",
+      "type1": "water",
+      "type2": null,
+      "base_stats": {
+        "hp": 44,
+        "attack": 48,
+        "defense": 65,
+        "special_attack": 50,
+        "special_defense": 64,
+        "speed": 43
+      },
+      "sprite": "front/7.png",
+      "icon": "icons/7.png",
+      "chain": "squirtle",
+      "stage_order": 1,
+      "min_level": 1
+    },
+    {
+      "pokedex_number": 8,
+      "name": "Wartortle",
+      "name_ko": "어니부기",
+      "type1": "water",
+      "type2": null,
+      "base_stats": {
+        "hp": 59,
+        "attack": 63,
+        "defense": 80,
+        "special_attack": 65,
+        "special_defense": 80,
+        "speed": 58
+      },
+      "sprite": "front/8.png",
+      "icon": "icons/8.png",
+      "chain": "squirtle",
+      "stage_order": 2,
+      "min_level": 16
+    },
+    {
+      "pokedex_number": 9,
+      "name": "Blastoise",
+      "name_ko": "거북왕",
+      "type1": "water",
+      "type2": null,
+      "base_stats": {
+        "hp": 79,
+        "attack": 83,
+        "defense": 100,
+        "special_attack": 85,
+        "special_defense": 105,
+        "speed": 78
+      },
+      "sprite": "front/9.png",
+      "icon": "icons/9.png",
+      "chain": "squirtle",
+      "stage_order": 3,
+      "min_level": 36
+    },
+    {
+      "pokedex_number": 10,
+      "name": "Caterpie",
+      "name_ko": "캐터피",
+      "type1": "bug",
+      "type2": null,
+      "base_stats": {
+        "hp": 45,
+        "attack": 30,
+        "defense": 35,
+        "special_attack": 20,
+        "special_defense": 20,
+        "speed": 45
+      },
+      "sprite": "front/10.png",
+      "icon": "icons/10.png",
+      "chain": "caterpie",
+      "stage_order": 1,
+      "min_level": 1
+    },
+    {
+      "pokedex_number": 11,
+      "name": "Metapod",
+      "name_ko": "단데기",
+      "type1": "bug",
+      "type2": null,
+      "base_stats": {
+        "hp": 50,
+        "attack": 20,
+        "defense": 55,
+        "special_attack": 25,
+        "special_defense": 25,
+        "speed": 30
+      },
+      "sprite": "front/11.png",
+      "icon": "icons/11.png",
+      "chain": "caterpie",
+      "stage_order": 2,
+      "min_level": 7
+    },
+    {
+      "pokedex_number": 12,
+      "name": "Butterfree",
+      "name_ko": "버터플",
+      "type1": "bug",
+      "type2": "flying",
+      "base_stats": {
+        "hp": 60,
+        "attack": 45,
+        "defense": 50,
+        "special_attack": 90,
+        "special_defense": 80,
+        "speed": 70
+      },
+      "sprite": "front/12.png",
+      "icon": "icons/12.png",
+      "chain": "caterpie",
+      "stage_order": 3,
+      "min_level": 10
+    },
+    {
+      "pokedex_number": 13,
+      "name": "Weedle",
+      "name_ko": "뿔충이",
+      "type1": "bug",
+      "type2": "poison",
+      "base_stats": {
+        "hp": 40,
+        "attack": 35,
+        "defense": 30,
+        "special_attack": 20,
+        "special_defense": 20,
+        "speed": 50
+      },
+      "sprite": "front/13.png",
+      "icon": "icons/13.png",
+      "chain": "weedle",
+      "stage_order": 1,
+      "min_level": 1
+    },
+    {
+      "pokedex_number": 14,
+      "name": "Kakuna",
+      "name_ko": "딱충이",
+      "type1": "bug",
+      "type2": "poison",
+      "base_stats": {
+        "hp": 45,
+        "attack": 25,
+        "defense": 50,
+        "special_attack": 25,
+        "special_defense": 25,
+        "speed": 35
+      },
+      "sprite": "front/14.png",
+      "icon": "icons/14.png",
+      "chain": "weedle",
+      "stage_order": 2,
+      "min_level": 7
+    },
+    {
+      "pokedex_number": 15,
+      "name": "Beedrill",
+      "name_ko": "독침붕",
+      "type1": "bug",
+      "type2": "poison",
+      "base_stats": {
+        "hp": 65,
+        "attack": 90,
+        "defense": 40,
+        "special_attack": 45,
+        "special_defense": 80,
+        "speed": 75
+      },
+      "sprite": "front/15.png",
+      "icon": "icons/15.png",
+      "chain": "weedle",
+      "stage_order": 3,
+      "min_level": 10
+    },
+    {
+      "pokedex_number": 16,
+      "name": "Pidgey",
+      "name_ko": "구구",
+      "type1": "normal",
+      "type2": "flying",
+      "base_stats": {
+        "hp": 40,
+        "attack": 45,
+        "defense": 40,
+        "special_attack": 35,
+        "special_defense": 35,
+        "speed": 56
+      },
+      "sprite": "front/16.png",
+      "icon": "icons/16.png",
+      "chain": "pidgey",
+      "stage_order": 1,
+      "min_level": 1
+    },
+    {
+      "pokedex_number": 17,
+      "name": "Pidgeotto",
+      "name_ko": "피죤",
+      "type1": "normal",
+      "type2": "flying",
+      "base_stats": {
+        "hp": 63,
+        "attack": 60,
+        "defense": 55,
+        "special_attack": 50,
+        "special_defense": 50,
+        "speed": 71
+      },
+      "sprite": "front/17.png",
+      "icon": "icons/17.png",
+      "chain": "pidgey",
+      "stage_order": 2,
+      "min_level": 18
+    },
+    {
+      "pokedex_number": 18,
+      "name": "Pidgeot",
+      "name_ko": "피죤투",
+      "type1": "normal",
+      "type2": "flying",
+      "base_stats": {
+        "hp": 83,
+        "attack": 80,
+        "defense": 75,
+        "special_attack": 70,
+        "special_defense": 70,
+        "speed": 101
+      },
+      "sprite": "front/18.png",
+      "icon": "icons/18.png",
+      "chain": "pidgey",
+      "stage_order": 3,
+      "min_level": 36
+    },
+    {
+      "pokedex_number": 19,
+      "name": "Rattata",
+      "name_ko": "꼬렛",
+      "type1": "normal",
+      "type2": null,
+      "base_stats": {
+        "hp": 30,
+        "attack": 56,
+        "defense": 35,
+        "special_attack": 25,
+        "special_defense": 35,
+        "speed": 72
+      },
+      "sprite": "front/19.png",
+      "icon": "icons/19.png",
+      "chain": "rattata",
+      "stage_order": 1,
+      "min_level": 1
+    },
+    {
+      "pokedex_number": 20,
+      "name": "Raticate",
+      "name_ko": "레트라",
+      "type1": "normal",
+      "type2": null,
+      "base_stats": {
+        "hp": 55,
+        "attack": 81,
+        "defense": 60,
+        "special_attack": 50,
+        "special_defense": 70,
+        "speed": 97
+      },
+      "sprite": "front/20.png",
+      "icon": "icons/20.png",
+      "chain": "rattata",
+      "stage_order": 2,
+      "min_level": 20
+    },
+    {
+      "pokedex_number": 21,
+      "name": "Spearow",
+      "name_ko": "깨비참",
+      "type1": "normal",
+      "type2": "flying",
+      "base_stats": {
+        "hp": 40,
+        "attack": 60,
+        "defense": 30,
+        "special_attack": 31,
+        "special_defense": 31,
+        "speed": 70
+      },
+      "sprite": "front/21.png",
+      "icon": "icons/21.png",
+      "chain": "spearow",
+      "stage_order": 1,
+      "min_level": 1
+    },
+    {
+      "pokedex_number": 22,
+      "name": "Fearow",
+      "name_ko": "깨비드릴조",
+      "type1": "normal",
+      "type2": "flying",
+      "base_stats": {
+        "hp": 65,
+        "attack": 90,
+        "defense": 65,
+        "special_attack": 61,
+        "special_defense": 61,
+        "speed": 100
+      },
+      "sprite": "front/22.png",
+      "icon": "icons/22.png",
+      "chain": "spearow",
+      "stage_order": 2,
+      "min_level": 20
+    },
+    {
+      "pokedex_number": 23,
+      "name": "Ekans",
+      "name_ko": "아보",
+      "type1": "poison",
+      "type2": null,
+      "base_stats": {
+        "hp": 35,
+        "attack": 60,
+        "defense": 44,
+        "special_attack": 40,
+        "special_defense": 54,
+        "speed": 55
+      },
+      "sprite": "front/23.png",
+      "icon": "icons/23.png",
+      "chain": "ekans",
+      "stage_order": 1,
+      "min_level": 1
+    },
+    {
+      "pokedex_number": 24,
+      "name": "Arbok",
+      "name_ko": "아보크",
+      "type1": "poison",
+      "type2": null,
+      "base_stats": {
+        "hp": 60,
+        "attack": 95,
+        "defense": 69,
+        "special_attack": 65,
+        "special_defense": 79,
+        "speed": 80
+      },
+      "sprite": "front/24.png",
+      "icon": "icons/24.png",
+      "chain": "ekans",
+      "stage_order": 2,
+      "min_level": 22
+    },
+    {
+      "pokedex_number": 25,
+      "name": "Pikachu",
+      "name_ko": "피카츄",
+      "type1": "electric",
+      "type2": null,
+      "base_stats": {
+        "hp": 35,
+        "attack": 55,
+        "defense": 40,
+        "special_attack": 50,
+        "special_defense": 50,
+        "speed": 90
+      },
+      "sprite": "front/25.png",
+      "icon": "icons/25.png",
+      "chain": "pikachu",
+      "stage_order": 1,
+      "min_level": 1
+    },
+    {
+      "pokedex_number": 26,
+      "name": "Raichu",
+      "name_ko": "라이츄",
+      "type1": "electric",
+      "type2": null,
+      "base_stats": {
+        "hp": 60,
+        "attack": 90,
+        "defense": 55,
+        "special_attack": 90,
+        "special_defense": 80,
+        "speed": 110
+      },
+      "sprite": "front/26.png",
+      "icon": "icons/26.png",
+      "chain": "pikachu",
+      "stage_order": 2,
+      "min_level": 18
+    },
+    {
+      "pokedex_number": 27,
+      "name": "Sandshrew",
+      "name_ko": "모래두지",
+      "type1": "ground",
+      "type2": null,
+      "base_stats": {
+        "hp": 50,
+        "attack": 75,
+        "defense": 85,
+        "special_attack": 20,
+        "special_defense": 30,
+        "speed": 40
+      },
+      "sprite": "front/27.png",
+      "icon": "icons/27.png",
+      "chain": "sandshrew",
+      "stage_order": 1,
+      "min_level": 1
+    },
+    {
+      "pokedex_number": 28,
+      "name": "Sandslash",
+      "name_ko": "고지",
+      "type1": "ground",
+      "type2": null,
+      "base_stats": {
+        "hp": 75,
+        "attack": 100,
+        "defense": 110,
+        "special_attack": 45,
+        "special_defense": 55,
+        "speed": 65
+      },
+      "sprite": "front/28.png",
+      "icon": "icons/28.png",
+      "chain": "sandshrew",
+      "stage_order": 2,
+      "min_level": 22
+    },
+    {
+      "pokedex_number": 29,
+      "name": "Nidoran♀",
+      "name_ko": "니드런♀",
+      "type1": "poison",
+      "type2": null,
+      "base_stats": {
+        "hp": 55,
+        "attack": 47,
+        "defense": 52,
+        "special_attack": 40,
+        "special_defense": 40,
+        "speed": 41
+      },
+      "sprite": "front/29.png",
+      "icon": "icons/29.png",
+      "chain": "nidoranfe",
+      "stage_order": 1,
+      "min_level": 1
+    },
+    {
+      "pokedex_number": 30,
+      "name": "Nidorina",
+      "name_ko": "니드리나",
+      "type1": "poison",
+      "type2": null,
+      "base_stats": {
+        "hp": 70,
+        "attack": 62,
+        "defense": 67,
+        "special_attack": 55,
+        "special_defense": 55,
+        "speed": 56
+      },
+      "sprite": "front/30.png",
+      "icon": "icons/30.png",
+      "chain": "nidoranfe",
+      "stage_order": 2,
+      "min_level": 16
+    },
+    {
+      "pokedex_number": 31,
+      "name": "Nidoqueen",
+      "name_ko": "니드퀸",
+      "type1": "poison",
+      "type2": "ground",
+      "base_stats": {
+        "hp": 90,
+        "attack": 92,
+        "defense": 87,
+        "special_attack": 75,
+        "special_defense": 85,
+        "speed": 76
+      },
+      "sprite": "front/31.png",
+      "icon": "icons/31.png",
+      "chain": "nidoranfe",
+      "stage_order": 3,
+      "min_level": 36
+    },
+    {
+      "pokedex_number": 32,
+      "name": "Nidoran♂",
+      "name_ko": "니드런♂",
+      "type1": "poison",
+      "type2": null,
+      "base_stats": {
+        "hp": 46,
+        "attack": 57,
+        "defense": 40,
+        "special_attack": 40,
+        "special_defense": 40,
+        "speed": 50
+      },
+      "sprite": "front/32.png",
+      "icon": "icons/32.png",
+      "chain": "nidoranma",
+      "stage_order": 1,
+      "min_level": 1
+    },
+    {
+      "pokedex_number": 33,
+      "name": "Nidorino",
+      "name_ko": "니드리노",
+      "type1": "poison",
+      "type2": null,
+      "base_stats": {
+        "hp": 61,
+        "attack": 72,
+        "defense": 57,
+        "special_attack": 55,
+        "special_defense": 55,
+        "speed": 65
+      },
+      "sprite": "front/33.png",
+      "icon": "icons/33.png",
+      "chain": "nidoranma",
+      "stage_order": 2,
+      "min_level": 16
+    },
+    {
+      "pokedex_number": 34,
+      "name": "Nidoking",
+      "name_ko": "니드킹",
+      "type1": "poison",
+      "type2": "ground",
+      "base_stats": {
+        "hp": 81,
+        "attack": 102,
+        "defense": 77,
+        "special_attack": 85,
+        "special_defense": 75,
+        "speed": 85
+      },
+      "sprite": "front/34.png",
+      "icon": "icons/34.png",
+      "chain": "nidoranma",
+      "stage_order": 3,
+      "min_level": 36
+    },
+    {
+      "pokedex_number": 35,
+      "name": "Clefairy",
+      "name_ko": "삐삐",
+      "type1": "fairy",
+      "type2": null,
+      "base_stats": {
+        "hp": 70,
+        "attack": 45,
+        "defense": 48,
+        "special_attack": 60,
+        "special_defense": 65,
+        "speed": 35
+      },
+      "sprite": "front/35.png",
+      "icon": "icons/35.png",
+      "chain": "clefairy",
+      "stage_order": 1,
+      "min_level": 1
+    },
+    {
+      "pokedex_number": 36,
+      "name": "Clefable",
+      "name_ko": "픽시",
+      "type1": "fairy",
+      "type2": null,
+      "base_stats": {
+        "hp": 95,
+        "attack": 70,
+        "defense": 73,
+        "special_attack": 95,
+        "special_defense": 90,
+        "speed": 60
+      },
+      "sprite": "front/36.png",
+      "icon": "icons/36.png",
+      "chain": "clefairy",
+      "stage_order": 2,
+      "min_level": 18
+    },
+    {
+      "pokedex_number": 37,
+      "name": "Vulpix",
+      "name_ko": "식스테일",
+      "type1": "fire",
+      "type2": null,
+      "base_stats": {
+        "hp": 38,
+        "attack": 41,
+        "defense": 40,
+        "special_attack": 50,
+        "special_defense": 65,
+        "speed": 65
+      },
+      "sprite": "front/37.png",
+      "icon": "icons/37.png",
+      "chain": "vulpix",
+      "stage_order": 1,
+      "min_level": 1
+    },
+    {
+      "pokedex_number": 38,
+      "name": "Ninetales",
+      "name_ko": "나인테일",
+      "type1": "fire",
+      "type2": null,
+      "base_stats": {
+        "hp": 73,
+        "attack": 76,
+        "defense": 75,
+        "special_attack": 81,
+        "special_defense": 100,
+        "speed": 100
+      },
+      "sprite": "front/38.png",
+      "icon": "icons/38.png",
+      "chain": "vulpix",
+      "stage_order": 2,
+      "min_level": 18
+    },
+    {
+      "pokedex_number": 39,
+      "name": "Jigglypuff",
+      "name_ko": "푸린",
+      "type1": "normal",
+      "type2": "fairy",
+      "base_stats": {
+        "hp": 115,
+        "attack": 45,
+        "defense": 20,
+        "special_attack": 45,
+        "special_defense": 25,
+        "speed": 20
+      },
+      "sprite": "front/39.png",
+      "icon": "icons/39.png",
+      "chain": "jigglypuff",
+      "stage_order": 1,
+      "min_level": 1
+    },
+    {
+      "pokedex_number": 40,
+      "name": "Wigglytuff",
+      "name_ko": "푸크린",
+      "type1": "normal",
+      "type2": "fairy",
+      "base_stats": {
+        "hp": 140,
+        "attack": 70,
+        "defense": 45,
+        "special_attack": 85,
+        "special_defense": 50,
+        "speed": 45
+      },
+      "sprite": "front/40.png",
+      "icon": "icons/40.png",
+      "chain": "jigglypuff",
+      "stage_order": 2,
+      "min_level": 18
+    },
+    {
+      "pokedex_number": 41,
+      "name": "Zubat",
+      "name_ko": "주뱃",
+      "type1": "poison",
+      "type2": "flying",
+      "base_stats": {
+        "hp": 40,
+        "attack": 45,
+        "defense": 35,
+        "special_attack": 30,
+        "special_defense": 40,
+        "speed": 55
+      },
+      "sprite": "front/41.png",
+      "icon": "icons/41.png",
+      "chain": "zubat",
+      "stage_order": 1,
+      "min_level": 1
+    },
+    {
+      "pokedex_number": 42,
+      "name": "Golbat",
+      "name_ko": "골뱃",
+      "type1": "poison",
+      "type2": "flying",
+      "base_stats": {
+        "hp": 75,
+        "attack": 80,
+        "defense": 70,
+        "special_attack": 65,
+        "special_defense": 75,
+        "speed": 90
+      },
+      "sprite": "front/42.png",
+      "icon": "icons/42.png",
+      "chain": "zubat",
+      "stage_order": 2,
+      "min_level": 22
+    },
+    {
+      "pokedex_number": 43,
+      "name": "Oddish",
+      "name_ko": "뚜벅쵸",
+      "type1": "grass",
+      "type2": "poison",
+      "base_stats": {
+        "hp": 45,
+        "attack": 50,
+        "defense": 55,
+        "special_attack": 75,
+        "special_defense": 65,
+        "speed": 30
+      },
+      "sprite": "front/43.png",
+      "icon": "icons/43.png",
+      "chain": "oddish",
+      "stage_order": 1,
+      "min_level": 1
+    },
+    {
+      "pokedex_number": 44,
+      "name": "Gloom",
+      "name_ko": "냄새꼬",
+      "type1": "grass",
+      "type2": "poison",
+      "base_stats": {
+        "hp": 60,
+        "attack": 65,
+        "defense": 70,
+        "special_attack": 85,
+        "special_defense": 75,
+        "speed": 40
+      },
+      "sprite": "front/44.png",
+      "icon": "icons/44.png",
+      "chain": "oddish",
+      "stage_order": 2,
+      "min_level": 21
+    },
+    {
+      "pokedex_number": 45,
+      "name": "Vileplume",
+      "name_ko": "라플레시아",
+      "type1": "grass",
+      "type2": "poison",
+      "base_stats": {
+        "hp": 75,
+        "attack": 80,
+        "defense": 85,
+        "special_attack": 110,
+        "special_defense": 90,
+        "speed": 50
+      },
+      "sprite": "front/45.png",
+      "icon": "icons/45.png",
+      "chain": "oddish",
+      "stage_order": 3,
+      "min_level": 36
+    },
+    {
+      "pokedex_number": 46,
+      "name": "Paras",
+      "name_ko": "파라스",
+      "type1": "bug",
+      "type2": "grass",
+      "base_stats": {
+        "hp": 35,
+        "attack": 70,
+        "defense": 55,
+        "special_attack": 45,
+        "special_defense": 55,
+        "speed": 25
+      },
+      "sprite": "front/46.png",
+      "icon": "icons/46.png",
+      "chain": "paras",
+      "stage_order": 1,
+      "min_level": 1
+    },
+    {
+      "pokedex_number": 47,
+      "name": "Parasect",
+      "name_ko": "파라섹트",
+      "type1": "bug",
+      "type2": "grass",
+      "base_stats": {
+        "hp": 60,
+        "attack": 95,
+        "defense": 80,
+        "special_attack": 60,
+        "special_defense": 80,
+        "speed": 30
+      },
+      "sprite": "front/47.png",
+      "icon": "icons/47.png",
+      "chain": "paras",
+      "stage_order": 2,
+      "min_level": 24
+    },
+    {
+      "pokedex_number": 48,
+      "name": "Venonat",
+      "name_ko": "콘팡",
+      "type1": "bug",
+      "type2": "poison",
+      "base_stats": {
+        "hp": 60,
+        "attack": 55,
+        "defense": 50,
+        "special_attack": 40,
+        "special_defense": 55,
+        "speed": 45
+      },
+      "sprite": "front/48.png",
+      "icon": "icons/48.png",
+      "chain": "venonat",
+      "stage_order": 1,
+      "min_level": 1
+    },
+    {
+      "pokedex_number": 49,
+      "name": "Venomoth",
+      "name_ko": "도나리",
+      "type1": "bug",
+      "type2": "poison",
+      "base_stats": {
+        "hp": 70,
+        "attack": 65,
+        "defense": 60,
+        "special_attack": 90,
+        "special_defense": 75,
+        "speed": 90
+      },
+      "sprite": "front/49.png",
+      "icon": "icons/49.png",
+      "chain": "venonat",
+      "stage_order": 2,
+      "min_level": 31
+    },
+    {
+      "pokedex_number": 50,
+      "name": "Diglett",
+      "name_ko": "디그다",
+      "type1": "ground",
+      "type2": null,
+      "base_stats": {
+        "hp": 10,
+        "attack": 55,
+        "defense": 25,
+        "special_attack": 35,
+        "special_defense": 45,
+        "speed": 95
+      },
+      "sprite": "front/50.png",
+      "icon": "icons/50.png",
+      "chain": "diglett",
+      "stage_order": 1,
+      "min_level": 1
+    },
+    {
+      "pokedex_number": 51,
+      "name": "Dugtrio",
+      "name_ko": "닥트리오",
+      "type1": "ground",
+      "type2": null,
+      "base_stats": {
+        "hp": 35,
+        "attack": 100,
+        "defense": 50,
+        "special_attack": 50,
+        "special_defense": 70,
+        "speed": 120
+      },
+      "sprite": "front/51.png",
+      "icon": "icons/51.png",
+      "chain": "diglett",
+      "stage_order": 2,
+      "min_level": 26
+    },
+    {
+      "pokedex_number": 52,
+      "name": "Meowth",
+      "name_ko": "나옹",
+      "type1": "normal",
+      "type2": null,
+      "base_stats": {
+        "hp": 40,
+        "attack": 45,
+        "defense": 35,
+        "special_attack": 40,
+        "special_defense": 40,
+        "speed": 90
+      },
+      "sprite": "front/52.png",
+      "icon": "icons/52.png",
+      "chain": "meowth",
+      "stage_order": 1,
+      "min_level": 1
+    },
+    {
+      "pokedex_number": 53,
+      "name": "Persian",
+      "name_ko": "페르시온",
+      "type1": "normal",
+      "type2": null,
+      "base_stats": {
+        "hp": 65,
+        "attack": 70,
+        "defense": 60,
+        "special_attack": 65,
+        "special_defense": 65,
+        "speed": 115
+      },
+      "sprite": "front/53.png",
+      "icon": "icons/53.png",
+      "chain": "meowth",
+      "stage_order": 2,
+      "min_level": 28
+    },
+    {
+      "pokedex_number": 54,
+      "name": "Psyduck",
+      "name_ko": "고라파덕",
+      "type1": "water",
+      "type2": null,
+      "base_stats": {
+        "hp": 50,
+        "attack": 52,
+        "defense": 48,
+        "special_attack": 65,
+        "special_defense": 50,
+        "speed": 55
+      },
+      "sprite": "front/54.png",
+      "icon": "icons/54.png",
+      "chain": "psyduck",
+      "stage_order": 1,
+      "min_level": 1
+    },
+    {
+      "pokedex_number": 55,
+      "name": "Golduck",
+      "name_ko": "골덕",
+      "type1": "water",
+      "type2": null,
+      "base_stats": {
+        "hp": 80,
+        "attack": 82,
+        "defense": 78,
+        "special_attack": 95,
+        "special_defense": 80,
+        "speed": 85
+      },
+      "sprite": "front/55.png",
+      "icon": "icons/55.png",
+      "chain": "psyduck",
+      "stage_order": 2,
+      "min_level": 33
+    },
+    {
+      "pokedex_number": 56,
+      "name": "Mankey",
+      "name_ko": "망키",
+      "type1": "fighting",
+      "type2": null,
+      "base_stats": {
+        "hp": 40,
+        "attack": 80,
+        "defense": 35,
+        "special_attack": 35,
+        "special_defense": 45,
+        "speed": 70
+      },
+      "sprite": "front/56.png",
+      "icon": "icons/56.png",
+      "chain": "mankey",
+      "stage_order": 1,
+      "min_level": 1
+    },
+    {
+      "pokedex_number": 57,
+      "name": "Primeape",
+      "name_ko": "성원숭",
+      "type1": "fighting",
+      "type2": null,
+      "base_stats": {
+        "hp": 65,
+        "attack": 105,
+        "defense": 60,
+        "special_attack": 60,
+        "special_defense": 70,
+        "speed": 95
+      },
+      "sprite": "front/57.png",
+      "icon": "icons/57.png",
+      "chain": "mankey",
+      "stage_order": 2,
+      "min_level": 28
+    },
+    {
+      "pokedex_number": 58,
+      "name": "Growlithe",
+      "name_ko": "가디",
+      "type1": "fire",
+      "type2": null,
+      "base_stats": {
+        "hp": 55,
+        "attack": 70,
+        "defense": 45,
+        "special_attack": 70,
+        "special_defense": 50,
+        "speed": 60
+      },
+      "sprite": "front/58.png",
+      "icon": "icons/58.png",
+      "chain": "growlithe",
+      "stage_order": 1,
+      "min_level": 1
+    },
+    {
+      "pokedex_number": 59,
+      "name": "Arcanine",
+      "name_ko": "윈디",
+      "type1": "fire",
+      "type2": null,
+      "base_stats": {
+        "hp": 90,
+        "attack": 110,
+        "defense": 80,
+        "special_attack": 100,
+        "special_defense": 80,
+        "speed": 95
+      },
+      "sprite": "front/59.png",
+      "icon": "icons/59.png",
+      "chain": "growlithe",
+      "stage_order": 2,
+      "min_level": 18
+    },
+    {
+      "pokedex_number": 60,
+      "name": "Poliwag",
+      "name_ko": "발챙이",
+      "type1": "water",
+      "type2": null,
+      "base_stats": {
+        "hp": 40,
+        "attack": 50,
+        "defense": 40,
+        "special_attack": 40,
+        "special_defense": 40,
+        "speed": 90
+      },
+      "sprite": "front/60.png",
+      "icon": "icons/60.png",
+      "chain": "poliwag",
+      "stage_order": 1,
+      "min_level": 1
+    },
+    {
+      "pokedex_number": 61,
+      "name": "Poliwhirl",
+      "name_ko": "슈륙챙이",
+      "type1": "water",
+      "type2": null,
+      "base_stats": {
+        "hp": 65,
+        "attack": 65,
+        "defense": 65,
+        "special_attack": 50,
+        "special_defense": 50,
+        "speed": 90
+      },
+      "sprite": "front/61.png",
+      "icon": "icons/61.png",
+      "chain": "poliwag",
+      "stage_order": 2,
+      "min_level": 25
+    },
+    {
+      "pokedex_number": 62,
+      "name": "Poliwrath",
+      "name_ko": "강챙이",
+      "type1": "water",
+      "type2": "fighting",
+      "base_stats": {
+        "hp": 90,
+        "attack": 95,
+        "defense": 95,
+        "special_attack": 70,
+        "special_defense": 90,
+        "speed": 70
+      },
+      "sprite": "front/62.png",
+      "icon": "icons/62.png",
+      "chain": "poliwag",
+      "stage_order": 3,
+      "min_level": 36
+    },
+    {
+      "pokedex_number": 63,
+      "name": "Abra",
+      "name_ko": "캐이시",
+      "type1": "psychic",
+      "type2": null,
+      "base_stats": {
+        "hp": 25,
+        "attack": 20,
+        "defense": 15,
+        "special_attack": 105,
+        "special_defense": 55,
+        "speed": 90
+      },
+      "sprite": "front/63.png",
+      "icon": "icons/63.png",
+      "chain": "abra",
+      "stage_order": 1,
+      "min_level": 1
+    },
+    {
+      "pokedex_number": 64,
+      "name": "Kadabra",
+      "name_ko": "윤겔라",
+      "type1": "psychic",
+      "type2": null,
+      "base_stats": {
+        "hp": 40,
+        "attack": 35,
+        "defense": 30,
+        "special_attack": 120,
+        "special_defense": 70,
+        "speed": 105
+      },
+      "sprite": "front/64.png",
+      "icon": "icons/64.png",
+      "chain": "abra",
+      "stage_order": 2,
+      "min_level": 16
+    },
+    {
+      "pokedex_number": 65,
+      "name": "Alakazam",
+      "name_ko": "후딘",
+      "type1": "psychic",
+      "type2": null,
+      "base_stats": {
+        "hp": 55,
+        "attack": 50,
+        "defense": 45,
+        "special_attack": 135,
+        "special_defense": 95,
+        "speed": 120
+      },
+      "sprite": "front/65.png",
+      "icon": "icons/65.png",
+      "chain": "alakazam",
+      "stage_order": 1,
+      "min_level": 1
+    },
+    {
+      "pokedex_number": 66,
+      "name": "Machop",
+      "name_ko": "알통몬",
+      "type1": "fighting",
+      "type2": null,
+      "base_stats": {
+        "hp": 70,
+        "attack": 80,
+        "defense": 50,
+        "special_attack": 35,
+        "special_defense": 35,
+        "speed": 35
+      },
+      "sprite": "front/66.png",
+      "icon": "icons/66.png",
+      "chain": "machop",
+      "stage_order": 1,
+      "min_level": 1
+    },
+    {
+      "pokedex_number": 67,
+      "name": "Machoke",
+      "name_ko": "근육몬",
+      "type1": "fighting",
+      "type2": null,
+      "base_stats": {
+        "hp": 80,
+        "attack": 100,
+        "defense": 70,
+        "special_attack": 50,
+        "special_defense": 60,
+        "speed": 45
+      },
+      "sprite": "front/67.png",
+      "icon": "icons/67.png",
+      "chain": "machop",
+      "stage_order": 2,
+      "min_level": 28
+    },
+    {
+      "pokedex_number": 68,
+      "name": "Machamp",
+      "name_ko": "괴력몬",
+      "type1": "fighting",
+      "type2": null,
+      "base_stats": {
+        "hp": 90,
+        "attack": 130,
+        "defense": 80,
+        "special_attack": 65,
+        "special_defense": 85,
+        "speed": 55
+      },
+      "sprite": "front/68.png",
+      "icon": "icons/68.png",
+      "chain": "machamp",
+      "stage_order": 1,
+      "min_level": 1
+    },
+    {
+      "pokedex_number": 69,
+      "name": "Bellsprout",
+      "name_ko": "모다피",
+      "type1": "grass",
+      "type2": "poison",
+      "base_stats": {
+        "hp": 50,
+        "attack": 75,
+        "defense": 35,
+        "special_attack": 70,
+        "special_defense": 30,
+        "speed": 40
+      },
+      "sprite": "front/69.png",
+      "icon": "icons/69.png",
+      "chain": "bellsprout",
+      "stage_order": 1,
+      "min_level": 1
+    },
+    {
+      "pokedex_number": 70,
+      "name": "Weepinbell",
+      "name_ko": "우츠동",
+      "type1": "grass",
+      "type2": "poison",
+      "base_stats": {
+        "hp": 65,
+        "attack": 90,
+        "defense": 50,
+        "special_attack": 85,
+        "special_defense": 45,
+        "speed": 55
+      },
+      "sprite": "front/70.png",
+      "icon": "icons/70.png",
+      "chain": "bellsprout",
+      "stage_order": 2,
+      "min_level": 21
+    },
+    {
+      "pokedex_number": 71,
+      "name": "Victreebel",
+      "name_ko": "우츠보트",
+      "type1": "grass",
+      "type2": "poison",
+      "base_stats": {
+        "hp": 80,
+        "attack": 105,
+        "defense": 65,
+        "special_attack": 100,
+        "special_defense": 70,
+        "speed": 70
+      },
+      "sprite": "front/71.png",
+      "icon": "icons/71.png",
+      "chain": "bellsprout",
+      "stage_order": 3,
+      "min_level": 36
+    },
+    {
+      "pokedex_number": 72,
+      "name": "Tentacool",
+      "name_ko": "왕눈해",
+      "type1": "water",
+      "type2": "poison",
+      "base_stats": {
+        "hp": 40,
+        "attack": 40,
+        "defense": 35,
+        "special_attack": 50,
+        "special_defense": 100,
+        "speed": 70
+      },
+      "sprite": "front/72.png",
+      "icon": "icons/72.png",
+      "chain": "tentacool",
+      "stage_order": 1,
+      "min_level": 1
+    },
+    {
+      "pokedex_number": 73,
+      "name": "Tentacruel",
+      "name_ko": "독파리",
+      "type1": "water",
+      "type2": "poison",
+      "base_stats": {
+        "hp": 80,
+        "attack": 70,
+        "defense": 65,
+        "special_attack": 80,
+        "special_defense": 120,
+        "speed": 100
+      },
+      "sprite": "front/73.png",
+      "icon": "icons/73.png",
+      "chain": "tentacool",
+      "stage_order": 2,
+      "min_level": 30
+    },
+    {
+      "pokedex_number": 74,
+      "name": "Geodude",
+      "name_ko": "꼬마돌",
+      "type1": "rock",
+      "type2": "ground",
+      "base_stats": {
+        "hp": 40,
+        "attack": 80,
+        "defense": 100,
+        "special_attack": 30,
+        "special_defense": 30,
+        "speed": 20
+      },
+      "sprite": "front/74.png",
+      "icon": "icons/74.png",
+      "chain": "geodude",
+      "stage_order": 1,
+      "min_level": 1
+    },
+    {
+      "pokedex_number": 75,
+      "name": "Graveler",
+      "name_ko": "데구리",
+      "type1": "rock",
+      "type2": "ground",
+      "base_stats": {
+        "hp": 55,
+        "attack": 95,
+        "defense": 115,
+        "special_attack": 45,
+        "special_defense": 45,
+        "speed": 35
+      },
+      "sprite": "front/75.png",
+      "icon": "icons/75.png",
+      "chain": "geodude",
+      "stage_order": 2,
+      "min_level": 25
+    },
+    {
+      "pokedex_number": 76,
+      "name": "Golem",
+      "name_ko": "딱구리",
+      "type1": "rock",
+      "type2": "ground",
+      "base_stats": {
+        "hp": 80,
+        "attack": 120,
+        "defense": 130,
+        "special_attack": 55,
+        "special_defense": 65,
+        "speed": 45
+      },
+      "sprite": "front/76.png",
+      "icon": "icons/76.png",
+      "chain": "golem",
+      "stage_order": 1,
+      "min_level": 1
+    },
+    {
+      "pokedex_number": 77,
+      "name": "Ponyta",
+      "name_ko": "포니타",
+      "type1": "fire",
+      "type2": null,
+      "base_stats": {
+        "hp": 50,
+        "attack": 85,
+        "defense": 55,
+        "special_attack": 65,
+        "special_defense": 65,
+        "speed": 90
+      },
+      "sprite": "front/77.png",
+      "icon": "icons/77.png",
+      "chain": "ponyta",
+      "stage_order": 1,
+      "min_level": 1
+    },
+    {
+      "pokedex_number": 78,
+      "name": "Rapidash",
+      "name_ko": "날쌩마",
+      "type1": "fire",
+      "type2": null,
+      "base_stats": {
+        "hp": 65,
+        "attack": 100,
+        "defense": 70,
+        "special_attack": 80,
+        "special_defense": 80,
+        "speed": 105
+      },
+      "sprite": "front/78.png",
+      "icon": "icons/78.png",
+      "chain": "ponyta",
+      "stage_order": 2,
+      "min_level": 40
+    },
+    {
+      "pokedex_number": 79,
+      "name": "Slowpoke",
+      "name_ko": "야돈",
+      "type1": "water",
+      "type2": "psychic",
+      "base_stats": {
+        "hp": 90,
+        "attack": 65,
+        "defense": 65,
+        "special_attack": 40,
+        "special_defense": 40,
+        "speed": 15
+      },
+      "sprite": "front/79.png",
+      "icon": "icons/79.png",
+      "chain": "slowpoke",
+      "stage_order": 1,
+      "min_level": 1
+    },
+    {
+      "pokedex_number": 80,
+      "name": "Slowbro",
+      "name_ko": "야도란",
+      "type1": "water",
+      "type2": "psychic",
+      "base_stats": {
+        "hp": 95,
+        "attack": 75,
+        "defense": 110,
+        "special_attack": 100,
+        "special_defense": 80,
+        "speed": 30
+      },
+      "sprite": "front/80.png",
+      "icon": "icons/80.png",
+      "chain": "slowpoke",
+      "stage_order": 2,
+      "min_level": 37
+    },
+    {
+      "pokedex_number": 81,
+      "name": "Magnemite",
+      "name_ko": "코일",
+      "type1": "electric",
+      "type2": "steel",
+      "base_stats": {
+        "hp": 25,
+        "attack": 35,
+        "defense": 70,
+        "special_attack": 95,
+        "special_defense": 55,
+        "speed": 45
+      },
+      "sprite": "front/81.png",
+      "icon": "icons/81.png",
+      "chain": "magnemite",
+      "stage_order": 1,
+      "min_level": 1
+    },
+    {
+      "pokedex_number": 82,
+      "name": "Magneton",
+      "name_ko": "레어코일",
+      "type1": "electric",
+      "type2": "steel",
+      "base_stats": {
+        "hp": 50,
+        "attack": 60,
+        "defense": 95,
+        "special_attack": 120,
+        "special_defense": 70,
+        "speed": 70
+      },
+      "sprite": "front/82.png",
+      "icon": "icons/82.png",
+      "chain": "magnemite",
+      "stage_order": 2,
+      "min_level": 30
+    },
+    {
+      "pokedex_number": 83,
+      "name": "Farfetch'd",
+      "name_ko": "파오리",
+      "type1": "normal",
+      "type2": "flying",
+      "base_stats": {
+        "hp": 52,
+        "attack": 90,
+        "defense": 55,
+        "special_attack": 58,
+        "special_defense": 62,
+        "speed": 60
+      },
+      "sprite": "front/83.png",
+      "icon": "icons/83.png",
+      "chain": "farfetchd",
+      "stage_order": 1,
+      "min_level": 1
+    },
+    {
+      "pokedex_number": 84,
+      "name": "Doduo",
+      "name_ko": "두두",
+      "type1": "normal",
+      "type2": "flying",
+      "base_stats": {
+        "hp": 35,
+        "attack": 85,
+        "defense": 45,
+        "special_attack": 35,
+        "special_defense": 35,
+        "speed": 75
+      },
+      "sprite": "front/84.png",
+      "icon": "icons/84.png",
+      "chain": "doduo",
+      "stage_order": 1,
+      "min_level": 1
+    },
+    {
+      "pokedex_number": 85,
+      "name": "Dodrio",
+      "name_ko": "두트리오",
+      "type1": "normal",
+      "type2": "flying",
+      "base_stats": {
+        "hp": 60,
+        "attack": 110,
+        "defense": 70,
+        "special_attack": 60,
+        "special_defense": 60,
+        "speed": 110
+      },
+      "sprite": "front/85.png",
+      "icon": "icons/85.png",
+      "chain": "doduo",
+      "stage_order": 2,
+      "min_level": 31
+    },
+    {
+      "pokedex_number": 86,
+      "name": "Seel",
+      "name_ko": "쥬쥬",
+      "type1": "water",
+      "type2": null,
+      "base_stats": {
+        "hp": 65,
+        "attack": 45,
+        "defense": 55,
+        "special_attack": 45,
+        "special_defense": 70,
+        "speed": 45
+      },
+      "sprite": "front/86.png",
+      "icon": "icons/86.png",
+      "chain": "seel",
+      "stage_order": 1,
+      "min_level": 1
+    },
+    {
+      "pokedex_number": 87,
+      "name": "Dewgong",
+      "name_ko": "쥬레곤",
+      "type1": "water",
+      "type2": "ice",
+      "base_stats": {
+        "hp": 90,
+        "attack": 70,
+        "defense": 80,
+        "special_attack": 70,
+        "special_defense": 95,
+        "speed": 70
+      },
+      "sprite": "front/87.png",
+      "icon": "icons/87.png",
+      "chain": "seel",
+      "stage_order": 2,
+      "min_level": 34
+    },
+    {
+      "pokedex_number": 88,
+      "name": "Grimer",
+      "name_ko": "질퍽이",
+      "type1": "poison",
+      "type2": null,
+      "base_stats": {
+        "hp": 80,
+        "attack": 80,
+        "defense": 50,
+        "special_attack": 40,
+        "special_defense": 50,
+        "speed": 25
+      },
+      "sprite": "front/88.png",
+      "icon": "icons/88.png",
+      "chain": "grimer",
+      "stage_order": 1,
+      "min_level": 1
+    },
+    {
+      "pokedex_number": 89,
+      "name": "Muk",
+      "name_ko": "질뻐기",
+      "type1": "poison",
+      "type2": null,
+      "base_stats": {
+        "hp": 105,
+        "attack": 105,
+        "defense": 75,
+        "special_attack": 65,
+        "special_defense": 100,
+        "speed": 50
+      },
+      "sprite": "front/89.png",
+      "icon": "icons/89.png",
+      "chain": "grimer",
+      "stage_order": 2,
+      "min_level": 38
+    },
+    {
+      "pokedex_number": 90,
+      "name": "Shellder",
+      "name_ko": "셀러",
+      "type1": "water",
+      "type2": null,
+      "base_stats": {
+        "hp": 30,
+        "attack": 65,
+        "defense": 100,
+        "special_attack": 45,
+        "special_defense": 25,
+        "speed": 40
+      },
+      "sprite": "front/90.png",
+      "icon": "icons/90.png",
+      "chain": "shellder",
+      "stage_order": 1,
+      "min_level": 1
+    },
+    {
+      "pokedex_number": 91,
+      "name": "Cloyster",
+      "name_ko": "파르셀",
+      "type1": "water",
+      "type2": "ice",
+      "base_stats": {
+        "hp": 50,
+        "attack": 95,
+        "defense": 180,
+        "special_attack": 85,
+        "special_defense": 45,
+        "speed": 70
+      },
+      "sprite": "front/91.png",
+      "icon": "icons/91.png",
+      "chain": "shellder",
+      "stage_order": 2,
+      "min_level": 18
+    },
+    {
+      "pokedex_number": 92,
+      "name": "Gastly",
+      "name_ko": "고오스",
+      "type1": "ghost",
+      "type2": "poison",
+      "base_stats": {
+        "hp": 30,
+        "attack": 35,
+        "defense": 30,
+        "special_attack": 100,
+        "special_defense": 35,
+        "speed": 80
+      },
+      "sprite": "front/92.png",
+      "icon": "icons/92.png",
+      "chain": "gastly",
+      "stage_order": 1,
+      "min_level": 1
+    },
+    {
+      "pokedex_number": 93,
+      "name": "Haunter",
+      "name_ko": "고우스트",
+      "type1": "ghost",
+      "type2": "poison",
+      "base_stats": {
+        "hp": 45,
+        "attack": 50,
+        "defense": 45,
+        "special_attack": 115,
+        "special_defense": 55,
+        "speed": 95
+      },
+      "sprite": "front/93.png",
+      "icon": "icons/93.png",
+      "chain": "gastly",
+      "stage_order": 2,
+      "min_level": 25
+    },
+    {
+      "pokedex_number": 94,
+      "name": "Gengar",
+      "name_ko": "팬텀",
+      "type1": "ghost",
+      "type2": "poison",
+      "base_stats": {
+        "hp": 60,
+        "attack": 65,
+        "defense": 60,
+        "special_attack": 130,
+        "special_defense": 75,
+        "speed": 110
+      },
+      "sprite": "front/94.png",
+      "icon": "icons/94.png",
+      "chain": "gengar",
+      "stage_order": 1,
+      "min_level": 1
+    },
+    {
+      "pokedex_number": 95,
+      "name": "Onix",
+      "name_ko": "롱스톤",
+      "type1": "rock",
+      "type2": "ground",
+      "base_stats": {
+        "hp": 35,
+        "attack": 45,
+        "defense": 160,
+        "special_attack": 30,
+        "special_defense": 45,
+        "speed": 70
+      },
+      "sprite": "front/95.png",
+      "icon": "icons/95.png",
+      "chain": "onix",
+      "stage_order": 1,
+      "min_level": 1
+    },
+    {
+      "pokedex_number": 96,
+      "name": "Drowzee",
+      "name_ko": "슬리프",
+      "type1": "psychic",
+      "type2": null,
+      "base_stats": {
+        "hp": 60,
+        "attack": 48,
+        "defense": 45,
+        "special_attack": 43,
+        "special_defense": 90,
+        "speed": 42
+      },
+      "sprite": "front/96.png",
+      "icon": "icons/96.png",
+      "chain": "drowzee",
+      "stage_order": 1,
+      "min_level": 1
+    },
+    {
+      "pokedex_number": 97,
+      "name": "Hypno",
+      "name_ko": "슬리퍼",
+      "type1": "psychic",
+      "type2": null,
+      "base_stats": {
+        "hp": 85,
+        "attack": 73,
+        "defense": 70,
+        "special_attack": 73,
+        "special_defense": 115,
+        "speed": 67
+      },
+      "sprite": "front/97.png",
+      "icon": "icons/97.png",
+      "chain": "drowzee",
+      "stage_order": 2,
+      "min_level": 26
+    },
+    {
+      "pokedex_number": 98,
+      "name": "Krabby",
+      "name_ko": "크랩",
+      "type1": "water",
+      "type2": null,
+      "base_stats": {
+        "hp": 30,
+        "attack": 105,
+        "defense": 90,
+        "special_attack": 25,
+        "special_defense": 25,
+        "speed": 50
+      },
+      "sprite": "front/98.png",
+      "icon": "icons/98.png",
+      "chain": "krabby",
+      "stage_order": 1,
+      "min_level": 1
+    },
+    {
+      "pokedex_number": 99,
+      "name": "Kingler",
+      "name_ko": "킹크랩",
+      "type1": "water",
+      "type2": null,
+      "base_stats": {
+        "hp": 55,
+        "attack": 130,
+        "defense": 115,
+        "special_attack": 50,
+        "special_defense": 50,
+        "speed": 75
+      },
+      "sprite": "front/99.png",
+      "icon": "icons/99.png",
+      "chain": "krabby",
+      "stage_order": 2,
+      "min_level": 28
+    },
+    {
+      "pokedex_number": 100,
+      "name": "Voltorb",
+      "name_ko": "찌리리공",
+      "type1": "electric",
+      "type2": null,
+      "base_stats": {
+        "hp": 40,
+        "attack": 30,
+        "defense": 50,
+        "special_attack": 55,
+        "special_defense": 55,
+        "speed": 100
+      },
+      "sprite": "front/100.png",
+      "icon": "icons/100.png",
+      "chain": "voltorb",
+      "stage_order": 1,
+      "min_level": 1
+    },
+    {
+      "pokedex_number": 101,
+      "name": "Electrode",
+      "name_ko": "붐볼",
+      "type1": "electric",
+      "type2": null,
+      "base_stats": {
+        "hp": 60,
+        "attack": 50,
+        "defense": 70,
+        "special_attack": 80,
+        "special_defense": 80,
+        "speed": 150
+      },
+      "sprite": "front/101.png",
+      "icon": "icons/101.png",
+      "chain": "voltorb",
+      "stage_order": 2,
+      "min_level": 30
+    },
+    {
+      "pokedex_number": 102,
+      "name": "Exeggcute",
+      "name_ko": "아라리",
+      "type1": "grass",
+      "type2": "psychic",
+      "base_stats": {
+        "hp": 60,
+        "attack": 40,
+        "defense": 80,
+        "special_attack": 60,
+        "special_defense": 45,
+        "speed": 40
+      },
+      "sprite": "front/102.png",
+      "icon": "icons/102.png",
+      "chain": "exeggcute",
+      "stage_order": 1,
+      "min_level": 1
+    },
+    {
+      "pokedex_number": 103,
+      "name": "Exeggutor",
+      "name_ko": "나시",
+      "type1": "grass",
+      "type2": "psychic",
+      "base_stats": {
+        "hp": 95,
+        "attack": 95,
+        "defense": 85,
+        "special_attack": 125,
+        "special_defense": 75,
+        "speed": 55
+      },
+      "sprite": "front/103.png",
+      "icon": "icons/103.png",
+      "chain": "exeggcute",
+      "stage_order": 2,
+      "min_level": 18
+    },
+    {
+      "pokedex_number": 104,
+      "name": "Cubone",
+      "name_ko": "탕구리",
+      "type1": "ground",
+      "type2": null,
+      "base_stats": {
+        "hp": 50,
+        "attack": 50,
+        "defense": 95,
+        "special_attack": 40,
+        "special_defense": 50,
+        "speed": 35
+      },
+      "sprite": "front/104.png",
+      "icon": "icons/104.png",
+      "chain": "cubone",
+      "stage_order": 1,
+      "min_level": 1
+    },
+    {
+      "pokedex_number": 105,
+      "name": "Marowak",
+      "name_ko": "텅구리",
+      "type1": "ground",
+      "type2": null,
+      "base_stats": {
+        "hp": 60,
+        "attack": 80,
+        "defense": 110,
+        "special_attack": 50,
+        "special_defense": 80,
+        "speed": 45
+      },
+      "sprite": "front/105.png",
+      "icon": "icons/105.png",
+      "chain": "cubone",
+      "stage_order": 2,
+      "min_level": 28
+    },
+    {
+      "pokedex_number": 106,
+      "name": "Hitmonlee",
+      "name_ko": "시라소몬",
+      "type1": "fighting",
+      "type2": null,
+      "base_stats": {
+        "hp": 50,
+        "attack": 120,
+        "defense": 53,
+        "special_attack": 35,
+        "special_defense": 110,
+        "speed": 87
+      },
+      "sprite": "front/106.png",
+      "icon": "icons/106.png",
+      "chain": "hitmonlee",
+      "stage_order": 1,
+      "min_level": 1
+    },
+    {
+      "pokedex_number": 107,
+      "name": "Hitmonchan",
+      "name_ko": "홍수몬",
+      "type1": "fighting",
+      "type2": null,
+      "base_stats": {
+        "hp": 50,
+        "attack": 105,
+        "defense": 79,
+        "special_attack": 35,
+        "special_defense": 110,
+        "speed": 76
+      },
+      "sprite": "front/107.png",
+      "icon": "icons/107.png",
+      "chain": "hitmonchan",
+      "stage_order": 1,
+      "min_level": 1
+    },
+    {
+      "pokedex_number": 108,
+      "name": "Lickitung",
+      "name_ko": "내루미",
+      "type1": "normal",
+      "type2": null,
+      "base_stats": {
+        "hp": 90,
+        "attack": 55,
+        "defense": 75,
+        "special_attack": 60,
+        "special_defense": 75,
+        "speed": 30
+      },
+      "sprite": "front/108.png",
+      "icon": "icons/108.png",
+      "chain": "lickitung",
+      "stage_order": 1,
+      "min_level": 1
+    },
+    {
+      "pokedex_number": 109,
+      "name": "Koffing",
+      "name_ko": "또가스",
+      "type1": "poison",
+      "type2": null,
+      "base_stats": {
+        "hp": 40,
+        "attack": 65,
+        "defense": 95,
+        "special_attack": 60,
+        "special_defense": 45,
+        "speed": 35
+      },
+      "sprite": "front/109.png",
+      "icon": "icons/109.png",
+      "chain": "koffing",
+      "stage_order": 1,
+      "min_level": 1
+    },
+    {
+      "pokedex_number": 110,
+      "name": "Weezing",
+      "name_ko": "또도가스",
+      "type1": "poison",
+      "type2": null,
+      "base_stats": {
+        "hp": 65,
+        "attack": 90,
+        "defense": 120,
+        "special_attack": 85,
+        "special_defense": 70,
+        "speed": 60
+      },
+      "sprite": "front/110.png",
+      "icon": "icons/110.png",
+      "chain": "koffing",
+      "stage_order": 2,
+      "min_level": 35
+    },
+    {
+      "pokedex_number": 111,
+      "name": "Rhyhorn",
+      "name_ko": "뿔카노",
+      "type1": "ground",
+      "type2": "rock",
+      "base_stats": {
+        "hp": 80,
+        "attack": 85,
+        "defense": 95,
+        "special_attack": 30,
+        "special_defense": 30,
+        "speed": 25
+      },
+      "sprite": "front/111.png",
+      "icon": "icons/111.png",
+      "chain": "rhyhorn",
+      "stage_order": 1,
+      "min_level": 1
+    },
+    {
+      "pokedex_number": 112,
+      "name": "Rhydon",
+      "name_ko": "코뿌리",
+      "type1": "ground",
+      "type2": "rock",
+      "base_stats": {
+        "hp": 105,
+        "attack": 130,
+        "defense": 120,
+        "special_attack": 45,
+        "special_defense": 45,
+        "speed": 40
+      },
+      "sprite": "front/112.png",
+      "icon": "icons/112.png",
+      "chain": "rhyhorn",
+      "stage_order": 2,
+      "min_level": 42
+    },
+    {
+      "pokedex_number": 113,
+      "name": "Chansey",
+      "name_ko": "럭키",
+      "type1": "normal",
+      "type2": null,
+      "base_stats": {
+        "hp": 250,
+        "attack": 5,
+        "defense": 5,
+        "special_attack": 35,
+        "special_defense": 105,
+        "speed": 50
+      },
+      "sprite": "front/113.png",
+      "icon": "icons/113.png",
+      "chain": "chansey",
+      "stage_order": 1,
+      "min_level": 1
+    },
+    {
+      "pokedex_number": 114,
+      "name": "Tangela",
+      "name_ko": "덩쿠리",
+      "type1": "grass",
+      "type2": null,
+      "base_stats": {
+        "hp": 65,
+        "attack": 55,
+        "defense": 115,
+        "special_attack": 100,
+        "special_defense": 40,
+        "speed": 60
+      },
+      "sprite": "front/114.png",
+      "icon": "icons/114.png",
+      "chain": "tangela",
+      "stage_order": 1,
+      "min_level": 1
+    },
+    {
+      "pokedex_number": 115,
+      "name": "Kangaskhan",
+      "name_ko": "캥카",
+      "type1": "normal",
+      "type2": null,
+      "base_stats": {
+        "hp": 105,
+        "attack": 95,
+        "defense": 80,
+        "special_attack": 40,
+        "special_defense": 80,
+        "speed": 90
+      },
+      "sprite": "front/115.png",
+      "icon": "icons/115.png",
+      "chain": "kangaskhan",
+      "stage_order": 1,
+      "min_level": 1
+    },
+    {
+      "pokedex_number": 116,
+      "name": "Horsea",
+      "name_ko": "쏘드라",
+      "type1": "water",
+      "type2": null,
+      "base_stats": {
+        "hp": 30,
+        "attack": 40,
+        "defense": 70,
+        "special_attack": 70,
+        "special_defense": 25,
+        "speed": 60
+      },
+      "sprite": "front/116.png",
+      "icon": "icons/116.png",
+      "chain": "horsea",
+      "stage_order": 1,
+      "min_level": 1
+    },
+    {
+      "pokedex_number": 117,
+      "name": "Seadra",
+      "name_ko": "시드라",
+      "type1": "water",
+      "type2": null,
+      "base_stats": {
+        "hp": 55,
+        "attack": 65,
+        "defense": 95,
+        "special_attack": 95,
+        "special_defense": 45,
+        "speed": 85
+      },
+      "sprite": "front/117.png",
+      "icon": "icons/117.png",
+      "chain": "horsea",
+      "stage_order": 2,
+      "min_level": 32
+    },
+    {
+      "pokedex_number": 118,
+      "name": "Goldeen",
+      "name_ko": "콘치",
+      "type1": "water",
+      "type2": null,
+      "base_stats": {
+        "hp": 45,
+        "attack": 67,
+        "defense": 60,
+        "special_attack": 35,
+        "special_defense": 50,
+        "speed": 63
+      },
+      "sprite": "front/118.png",
+      "icon": "icons/118.png",
+      "chain": "goldeen",
+      "stage_order": 1,
+      "min_level": 1
+    },
+    {
+      "pokedex_number": 119,
+      "name": "Seaking",
+      "name_ko": "왕콘치",
+      "type1": "water",
+      "type2": null,
+      "base_stats": {
+        "hp": 80,
+        "attack": 92,
+        "defense": 65,
+        "special_attack": 65,
+        "special_defense": 80,
+        "speed": 68
+      },
+      "sprite": "front/119.png",
+      "icon": "icons/119.png",
+      "chain": "goldeen",
+      "stage_order": 2,
+      "min_level": 33
+    },
+    {
+      "pokedex_number": 120,
+      "name": "Staryu",
+      "name_ko": "별가사리",
+      "type1": "water",
+      "type2": null,
+      "base_stats": {
+        "hp": 30,
+        "attack": 45,
+        "defense": 55,
+        "special_attack": 70,
+        "special_defense": 55,
+        "speed": 85
+      },
+      "sprite": "front/120.png",
+      "icon": "icons/120.png",
+      "chain": "staryu",
+      "stage_order": 1,
+      "min_level": 1
+    },
+    {
+      "pokedex_number": 121,
+      "name": "Starmie",
+      "name_ko": "아쿠스타",
+      "type1": "water",
+      "type2": "psychic",
+      "base_stats": {
+        "hp": 60,
+        "attack": 75,
+        "defense": 85,
+        "special_attack": 100,
+        "special_defense": 85,
+        "speed": 115
+      },
+      "sprite": "front/121.png",
+      "icon": "icons/121.png",
+      "chain": "staryu",
+      "stage_order": 2,
+      "min_level": 18
+    },
+    {
+      "pokedex_number": 122,
+      "name": "Mr. Mime",
+      "name_ko": "마임맨",
+      "type1": "psychic",
+      "type2": "fairy",
+      "base_stats": {
+        "hp": 40,
+        "attack": 45,
+        "defense": 65,
+        "special_attack": 100,
+        "special_defense": 120,
+        "speed": 90
+      },
+      "sprite": "front/122.png",
+      "icon": "icons/122.png",
+      "chain": "mrmime",
+      "stage_order": 1,
+      "min_level": 1
+    },
+    {
+      "pokedex_number": 123,
+      "name": "Scyther",
+      "name_ko": "스라크",
+      "type1": "bug",
+      "type2": "flying",
+      "base_stats": {
+        "hp": 70,
+        "attack": 110,
+        "defense": 80,
+        "special_attack": 55,
+        "special_defense": 80,
+        "speed": 105
+      },
+      "sprite": "front/123.png",
+      "icon": "icons/123.png",
+      "chain": "scyther",
+      "stage_order": 1,
+      "min_level": 1
+    },
+    {
+      "pokedex_number": 124,
+      "name": "Jynx",
+      "name_ko": "루주라",
+      "type1": "ice",
+      "type2": "psychic",
+      "base_stats": {
+        "hp": 65,
+        "attack": 50,
+        "defense": 35,
+        "special_attack": 115,
+        "special_defense": 95,
+        "speed": 95
+      },
+      "sprite": "front/124.png",
+      "icon": "icons/124.png",
+      "chain": "jynx",
+      "stage_order": 1,
+      "min_level": 1
+    },
+    {
+      "pokedex_number": 125,
+      "name": "Electabuzz",
+      "name_ko": "에레브",
+      "type1": "electric",
+      "type2": null,
+      "base_stats": {
+        "hp": 65,
+        "attack": 83,
+        "defense": 57,
+        "special_attack": 95,
+        "special_defense": 85,
+        "speed": 105
+      },
+      "sprite": "front/125.png",
+      "icon": "icons/125.png",
+      "chain": "electabuzz",
+      "stage_order": 1,
+      "min_level": 1
+    },
+    {
+      "pokedex_number": 126,
+      "name": "Magmar",
+      "name_ko": "마그마",
+      "type1": "fire",
+      "type2": null,
+      "base_stats": {
+        "hp": 65,
+        "attack": 95,
+        "defense": 57,
+        "special_attack": 100,
+        "special_defense": 85,
+        "speed": 93
+      },
+      "sprite": "front/126.png",
+      "icon": "icons/126.png",
+      "chain": "magmar",
+      "stage_order": 1,
+      "min_level": 1
+    },
+    {
+      "pokedex_number": 127,
+      "name": "Pinsir",
+      "name_ko": "쁘사이저",
+      "type1": "bug",
+      "type2": null,
+      "base_stats": {
+        "hp": 65,
+        "attack": 125,
+        "defense": 100,
+        "special_attack": 55,
+        "special_defense": 70,
+        "speed": 85
+      },
+      "sprite": "front/127.png",
+      "icon": "icons/127.png",
+      "chain": "pinsir",
+      "stage_order": 1,
+      "min_level": 1
+    },
+    {
+      "pokedex_number": 128,
+      "name": "Tauros",
+      "name_ko": "켄타로스",
+      "type1": "normal",
+      "type2": null,
+      "base_stats": {
+        "hp": 75,
+        "attack": 100,
+        "defense": 95,
+        "special_attack": 40,
+        "special_defense": 70,
+        "speed": 110
+      },
+      "sprite": "front/128.png",
+      "icon": "icons/128.png",
+      "chain": "tauros",
+      "stage_order": 1,
+      "min_level": 1
+    },
+    {
+      "pokedex_number": 129,
+      "name": "Magikarp",
+      "name_ko": "잉어킹",
+      "type1": "water",
+      "type2": null,
+      "base_stats": {
+        "hp": 20,
+        "attack": 10,
+        "defense": 55,
+        "special_attack": 15,
+        "special_defense": 20,
+        "speed": 80
+      },
+      "sprite": "front/129.png",
+      "icon": "icons/129.png",
+      "chain": "magikarp",
+      "stage_order": 1,
+      "min_level": 1
+    },
+    {
+      "pokedex_number": 130,
+      "name": "Gyarados",
+      "name_ko": "갸라도스",
+      "type1": "water",
+      "type2": "flying",
+      "base_stats": {
+        "hp": 95,
+        "attack": 125,
+        "defense": 79,
+        "special_attack": 60,
+        "special_defense": 100,
+        "speed": 81
+      },
+      "sprite": "front/130.png",
+      "icon": "icons/130.png",
+      "chain": "magikarp",
+      "stage_order": 2,
+      "min_level": 20
+    },
+    {
+      "pokedex_number": 131,
+      "name": "Lapras",
+      "name_ko": "라프라스",
+      "type1": "water",
+      "type2": "ice",
+      "base_stats": {
+        "hp": 130,
+        "attack": 85,
+        "defense": 80,
+        "special_attack": 85,
+        "special_defense": 95,
+        "speed": 60
+      },
+      "sprite": "front/131.png",
+      "icon": "icons/131.png",
+      "chain": "lapras",
+      "stage_order": 1,
+      "min_level": 1
+    },
+    {
+      "pokedex_number": 132,
+      "name": "Ditto",
+      "name_ko": "메타몽",
+      "type1": "normal",
+      "type2": null,
+      "base_stats": {
+        "hp": 48,
+        "attack": 48,
+        "defense": 48,
+        "special_attack": 48,
+        "special_defense": 48,
+        "speed": 48
+      },
+      "sprite": "front/132.png",
+      "icon": "icons/132.png",
+      "chain": "ditto",
+      "stage_order": 1,
+      "min_level": 1
+    },
+    {
+      "pokedex_number": 133,
+      "name": "Eevee",
+      "name_ko": "이브이",
+      "type1": "normal",
+      "type2": null,
+      "base_stats": {
+        "hp": 55,
+        "attack": 55,
+        "defense": 50,
+        "special_attack": 45,
+        "special_defense": 65,
+        "speed": 55
+      },
+      "sprite": "front/133.png",
+      "icon": "icons/133.png",
+      "chain": "eevee",
+      "stage_order": 1,
+      "min_level": 1
+    },
+    {
+      "pokedex_number": 134,
+      "name": "Vaporeon",
+      "name_ko": "샤미드",
+      "type1": "water",
+      "type2": null,
+      "base_stats": {
+        "hp": 130,
+        "attack": 65,
+        "defense": 60,
+        "special_attack": 110,
+        "special_defense": 95,
+        "speed": 65
+      },
+      "sprite": "front/134.png",
+      "icon": "icons/134.png",
+      "chain": "vaporeon",
+      "stage_order": 1,
+      "min_level": 1
+    },
+    {
+      "pokedex_number": 135,
+      "name": "Jolteon",
+      "name_ko": "쥬피썬더",
+      "type1": "electric",
+      "type2": null,
+      "base_stats": {
+        "hp": 65,
+        "attack": 65,
+        "defense": 60,
+        "special_attack": 110,
+        "special_defense": 95,
+        "speed": 130
+      },
+      "sprite": "front/135.png",
+      "icon": "icons/135.png",
+      "chain": "jolteon",
+      "stage_order": 1,
+      "min_level": 1
+    },
+    {
+      "pokedex_number": 136,
+      "name": "Flareon",
+      "name_ko": "부스터",
+      "type1": "fire",
+      "type2": null,
+      "base_stats": {
+        "hp": 65,
+        "attack": 130,
+        "defense": 60,
+        "special_attack": 95,
+        "special_defense": 110,
+        "speed": 65
+      },
+      "sprite": "front/136.png",
+      "icon": "icons/136.png",
+      "chain": "flareon",
+      "stage_order": 1,
+      "min_level": 1
+    },
+    {
+      "pokedex_number": 137,
+      "name": "Porygon",
+      "name_ko": "폴리곤",
+      "type1": "normal",
+      "type2": null,
+      "base_stats": {
+        "hp": 65,
+        "attack": 60,
+        "defense": 70,
+        "special_attack": 85,
+        "special_defense": 75,
+        "speed": 40
+      },
+      "sprite": "front/137.png",
+      "icon": "icons/137.png",
+      "chain": "porygon",
+      "stage_order": 1,
+      "min_level": 1
+    },
+    {
+      "pokedex_number": 138,
+      "name": "Omanyte",
+      "name_ko": "암나이트",
+      "type1": "rock",
+      "type2": "water",
+      "base_stats": {
+        "hp": 35,
+        "attack": 40,
+        "defense": 100,
+        "special_attack": 90,
+        "special_defense": 55,
+        "speed": 35
+      },
+      "sprite": "front/138.png",
+      "icon": "icons/138.png",
+      "chain": "omanyte",
+      "stage_order": 1,
+      "min_level": 1
+    },
+    {
+      "pokedex_number": 139,
+      "name": "Omastar",
+      "name_ko": "암스타",
+      "type1": "rock",
+      "type2": "water",
+      "base_stats": {
+        "hp": 70,
+        "attack": 60,
+        "defense": 125,
+        "special_attack": 115,
+        "special_defense": 70,
+        "speed": 55
+      },
+      "sprite": "front/139.png",
+      "icon": "icons/139.png",
+      "chain": "omanyte",
+      "stage_order": 2,
+      "min_level": 40
+    },
+    {
+      "pokedex_number": 140,
+      "name": "Kabuto",
+      "name_ko": "투구",
+      "type1": "rock",
+      "type2": "water",
+      "base_stats": {
+        "hp": 30,
+        "attack": 80,
+        "defense": 90,
+        "special_attack": 55,
+        "special_defense": 45,
+        "speed": 55
+      },
+      "sprite": "front/140.png",
+      "icon": "icons/140.png",
+      "chain": "kabuto",
+      "stage_order": 1,
+      "min_level": 1
+    },
+    {
+      "pokedex_number": 141,
+      "name": "Kabutops",
+      "name_ko": "투구푸스",
+      "type1": "rock",
+      "type2": "water",
+      "base_stats": {
+        "hp": 60,
+        "attack": 115,
+        "defense": 105,
+        "special_attack": 65,
+        "special_defense": 70,
+        "speed": 80
+      },
+      "sprite": "front/141.png",
+      "icon": "icons/141.png",
+      "chain": "kabuto",
+      "stage_order": 2,
+      "min_level": 40
+    },
+    {
+      "pokedex_number": 142,
+      "name": "Aerodactyl",
+      "name_ko": "프테라",
+      "type1": "rock",
+      "type2": "flying",
+      "base_stats": {
+        "hp": 80,
+        "attack": 105,
+        "defense": 65,
+        "special_attack": 60,
+        "special_defense": 75,
+        "speed": 130
+      },
+      "sprite": "front/142.png",
+      "icon": "icons/142.png",
+      "chain": "aerodactyl",
+      "stage_order": 1,
+      "min_level": 1
+    },
+    {
+      "pokedex_number": 143,
+      "name": "Snorlax",
+      "name_ko": "잠만보",
+      "type1": "normal",
+      "type2": null,
+      "base_stats": {
+        "hp": 160,
+        "attack": 110,
+        "defense": 65,
+        "special_attack": 65,
+        "special_defense": 110,
+        "speed": 30
+      },
+      "sprite": "front/143.png",
+      "icon": "icons/143.png",
+      "chain": "snorlax",
+      "stage_order": 1,
+      "min_level": 1
+    },
+    {
+      "pokedex_number": 144,
+      "name": "Articuno",
+      "name_ko": "프리져",
+      "type1": "ice",
+      "type2": "flying",
+      "base_stats": {
+        "hp": 90,
+        "attack": 85,
+        "defense": 100,
+        "special_attack": 95,
+        "special_defense": 125,
+        "speed": 85
+      },
+      "sprite": "front/144.png",
+      "icon": "icons/144.png",
+      "chain": "articuno",
+      "stage_order": 1,
+      "min_level": 1
+    },
+    {
+      "pokedex_number": 145,
+      "name": "Zapdos",
+      "name_ko": "썬더",
+      "type1": "electric",
+      "type2": "flying",
+      "base_stats": {
+        "hp": 90,
+        "attack": 90,
+        "defense": 85,
+        "special_attack": 125,
+        "special_defense": 90,
+        "speed": 100
+      },
+      "sprite": "front/145.png",
+      "icon": "icons/145.png",
+      "chain": "zapdos",
+      "stage_order": 1,
+      "min_level": 1
+    },
+    {
+      "pokedex_number": 146,
+      "name": "Moltres",
+      "name_ko": "파이어",
+      "type1": "fire",
+      "type2": "flying",
+      "base_stats": {
+        "hp": 90,
+        "attack": 100,
+        "defense": 90,
+        "special_attack": 125,
+        "special_defense": 85,
+        "speed": 90
+      },
+      "sprite": "front/146.png",
+      "icon": "icons/146.png",
+      "chain": "moltres",
+      "stage_order": 1,
+      "min_level": 1
+    },
+    {
+      "pokedex_number": 147,
+      "name": "Dratini",
+      "name_ko": "미뇽",
+      "type1": "dragon",
+      "type2": null,
+      "base_stats": {
+        "hp": 41,
+        "attack": 64,
+        "defense": 45,
+        "special_attack": 50,
+        "special_defense": 50,
+        "speed": 50
+      },
+      "sprite": "front/147.png",
+      "icon": "icons/147.png",
+      "chain": "dratini",
+      "stage_order": 1,
+      "min_level": 1
+    },
+    {
+      "pokedex_number": 148,
+      "name": "Dragonair",
+      "name_ko": "신뇽",
+      "type1": "dragon",
+      "type2": null,
+      "base_stats": {
+        "hp": 61,
+        "attack": 84,
+        "defense": 65,
+        "special_attack": 70,
+        "special_defense": 70,
+        "speed": 70
+      },
+      "sprite": "front/148.png",
+      "icon": "icons/148.png",
+      "chain": "dratini",
+      "stage_order": 2,
+      "min_level": 30
+    },
+    {
+      "pokedex_number": 149,
+      "name": "Dragonite",
+      "name_ko": "망나뇽",
+      "type1": "dragon",
+      "type2": "flying",
+      "base_stats": {
+        "hp": 91,
+        "attack": 134,
+        "defense": 95,
+        "special_attack": 100,
+        "special_defense": 100,
+        "speed": 80
+      },
+      "sprite": "front/149.png",
+      "icon": "icons/149.png",
+      "chain": "dratini",
+      "stage_order": 3,
+      "min_level": 55
+    },
+    {
+      "pokedex_number": 150,
+      "name": "Mewtwo",
+      "name_ko": "뮤츠",
+      "type1": "psychic",
+      "type2": null,
+      "base_stats": {
+        "hp": 106,
+        "attack": 110,
+        "defense": 90,
+        "special_attack": 154,
+        "special_defense": 90,
+        "speed": 130
+      },
+      "sprite": "front/150.png",
+      "icon": "icons/150.png",
+      "chain": "mewtwo",
+      "stage_order": 1,
+      "min_level": 1
+    },
+    {
+      "pokedex_number": 151,
+      "name": "Mew",
+      "name_ko": "뮤",
+      "type1": "psychic",
+      "type2": null,
+      "base_stats": {
+        "hp": 100,
+        "attack": 100,
+        "defense": 100,
+        "special_attack": 100,
+        "special_defense": 100,
+        "speed": 100
+      },
+      "sprite": "front/151.png",
+      "icon": "icons/151.png",
+      "chain": "mew",
+      "stage_order": 1,
+      "min_level": 1
+    }
+  ]
+}
