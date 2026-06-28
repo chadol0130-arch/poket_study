@@ -40,7 +40,12 @@ export function ShopItem({
 
   return (
     <div className="flex flex-col items-center rounded-2xl border border-slate-200 bg-white p-4 shadow-sm">
-      <PokemonSprite url={item.spriteUrl} alt={item.nameKo || item.name} size={88} />
+      <PokemonSprite
+        url={item.spriteUrl}
+        alt={item.nameKo || item.name}
+        size={88}
+        silhouette={!item.alreadyOwned}
+      />
       <p className="mt-2 font-semibold">{item.nameKo || item.name}</p>
       <p className="mt-1 text-sm font-bold text-amber-600">🪙 {item.price.toLocaleString()}</p>
 
