@@ -4,6 +4,7 @@ import { requireRole } from "@/lib/auth";
 import { createClient } from "@/lib/supabase/server";
 import { getSpeciesInfo } from "@/lib/queries";
 import { PendingQuestions } from "@/components/questions/PendingQuestions";
+import { DailyMissions } from "@/components/engagement/DailyMissions";
 import { CoinBalance } from "@/components/ui/CoinBalance";
 
 export default async function DashboardPage() {
@@ -52,6 +53,38 @@ export default async function DashboardPage() {
     (a: any) => subByAssignment.get(a.id) !== "approved",
   ).length;
 
+  // 오늘의 미션/스트릭 상태 (한국시간 기준)
+  const todayKST = new Intl.DateTimeFormat("en-CA", {
+    timeZone: "Asia/Seoul",
+  }).format(new Date());
+  const startKST = `${todayKST}T00:00:00+09:00`;
+  const [{ count: checkinCount }, { count: subTodayCount }, { count: dlTodayCount }, { count: ansTodayCount }] =
+    await Promise.all([
+      supabase
+        .from("streak_checkins")
+        .select("id", { count: "exact", head: true })
+        .eq("student_id", profile.id)
+        .eq("checkin_date", todayKST),
+      supabase
+        .from("submissions")
+        .select("id", { count: "exact", head: true })
+        .eq("student_id", profile.id)
+        .gte("submitted_at", startKST),
+      supabase
+        .from("daily_logs")
+        .select("id", { count: "exact", head: true })
+        .eq("student_id", profile.id)
+        .eq("log_date", todayKST),
+      supabase
+        .from("question_answers")
+        .select("id", { count: "exact", head: true })
+        .eq("student_id", profile.id)
+        .gte("answered_at", startKST),
+    ]);
+  const checkedIn = (checkinCount ?? 0) > 0;
+  const submittedToday = (subTodayCount ?? 0) + (dlTodayCount ?? 0) > 0;
+  const answeredToday = (ansTodayCount ?? 0) > 0;
+
   return (
     <div className="space-y-6">
       <div className="flex items-center justify-between">
@@ -61,6 +94,14 @@ export default async function DashboardPage() {
         </div>
         <CoinBalance amount={profile.coin_balance} />
       </div>
+
+      <DailyMissions
+        currentStreak={profile.current_streak ?? 0}
+        longestStreak={profile.longest_streak ?? 0}
+        checkedIn={checkedIn}
+        submittedToday={submittedToday}
+        answeredToday={answeredToday}
+      />
 
       <div className="grid gap-6 sm:grid-cols-2">
         <div>

@@ -10,6 +10,9 @@ export interface Profile {
   display_name: string;
   coin_balance: number;
   created_at: string;
+  current_streak?: number;
+  longest_streak?: number;
+  last_checkin_date?: string | null;
 }
 
 export interface PokemonSpecies {
