@@ -2,7 +2,12 @@
 
 import { useState, useTransition } from "react";
 import { useRouter } from "next/navigation";
-import { seedCatalog, setStarterOption, upsertShopListing } from "@/lib/actions/catalog";
+import {
+  seedCatalog,
+  setStarterOption,
+  upsertShopListing,
+  seedBattleData,
+} from "@/lib/actions/catalog";
 
 const SAMPLE = `{
   "species": [
@@ -61,6 +66,50 @@ export function SeedForm() {
           {pending ? "등록 중..." : "등록/업데이트"}
         </button>
       </div>
+    </div>
+  );
+}
+
+export function SeedBattleDataForm() {
+  const router = useRouter();
+  const [json, setJson] = useState("");
+  const [error, setError] = useState<string | null>(null);
+  const [msg, setMsg] = useState<string | null>(null);
+  const [pending, startTransition] = useTransition();
+
+  function submit() {
+    setError(null);
+    setMsg(null);
+    startTransition(async () => {
+      const res = await seedBattleData(json);
+      if ("error" in res) return setError(res.error);
+      setMsg("배틀 데이터(기술/타입 상성)를 등록했어요.");
+      router.refresh();
+    });
+  }
+
+  return (
+    <div className="space-y-3 rounded-2xl border border-slate-200 bg-white p-4">
+      <h3 className="font-semibold">배틀 데이터 등록 (기술·타입 상성)</h3>
+      <p className="text-xs text-slate-500">
+        <code>data/pokemon/battle_data.json</code> 내용을 붙여넣으세요. (포켓몬 데이터 등록 후 1회)
+      </p>
+      <textarea
+        value={json}
+        onChange={(e) => setJson(e.target.value)}
+        rows={6}
+        placeholder='{ "moves": [...], "type_chart": {...} }'
+        className="w-full rounded-lg border border-slate-300 p-3 font-mono text-xs focus:outline-none"
+      />
+      {error && <p className="text-sm text-poke-red">{error}</p>}
+      {msg && <p className="text-sm text-green-600">{msg}</p>}
+      <button
+        onClick={submit}
+        disabled={pending || !json.trim()}
+        className="w-full rounded-lg bg-poke-blue py-2 font-semibold text-white hover:bg-poke-blue/90 disabled:opacity-50"
+      >
+        {pending ? "등록 중..." : "배틀 데이터 등록"}
+      </button>
     </div>
   );
 }

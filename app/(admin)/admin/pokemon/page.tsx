@@ -1,7 +1,7 @@
 import { requireRole } from "@/lib/auth";
 import { createClient } from "@/lib/supabase/server";
 import { spriteUrl } from "@/lib/storage";
-import { SeedForm } from "@/components/admin/CatalogClient";
+import { SeedForm, SeedBattleDataForm } from "@/components/admin/CatalogClient";
 import { PokemonSprite } from "@/components/pokemon/PokemonSprite";
 
 export default async function AdminPokemonPage() {
@@ -24,6 +24,7 @@ export default async function AdminPokemonPage() {
       </div>
 
       <SeedForm />
+      <SeedBattleDataForm />
 
       <div>
         <h2 className="mb-2 font-semibold">등록된 종 ({species?.length ?? 0})</h2>
