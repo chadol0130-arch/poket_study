@@ -4,6 +4,7 @@
 import { useState, useTransition } from "react";
 import Link from "next/link";
 import { battleTurn } from "@/lib/actions/battle";
+import { typeKo, categoryKo } from "@/lib/i18n";
 
 interface Mv {
   key: string;
@@ -34,21 +35,38 @@ function HpBar({ hp, max }: { hp: number; max: number }) {
   const color = pct > 50 ? "bg-green-500" : pct > 20 ? "bg-amber-400" : "bg-red-500";
   return (
     <div className="h-3 w-full overflow-hidden rounded-full bg-slate-200">
-      <div className={`h-full rounded-full ${color} transition-all`} style={{ width: `${pct}%` }} />
+      <div className={`h-full rounded-full ${color} transition-all duration-500`} style={{ width: `${pct}%` }} />
     </div>
   );
 }
 
-function Sprite({ url, alt, flip }: { url: string | null; alt: string; flip?: boolean }) {
+function Sprite({
+  url,
+  alt,
+  flip,
+  anim,
+  animKey,
+  idle,
+}: {
+  url: string | null;
+  alt: string;
+  flip?: boolean;
+  anim: string;
+  animKey: number;
+  idle: boolean;
+}) {
+  const cls = anim || (idle ? "poke-idle" : "");
   if (!url)
     return <div className="flex h-28 w-28 items-center justify-center text-5xl">❓</div>;
   return (
-    <img
-      src={url}
-      alt={alt}
-      className="h-28 w-28 object-contain"
-      style={{ imageRendering: "pixelated", transform: flip ? "scaleX(-1)" : undefined }}
-    />
+    <div key={animKey} className={cls}>
+      <img
+        src={url}
+        alt={alt}
+        className="h-28 w-28 object-contain"
+        style={{ imageRendering: "pixelated", transform: flip ? "scaleX(-1)" : undefined }}
+      />
+    </div>
   );
 }
 
@@ -68,13 +86,74 @@ export function BattleArena({
   const [error, setError] = useState<string | null>(null);
   const [pending, startTransition] = useTransition();
 
+  // 애니메이션 상태
+  const [eAnim, setEAnim] = useState("");
+  const [sAnim, setSAnim] = useState("");
+  const [eKey, setEKey] = useState(0);
+  const [sKey, setSKey] = useState(0);
+  const [ePop, setEPop] = useState<number | null>(null);
+  const [sPop, setSPop] = useState<number | null>(null);
+  const [popKey, setPopKey] = useState(0);
+  const [flash, setFlash] = useState(false);
+  const [flashKey, setFlashKey] = useState(0);
+
+  function playE(cls: string, dur: number) {
+    setEAnim(cls);
+    setEKey((k) => k + 1);
+    if (cls !== "faint") window.setTimeout(() => setEAnim(""), dur);
+  }
+  function playS(cls: string, dur: number) {
+    setSAnim(cls);
+    setSKey((k) => k + 1);
+    if (cls !== "faint") window.setTimeout(() => setSAnim(""), dur);
+  }
+  function doFlash() {
+    setFlash(true);
+    setFlashKey((k) => k + 1);
+    window.setTimeout(() => setFlash(false), 360);
+  }
+
+  function animate(eDmg: number, sDmg: number, ns: BState, st: "ongoing" | "won" | "lost") {
+    const superEff = (ns.log ?? []).slice(-2).some((l) => l.includes("굉장"));
+    // 1타: 내 공격
+    playS("lunge-up", 360);
+    if (eDmg > 0) {
+      window.setTimeout(() => {
+        setEPop(eDmg);
+        setPopKey((k) => k + 1);
+        playE("hit-shake", 400);
+        if (superEff) doFlash();
+      }, 140);
+    }
+    // 2타: 적 반격
+    if (sDmg > 0) {
+      window.setTimeout(() => {
+        playE("lunge-down", 360);
+        window.setTimeout(() => {
+          setSPop(sDmg);
+          setPopKey((k) => k + 1);
+          playS("hit-shake", 400);
+        }, 140);
+      }, 540);
+    }
+    // 기절
+    if (st === "won") window.setTimeout(() => playE("faint", 700), eDmg > 0 ? 600 : 200);
+    if (st === "lost") window.setTimeout(() => playS("faint", 700), 1000);
+  }
+
   function useMove(key: string) {
     if (status !== "ongoing" || pending) return;
     setError(null);
+    const prevE = state.enemy.hp;
+    const prevS = state.student.hp;
     startTransition(async () => {
       const res = await battleTurn(battleId, key);
       if (res.error) return setError(res.error);
-      if (res.state) setState(res.state);
+      const ns = res.state as BState;
+      if (ns) {
+        setState(ns);
+        animate(prevE - ns.enemy.hp, prevS - ns.student.hp, ns, (res.status ?? "ongoing") as any);
+      }
       if (res.status) setStatus(res.status);
       if (res.status === "won") {
         setReward({ xp: res.rewardXp ?? 0, coin: res.rewardCoin ?? 0 });
@@ -86,25 +165,40 @@ export function BattleArena({
   const { student, enemy } = state;
 
   return (
-    <div className="mx-auto max-w-lg space-y-4">
+    <div className="relative mx-auto max-w-lg space-y-4">
+      {/* 화면 플래시 */}
+      {flash && (
+        <div key={flashKey} className="screen-flash pointer-events-none fixed inset-0 z-50 bg-white" />
+      )}
+
       {/* 적 */}
       <div className="rounded-2xl border border-slate-200 bg-gradient-to-b from-sky-50 to-white p-4">
         <div className="mb-1 flex items-center justify-between text-sm font-semibold">
           <span>
             {enemy.name} <span className="text-slate-400">Lv{enemy.level}</span>
           </span>
-          <span className="text-xs text-slate-400">{enemy.types.join("·")}</span>
+          <span className="text-xs text-slate-400">{enemy.types.map(typeKo).join("·")}</span>
         </div>
         <HpBar hp={enemy.hp} max={enemy.maxHp} />
-        <div className="mt-2 flex justify-end">
-          <Sprite url={enemy.spriteUrl} alt={enemy.name} />
+        <div className="relative mt-2 flex justify-end">
+          {ePop !== null && (
+            <span key={`ep${popKey}`} className="dmg-pop absolute right-10 top-0 z-10 text-lg font-black text-red-500">
+              -{ePop}
+            </span>
+          )}
+          <Sprite url={enemy.spriteUrl} alt={enemy.name} anim={eAnim} animKey={eKey} idle={status === "ongoing"} />
         </div>
       </div>
 
       {/* 나 */}
       <div className="rounded-2xl border border-slate-200 bg-gradient-to-b from-amber-50 to-white p-4">
-        <div className="flex justify-start">
-          <Sprite url={student.spriteUrl} alt={student.name} flip />
+        <div className="relative flex justify-start">
+          {sPop !== null && (
+            <span key={`sp${popKey}`} className="dmg-pop absolute left-10 top-0 z-10 text-lg font-black text-red-500">
+              -{sPop}
+            </span>
+          )}
+          <Sprite url={student.spriteUrl} alt={student.name} flip anim={sAnim} animKey={sKey} idle={status === "ongoing"} />
         </div>
         <div className="mb-1 mt-2 flex items-center justify-between text-sm font-semibold">
           <span>
@@ -138,7 +232,7 @@ export function BattleArena({
             >
               {m.name_ko}
               <span className="ml-1 text-xs font-normal text-slate-400">
-                {m.type} · {m.power}
+                {typeKo(m.type)} · {m.power > 0 ? m.power : categoryKo(m.category)}
               </span>
             </button>
           ))}
@@ -163,16 +257,16 @@ export function BattleArena({
             <>
               <p className="text-2xl font-black text-slate-500">졌다…</p>
               <p className="mt-1 text-sm text-slate-500">
-                더 공부해서 레벨을 올리면 새 기술로 이길 수 있어요!
+                포켓몬은 곧 기운을 차려요. 더 공부해서 레벨을 올리면 새 기술로 이길 수 있어요!
               </p>
             </>
           )}
           <div className="mt-4 flex justify-center gap-2">
             <Link
-              href="/calendar"
-              className="rounded-lg bg-poke-blue px-4 py-2 text-sm font-semibold text-white"
+              href="/battles"
+              className="rounded-lg bg-poke-red px-4 py-2 text-sm font-semibold text-white"
             >
-              캘린더로
+              배틀로 돌아가기
             </Link>
             <Link
               href="/dashboard"

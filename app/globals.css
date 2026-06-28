@@ -15,3 +15,62 @@ body {
 .xp-fill {
   transition: width 600ms ease-out;
 }
+
+/* ===== 배틀 이펙트 (어나더레드 느낌의 연출) ===== */
+
+/* 살아있는 듯한 아이들 모션 */
+@keyframes poke-float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-6px); }
+}
+.poke-idle { animation: poke-float 2.4s ease-in-out infinite; }
+
+/* 공격 돌진 */
+@keyframes lunge-up {
+  0% { transform: translate(0, 0); }
+  40% { transform: translate(28px, -28px); }
+  100% { transform: translate(0, 0); }
+}
+@keyframes lunge-down {
+  0% { transform: translate(0, 0); }
+  40% { transform: translate(-28px, 28px); }
+  100% { transform: translate(0, 0); }
+}
+.lunge-up { animation: lunge-up 360ms ease-in-out; }
+.lunge-down { animation: lunge-down 360ms ease-in-out; }
+
+/* 피격 흔들림 + 깜빡임 */
+@keyframes hit-shake {
+  0%, 100% { transform: translateX(0); }
+  15% { transform: translateX(-7px); }
+  30% { transform: translateX(7px); }
+  45% { transform: translateX(-5px); }
+  60% { transform: translateX(5px); }
+  75% { transform: translateX(-3px); }
+}
+.hit-shake {
+  animation: hit-shake 400ms ease-in-out;
+  filter: brightness(2.2) saturate(0.4);
+}
+
+/* 기절: 아래로 가라앉으며 사라짐 */
+@keyframes faint-drop {
+  0% { transform: translateY(0); opacity: 1; }
+  100% { transform: translateY(40px); opacity: 0; }
+}
+.faint { animation: faint-drop 700ms ease-in forwards; }
+
+/* 데미지 숫자 팝업 */
+@keyframes dmg-pop {
+  0% { transform: translateY(0) scale(0.7); opacity: 0; }
+  20% { transform: translateY(-6px) scale(1.15); opacity: 1; }
+  100% { transform: translateY(-34px) scale(1); opacity: 0; }
+}
+.dmg-pop { animation: dmg-pop 900ms ease-out forwards; }
+
+/* 화면 플래시 (효과가 굉장할 때) */
+@keyframes screen-flash {
+  0% { opacity: 0.7; }
+  100% { opacity: 0; }
+}
+.screen-flash { animation: screen-flash 350ms ease-out forwards; }

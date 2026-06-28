@@ -46,7 +46,7 @@ export default async function MyPokemonPage() {
       <div>
         <h1 className="text-2xl font-bold">내 포켓몬</h1>
         <p className="text-slate-500">
-          대표 포켓몬에게만 숙제 경험치가 들어가요. 카드를 눌러 대표를 바꿀 수 있어요.
+          카드를 누르면 능력치·기술을 보고 별명·대표를 바꿀 수 있어요. 대표 포켓몬에게만 숙제 경험치가 들어가요.
         </p>
       </div>
       <CollectionGrid pets={collection} />

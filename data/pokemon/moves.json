@@ -2,171 +2,213 @@
   "moves": [
     {
       "key": "ABSORB",
-      "name_ko": "Absorb",
+      "name_ko": "흡수",
       "power": 20,
       "type": "grass",
       "category": 1,
-      "accuracy": 100
+      "accuracy": 100,
+      "pp": 25,
+      "description": "양분을 흡수하여 공격한다. 입힌 데미지의 절반에 해당하는 HP를 회복할 수 있다."
     },
     {
       "key": "ACID",
-      "name_ko": "Acid",
+      "name_ko": "용해액",
       "power": 40,
       "type": "poison",
       "category": 1,
-      "accuracy": 100
+      "accuracy": 100,
+      "pp": 30,
+      "description": "강한 산을 상대에게 끼얹어 공격한다. 상대의 특수방어를 떨어뜨릴 때가 있다."
     },
     {
       "key": "ACIDARMOR",
-      "name_ko": "Acid Armor",
+      "name_ko": "녹기",
       "power": 0,
       "type": "poison",
       "category": 2,
-      "accuracy": 0
+      "accuracy": 0,
+      "pp": 20,
+      "description": "세포의 변화로 액체가 되어 자신의 방어를 크게 올린다."
     },
     {
       "key": "ACIDSPRAY",
-      "name_ko": "Acid Spray",
+      "name_ko": "애시드봄",
       "power": 40,
       "type": "poison",
       "category": 1,
-      "accuracy": 100
+      "accuracy": 100,
+      "pp": 20,
+      "description": "상대를 녹이는 액체를 토해내서 공격한다. 상대의 특수방어를 크게 떨어뜨린다."
     },
     {
       "key": "ACUPRESSURE",
-      "name_ko": "Acupressure",
+      "name_ko": "경혈찌르기",
       "power": 0,
       "type": "normal",
       "category": 2,
-      "accuracy": 0
+      "accuracy": 0,
+      "pp": 30,
+      "description": "경혈을 눌러 몸을 활성화시킨다. 능력 중 하나를 크게 올린다."
     },
     {
       "key": "AERIALACE",
-      "name_ko": "Aerial Ace",
+      "name_ko": "제비반환",
       "power": 60,
       "type": "flying",
       "category": 0,
-      "accuracy": 0
+      "accuracy": 0,
+      "pp": 20,
+      "description": "재빠른 움직임으로 상대를 농락해 벤다. 공격은 반드시 명중한다."
     },
     {
       "key": "AFTERYOU",
-      "name_ko": "After You",
+      "name_ko": "당신먼저",
       "power": 0,
       "type": "normal",
       "category": 2,
-      "accuracy": 0
+      "accuracy": 0,
+      "pp": 15,
+      "description": "상대의 행동을 도와서 자신이 행동한 뒤에 바로 움직일 수 있도록 한다."
     },
     {
       "key": "AGILITY",
-      "name_ko": "Agility",
+      "name_ko": "고속이동",
       "power": 0,
       "type": "psychic",
       "category": 2,
-      "accuracy": 0
+      "accuracy": 0,
+      "pp": 30,
+      "description": "힘을 빼고 몸을 가볍게 해서 고속으로 움직인다. 자신의 스피드를 크게 올린다."
     },
     {
       "key": "AIRCUTTER",
-      "name_ko": "Air Cutter",
+      "name_ko": "에어커터",
       "power": 60,
       "type": "flying",
       "category": 1,
-      "accuracy": 95
+      "accuracy": 95,
+      "pp": 25,
+      "description": "날카로운 바람으로 상대를 베어 공격한다. 급소에 맞을 확률이 높다."
     },
     {
       "key": "AIRSLASH",
-      "name_ko": "Air Slash",
+      "name_ko": "에어슬래시",
       "power": 75,
       "type": "flying",
       "category": 1,
-      "accuracy": 95
+      "accuracy": 95,
+      "pp": 15,
+      "description": "하늘까지 베어 가르는 공기의 칼날로 공격한다. 상대를 풀죽게 만들 때가 있다."
     },
     {
       "key": "ALLYSWITCH",
-      "name_ko": "Ally Switch",
+      "name_ko": "사이드체인지",
       "power": 0,
       "type": "psychic",
       "category": 2,
-      "accuracy": 0
+      "accuracy": 0,
+      "pp": 15,
+      "description": "The user switches places with an ally. This move's chance of failing rises if it is used in succession."
     },
     {
       "key": "AMNESIA",
-      "name_ko": "Amnesia",
+      "name_ko": "망각술",
       "power": 0,
       "type": "psychic",
       "category": 2,
-      "accuracy": 0
+      "accuracy": 0,
+      "pp": 20,
+      "description": "머리를 비워서 순간적으로 무언가를 잊어버림으로써 자신의 특수방어를 크게 올린다."
     },
     {
       "key": "ANCIENTPOWER",
-      "name_ko": "Ancient Power",
+      "name_ko": "원시의힘",
       "power": 60,
       "type": "rock",
       "category": 1,
-      "accuracy": 100
+      "accuracy": 100,
+      "pp": 5,
+      "description": "원시의 힘으로 공격한다. 자신의 모든 능력이 오를 때가 있다."
     },
     {
       "key": "AQUAJET",
-      "name_ko": "Aqua Jet",
+      "name_ko": "아쿠아제트",
       "power": 40,
       "type": "water",
       "category": 0,
-      "accuracy": 100
+      "accuracy": 100,
+      "pp": 20,
+      "description": "눈에 보이지 않는 굉장한 속도로 상대에게 돌진한다. 반드시 선제 공격할 수 있다."
     },
     {
       "key": "AQUARING",
-      "name_ko": "Aqua Ring",
+      "name_ko": "아쿠아링",
       "power": 0,
       "type": "water",
       "category": 2,
-      "accuracy": 0
+      "accuracy": 0,
+      "pp": 20,
+      "description": "몸 주변을 물로 만든 베일로 덮는다. 매 턴 HP를 회복한다."
     },
     {
       "key": "AQUATAIL",
-      "name_ko": "Aqua Tail",
+      "name_ko": "아쿠아테일",
       "power": 90,
       "type": "water",
       "category": 0,
-      "accuracy": 90
+      "accuracy": 90,
+      "pp": 10,
+      "description": "세차게 날뛰는 거친 파도와 같이 큰 꼬리를 흔들어서 공격한다."
     },
     {
       "key": "AROMATHERAPY",
-      "name_ko": "Aromatherapy",
+      "name_ko": "아로마테라피",
       "power": 0,
       "type": "grass",
       "category": 2,
-      "accuracy": 0
+      "accuracy": 0,
+      "pp": 5,
+      "description": "기분 좋은 평온한 향기를 맡게 하여 같은 편 모두의 상태 이상을 회복한다."
     },
     {
       "key": "ASSURANCE",
-      "name_ko": "Assurance",
+      "name_ko": "승부굳히기",
       "power": 60,
       "type": "dark",
       "category": 0,
-      "accuracy": 100
+      "accuracy": 100,
+      "pp": 10,
+      "description": "그 턴에 상대가 이미 데미지를 입었다면 기술의 위력은 2배가 된다."
     },
     {
       "key": "ASTONISH",
-      "name_ko": "Astonish",
+      "name_ko": "놀래키기",
       "power": 30,
       "type": "ghost",
       "category": 0,
-      "accuracy": 100
+      "accuracy": 100,
+      "pp": 15,
+      "description": "큰 소리 등으로 불시에 놀래켜서 공격한다. 상대를 풀죽게 만들 때가 있다."
     },
     {
       "key": "AURASPHERE",
-      "name_ko": "Aura Sphere",
+      "name_ko": "파동탄",
       "power": 80,
       "type": "fighting",
       "category": 1,
-      "accuracy": 0
+      "accuracy": 0,
+      "pp": 20,
+      "description": "몸속에서 파동의 힘을 끌어내 쏜다. 공격은 반드시 명중한다."
     },
     {
       "key": "AURORABEAM",
-      "name_ko": "Aurora Beam",
+      "name_ko": "오로라빔",
       "power": 65,
       "type": "ice",
       "category": 1,
-      "accuracy": 100
+      "accuracy": 100,
+      "pp": 20,
+      "description": "무지개색의 빔을 상대에게 발사하여 공격한다. 공격을 떨어뜨릴 때가 있다."
     },
     {
       "key": "AXEKICK",
@@ -174,1887 +216,2359 @@
       "power": 120,
       "type": "fighting",
       "category": 0,
-      "accuracy": 90
+      "accuracy": 90,
+      "pp": 10,
+      "description": "Performs a downward kick which may confuse the target. The user takes damage if it misses."
     },
     {
       "key": "BABYDOLLEYES",
-      "name_ko": "Baby-Doll Eyes",
+      "name_ko": "초롱초롱눈동자",
       "power": 0,
       "type": "fairy",
       "category": 2,
-      "accuracy": 100
+      "accuracy": 100,
+      "pp": 30,
+      "description": "초롱초롱한 눈동자로 상대를 바라보며 공격을 떨어뜨린다. 반드시 선제공격할 수 있다."
     },
     {
       "key": "BATONPASS",
-      "name_ko": "Baton Pass",
+      "name_ko": "배턴터치",
       "power": 0,
       "type": "normal",
       "category": 2,
-      "accuracy": 0
+      "accuracy": 0,
+      "pp": 40,
+      "description": "교대 포켓몬과 교대한다. 능력변화는 교대 포켓몬이 이어받는다."
     },
     {
       "key": "BELCH",
-      "name_ko": "Belch",
+      "name_ko": "트림",
       "power": 120,
       "type": "poison",
       "category": 1,
-      "accuracy": 90
+      "accuracy": 90,
+      "pp": 10,
+      "description": "상대를 향해 트림을 하여 데미지를 준다. 나무열매를 먹지 않으면 쓸 수 없다."
     },
     {
       "key": "BELLYDRUM",
-      "name_ko": "Belly Drum",
+      "name_ko": "배북",
       "power": 0,
       "type": "normal",
       "category": 2,
-      "accuracy": 0
+      "accuracy": 0,
+      "pp": 10,
+      "description": "자신의 HP를 깎아 공격력을 최대치로 올린다."
     },
     {
       "key": "BIND",
-      "name_ko": "Bind",
+      "name_ko": "조이기",
       "power": 15,
       "type": "normal",
       "category": 0,
-      "accuracy": 85
+      "accuracy": 85,
+      "pp": 20,
+      "description": "긴 몸이나 덩굴 등을 써서 4-5턴 동안 상대를 조여 공격한다."
     },
     {
       "key": "BITE",
-      "name_ko": "Bite",
+      "name_ko": "물기",
       "power": 60,
       "type": "dark",
       "category": 0,
-      "accuracy": 100
+      "accuracy": 100,
+      "pp": 25,
+      "description": "날카롭고 뾰족한 이빨로 물어서 공격한다. 상대를 풀이 죽게 할 때가 있다."
     },
     {
       "key": "BLAZEKICK",
-      "name_ko": "Blaze Kick",
+      "name_ko": "블레이즈킥",
       "power": 85,
       "type": "fire",
       "category": 0,
-      "accuracy": 90
+      "accuracy": 90,
+      "pp": 10,
+      "description": "공격한 상대를 화상 상태로 만들 때가 있다. 급소에 맞을 확률이 높다."
     },
     {
       "key": "BLIZZARD",
-      "name_ko": "Blizzard",
+      "name_ko": "눈보라",
       "power": 110,
       "type": "ice",
       "category": 1,
-      "accuracy": 70
+      "accuracy": 70,
+      "pp": 5,
+      "description": "세찬 눈보라를 부딪쳐서 공격한다. 상대를 얼음 상태로 만들기도 한다."
     },
     {
       "key": "BLOCK",
-      "name_ko": "Block",
+      "name_ko": "블록",
       "power": 0,
       "type": "normal",
       "category": 2,
-      "accuracy": 0
+      "accuracy": 0,
+      "pp": 5,
+      "description": "양팔을 벌려 막아서서 상대의 도주로를 가로막아 도망칠 수 없게 한다."
     },
     {
       "key": "BODYSLAM",
-      "name_ko": "Body Slam",
+      "name_ko": "누르기",
       "power": 85,
       "type": "normal",
       "category": 0,
-      "accuracy": 100
+      "accuracy": 100,
+      "pp": 15,
+      "description": "몸 전체로 상대를 덮쳐눌러 공격한다. 마비 상태로 만들 때가 있다."
     },
     {
       "key": "BONEMERANG",
-      "name_ko": "Bonemerang",
+      "name_ko": "뼈다귀부메랑",
       "power": 50,
       "type": "ground",
       "category": 0,
-      "accuracy": 90
+      "accuracy": 90,
+      "pp": 10,
+      "description": "손에 들고 있는 뼈를 상대에게 날려서 날아갈 때와 돌아올 때 2회 연속 데미지를 준다."
     },
     {
       "key": "BONERUSH",
-      "name_ko": "Bone Rush",
+      "name_ko": "본러시",
       "power": 25,
       "type": "ground",
       "category": 0,
-      "accuracy": 90
+      "accuracy": 90,
+      "pp": 10,
+      "description": "단단한 뼈로 상대를 세게 때려서 공격한다. 2-5회 동안 연속으로 쓴다."
     },
     {
       "key": "BRAVEBIRD",
-      "name_ko": "Brave Bird",
+      "name_ko": "브레이브버드",
       "power": 120,
       "type": "flying",
       "category": 0,
-      "accuracy": 100
+      "accuracy": 100,
+      "pp": 15,
+      "description": "날개를 접어 저공비행으로 돌격한다. 자신도 상당한 데미지를 입는다."
     },
     {
       "key": "BRICKBREAK",
-      "name_ko": "Brick Break",
+      "name_ko": "깨트리기",
       "power": 75,
       "type": "fighting",
       "category": 0,
-      "accuracy": 100
+      "accuracy": 100,
+      "pp": 15,
+      "description": "수도로 기세 좋게 내려쳐서 상대를 공격한다. 빛의장막이나 리플렉터 등도 파괴할 수 있다."
     },
     {
       "key": "BRINE",
-      "name_ko": "Brine",
+      "name_ko": "소금물",
       "power": 65,
       "type": "water",
       "category": 1,
-      "accuracy": 100
+      "accuracy": 100,
+      "pp": 10,
+      "description": "상대가 HP의 절반 정도 상처를 입고 있으면 기술의 위력이 2배가 된다."
     },
     {
       "key": "BUBBLEBEAM",
-      "name_ko": "Bubble Beam",
+      "name_ko": "거품광선",
       "power": 65,
       "type": "water",
       "category": 1,
-      "accuracy": 100
+      "accuracy": 100,
+      "pp": 20,
+      "description": "거품을 기세 좋게 상대에게 발사하여 공격한다. 스피드를 떨어뜨릴 때가 있다."
     },
     {
       "key": "BUGBITE",
-      "name_ko": "Bug Bite",
+      "name_ko": "벌레먹기",
       "power": 60,
       "type": "bug",
       "category": 0,
-      "accuracy": 100
+      "accuracy": 100,
+      "pp": 20,
+      "description": "물어서 공격한다. 상대가 나무열매를 지니고 있을 때 먹어서 나무열매의 효과를 받을 수 있다."
     },
     {
       "key": "BUGBUZZ",
-      "name_ko": "Bug Buzz",
+      "name_ko": "벌레의야단법석",
       "power": 90,
       "type": "bug",
       "category": 1,
-      "accuracy": 100
+      "accuracy": 100,
+      "pp": 10,
+      "description": "The user vibrates its wings to generate a sound wave. It may also lower the target's Sp. Def stat."
     },
     {
       "key": "BULKUP",
-      "name_ko": "Bulk Up",
+      "name_ko": "벌크업",
       "power": 0,
       "type": "fighting",
       "category": 2,
-      "accuracy": 0
+      "accuracy": 0,
+      "pp": 20,
+      "description": "몸에 힘을 담아 근육을 두껍게 해서 자신의 공격과 방어를 올린다."
     },
     {
       "key": "BULLDOZE",
-      "name_ko": "Bulldoze",
+      "name_ko": "땅고르기",
       "power": 60,
       "type": "ground",
       "category": 0,
-      "accuracy": 100
+      "accuracy": 100,
+      "pp": 20,
+      "description": "땅을 힘껏 밟아 자신의 주위에 있는 포켓몬을 공격한다. 상대의 스피드를 떨어뜨린다."
     },
     {
       "key": "BULLETPUNCH",
-      "name_ko": "Bullet Punch",
+      "name_ko": "불릿펀치",
       "power": 40,
       "type": "steel",
       "category": 0,
-      "accuracy": 100
+      "accuracy": 100,
+      "pp": 30,
+      "description": "탄환처럼 빠르고 단단한 펀치를 날린다. 반드시 선제 공격을 할 수 있다."
     },
     {
       "key": "BULLETSEED",
-      "name_ko": "Bullet Seed",
+      "name_ko": "씨기관총",
       "power": 25,
       "type": "grass",
       "category": 0,
-      "accuracy": 100
+      "accuracy": 100,
+      "pp": 30,
+      "description": "씨앗을 기세 좋게 상대에게 발사하여 공격한다. 2-5회 동안 연속으로 쓴다."
     },
     {
       "key": "CALMMIND",
-      "name_ko": "Calm Mind",
+      "name_ko": "명상",
       "power": 0,
       "type": "psychic",
       "category": 2,
-      "accuracy": 0
+      "accuracy": 0,
+      "pp": 20,
+      "description": "조용히 정신을 통일하고 마음을 가라앉혀서 자신의 특수공격과 특수방어를 올린다."
     },
     {
       "key": "CHARGE",
-      "name_ko": "Charge",
+      "name_ko": "충전",
       "power": 0,
       "type": "electric",
       "category": 2,
-      "accuracy": 0
+      "accuracy": 0,
+      "pp": 20,
+      "description": "다음 턴에 쓸 전기타입 기술의 위력이 2배가 된다. 자신의 특수방어도 올라간다."
     },
     {
       "key": "CHARGEBEAM",
-      "name_ko": "Charge Beam",
+      "name_ko": "차지빔",
       "power": 50,
       "type": "electric",
       "category": 1,
-      "accuracy": 90
+      "accuracy": 90,
+      "pp": 10,
+      "description": "전격의 다발을 상대에게 발사한다. 전기를 모아서 자신의 특수공격을 올릴 때가 있다."
     },
     {
       "key": "CHARM",
-      "name_ko": "Charm",
+      "name_ko": "애교부리기",
       "power": 0,
       "type": "fairy",
       "category": 2,
-      "accuracy": 100
+      "accuracy": 100,
+      "pp": 20,
+      "description": "귀엽게 바라보고 방심을 유도하여 상대의 공격을 크게 떨어뜨린다."
     },
     {
       "key": "CIRCLETHROW",
-      "name_ko": "Circle Throw",
+      "name_ko": "배대뒤치기",
       "power": 60,
       "type": "fighting",
       "category": 0,
-      "accuracy": 90
+      "accuracy": 90,
+      "pp": 10,
+      "description": "상대를 내던져서 교대할 포켓몬을 끌어낸다. 야생의 경우에는 배틀이 끝난다."
     },
     {
       "key": "CLEARSMOG",
-      "name_ko": "Clear Smog",
+      "name_ko": "클리어스모그",
       "power": 50,
       "type": "poison",
       "category": 1,
-      "accuracy": 0
+      "accuracy": 0,
+      "pp": 15,
+      "description": "특수한 진흙 덩어리를 상대에게 내던져서 공격한다. 능력 변화를 원래대로 돌린다."
     },
     {
       "key": "CLOSECOMBAT",
-      "name_ko": "Close Combat",
+      "name_ko": "인파이트",
       "power": 120,
       "type": "fighting",
       "category": 0,
-      "accuracy": 100
+      "accuracy": 100,
+      "pp": 5,
+      "description": "방어를 포기하고 상대 쪽으로 깊숙이 돌격한다. 자신의 방어와 특수방어가 떨어진다."
     },
     {
       "key": "COIL",
-      "name_ko": "Coil",
+      "name_ko": "똬리틀기",
       "power": 0,
       "type": "poison",
       "category": 2,
-      "accuracy": 0
+      "accuracy": 0,
+      "pp": 20,
+      "description": "똬리를 틀어서 집중한다. 자신의 공격과 방어와 명중률을 올린다."
     },
     {
       "key": "CONFUSERAY",
-      "name_ko": "Confuse Ray",
+      "name_ko": "이상한빛",
       "power": 0,
       "type": "ghost",
       "category": 2,
-      "accuracy": 100
+      "accuracy": 100,
+      "pp": 10,
+      "description": "이상한 빛을 상대에게 비춰 혼란시킨다. 상대를 혼란 상태로 만든다."
     },
     {
       "key": "CONFUSION",
-      "name_ko": "Confusion",
+      "name_ko": "염동력",
       "power": 50,
       "type": "psychic",
       "category": 1,
-      "accuracy": 100
+      "accuracy": 100,
+      "pp": 25,
+      "description": "약한 염동력을 상대에게 보내어 공격한다. 상대를 혼란 시킬 때가 있다."
     },
     {
       "key": "CONVERSION",
-      "name_ko": "Conversion",
+      "name_ko": "텍스처",
       "power": 0,
       "type": "normal",
       "category": 2,
-      "accuracy": 0
+      "accuracy": 0,
+      "pp": 30,
+      "description": "자신의 타입을 배운 기술 중 어느 하나와 같은 타입으로 바꾼다."
     },
     {
       "key": "CONVERSION2",
-      "name_ko": "Conversion 2",
+      "name_ko": "텍스처2",
       "power": 0,
       "type": "normal",
       "category": 2,
-      "accuracy": 0
+      "accuracy": 0,
+      "pp": 30,
+      "description": "자신의 타입을 마지막으로 받은 기술에 저항할 수 있는 타입으로 변화시킨다."
     },
     {
       "key": "COPYCAT",
-      "name_ko": "Copycat",
+      "name_ko": "흉내쟁이",
       "power": 0,
       "type": "normal",
       "category": 2,
-      "accuracy": 0
+      "accuracy": 0,
+      "pp": 20,
+      "description": "직전에 나온 기술을 흉내 내어 같은 기술을 쓴다. 기술이 나오지 않았으면 실패한다."
     },
     {
       "key": "COSMICPOWER",
-      "name_ko": "Cosmic Power",
+      "name_ko": "코스믹파워",
       "power": 0,
       "type": "psychic",
       "category": 2,
-      "accuracy": 0
+      "accuracy": 0,
+      "pp": 20,
+      "description": "우주로부터 신비한 힘을 손에 넣음으로써 자신의 방어와 특수방어를 올린다."
     },
     {
       "key": "COUNTER",
-      "name_ko": "Counter",
+      "name_ko": "카운터",
       "power": 1,
       "type": "fighting",
       "category": 0,
-      "accuracy": 100
+      "accuracy": 100,
+      "pp": 20,
+      "description": "상대로부터 받은 물리공격의 데미지를 2배로 만들어 그 상대에게 돌려준다."
     },
     {
       "key": "COVET",
-      "name_ko": "Covet",
+      "name_ko": "탐내기",
       "power": 60,
       "type": "normal",
       "category": 0,
-      "accuracy": 100
+      "accuracy": 100,
+      "pp": 25,
+      "description": "귀엽게 애교부리며 상대에게 다가가 지니고 있는 도구를 뺏는다."
     },
     {
       "key": "CRABHAMMER",
-      "name_ko": "Crabhammer",
+      "name_ko": "집게해머",
       "power": 100,
       "type": "water",
       "category": 0,
-      "accuracy": 90
+      "accuracy": 90,
+      "pp": 10,
+      "description": "큰 집게를 상대에게 내리쳐서 공격한다. 급소에 맞을 확률이 높다."
     },
     {
       "key": "CROSSCHOP",
-      "name_ko": "Cross Chop",
+      "name_ko": "크로스촙",
       "power": 100,
       "type": "fighting",
       "category": 0,
-      "accuracy": 80
+      "accuracy": 80,
+      "pp": 5,
+      "description": "양손으로 당수를 상대에게 힘껏 쳐서 공격한다. 급소에 맞기 쉽다."
     },
     {
       "key": "CROSSPOISON",
-      "name_ko": "Cross Poison",
+      "name_ko": "크로스포이즌",
       "power": 70,
       "type": "poison",
       "category": 0,
-      "accuracy": 100
+      "accuracy": 100,
+      "pp": 20,
+      "description": "상대를 베어 가른다. 독 상태로 만들 때가 있고 급소에 맞을 확률이 높다."
     },
     {
       "key": "CRUNCH",
-      "name_ko": "Crunch",
+      "name_ko": "깨물어부수기",
       "power": 80,
       "type": "dark",
       "category": 0,
-      "accuracy": 100
+      "accuracy": 100,
+      "pp": 15,
+      "description": "날카로운 이빨로 상대를 깨물어 부숴서 공격한다. 상대의 방어를 떨어뜨릴 때가 있다."
     },
     {
       "key": "CRUSHCLAW",
-      "name_ko": "Crush Claw",
+      "name_ko": "브레이크클로",
       "power": 75,
       "type": "normal",
       "category": 0,
-      "accuracy": 95
+      "accuracy": 95,
+      "pp": 10,
+      "description": "단단하고 날카로운 손톱으로 베어 갈라서 공격한다. 상대의 방어를 떨어뜨릴 때가 있다."
     },
     {
       "key": "CURSE",
-      "name_ko": "Curse",
+      "name_ko": "저주",
       "power": 0,
       "type": "ghost",
       "category": 2,
-      "accuracy": 0
+      "accuracy": 0,
+      "pp": 10,
+      "description": "기술을 쓰는 포켓몬이 고스트 타입일 때와 그 이외의 타입일 때 효과가 다르다."
     },
     {
       "key": "CUT",
-      "name_ko": "Cut",
+      "name_ko": "풀베기",
       "power": 50,
       "type": "normal",
       "category": 0,
-      "accuracy": 95
+      "accuracy": 95,
+      "pp": 30,
+      "description": "낫이나 손톱 등으로 상대를 베어 공격한다. 가느다란 나무 등도 자를 수 있다."
     },
     {
       "key": "DARKPULSE",
-      "name_ko": "Dark Pulse",
+      "name_ko": "악의파동",
       "power": 80,
       "type": "dark",
       "category": 1,
-      "accuracy": 100
+      "accuracy": 100,
+      "pp": 15,
+      "description": "몸에서 악의로 가득한 무서운 오라를 발한다. 상대를 풀죽게 만들 때가 있다."
     },
     {
       "key": "DAZZLINGGLEAM",
-      "name_ko": "Dazzling Gleam",
+      "name_ko": "매지컬샤인",
       "power": 80,
       "type": "fairy",
       "category": 1,
-      "accuracy": 100
+      "accuracy": 100,
+      "pp": 10,
+      "description": "강력한 빛을 내어 상대에게 데미지를 준다."
     },
     {
       "key": "DEFENSECURL",
-      "name_ko": "Defense Curl",
+      "name_ko": "웅크리기",
       "power": 0,
       "type": "normal",
       "category": 2,
-      "accuracy": 0
+      "accuracy": 0,
+      "pp": 40,
+      "description": "몸을 둥글게 웅크려서 자신의 방어를 올린다."
     },
     {
       "key": "DESTINYBOND",
-      "name_ko": "Destiny Bond",
+      "name_ko": "길동무",
       "power": 0,
       "type": "ghost",
       "category": 2,
-      "accuracy": 0
+      "accuracy": 0,
+      "pp": 5,
+      "description": "기술을 쓴 뒤 공격을 받아 기절했을 때 공격한 상대도 기절하게 한다."
     },
     {
       "key": "DETECT",
-      "name_ko": "Detect",
+      "name_ko": "판별",
       "power": 0,
       "type": "fighting",
       "category": 2,
-      "accuracy": 0
+      "accuracy": 0,
+      "pp": 5,
+      "description": "상대의 공격을 전혀 받지 않는다. 연속으로 쓰면 실패하기 쉽다."
     },
     {
       "key": "DIG",
-      "name_ko": "Dig",
+      "name_ko": "구멍파기",
       "power": 80,
       "type": "ground",
       "category": 0,
-      "accuracy": 100
+      "accuracy": 100,
+      "pp": 10,
+      "description": "1턴째에 땅속으로 파고들어 2턴째에 상대를 공격한다."
     },
     {
       "key": "DISABLE",
-      "name_ko": "Disable",
+      "name_ko": "사슬묶기",
       "power": 0,
       "type": "normal",
       "category": 2,
-      "accuracy": 100
+      "accuracy": 100,
+      "pp": 20,
+      "description": "상대의 움직임을 막아 바로 전에 쓴 기술을 잠시 동안 사용할 수 없게 만든다."
     },
     {
       "key": "DISARMINGVOICE",
-      "name_ko": "Disarming Voice",
+      "name_ko": "차밍보이스",
       "power": 40,
       "type": "fairy",
       "category": 1,
-      "accuracy": 0
+      "accuracy": 0,
+      "pp": 15,
+      "description": "매혹적인 울음소리를 내어 상대에게 정신적 데미지를 준다. 공격은 반드시 명중한다."
     },
     {
       "key": "DISCHARGE",
-      "name_ko": "Discharge",
+      "name_ko": "방전",
       "power": 80,
       "type": "electric",
       "category": 1,
-      "accuracy": 100
+      "accuracy": 100,
+      "pp": 15,
+      "description": "눈부신 전격으로 주위에 있는 모두를 공격한다. 마비 상태로 만들 때가 있다."
     },
     {
       "key": "DIVE",
-      "name_ko": "Dive",
+      "name_ko": "다이빙",
       "power": 80,
       "type": "water",
       "category": 0,
-      "accuracy": 100
+      "accuracy": 100,
+      "pp": 10,
+      "description": "1턴째에 잠수했다가 2턴째에 떠올라 공격한다."
     },
     {
       "key": "DOUBLEEDGE",
-      "name_ko": "Double-Edge",
+      "name_ko": "이판사판태클",
       "power": 120,
       "type": "normal",
       "category": 0,
-      "accuracy": 100
+      "accuracy": 100,
+      "pp": 15,
+      "description": "목숨을 걸고 상대에게 돌진 공격을 한다. 자신도 상당한 데미지를 입는다."
     },
     {
       "key": "DOUBLEHIT",
-      "name_ko": "Double Hit",
+      "name_ko": "더블어택",
       "power": 35,
       "type": "normal",
       "category": 0,
-      "accuracy": 90
+      "accuracy": 90,
+      "pp": 10,
+      "description": "꼬리 등을 써서 상대를 때려 공격한다. 2회 연속으로 데미지를 준다."
     },
     {
       "key": "DOUBLEKICK",
-      "name_ko": "Double Kick",
+      "name_ko": "두번차기",
       "power": 30,
       "type": "fighting",
       "category": 0,
-      "accuracy": 100
+      "accuracy": 100,
+      "pp": 30,
+      "description": "2개의 다리로 상대를 걷어차서 공격한다. 2회 연속으로 데미지를 준다."
     },
     {
       "key": "DOUBLETEAM",
-      "name_ko": "Double Team",
+      "name_ko": "그림자분신",
       "power": 0,
       "type": "normal",
       "category": 2,
-      "accuracy": 0
+      "accuracy": 0,
+      "pp": 15,
+      "description": "재빠른 움직임으로 분신을 만들어 상대를 혼란시켜 회피율을 올린다."
     },
     {
       "key": "DRAGONBREATH",
-      "name_ko": "Dragon Breath",
+      "name_ko": "용의숨결",
       "power": 60,
       "type": "dragon",
       "category": 1,
-      "accuracy": 100
+      "accuracy": 100,
+      "pp": 20,
+      "description": "굉장한 숨결을 상대에게 내뿜어 공격한다. 마비 상태로 만들 때가 있다."
     },
     {
       "key": "DRAGONCLAW",
-      "name_ko": "Dragon Claw",
+      "name_ko": "드래곤클로",
       "power": 80,
       "type": "dragon",
       "category": 0,
-      "accuracy": 100
+      "accuracy": 100,
+      "pp": 15,
+      "description": "날카롭고 뾰족한 거대한 발톱으로 상대를 베어 갈라서 공격한다."
     },
     {
       "key": "DRAGONDANCE",
-      "name_ko": "Dragon Dance",
+      "name_ko": "용의춤",
       "power": 0,
       "type": "dragon",
       "category": 2,
-      "accuracy": 0
+      "accuracy": 0,
+      "pp": 20,
+      "description": "신비롭고 힘센 춤을 격렬하게 춘다. 자신의 공격과 스피드를 올린다."
     },
     {
       "key": "DRAGONPULSE",
-      "name_ko": "Dragon Pulse",
+      "name_ko": "용의파동",
       "power": 85,
       "type": "dragon",
       "category": 1,
-      "accuracy": 100
+      "accuracy": 100,
+      "pp": 10,
+      "description": "큰 입으로 충격파를 일으켜서 상대를 공격한다."
     },
     {
       "key": "DRAGONRUSH",
-      "name_ko": "Dragon Rush",
+      "name_ko": "드래곤다이브",
       "power": 100,
       "type": "dragon",
       "category": 0,
-      "accuracy": 75
+      "accuracy": 75,
+      "pp": 10,
+      "description": "굉장한 살기로 위압하면서 몸통박치기한다. 상대를 풀죽게 만들 때가 있다."
     },
     {
       "key": "DRAGONTAIL",
-      "name_ko": "Dragon Tail",
+      "name_ko": "드래곤테일",
       "power": 60,
       "type": "dragon",
       "category": 0,
-      "accuracy": 90
+      "accuracy": 90,
+      "pp": 10,
+      "description": "상대를 튕겨내서 교대할 포켓몬을 끌어낸다. 야생의 경우에는 배틀이 끝난다."
     },
     {
       "key": "DRAINPUNCH",
-      "name_ko": "Drain Punch",
+      "name_ko": "드레인펀치",
       "power": 75,
       "type": "fighting",
       "category": 0,
-      "accuracy": 100
+      "accuracy": 100,
+      "pp": 10,
+      "description": "주먹으로 상대의 힘을 흡수한다. 입힌 데미지의 절반에 해당하는 HP를 회복할 수 있다."
     },
     {
       "key": "DREAMEATER",
-      "name_ko": "Dream Eater",
+      "name_ko": "꿈먹기",
       "power": 100,
       "type": "psychic",
       "category": 1,
-      "accuracy": 100
+      "accuracy": 100,
+      "pp": 15,
+      "description": "잠자고 있는 상대의 꿈을 먹어 공격한다. 데미지의 절반을 HP로 회복한다."
     },
     {
       "key": "DRILLPECK",
-      "name_ko": "Drill Peck",
+      "name_ko": "회전부리",
       "power": 80,
       "type": "flying",
       "category": 0,
-      "accuracy": 100
+      "accuracy": 100,
+      "pp": 20,
+      "description": "회전하면서 뾰족한 부리를 상대에게 꿰찔러 공격한다."
     },
     {
       "key": "DRILLRUN",
-      "name_ko": "Drill Run",
+      "name_ko": "드릴라이너",
       "power": 80,
       "type": "ground",
       "category": 0,
-      "accuracy": 95
+      "accuracy": 95,
+      "pp": 10,
+      "description": "드릴처럼 몸을 회전시켜서 상대에게 몸통박치기한다. 급소에 맞기 쉽다."
     },
     {
       "key": "DUALCHOP",
-      "name_ko": "Dual Chop",
+      "name_ko": "더블촙",
       "power": 40,
       "type": "dragon",
       "category": 0,
-      "accuracy": 90
+      "accuracy": 90,
+      "pp": 15,
+      "description": "몸의 단단한 부분으로 상대를 때려 공격한다. 2회 연속으로 데미지를 준다."
     },
     {
       "key": "DYNAMICPUNCH",
-      "name_ko": "Dynamic Punch",
+      "name_ko": "폭발펀치",
       "power": 100,
       "type": "fighting",
       "category": 0,
-      "accuracy": 50
+      "accuracy": 50,
+      "pp": 5,
+      "description": "혼신의 힘으로 펀치를 날려서 공격한다. 상대를 반드시 혼란 시킨다."
     },
     {
       "key": "EARTHPOWER",
-      "name_ko": "Earth Power",
+      "name_ko": "대지의힘",
       "power": 90,
       "type": "ground",
       "category": 1,
-      "accuracy": 100
+      "accuracy": 100,
+      "pp": 10,
+      "description": "상대의 발밑에 대지의 힘을 방출한다. 상대의 특수방어를 떨어뜨릴 때가 있다."
     },
     {
       "key": "EARTHQUAKE",
-      "name_ko": "Earthquake",
+      "name_ko": "지진",
       "power": 100,
       "type": "ground",
       "category": 0,
-      "accuracy": 100
+      "accuracy": 100,
+      "pp": 10,
+      "description": "지진의 충격으로 주위에 있는 모든 것을 공격한다."
     },
     {
       "key": "ECHOEDVOICE",
-      "name_ko": "Echoed Voice",
+      "name_ko": "에코보이스",
       "power": 40,
       "type": "normal",
       "category": 1,
-      "accuracy": 100
+      "accuracy": 100,
+      "pp": 15,
+      "description": "울리는 목소리로 상대를 공격한다. 매 턴 누군가 이 기술을 계속해서 쓰면 위력이 올라간다."
     },
     {
       "key": "EERIEIMPULSE",
-      "name_ko": "Eerie Impulse",
+      "name_ko": "괴전파",
       "power": 0,
       "type": "electric",
       "category": 2,
-      "accuracy": 100
+      "accuracy": 100,
+      "pp": 15,
+      "description": "몸에서 괴전파를 내어 상대에게 쏨으로써 특수공격을 크게 떨어뜨린다."
     },
     {
       "key": "ELECTRICTERRAIN",
-      "name_ko": "Electric Terrain",
+      "name_ko": "일렉트릭필드",
       "power": 0,
       "type": "electric",
       "category": 2,
-      "accuracy": 0
+      "accuracy": 0,
+      "pp": 10,
+      "description": "5턴 동안 일렉트릭필드로 만든다. 땅에 있는 포켓몬은 잠들지 않는다. 전기타입의 위력이 올라간다."
     },
     {
       "key": "ELECTROBALL",
-      "name_ko": "Electro Ball",
+      "name_ko": "일렉트릭볼",
       "power": 1,
       "type": "electric",
       "category": 1,
-      "accuracy": 100
+      "accuracy": 100,
+      "pp": 10,
+      "description": "전기 덩어리를 상대에게 부딪쳐서 공격한다. 상대보다 스피드가 빠를수록 위력이 올라간다."
     },
     {
       "key": "EMBER",
-      "name_ko": "Ember",
+      "name_ko": "불꽃세례",
       "power": 40,
       "type": "fire",
       "category": 1,
-      "accuracy": 100
+      "accuracy": 100,
+      "pp": 25,
+      "description": "작은 불꽃을 상대에게 발사하여 공격한다. 화상 상태로 만들 때가 있다."
     },
     {
       "key": "ENCORE",
-      "name_ko": "Encore",
+      "name_ko": "앙코르",
       "power": 0,
       "type": "normal",
       "category": 2,
-      "accuracy": 100
+      "accuracy": 100,
+      "pp": 5,
+      "description": "상대에게 앙코르를 외쳐서 기술을 3번 연속으로 쓰게 한다."
     },
     {
       "key": "ENDEAVOR",
-      "name_ko": "Endeavor",
+      "name_ko": "죽기살기",
       "power": 1,
       "type": "normal",
       "category": 0,
-      "accuracy": 100
+      "accuracy": 100,
+      "pp": 5,
+      "description": "상대의 HP가 자신의 HP와 같아지도록 데미지를 준다."
     },
     {
       "key": "ENDURE",
-      "name_ko": "Endure",
+      "name_ko": "버티기",
       "power": 0,
       "type": "normal",
       "category": 2,
-      "accuracy": 0
+      "accuracy": 0,
+      "pp": 10,
+      "description": "공격을 받아도 HP를 반드시 1만큼은 남긴다. 연속으로 쓰면 실패하기 쉽다."
     },
     {
       "key": "EXPLOSION",
-      "name_ko": "Explosion",
+      "name_ko": "대폭발",
       "power": 250,
       "type": "normal",
       "category": 0,
-      "accuracy": 100
+      "accuracy": 100,
+      "pp": 5,
+      "description": "커다란 폭발로 주위에 있는 모든 것을 공격한다. 사용한 다음 기절한다."
     },
     {
       "key": "EXTRASENSORY",
-      "name_ko": "Extrasensory",
+      "name_ko": "신통력",
       "power": 80,
       "type": "psychic",
       "category": 1,
-      "accuracy": 100
+      "accuracy": 100,
+      "pp": 20,
+      "description": "보이지 않는 이상한 힘을 보내어 공격한다. 상대를 풀죽게 만들 때가 있다."
     },
     {
       "key": "EXTREMESPEED",
-      "name_ko": "Extreme Speed",
+      "name_ko": "신속",
       "power": 80,
       "type": "normal",
       "category": 0,
-      "accuracy": 100
+      "accuracy": 100,
+      "pp": 5,
+      "description": "눈에 보이지 않을 스피드로 상대에게 돌진한다. 반드시 선제 공격을 할 수 있다."
     },
     {
       "key": "FAKEOUT",
-      "name_ko": "Fake Out",
+      "name_ko": "속이기",
       "power": 40,
       "type": "normal",
       "category": 0,
-      "accuracy": 100
+      "accuracy": 100,
+      "pp": 10,
+      "description": "선제공격으로 상대를 풀죽게 한다. 배틀에 나가서 바로 쓰지 않으면 성공할 수 없다."
     },
     {
       "key": "FAKETEARS",
-      "name_ko": "Fake Tears",
+      "name_ko": "거짓울음",
       "power": 0,
       "type": "dark",
       "category": 2,
-      "accuracy": 100
+      "accuracy": 100,
+      "pp": 20,
+      "description": "우는 척을 하며 눈물을 흘린다. 난처하게 만들어 상대의 특수방어를 크게 떨어뜨린다."
     },
     {
       "key": "FALSESWIPE",
-      "name_ko": "False Swipe",
+      "name_ko": "칼등치기",
       "power": 40,
       "type": "normal",
       "category": 0,
-      "accuracy": 100
+      "accuracy": 100,
+      "pp": 40,
+      "description": "상대의 HP가 반드시 1만큼 남도록 조절하여 공격한다."
     },
     {
       "key": "FEATHERDANCE",
-      "name_ko": "Feather Dance",
+      "name_ko": "깃털댄스",
       "power": 0,
       "type": "flying",
       "category": 2,
-      "accuracy": 100
+      "accuracy": 100,
+      "pp": 15,
+      "description": "깃털을 흩뿌려 상대의 몸에 휘감는다. 상대의 공격을 크게 떨어뜨린다."
     },
     {
       "key": "FEINT",
-      "name_ko": "Feint",
+      "name_ko": "페인트",
       "power": 30,
       "type": "normal",
       "category": 0,
-      "accuracy": 100
+      "accuracy": 100,
+      "pp": 10,
+      "description": "방어나 판별을 하고 있는 상대에게 공격할 수 있다. 방어 효과를 해제시킨다."
     },
     {
       "key": "FELLSTINGER",
-      "name_ko": "Fell Stinger",
+      "name_ko": "마지막일침",
       "power": 50,
       "type": "bug",
       "category": 0,
-      "accuracy": 100
+      "accuracy": 100,
+      "pp": 25,
+      "description": "이 기술을 사용하여 상대를 쓰러뜨리면 공격이 매우 크게 오른다."
     },
     {
       "key": "FINALGAMBIT",
-      "name_ko": "Final Gambit",
+      "name_ko": "목숨걸기",
       "power": 1,
       "type": "fighting",
       "category": 1,
-      "accuracy": 100
+      "accuracy": 100,
+      "pp": 5,
+      "description": "목숨을 걸고 상대를 공격한다. 자신은 기절하게 되지만 상대에게 HP만큼의 데미지를 준다."
     },
     {
       "key": "FIREBLAST",
-      "name_ko": "Fire Blast",
+      "name_ko": "불대문자",
       "power": 110,
       "type": "fire",
       "category": 1,
-      "accuracy": 85
+      "accuracy": 85,
+      "pp": 5,
+      "description": "큰 대자의 불꽃으로 상대를 불태운다. 화상상태로 만들 때가 있다."
     },
     {
       "key": "FIREFANG",
-      "name_ko": "Fire Fang",
+      "name_ko": "불꽃엄니",
       "power": 65,
       "type": "fire",
       "category": 0,
-      "accuracy": 95
+      "accuracy": 95,
+      "pp": 15,
+      "description": "불꽃을 두른 이빨로 문다. 상대를 풀죽게 하거나 화상 상태로 만들 때가 있다."
     },
     {
       "key": "FIREPUNCH",
-      "name_ko": "Fire Punch",
+      "name_ko": "불꽃펀치",
       "power": 75,
       "type": "fire",
       "category": 0,
-      "accuracy": 100
+      "accuracy": 100,
+      "pp": 15,
+      "description": "불꽃을 담은 펀치로 상대를 공격한다. 화상 상태가 되는 경우가 있다."
     },
     {
       "key": "FIRESPIN",
-      "name_ko": "Fire Spin",
+      "name_ko": "회오리불꽃",
       "power": 35,
       "type": "fire",
       "category": 1,
-      "accuracy": 85
+      "accuracy": 85,
+      "pp": 15,
+      "description": "세차게 소용돌이치는 불꽃 속에 4-5턴 동안 상대를 가두어 공격한다."
     },
     {
       "key": "FISSURE",
-      "name_ko": "Fissure",
+      "name_ko": "땅가르기",
       "power": 1,
       "type": "ground",
       "category": 0,
-      "accuracy": 30
+      "accuracy": 30,
+      "pp": 5,
+      "description": "땅이 갈라진 곳에 상대를 떨어뜨려 공격한다. 맞으면 일격에 기절한다."
     },
     {
       "key": "FLAIL",
-      "name_ko": "Flail",
+      "name_ko": "바둥바둥",
       "power": 1,
       "type": "normal",
       "category": 0,
-      "accuracy": 100
+      "accuracy": 100,
+      "pp": 15,
+      "description": "바둥바둥 난동부려서 공격한다. 자신의 HP가 적을수록 기술의 위력이 올라간다."
     },
     {
       "key": "FLAMECHARGE",
-      "name_ko": "Flame Charge",
+      "name_ko": "니트로차지",
       "power": 50,
       "type": "fire",
       "category": 0,
-      "accuracy": 100
+      "accuracy": 100,
+      "pp": 20,
+      "description": "불꽃을 둘러 상대를 공격한다. 힘을 모아서 자신의 스피드를 올린다."
     },
     {
       "key": "FLAMETHROWER",
-      "name_ko": "Flamethrower",
+      "name_ko": "화염방사",
       "power": 90,
       "type": "fire",
       "category": 1,
-      "accuracy": 100
+      "accuracy": 100,
+      "pp": 15,
+      "description": "세찬 불꽃을 상대에게 발사하여 공격한다. 화상 상태로 만들 때가 있다."
     },
     {
       "key": "FLAMEWHEEL",
-      "name_ko": "Flame Wheel",
+      "name_ko": "화염바퀴",
       "power": 60,
       "type": "fire",
       "category": 0,
-      "accuracy": 100
+      "accuracy": 100,
+      "pp": 25,
+      "description": "불꽃을 둘러 상대에게 돌진 공격한다. 화상 상태로 만들 때가 있다."
     },
     {
       "key": "FLAREBLITZ",
-      "name_ko": "Flare Blitz",
+      "name_ko": "플레어드라이브",
       "power": 120,
       "type": "fire",
       "category": 0,
-      "accuracy": 100
+      "accuracy": 100,
+      "pp": 15,
+      "description": "The user cloaks itself in fire and charges at the foe. The user takes damage and may burn the target."
     },
     {
       "key": "FLASHCANNON",
-      "name_ko": "Flash Cannon",
+      "name_ko": "러스터캐논",
       "power": 80,
       "type": "steel",
       "category": 1,
-      "accuracy": 100
+      "accuracy": 100,
+      "pp": 10,
+      "description": "몸의 빛을 한곳에 모아서 힘을 쏜다. 상대의 특수방어를 떨어뜨릴 때가 있다."
     },
     {
       "key": "FLATTER",
-      "name_ko": "Flatter",
+      "name_ko": "부추기기",
       "power": 0,
       "type": "dark",
       "category": 2,
-      "accuracy": 100
+      "accuracy": 100,
+      "pp": 15,
+      "description": "상대를 부추겨서 혼란시킨다. 동시에 상대의 특수공격도 올라가 버린다."
     },
     {
       "key": "FLING",
-      "name_ko": "Fling",
+      "name_ko": "내던지기",
       "power": 1,
       "type": "dark",
       "category": 0,
-      "accuracy": 100
+      "accuracy": 100,
+      "pp": 10,
+      "description": "지니게 한 도구를 재빠르게 내던져서 공격한다. 도구에 따라 위력과 효과가 바뀐다."
     },
     {
       "key": "FOCUSENERGY",
-      "name_ko": "Focus Energy",
+      "name_ko": "기충전",
       "power": 0,
       "type": "normal",
       "category": 2,
-      "accuracy": 0
+      "accuracy": 0,
+      "pp": 30,
+      "description": "깊게 숨을 들이마셔 기합을 넣는다. 자신의 공격이 급소에 맞을 확률을 올린다."
     },
     {
       "key": "FOCUSPUNCH",
-      "name_ko": "Focus Punch",
+      "name_ko": "힘껏펀치",
       "power": 150,
       "type": "fighting",
       "category": 0,
-      "accuracy": 100
+      "accuracy": 100,
+      "pp": 20,
+      "description": "정신력을 높여 펀치를 날린다. 기술을 쓰기 전에 공격을 받으면 실패한다."
     },
     {
       "key": "FOLLOWME",
-      "name_ko": "Follow Me",
+      "name_ko": "날따름",
       "power": 0,
       "type": "normal",
       "category": 2,
-      "accuracy": 0
+      "accuracy": 0,
+      "pp": 20,
+      "description": "자신에게 주목시켜 상대로부터의 공격을 모두 자신에게 향하게 한다."
     },
     {
       "key": "FREEZEDRY",
-      "name_ko": "Freeze-Dry",
+      "name_ko": "프리즈드라이",
       "power": 70,
       "type": "ice",
       "category": 1,
-      "accuracy": 100
+      "accuracy": 100,
+      "pp": 20,
+      "description": "상대를 급격히 차갑게 하여 얼음 상태로 만들 때가 있다. 물타입 포켓몬에게도 효과가 굉장해진다."
     },
     {
       "key": "FURYATTACK",
-      "name_ko": "Fury Attack",
+      "name_ko": "마구찌르기",
       "power": 15,
       "type": "normal",
       "category": 0,
-      "accuracy": 85
+      "accuracy": 85,
+      "pp": 20,
+      "description": "뿔이나 부리로 상대를 찔러서 공격한다. 2-5회 동안 연속으로 쓴다."
     },
     {
       "key": "FURYCUTTER",
-      "name_ko": "Fury Cutter",
+      "name_ko": "연속자르기",
       "power": 40,
       "type": "bug",
       "category": 0,
-      "accuracy": 95
+      "accuracy": 95,
+      "pp": 20,
+      "description": "낫이나 발톱 등으로 상대를 베어 공격한다. 연속으로 맞히면 위력이 올라간다."
     },
     {
       "key": "FURYSWIPES",
-      "name_ko": "Fury Swipes",
+      "name_ko": "마구할퀴기",
       "power": 18,
       "type": "normal",
       "category": 0,
-      "accuracy": 80
+      "accuracy": 80,
+      "pp": 15,
+      "description": "발톱이나 낫 등으로 상대를 할퀴어서 공격한다. 2-5회 동안 연속으로 쓴다."
     },
     {
       "key": "FUTURESIGHT",
-      "name_ko": "Future Sight",
+      "name_ko": "미래예지",
       "power": 120,
       "type": "psychic",
       "category": 1,
-      "accuracy": 100
+      "accuracy": 100,
+      "pp": 10,
+      "description": "기술을 사용한 2턴 뒤에 상대에게 염동력의 덩어리를 보내어 공격한다."
     },
     {
       "key": "GASTROACID",
-      "name_ko": "Gastro Acid",
+      "name_ko": "위액",
       "power": 0,
       "type": "poison",
       "category": 2,
-      "accuracy": 100
+      "accuracy": 100,
+      "pp": 10,
+      "description": "상대의 몸에 위액을 내뱉는다. 달라붙은 위액은 상대의 특성 효과를 지운다."
     },
     {
       "key": "GIGADRAIN",
-      "name_ko": "Giga Drain",
+      "name_ko": "기가드레인",
       "power": 75,
       "type": "grass",
       "category": 1,
-      "accuracy": 100
+      "accuracy": 100,
+      "pp": 10,
+      "description": "양분을 흡수하여 공격한다. 입힌 데미지의 절반에 해당하는 HP를 회복할 수 있다."
     },
     {
       "key": "GIGAIMPACT",
-      "name_ko": "Giga Impact",
+      "name_ko": "기가임팩트",
       "power": 150,
       "type": "normal",
       "category": 0,
-      "accuracy": 90
+      "accuracy": 90,
+      "pp": 5,
+      "description": "가진 힘을 모두 사용해서 상대에게 돌격한다. 다음 턴은 움직일 수 없다."
     },
     {
       "key": "GLARE",
-      "name_ko": "Glare",
+      "name_ko": "뱀눈초리",
       "power": 0,
       "type": "normal",
       "category": 2,
-      "accuracy": 100
+      "accuracy": 100,
+      "pp": 30,
+      "description": "배의 무늬로 겁을 주어 상대를 마비 상태로 만든다."
     },
     {
       "key": "GRASSYTERRAIN",
-      "name_ko": "Grassy Terrain",
+      "name_ko": "그래스필드",
       "power": 0,
       "type": "grass",
       "category": 2,
-      "accuracy": 0
+      "accuracy": 0,
+      "pp": 10,
+      "description": "5턴 동안 발 밑을 그래스필드로 만든다. 땅에 있는 포켓몬은 매 턴 회복한다."
     },
     {
       "key": "GRAVITY",
-      "name_ko": "Gravity",
+      "name_ko": "중력",
       "power": 0,
       "type": "psychic",
       "category": 2,
-      "accuracy": 0
+      "accuracy": 0,
+      "pp": 5,
+      "description": "5턴 동안 부유나 비행타입에 땅타입의 기술이 맞게 된다. 공중으로 나는 기술도 사용할 수 없다."
     },
     {
       "key": "GROWL",
-      "name_ko": "Growl",
+      "name_ko": "울음소리",
       "power": 0,
       "type": "normal",
       "category": 2,
-      "accuracy": 100
+      "accuracy": 100,
+      "pp": 40,
+      "description": "귀여운 울음소리를 들려주고 관심을 끌어 방심한 사이에 상대의 공격을 떨어뜨린다."
     },
     {
       "key": "GROWTH",
-      "name_ko": "Growth",
+      "name_ko": "성장",
       "power": 0,
       "type": "normal",
       "category": 2,
-      "accuracy": 0
+      "accuracy": 0,
+      "pp": 20,
+      "description": "몸을 일시에 크게 성장시켜 자신의 공격과 특수공격을 올린다."
     },
     {
       "key": "GUARDSWAP",
-      "name_ko": "Guard Swap",
+      "name_ko": "가드스왑",
       "power": 0,
       "type": "psychic",
       "category": 2,
-      "accuracy": 0
+      "accuracy": 0,
+      "pp": 10,
+      "description": "초능력으로 자신과 상대의 방어와 특수방어의 능력 변화를 교체한다."
     },
     {
       "key": "GUILLOTINE",
-      "name_ko": "Guillotine",
+      "name_ko": "가위자르기",
       "power": 1,
       "type": "normal",
       "category": 0,
-      "accuracy": 30
+      "accuracy": 30,
+      "pp": 5,
+      "description": "큰 집게로 상대를 베어 갈라 공격한다. 맞으면 일격에 기절한다."
     },
     {
       "key": "GUNKSHOT",
-      "name_ko": "Gunk Shot",
+      "name_ko": "더스트슈트",
       "power": 120,
       "type": "poison",
       "category": 0,
-      "accuracy": 80
+      "accuracy": 80,
+      "pp": 5,
+      "description": "더러운 쓰레기를 상대에게 부딪쳐서 공격한다. 독 상태로 만들 때가 있다."
     },
     {
       "key": "GUST",
-      "name_ko": "Gust",
+      "name_ko": "바람일으키기",
       "power": 40,
       "type": "flying",
       "category": 1,
-      "accuracy": 100
+      "accuracy": 100,
+      "pp": 35,
+      "description": "날개로 일으킨 격한 바람을 상대에게 부딪혀서 공격한다."
     },
     {
       "key": "GYROBALL",
-      "name_ko": "Gyro Ball",
+      "name_ko": "자이로볼",
       "power": 1,
       "type": "steel",
       "category": 0,
-      "accuracy": 100
+      "accuracy": 100,
+      "pp": 5,
+      "description": "몸을 고속으로 회전시켜서 몸통박치기한다. 상대보다 스피드가 느릴수록 강하다."
     },
     {
       "key": "HAMMERARM",
-      "name_ko": "Hammer Arm",
+      "name_ko": "암해머",
       "power": 100,
       "type": "fighting",
       "category": 0,
-      "accuracy": 90
+      "accuracy": 90,
+      "pp": 10,
+      "description": "강하고 무거운 주먹을 휘둘러 데미지를 준다. 자신의 스피드가 떨어진다."
     },
     {
       "key": "HARDEN",
-      "name_ko": "Harden",
+      "name_ko": "단단해지기",
       "power": 0,
       "type": "normal",
       "category": 2,
-      "accuracy": 0
+      "accuracy": 0,
+      "pp": 30,
+      "description": "전신에 힘을 담아 몸을 단단하게 해서 자신의 방어를 올린다."
     },
     {
       "key": "HAZE",
-      "name_ko": "Haze",
+      "name_ko": "흑안개",
       "power": 0,
       "type": "ice",
       "category": 2,
-      "accuracy": 0
+      "accuracy": 0,
+      "pp": 30,
+      "description": "흑안개를 뿜어 배틀에 참가 중인 포켓몬 전원의 능력 변화를 원래대로 돌린다."
     },
     {
       "key": "HEADBUTT",
-      "name_ko": "Headbutt",
+      "name_ko": "박치기",
       "power": 70,
       "type": "normal",
       "category": 0,
-      "accuracy": 100
+      "accuracy": 100,
+      "pp": 15,
+      "description": "머리를 내밀고 무작정 돌진하여 공격한다. 가끔 풀죽게 만든다. 나무를 흔들어 포켓몬을 떨어뜨릴 수도 있다."
     },
     {
       "key": "HEALINGWISH",
-      "name_ko": "Healing Wish",
+      "name_ko": "치유소원",
       "power": 0,
       "type": "psychic",
       "category": 2,
-      "accuracy": 0
+      "accuracy": 0,
+      "pp": 10,
+      "description": "자신은 기절하지만 교대하여 나오는 포켓몬의 상태 이상과 HP를 회복한다."
     },
     {
       "key": "HEALPULSE",
-      "name_ko": "Heal Pulse",
+      "name_ko": "치유파동",
       "power": 0,
       "type": "psychic",
       "category": 2,
-      "accuracy": 0
+      "accuracy": 0,
+      "pp": 10,
+      "description": "치유파동을 날려서 최대 HP의 절반만큼 상대의 HP를 회복한다."
     },
     {
       "key": "HEATWAVE",
-      "name_ko": "Heat Wave",
+      "name_ko": "열풍",
       "power": 95,
       "type": "fire",
       "category": 1,
-      "accuracy": 90
+      "accuracy": 90,
+      "pp": 10,
+      "description": "뜨거운 숨결을 상대에게 내뿜어 공격한다. 화상 상태로 만들 때가 있다."
     },
     {
       "key": "HEAVYSLAM",
-      "name_ko": "Heavy Slam",
+      "name_ko": "헤비봄버",
       "power": 1,
       "type": "steel",
       "category": 0,
-      "accuracy": 100
+      "accuracy": 100,
+      "pp": 10,
+      "description": "무거운 몸으로 상대에게 부딪쳐 공격한다. 자신이 상대보다 무거울수록 위력이 올라간다."
     },
     {
       "key": "HELPINGHAND",
-      "name_ko": "Helping Hand",
+      "name_ko": "도우미",
       "power": 0,
       "type": "normal",
       "category": 2,
-      "accuracy": 0
+      "accuracy": 0,
+      "pp": 20,
+      "description": "동료를 돕는다. 도움받은 포켓몬이 쓰는 기술의 위력은 여느 때보다 커진다."
     },
     {
       "key": "HEX",
-      "name_ko": "Hex",
+      "name_ko": "병상첨병",
       "power": 65,
       "type": "ghost",
       "category": 1,
-      "accuracy": 100
+      "accuracy": 100,
+      "pp": 10,
+      "description": "엎친 데 덮친 격으로 공격한다. 상태 이상인 상대에게 큰 데미지를 준다."
     },
     {
       "key": "HIGHHORSEPOWER",
-      "name_ko": "High Horsepower",
+      "name_ko": "10만마력",
       "power": 95,
       "type": "ground",
       "category": 0,
-      "accuracy": 95
+      "accuracy": 95,
+      "pp": 10,
+      "description": "온몸을 써서 상대를 맹렬히 공격한다."
     },
     {
       "key": "HIGHJUMPKICK",
-      "name_ko": "High Jump Kick",
+      "name_ko": "무릎차기",
       "power": 130,
       "type": "fighting",
       "category": 0,
-      "accuracy": 90
+      "accuracy": 90,
+      "pp": 10,
+      "description": "점프해서 무릎차기로 상대를 공격한다. 빗나가면 자신이 데미지를 입는다."
     },
     {
       "key": "HORNATTACK",
-      "name_ko": "Horn Attack",
+      "name_ko": "뿔찌르기",
       "power": 65,
       "type": "normal",
       "category": 0,
-      "accuracy": 100
+      "accuracy": 100,
+      "pp": 25,
+      "description": "날카롭고 뾰족한 뿔로 상대를 공격한다."
     },
     {
       "key": "HORNDRILL",
-      "name_ko": "Horn Drill",
+      "name_ko": "뿔드릴",
       "power": 1,
       "type": "normal",
       "category": 0,
-      "accuracy": 30
+      "accuracy": 30,
+      "pp": 5,
+      "description": "회전하는 뿔을 상대에 꿰찔러서 공격한다. 맞으면 일격에 기절한다."
     },
     {
       "key": "HOWL",
-      "name_ko": "Howl",
+      "name_ko": "멀리짖기",
       "power": 0,
       "type": "normal",
       "category": 2,
-      "accuracy": 0
+      "accuracy": 0,
+      "pp": 40,
+      "description": "큰 소리로 짖고 기합을 높여 자신의 공격을 올린다."
     },
     {
       "key": "HURRICANE",
-      "name_ko": "Hurricane",
+      "name_ko": "폭풍",
       "power": 110,
       "type": "flying",
       "category": 1,
-      "accuracy": 70
+      "accuracy": 70,
+      "pp": 10,
+      "description": "강렬한 바람으로 상대를 둘러싸서 공격한다. 상대를 혼란시킬 때가 있다."
     },
     {
       "key": "HYDROPUMP",
-      "name_ko": "Hydro Pump",
+      "name_ko": "하이드로펌프",
       "power": 110,
       "type": "water",
       "category": 1,
-      "accuracy": 80
+      "accuracy": 80,
+      "pp": 5,
+      "description": "대량의 물을 세찬 기세로 상대에게 발사하여 공격한다."
     },
     {
       "key": "HYPERBEAM",
-      "name_ko": "Hyper Beam",
+      "name_ko": "파괴광선",
       "power": 150,
       "type": "normal",
       "category": 1,
-      "accuracy": 90
+      "accuracy": 90,
+      "pp": 5,
+      "description": "강한 광선을 상대에게 발사하여 공격한다. 다음 턴은 움직일 수 없다."
     },
     {
       "key": "HYPERVOICE",
-      "name_ko": "Hyper Voice",
+      "name_ko": "하이퍼보이스",
       "power": 90,
       "type": "normal",
       "category": 1,
-      "accuracy": 100
+      "accuracy": 100,
+      "pp": 10,
+      "description": "시끄럽게 울리는 큰 진동을 상대에게 전달하여 공격한다."
     },
     {
       "key": "HYPNOSIS",
-      "name_ko": "Hypnosis",
+      "name_ko": "최면술",
       "power": 0,
       "type": "psychic",
       "category": 2,
-      "accuracy": 60
+      "accuracy": 60,
+      "pp": 20,
+      "description": "졸음을 유도하는 암시를 걸어서 상대를 잠듦 상태로 만든다."
     },
     {
       "key": "ICEBEAM",
-      "name_ko": "Ice Beam",
+      "name_ko": "냉동빔",
       "power": 90,
       "type": "ice",
       "category": 1,
-      "accuracy": 100
+      "accuracy": 100,
+      "pp": 10,
+      "description": "냉동빔을 상대에게 발사하여 공격한다. 얼음 상태로 만들 때가 있다."
     },
     {
       "key": "ICEFANG",
-      "name_ko": "Ice Fang",
+      "name_ko": "얼음엄니",
       "power": 65,
       "type": "ice",
       "category": 0,
-      "accuracy": 95
+      "accuracy": 95,
+      "pp": 15,
+      "description": "냉기를 품은 이빨로 문다. 상대를 풀죽게 하거나 얼음 상태로 만들 때가 있다."
     },
     {
       "key": "ICEPUNCH",
-      "name_ko": "Ice Punch",
+      "name_ko": "냉동펀치",
       "power": 75,
       "type": "ice",
       "category": 0,
-      "accuracy": 100
+      "accuracy": 100,
+      "pp": 15,
+      "description": "냉기를 담은 펀치로 상대를 공격한다. 얼음 상태가 되는 경우가 있다."
     },
     {
       "key": "ICESHARD",
-      "name_ko": "Ice Shard",
+      "name_ko": "얼음뭉치",
       "power": 40,
       "type": "ice",
       "category": 0,
-      "accuracy": 100
+      "accuracy": 100,
+      "pp": 30,
+      "description": "얼음 덩어리를 순식간에 만들어 빠르게 쏜다. 반드시 선제 공격을 할 수 있다."
     },
     {
       "key": "ICICLECRASH",
-      "name_ko": "Icicle Crash",
+      "name_ko": "고드름떨구기",
       "power": 85,
       "type": "ice",
       "category": 0,
-      "accuracy": 90
+      "accuracy": 90,
+      "pp": 10,
+      "description": "큰 고드름을 격렬하게 부딪쳐서 공격한다. 상대를 풀죽게 만들 때가 있다."
     },
     {
       "key": "ICICLESPEAR",
-      "name_ko": "Icicle Spear",
+      "name_ko": "고드름침",
       "power": 25,
       "type": "ice",
       "category": 0,
-      "accuracy": 100
+      "accuracy": 100,
+      "pp": 30,
+      "description": "날카로운 고드름을 상대에게 발사하여 공격한다. 2-5회 동안 연속으로 쓴다."
     },
     {
       "key": "ICYWIND",
-      "name_ko": "Icy Wind",
+      "name_ko": "얼어붙은바람",
       "power": 55,
       "type": "ice",
       "category": 1,
-      "accuracy": 95
+      "accuracy": 95,
+      "pp": 15,
+      "description": "차가운 냉기를 상대에게 내뿜어 공격한다. 동시에 상대의 스피드를 떨어뜨린다."
     },
     {
       "key": "IMPRISON",
-      "name_ko": "Imprison",
+      "name_ko": "봉인",
       "power": 0,
       "type": "psychic",
       "category": 2,
-      "accuracy": 0
+      "accuracy": 0,
+      "pp": 10,
+      "description": "상대가 자신과 같은 기술을 기억하고 있으면 상대만 그 기술을 사용할 수 없게 한다."
     },
     {
       "key": "INCINERATE",
-      "name_ko": "Incinerate",
+      "name_ko": "불태우기",
       "power": 60,
       "type": "fire",
       "category": 1,
-      "accuracy": 100
+      "accuracy": 100,
+      "pp": 15,
+      "description": "불꽃으로 상대를 공격한다. 상대가 나무열매 등을 지니고 있을 때 불태워서 쓸 수 없게 만든다."
     },
     {
       "key": "INFERNO",
-      "name_ko": "Inferno",
+      "name_ko": "연옥",
       "power": 100,
       "type": "fire",
       "category": 1,
-      "accuracy": 50
+      "accuracy": 50,
+      "pp": 5,
+      "description": "격렬한 불꽃으로 상대를 둘러싸 공격한다. 화상 상태로 만든다."
     },
     {
       "key": "INGRAIN",
-      "name_ko": "Ingrain",
+      "name_ko": "뿌리박기",
       "power": 0,
       "type": "grass",
       "category": 2,
-      "accuracy": 0
+      "accuracy": 0,
+      "pp": 20,
+      "description": "대지에 뿌리를 박아 매 턴마다 HP를 회복한다. 뿌리 박고 있으므로 교체할 수 없다."
     },
     {
       "key": "IRONDEFENSE",
-      "name_ko": "Iron Defense",
+      "name_ko": "철벽",
       "power": 0,
       "type": "steel",
       "category": 2,
-      "accuracy": 0
+      "accuracy": 0,
+      "pp": 15,
+      "description": "피부를 쇠처럼 단단하게 함으로써 자신의 방어를 크게 올린다."
     },
     {
       "key": "IRONHEAD",
-      "name_ko": "Iron Head",
+      "name_ko": "아이언헤드",
       "power": 80,
       "type": "steel",
       "category": 0,
-      "accuracy": 100
+      "accuracy": 100,
+      "pp": 15,
+      "description": "강철과 같은 단단한 머리로 공격한다. 상대를 풀죽게 만들 때가 있다."
     },
     {
       "key": "IRONTAIL",
-      "name_ko": "Iron Tail",
+      "name_ko": "아이언테일",
       "power": 100,
       "type": "steel",
       "category": 0,
-      "accuracy": 75
+      "accuracy": 75,
+      "pp": 15,
+      "description": "단단한 꼬리로 상대를 힘껏 쳐서 공격한다. 상대의 방어를 떨어뜨릴 때가 있다."
     },
     {
       "key": "KINESIS",
-      "name_ko": "Kinesis",
+      "name_ko": "숟가락휘기",
       "power": 0,
       "type": "psychic",
       "category": 2,
-      "accuracy": 80
+      "accuracy": 80,
+      "pp": 15,
+      "description": "숟가락을 휘고 주의를 끌어 상대 포켓몬의 명중률을 낮춘다."
     },
     {
       "key": "KNOCKOFF",
-      "name_ko": "Knock Off",
+      "name_ko": "탁쳐서떨구기",
       "power": 65,
       "type": "dark",
       "category": 0,
-      "accuracy": 100
+      "accuracy": 100,
+      "pp": 20,
+      "description": "상대의 지닌 물건을 탁 쳐서 떨어뜨려 배틀이 끝날 때까지 사용할 수 없게 한다. 물건을 가진 상대에게는 데미지를 더 준다."
     },
     {
       "key": "LASERFOCUS",
-      "name_ko": "Laser Focus",
+      "name_ko": "예민해지기",
       "power": 0,
       "type": "normal",
       "category": 2,
-      "accuracy": 0
+      "accuracy": 0,
+      "pp": 30,
+      "description": "정신을 집중해서 다음 공격을 반드시 급소에 맞춘다."
     },
     {
       "key": "LASTRESORT",
-      "name_ko": "Last Resort",
+      "name_ko": "비장의무기",
       "power": 140,
       "type": "normal",
       "category": 0,
-      "accuracy": 100
+      "accuracy": 100,
+      "pp": 5,
+      "description": "배틀 중에 기억하고 있는 기술을 모두 사용하면 그때부터 쓸 수 있는 비장의 기술."
     },
     {
       "key": "LAVAPLUME",
-      "name_ko": "Lava Plume",
+      "name_ko": "분연",
       "power": 80,
       "type": "fire",
       "category": 1,
-      "accuracy": 100
+      "accuracy": 100,
+      "pp": 15,
+      "description": "새빨간 불꽃으로 주위에 있는 모두를 공격한다. 화상 상태로 만들 때가 있다."
     },
     {
       "key": "LEAFBLADE",
-      "name_ko": "Leaf Blade",
+      "name_ko": "리프블레이드",
       "power": 90,
       "type": "grass",
       "category": 0,
-      "accuracy": 100
+      "accuracy": 100,
+      "pp": 15,
+      "description": "잎사귀를 칼처럼 이용해 상대를 베어 공격한다. 급소에 맞기 쉽다."
     },
     {
       "key": "LEAFSTORM",
-      "name_ko": "Leaf Storm",
+      "name_ko": "리프스톰",
       "power": 130,
       "type": "grass",
       "category": 1,
-      "accuracy": 90
+      "accuracy": 90,
+      "pp": 5,
+      "description": "뾰족한 잎사귀로 상대에게 바람을 일으킨다. 사용하면 반동으로 자신의 특수공격이 크게 떨어진다."
     },
     {
       "key": "LEECHLIFE",
-      "name_ko": "Leech Life",
+      "name_ko": "흡혈",
       "power": 80,
       "type": "bug",
       "category": 0,
-      "accuracy": 100
+      "accuracy": 100,
+      "pp": 10,
+      "description": "피를 빨아서 공격한다. 준 데미지의 절반을 HP로 회복한다."
     },
     {
       "key": "LEECHSEED",
-      "name_ko": "Leech Seed",
+      "name_ko": "씨뿌리기",
       "power": 0,
       "type": "grass",
       "category": 2,
-      "accuracy": 90
+      "accuracy": 90,
+      "pp": 10,
+      "description": "씨가 뿌려진 상대의 HP를 매 턴 조금씩 흡수하여 자신의 HP를 회복한다."
     },
     {
       "key": "LEER",
-      "name_ko": "Leer",
+      "name_ko": "째려보기",
       "power": 0,
       "type": "normal",
       "category": 2,
-      "accuracy": 100
+      "accuracy": 100,
+      "pp": 30,
+      "description": "날카로운 눈초리로 겁을 주어 상대의 방어를 떨어뜨린다."
     },
     {
       "key": "LICK",
-      "name_ko": "Lick",
+      "name_ko": "핥기",
       "power": 30,
       "type": "ghost",
       "category": 0,
-      "accuracy": 100
+      "accuracy": 100,
+      "pp": 30,
+      "description": "긴 혀로 상대를 핥아서 공격한다. 마비 상태로 만들 때가 있다."
     },
     {
       "key": "LIFEDEW",
-      "name_ko": "Life Dew",
+      "name_ko": "생명의물방울",
       "power": 0,
       "type": "water",
       "category": 2,
-      "accuracy": 0
+      "accuracy": 0,
+      "pp": 10,
+      "description": "신비한 물을 흩뿌려서 자신과 배틀에 나와 있는 같은 편의 HP를 회복한다."
     },
     {
       "key": "LIGHTSCREEN",
-      "name_ko": "Light Screen",
+      "name_ko": "빛의장막",
       "power": 0,
       "type": "psychic",
       "category": 2,
-      "accuracy": 0
+      "accuracy": 0,
+      "pp": 30,
+      "description": "5턴 동안 이상한 장막으로 상대로부터 받는 특수공격의 데미지를 약하게 한다."
     },
     {
       "key": "LIQUIDATION",
-      "name_ko": "Liquidation",
+      "name_ko": "아쿠아브레이크",
       "power": 85,
       "type": "water",
       "category": 0,
-      "accuracy": 100
+      "accuracy": 100,
+      "pp": 10,
+      "description": "물의 힘으로 상대에게 부딪쳐서 공격한다. 상대의 방어를 떨어뜨릴 때가 있다."
     },
     {
       "key": "LOCKON",
-      "name_ko": "Lock-On",
+      "name_ko": "록온",
       "power": 0,
       "type": "normal",
       "category": 2,
-      "accuracy": 0
+      "accuracy": 0,
+      "pp": 5,
+      "description": "조준을 잘 맞춰 다음 공격이 반드시 상대에게 명중하도록 한다."
     },
     {
       "key": "LOVELYKISS",
-      "name_ko": "Lovely Kiss",
+      "name_ko": "악마의키스",
       "power": 0,
       "type": "normal",
       "category": 2,
-      "accuracy": 75
+      "accuracy": 75,
+      "pp": 10,
+      "description": "무서운 얼굴로 키스한다. 키스한 상대를 잠듦 상태로 만들 수 있다."
     },
     {
       "key": "LOWKICK",
-      "name_ko": "Low Kick",
+      "name_ko": "안다리걸기",
       "power": 1,
       "type": "fighting",
       "category": 0,
-      "accuracy": 100
+      "accuracy": 100,
+      "pp": 20,
+      "description": "발을 강하게 걸고 상대를 넘어뜨려 공격한다. 상대가 무거울수록 위력이 올라간다."
     },
     {
       "key": "LOWSWEEP",
-      "name_ko": "Low Sweep",
+      "name_ko": "로킥",
       "power": 65,
       "type": "fighting",
       "category": 0,
-      "accuracy": 100
+      "accuracy": 100,
+      "pp": 20,
+      "description": "재빠른 움직임으로 상대의 다리를 노려 공격한다. 상대의 스피드를 떨어뜨린다."
     },
     {
       "key": "MACHPUNCH",
-      "name_ko": "Mach Punch",
+      "name_ko": "마하펀치",
       "power": 40,
       "type": "fighting",
       "category": 0,
-      "accuracy": 100
+      "accuracy": 100,
+      "pp": 30,
+      "description": "눈에 보이지 않는 굉장한 속도로 펀치를 날린다. 반드시 선제 공격을 할 수 있다."
     },
     {
       "key": "MAGNETICFLUX",
-      "name_ko": "Magnetic Flux",
+      "name_ko": "자기장조작",
       "power": 0,
       "type": "electric",
       "category": 2,
-      "accuracy": 0
+      "accuracy": 0,
+      "pp": 20,
+      "description": "자기장 조작으로 인해 특성 플러스와 마이너스의 방어, 특수방어가 오른다."
     },
     {
       "key": "MAGNETRISE",
-      "name_ko": "Magnet Rise",
+      "name_ko": "전자부유",
       "power": 0,
       "type": "electric",
       "category": 2,
-      "accuracy": 0
+      "accuracy": 0,
+      "pp": 10,
+      "description": "전기로 만든 자력의 힘으로 허공에 뜬다. 5턴 동안 부유할 수 있다."
     },
     {
       "key": "MEANLOOK",
-      "name_ko": "Mean Look",
+      "name_ko": "검은눈빛",
       "power": 0,
       "type": "normal",
       "category": 2,
-      "accuracy": 0
+      "accuracy": 0,
+      "pp": 5,
+      "description": "빨려 들어갈 것 같은 까만 눈빛으로 가만히 응시하여 상대를 배틀에서 도망갈 수 없게 한다."
     },
     {
       "key": "MEGADRAIN",
-      "name_ko": "Mega Drain",
+      "name_ko": "메가드레인",
       "power": 40,
       "type": "grass",
       "category": 1,
-      "accuracy": 100
+      "accuracy": 100,
+      "pp": 15,
+      "description": "양분을 흡수하여 공격한다. 입힌 데미지의 절반에 해당하는 HP를 회복할 수 있다."
     },
     {
       "key": "MEGAHORN",
-      "name_ko": "Megahorn",
+      "name_ko": "메가혼",
       "power": 120,
       "type": "bug",
       "category": 0,
-      "accuracy": 85
+      "accuracy": 85,
+      "pp": 10,
+      "description": "단단하고 훌륭한 뿔로 마음껏 상대를 꿰찔러서 공격한다."
     },
     {
       "key": "MEGAKICK",
-      "name_ko": "Mega Kick",
+      "name_ko": "메가톤킥",
       "power": 120,
       "type": "normal",
       "category": 0,
-      "accuracy": 75
+      "accuracy": 75,
+      "pp": 5,
+      "description": "굉장한 힘을 담은 킥으로 상대를 걷어차서 공격한다."
     },
     {
       "key": "MEGAPUNCH",
-      "name_ko": "Mega Punch",
+      "name_ko": "메가톤펀치",
       "power": 80,
       "type": "normal",
       "category": 0,
-      "accuracy": 85
+      "accuracy": 85,
+      "pp": 20,
+      "description": "힘을 담은 펀치로 상대를 공격한다."
     },
     {
       "key": "MEMENTO",
-      "name_ko": "Memento",
+      "name_ko": "추억의선물",
       "power": 0,
       "type": "dark",
       "category": 2,
-      "accuracy": 100
+      "accuracy": 100,
+      "pp": 10,
+      "description": "자신은 기절하게 되지만 그 대신 상대의 공격과 특수공격을 크게 떨어뜨린다."
     },
     {
       "key": "METALCLAW",
-      "name_ko": "Metal Claw",
+      "name_ko": "메탈클로",
       "power": 50,
       "type": "steel",
       "category": 0,
-      "accuracy": 95
+      "accuracy": 95,
+      "pp": 35,
+      "description": "강철의 발톱으로 상대를 베어 갈라 공격한다. 자신의 공격이 올라갈 때도 있다."
     },
     {
       "key": "METALSOUND",
-      "name_ko": "Metal Sound",
+      "name_ko": "금속음",
       "power": 0,
       "type": "steel",
       "category": 2,
-      "accuracy": 85
+      "accuracy": 85,
+      "pp": 40,
+      "description": "금속을 긁을 때 나는 듯한 싫은 소리를 들려준다. 상대의 특수방어를 크게 떨어뜨린다."
     },
     {
       "key": "METEORMASH",
-      "name_ko": "Meteor Mash",
+      "name_ko": "코멧펀치",
       "power": 90,
       "type": "steel",
       "category": 0,
-      "accuracy": 90
+      "accuracy": 90,
+      "pp": 10,
+      "description": "혜성과 같은 펀치를 날려서 공격한다. 자신의 공격이 올라갈 때가 있다."
     },
     {
       "key": "METRONOME",
-      "name_ko": "Metronome",
+      "name_ko": "손가락흔들기",
       "power": 0,
       "type": "normal",
       "category": 2,
-      "accuracy": 0
+      "accuracy": 0,
+      "pp": 10,
+      "description": "손가락을 흔들어 자신의 뇌를 자극해서 모든 기술 중 어느 하나를 날린다."
     },
     {
       "key": "MIMIC",
-      "name_ko": "Mimic",
+      "name_ko": "흉내내기",
       "power": 0,
       "type": "normal",
       "category": 2,
-      "accuracy": 0
+      "accuracy": 0,
+      "pp": 10,
+      "description": "상대가 마지막에 사용한 기술을 배틀을 하는 동안 자신의 기술로 만들 수 있다."
     },
     {
       "key": "MINIMIZE",
-      "name_ko": "Minimize",
+      "name_ko": "작아지기",
       "power": 0,
       "type": "normal",
       "category": 2,
-      "accuracy": 0
+      "accuracy": 0,
+      "pp": 10,
+      "description": "몸을 축소하여 작게 보임으로써 회피율을 올린다."
     },
     {
       "key": "MIRRORCOAT",
-      "name_ko": "Mirror Coat",
+      "name_ko": "미러코트",
       "power": 1,
       "type": "psychic",
       "category": 1,
-      "accuracy": 100
+      "accuracy": 100,
+      "pp": 20,
+      "description": "상대에게 받은 특수공격의 데미지를 2배로 만들어 그 상대에게 돌려준다."
     },
     {
       "key": "MIST",
-      "name_ko": "Mist",
+      "name_ko": "흰안개",
       "power": 0,
       "type": "ice",
       "category": 2,
-      "accuracy": 0
+      "accuracy": 0,
+      "pp": 30,
+      "description": "하얀 안개로 몸을 덮는다. 5턴 동안 상대에 의해 능력이 떨어지지 않게 된다."
     },
     {
       "key": "MOONBLAST",
-      "name_ko": "Moonblast",
+      "name_ko": "문포스",
       "power": 95,
       "type": "fairy",
       "category": 1,
-      "accuracy": 100
+      "accuracy": 100,
+      "pp": 15,
+      "description": "달의 파워를 빌려서 상대를 공격한다. 상대의 특수공격을 떨어뜨릴 때가 있다."
     },
     {
       "key": "MOONLIGHT",
-      "name_ko": "Moonlight",
+      "name_ko": "달빛",
       "power": 0,
       "type": "fairy",
       "category": 2,
-      "accuracy": 0
+      "accuracy": 0,
+      "pp": 5,
+      "description": "자신의 HP를 회복한다. 날씨에 따라 회복량이 변한다."
     },
     {
       "key": "MUDDYWATER",
-      "name_ko": "Muddy Water",
+      "name_ko": "탁류",
       "power": 90,
       "type": "water",
       "category": 1,
-      "accuracy": 85
+      "accuracy": 85,
+      "pp": 10,
+      "description": "탁해진 물을 상대에게 발사하여 공격한다. 명중률을 떨어뜨릴 때가 있다."
     },
     {
       "key": "MUDSHOT",
-      "name_ko": "Mud Shot",
+      "name_ko": "머드샷",
       "power": 55,
       "type": "ground",
       "category": 1,
-      "accuracy": 95
+      "accuracy": 95,
+      "pp": 15,
+      "description": "진흙 덩어리를 상대에게 내던져서 공격한다. 동시에 상대의 스피드를 떨어뜨린다."
     },
     {
       "key": "MUDSLAP",
-      "name_ko": "Mud-Slap",
+      "name_ko": "진흙뿌리기",
       "power": 20,
       "type": "ground",
       "category": 1,
-      "accuracy": 100
+      "accuracy": 100,
+      "pp": 10,
+      "description": "상대의 얼굴 등에 진흙을 내던져서 공격한다. 명중률을 떨어뜨린다."
     },
     {
       "key": "NASTYPLOT",
-      "name_ko": "Nasty Plot",
+      "name_ko": "나쁜음모",
       "power": 0,
       "type": "dark",
       "category": 2,
-      "accuracy": 0
+      "accuracy": 0,
+      "pp": 20,
+      "description": "나쁜 일을 생각해서 머리를 활성화시킨다. 자신의 특수공격을 크게 올린다."
     },
     {
       "key": "NIGHTSHADE",
-      "name_ko": "Night Shade",
+      "name_ko": "나이트헤드",
       "power": 1,
       "type": "ghost",
       "category": 1,
-      "accuracy": 100
+      "accuracy": 100,
+      "pp": 15,
+      "description": "환상을 보게 해서 자신의 레벨과 똑같은 만큼의 데미지를 상대에게 준다."
     },
     {
       "key": "NIGHTSLASH",
-      "name_ko": "Night Slash",
+      "name_ko": "깜짝베기",
       "power": 70,
       "type": "dark",
       "category": 0,
-      "accuracy": 100
+      "accuracy": 100,
+      "pp": 15,
+      "description": "순간적으로 틈을 노려 상대를 베어 버린다. 급소에 맞기 쉽다."
     },
     {
       "key": "NUZZLE",
-      "name_ko": "Nuzzle",
+      "name_ko": "볼부비부비",
       "power": 20,
       "type": "electric",
       "category": 0,
-      "accuracy": 100
+      "accuracy": 100,
+      "pp": 20,
+      "description": "전기가 흐르는 볼을 비벼서 공격한다. 상대를 마비 상태로 만든다."
     },
     {
       "key": "OUTRAGE",
-      "name_ko": "Outrage",
+      "name_ko": "역린",
       "power": 120,
       "type": "dragon",
       "category": 0,
-      "accuracy": 100
+      "accuracy": 100,
+      "pp": 10,
+      "description": "2-3턴 동안 마구 난동 부려서 공격한다. 난동 부린 뒤에는 혼란에 빠진다."
     },
     {
       "key": "OVERHEAT",
-      "name_ko": "Overheat",
+      "name_ko": "오버히트",
       "power": 130,
       "type": "fire",
       "category": 1,
-      "accuracy": 90
+      "accuracy": 90,
+      "pp": 5,
+      "description": "풀 파워로 상대를 공격한다. 쓰면 반동으로 자신의 특수공격이 크게 떨어진다."
     },
     {
       "key": "PAYBACK",
-      "name_ko": "Payback",
+      "name_ko": "보복",
       "power": 50,
       "type": "dark",
       "category": 0,
-      "accuracy": 100
+      "accuracy": 100,
+      "pp": 10,
+      "description": "모아서 공격한다. 상대보다 뒤에 공격할 수 있으면 기술의 위력은 2배가 된다."
     },
     {
       "key": "PAYDAY",
-      "name_ko": "Pay Day",
+      "name_ko": "고양이돈받기",
       "power": 40,
       "type": "normal",
       "category": 0,
-      "accuracy": 100
+      "accuracy": 100,
+      "pp": 20,
+      "description": "상대의 몸에 금화를 던져서 공격한다. 전투 후에 돈을 얻는다."
     },
     {
       "key": "PECK",
-      "name_ko": "Peck",
+      "name_ko": "쪼기",
       "power": 35,
       "type": "flying",
       "category": 0,
-      "accuracy": 100
+      "accuracy": 100,
+      "pp": 35,
+      "description": "날카롭고 뾰족한 부리나 뿔로 상대를 쪼아서 공격한다."
     },
     {
       "key": "PERISHSONG",
-      "name_ko": "Perish Song",
+      "name_ko": "멸망의노래",
       "power": 0,
       "type": "normal",
       "category": 2,
-      "accuracy": 0
+      "accuracy": 0,
+      "pp": 5,
+      "description": "상대와 친해져서 싸울 마음을 잃게 하여 상대의 공격을 떨어뜨린다."
     },
     {
       "key": "PETALBLIZZARD",
-      "name_ko": "Petal Blizzard",
+      "name_ko": "꽃보라",
       "power": 90,
       "type": "grass",
       "category": 0,
-      "accuracy": 100
+      "accuracy": 100,
+      "pp": 15,
+      "description": "세찬 꽃보라를 일으켜서 주위에 있는 포켓몬을 공격하여 대미지를 준다."
     },
     {
       "key": "PETALDANCE",
-      "name_ko": "Petal Dance",
+      "name_ko": "꽃잎댄스",
       "power": 120,
       "type": "grass",
       "category": 1,
-      "accuracy": 100
+      "accuracy": 100,
+      "pp": 10,
+      "description": "2-3턴 동안 꽃을 흩뿌려서 공격한다. 흩뿌린 뒤에는 혼란에 빠진다."
     },
     {
       "key": "PINMISSILE",
-      "name_ko": "Pin Missile",
+      "name_ko": "바늘미사일",
       "power": 25,
       "type": "bug",
       "category": 0,
-      "accuracy": 95
+      "accuracy": 95,
+      "pp": 20,
+      "description": "날카로운 침을 상대에게 발사해서 공격한다. 2-5회 동안 연속으로 쓴다."
     },
     {
       "key": "PLAYNICE",
-      "name_ko": "Play Nice",
+      "name_ko": "친해지기",
       "power": 0,
       "type": "normal",
       "category": 2,
-      "accuracy": 0
+      "accuracy": 0,
+      "pp": 20,
+      "description": "상대와 친해져서 싸울 마음을 잃게 하여 상대의 공격을 떨어뜨린다."
     },
     {
       "key": "PLAYROUGH",
-      "name_ko": "Play Rough",
+      "name_ko": "치근거리기",
       "power": 90,
       "type": "fairy",
       "category": 0,
-      "accuracy": 90
+      "accuracy": 90,
+      "pp": 10,
+      "description": "상대에게 치근거리며 공격한다. 상대의 공격을 떨어뜨릴 때가 있다."
     },
     {
       "key": "PLUCK",
-      "name_ko": "Pluck",
+      "name_ko": "쪼아대기",
       "power": 60,
       "type": "flying",
       "category": 0,
-      "accuracy": 100
+      "accuracy": 100,
+      "pp": 20,
+      "description": "부리로 공격한다. 상대가 나무열매를 지니고 있을 때 쪼아서 나무열매의 효과를 받을 수 있다."
     },
     {
       "key": "POISONFANG",
-      "name_ko": "Poison Fang",
+      "name_ko": "맹독엄니",
       "power": 50,
       "type": "poison",
       "category": 0,
-      "accuracy": 100
+      "accuracy": 100,
+      "pp": 15,
+      "description": "독이 있는 이빨로 상대를 물어서 공격한다. 맹독을 주입할 때가 있다."
     },
     {
       "key": "POISONGAS",
-      "name_ko": "Poison Gas",
+      "name_ko": "독가스",
       "power": 0,
       "type": "poison",
       "category": 2,
-      "accuracy": 90
+      "accuracy": 90,
+      "pp": 40,
+      "description": "독가스를 상대의 얼굴에 내뿜어 독 상태로 만든다."
     },
     {
       "key": "POISONJAB",
-      "name_ko": "Poison Jab",
+      "name_ko": "독찌르기",
       "power": 80,
       "type": "poison",
       "category": 0,
-      "accuracy": 100
+      "accuracy": 100,
+      "pp": 20,
+      "description": "독에 물든 촉수나 팔로 상대를 꿰찌른다. 독 상태로 만들 때가 있다."
     },
     {
       "key": "POISONPOWDER",
-      "name_ko": "Poison Powder",
+      "name_ko": "독가루",
       "power": 0,
       "type": "poison",
       "category": 2,
-      "accuracy": 75
+      "accuracy": 75,
+      "pp": 35,
+      "description": "독이 있는 가루를 많이 흩뿌려서 상대를 독 상태로 만든다."
     },
     {
       "key": "POISONSTING",
-      "name_ko": "Poison Sting",
+      "name_ko": "독침",
       "power": 15,
       "type": "poison",
       "category": 0,
-      "accuracy": 100
+      "accuracy": 100,
+      "pp": 35,
+      "description": "독이 있는 침을 상대에게 꿰찔러서 공격한다. 독 상태로 만들 때가 있다."
     },
     {
       "key": "POUND",
-      "name_ko": "Pound",
+      "name_ko": "막치기",
       "power": 40,
       "type": "normal",
       "category": 0,
-      "accuracy": 100
+      "accuracy": 100,
+      "pp": 35,
+      "description": "긴 꼬리나 손 등을 사용하여 상대를 때려서 공격한다."
     },
     {
       "key": "POWDERSNOW",
-      "name_ko": "Powder Snow",
+      "name_ko": "눈싸라기",
       "power": 40,
       "type": "ice",
       "category": 1,
-      "accuracy": 100
+      "accuracy": 100,
+      "pp": 25,
+      "description": "차가운 가랑눈을 상대에게 내뿜어 공격한다. 얼음 상태가 되는 경우가 있다."
     },
     {
       "key": "POWERGEM",
-      "name_ko": "Power Gem",
+      "name_ko": "파워젬",
       "power": 80,
       "type": "rock",
       "category": 1,
-      "accuracy": 100
+      "accuracy": 100,
+      "pp": 20,
+      "description": "보석처럼 반짝이는 빛을 발사하여 상대를 공격한다."
     },
     {
       "key": "POWERSWAP",
-      "name_ko": "Power Swap",
+      "name_ko": "파워스왑",
       "power": 0,
       "type": "psychic",
       "category": 2,
-      "accuracy": 0
+      "accuracy": 0,
+      "pp": 10,
+      "description": "초능력으로 자신과 상대의 공격과 특수공격의 능력 변화를 교체한다."
     },
     {
       "key": "POWERWHIP",
-      "name_ko": "Power Whip",
+      "name_ko": "파워휩",
       "power": 120,
       "type": "grass",
       "category": 0,
-      "accuracy": 85
+      "accuracy": 85,
+      "pp": 10,
+      "description": "덩굴이나 촉수를 세차게 흔들어 상대를 힘껏 쳐서 공격한다."
     },
     {
       "key": "PROTECT",
-      "name_ko": "Protect",
+      "name_ko": "방어",
       "power": 0,
       "type": "normal",
       "category": 2,
-      "accuracy": 0
+      "accuracy": 0,
+      "pp": 10,
+      "description": "상대의 공격을 전혀 받지 않는다. 연속으로 쓰면 실패하기 쉽다."
     },
     {
       "key": "PSYBEAM",
-      "name_ko": "Psybeam",
+      "name_ko": "환상빔",
       "power": 65,
       "type": "psychic",
       "category": 1,
-      "accuracy": 100
+      "accuracy": 100,
+      "pp": 20,
+      "description": "이상한 광선을 상대에게 발사하여 공격한다. 상대를 혼란 시킬 때가 있다."
     },
     {
       "key": "PSYCHIC",
-      "name_ko": "Psychic",
+      "name_ko": "사이코키네시스",
       "power": 90,
       "type": "psychic",
       "category": 1,
-      "accuracy": 100
+      "accuracy": 100,
+      "pp": 10,
+      "description": "강한 염동력을 상대에게 보내어 공격한다. 상대의 특수방어를 떨어뜨릴 때가 있다."
     },
     {
       "key": "PSYCHOCUT",
-      "name_ko": "Psycho Cut",
+      "name_ko": "사이코커터",
       "power": 70,
       "type": "psychic",
       "category": 0,
-      "accuracy": 100
+      "accuracy": 100,
+      "pp": 20,
+      "description": "실체화시킨 마음의 칼날로 상대를 베어 가른다. 급소에 맞을 확률이 높다."
     },
     {
       "key": "PSYCHUP",
-      "name_ko": "Psych Up",
+      "name_ko": "자기암시",
       "power": 0,
       "type": "normal",
       "category": 2,
-      "accuracy": 0
+      "accuracy": 0,
+      "pp": 10,
+      "description": "자신에게 암시를 걸어서 능력 변화 상태를 상대와 같게 만든다."
     },
     {
       "key": "PSYSHOCK",
-      "name_ko": "Psyshock",
+      "name_ko": "사이코쇼크",
       "power": 80,
       "type": "psychic",
       "category": 1,
-      "accuracy": 100
+      "accuracy": 100,
+      "pp": 10,
+      "description": "이상한 염력파를 실체화하여 상대를 공격한다. 물리적인 데미지를 준다."
     },
     {
       "key": "PSYSTRIKE",
-      "name_ko": "Psystrike",
+      "name_ko": "사이코브레이크",
       "power": 100,
       "type": "psychic",
       "category": 1,
-      "accuracy": 100
+      "accuracy": 100,
+      "pp": 10,
+      "description": "이상한 염력파를 실체화하여 상대를 공격한다. 물리적인 데미지를 준다."
     },
     {
       "key": "QUICKATTACK",
-      "name_ko": "Quick Attack",
+      "name_ko": "전광석화",
       "power": 40,
       "type": "normal",
       "category": 0,
-      "accuracy": 100
+      "accuracy": 100,
+      "pp": 30,
+      "description": "눈에 보이지 않는 굉장한 속도로 상대에게 돌진한다. 반드시 선제 공격할 수 있다."
     },
     {
       "key": "QUICKGUARD",
-      "name_ko": "Quick Guard",
+      "name_ko": "패스트가드",
       "power": 0,
       "type": "fighting",
       "category": 2,
-      "accuracy": 0
+      "accuracy": 0,
+      "pp": 15,
+      "description": "자신과 같은 편을 상대의 선제공격으로부터 지킨다."
     },
     {
       "key": "QUIVERDANCE",
-      "name_ko": "Quiver Dance",
+      "name_ko": "나비춤",
       "power": 0,
       "type": "bug",
       "category": 2,
-      "accuracy": 0
+      "accuracy": 0,
+      "pp": 20,
+      "description": "신비롭고 아름다운 춤을 경쾌하게 춘다. 자신의 특수공격과 특수방어와 스피드를 올린다."
     },
     {
       "key": "RAGEFIST",
@@ -2062,15 +2576,19 @@
       "power": 50,
       "type": "ghost",
       "category": 0,
-      "accuracy": 100
+      "accuracy": 100,
+      "pp": 10,
+      "description": "The user converts its rage into energy to attack. The move’s power increases every time the user is hit."
     },
     {
       "key": "RAGEPOWDER",
-      "name_ko": "Rage Powder",
+      "name_ko": "분노가루",
       "power": 0,
       "type": "bug",
       "category": 2,
-      "accuracy": 0
+      "accuracy": 0,
+      "pp": 20,
+      "description": "안절부절못하게 하는 가루를 자신에게 뿌려서 주의를 끈다. 상대의 공격은 모두 자신에게 향한다."
     },
     {
       "key": "RAGINGBULL",
@@ -2078,415 +2596,519 @@
       "power": 90,
       "type": "normal",
       "category": 0,
-      "accuracy": 100
+      "accuracy": 100,
+      "pp": 10,
+      "description": "The user charges and destroys enemy barriers. This move’s type depends on the user’s form."
     },
     {
       "key": "RAINDANCE",
-      "name_ko": "Rain Dance",
+      "name_ko": "비바라기",
       "power": 0,
       "type": "water",
       "category": 2,
-      "accuracy": 0
+      "accuracy": 0,
+      "pp": 5,
+      "description": "5턴 동안 비를 내리게 해서 물타입 기술의 위력을 올린다. 불꽃타입의 위력은 떨어진다."
     },
     {
       "key": "RAPIDSPIN",
-      "name_ko": "Rapid Spin",
+      "name_ko": "고속스핀",
       "power": 50,
       "type": "normal",
       "category": 0,
-      "accuracy": 100
+      "accuracy": 100,
+      "pp": 40,
+      "description": "회전해서 상대를 공격한다. 조이기, 김밥말이, 씨뿌리기 등의 효과를 날려 버린다. 자신의 스피드도 올라간다."
     },
     {
       "key": "RAZORLEAF",
-      "name_ko": "Razor Leaf",
+      "name_ko": "잎날가르기",
       "power": 55,
       "type": "grass",
       "category": 0,
-      "accuracy": 95
+      "accuracy": 95,
+      "pp": 25,
+      "description": "잎사귀를 날려 상대를 베어 공격한다. 급소에 맞을 확률이 높다."
     },
     {
       "key": "RAZORSHELL",
-      "name_ko": "Razor Shell",
+      "name_ko": "셸블레이드",
       "power": 75,
       "type": "water",
       "category": 0,
-      "accuracy": 95
+      "accuracy": 95,
+      "pp": 10,
+      "description": "날카로운 조개껍질로 베어 공격한다. 상대의 방어를 떨어뜨릴 때가 있다."
     },
     {
       "key": "RECOVER",
-      "name_ko": "Recover",
+      "name_ko": "HP회복",
       "power": 0,
       "type": "normal",
       "category": 2,
-      "accuracy": 0
+      "accuracy": 0,
+      "pp": 5,
+      "description": "세포를 재생시켜 자신의 최대 HP의 절반만큼 HP를 회복한다."
     },
     {
       "key": "RECYCLE",
-      "name_ko": "Recycle",
+      "name_ko": "리사이클",
       "power": 0,
       "type": "normal",
       "category": 2,
-      "accuracy": 0
+      "accuracy": 0,
+      "pp": 10,
+      "description": "배틀 중에 사용하여 없어진 자신의 지닌 물건을 재생시켜 사용할 수 있게 한다."
     },
     {
       "key": "REFLECT",
-      "name_ko": "Reflect",
+      "name_ko": "리플렉터",
       "power": 0,
       "type": "psychic",
       "category": 2,
-      "accuracy": 0
+      "accuracy": 0,
+      "pp": 20,
+      "description": "5턴 동안 이상한 장막을 쳐서 상대로부터 받는 물리공격의 데미지를 약하게 한다."
     },
     {
       "key": "REFLECTTYPE",
-      "name_ko": "Reflect Type",
+      "name_ko": "미러타입",
       "power": 0,
       "type": "normal",
       "category": 2,
-      "accuracy": 0
+      "accuracy": 0,
+      "pp": 15,
+      "description": "상대의 타입을 반사해서 자신도 똑같은 타입이 된다."
     },
     {
       "key": "REST",
-      "name_ko": "Rest",
+      "name_ko": "잠자기",
       "power": 0,
       "type": "psychic",
       "category": 2,
-      "accuracy": 0
+      "accuracy": 0,
+      "pp": 5,
+      "description": "2턴 동안 계속 잠잔다. HP와 몸의 이상을 모두 회복한다."
     },
     {
       "key": "RETALIATE",
-      "name_ko": "Retaliate",
+      "name_ko": "원수갚기",
       "power": 70,
       "type": "normal",
       "category": 0,
-      "accuracy": 100
+      "accuracy": 100,
+      "pp": 5,
+      "description": "쓰러진 같은 편의 원수를 갚는다. 앞 턴에서 같은 편이 쓰러졌다면 위력이 올라간다."
     },
     {
       "key": "REVENGE",
-      "name_ko": "Revenge",
+      "name_ko": "리벤지",
       "power": 60,
       "type": "fighting",
       "category": 0,
-      "accuracy": 100
+      "accuracy": 100,
+      "pp": 10,
+      "description": "기술을 사용하기 전에 공격을 받았다면 그 상대에게는 위력이 2배가 된다."
     },
     {
       "key": "REVERSAL",
-      "name_ko": "Reversal",
+      "name_ko": "기사회생",
       "power": 1,
       "type": "fighting",
       "category": 0,
-      "accuracy": 100
+      "accuracy": 100,
+      "pp": 15,
+      "description": "힘을 쥐어짜서 공격한다. 자신의 HP가 적을수록 기술의 위력이 올라간다."
     },
     {
       "key": "ROAR",
-      "name_ko": "Roar",
+      "name_ko": "울부짖기",
       "power": 0,
       "type": "normal",
       "category": 2,
-      "accuracy": 0
+      "accuracy": 0,
+      "pp": 20,
+      "description": "상대를 도망가게 해서 교대할 포켓몬을 끌어낸다. 야생의 경우에는 배틀이 끝난다."
     },
     {
       "key": "ROCKBLAST",
-      "name_ko": "Rock Blast",
+      "name_ko": "록블라스트",
       "power": 25,
       "type": "rock",
       "category": 0,
-      "accuracy": 90
+      "accuracy": 90,
+      "pp": 10,
+      "description": "단단한 암석을 상대에게 발사하여 공격한다. 2-5회 동안 연속으로 쓴다."
     },
     {
       "key": "ROCKPOLISH",
-      "name_ko": "Rock Polish",
+      "name_ko": "록커트",
       "power": 0,
       "type": "rock",
       "category": 2,
-      "accuracy": 0
+      "accuracy": 0,
+      "pp": 20,
+      "description": "몸을 닦아 공기의 저항을 적게 한다. 스피드를 크게 올릴 수 있다."
     },
     {
       "key": "ROCKSLIDE",
-      "name_ko": "Rock Slide",
+      "name_ko": "스톤샤워",
       "power": 75,
       "type": "rock",
       "category": 0,
-      "accuracy": 90
+      "accuracy": 90,
+      "pp": 10,
+      "description": "큰 바위를 세차게 부딪쳐서 공격한다. 상대를 풀죽게 만들 때가 있다."
     },
     {
       "key": "ROCKTHROW",
-      "name_ko": "Rock Throw",
+      "name_ko": "돌떨구기",
       "power": 50,
       "type": "rock",
       "category": 0,
-      "accuracy": 90
+      "accuracy": 90,
+      "pp": 15,
+      "description": "작은 바위를 들어올려 상대에게 내던져서 공격한다."
     },
     {
       "key": "ROLEPLAY",
-      "name_ko": "Role Play",
+      "name_ko": "역할",
       "power": 0,
       "type": "psychic",
       "category": 2,
-      "accuracy": 0
+      "accuracy": 0,
+      "pp": 10,
+      "description": "상대의 역할을 하여 자신도 상대와 같은 특성으로 변화한다."
     },
     {
       "key": "ROLLOUT",
-      "name_ko": "Rollout",
+      "name_ko": "구르기",
       "power": 30,
       "type": "rock",
       "category": 0,
-      "accuracy": 90
+      "accuracy": 90,
+      "pp": 20,
+      "description": "5턴 동안 계속 굴러서 공격한다. 기술이 맞을 때마다 위력이 올라간다."
     },
     {
       "key": "ROOST",
-      "name_ko": "Roost",
+      "name_ko": "날개쉬기",
       "power": 0,
       "type": "flying",
       "category": 2,
-      "accuracy": 0
+      "accuracy": 0,
+      "pp": 5,
+      "description": "땅에 내려와 몸을 쉬게 한다. 최대 HP의 절반만큼 HP를 회복한다."
     },
     {
       "key": "ROUND",
-      "name_ko": "Round",
+      "name_ko": "돌림노래",
       "power": 60,
       "type": "normal",
       "category": 1,
-      "accuracy": 100
+      "accuracy": 100,
+      "pp": 15,
+      "description": "노래로 상대를 공격한다. 함께 돌림노래를 하면 계속해서 쓸 수 있고 위력도 올라간다."
     },
     {
       "key": "SAFEGUARD",
-      "name_ko": "Safeguard",
+      "name_ko": "신비의부적",
       "power": 0,
       "type": "normal",
       "category": 2,
-      "accuracy": 0
+      "accuracy": 0,
+      "pp": 25,
+      "description": "5턴 동안 이상한 힘의 보호를 받아 상태 이상이 되지 않는다."
     },
     {
       "key": "SANDATTACK",
-      "name_ko": "Sand Attack",
+      "name_ko": "모래뿌리기",
       "power": 0,
       "type": "ground",
       "category": 2,
-      "accuracy": 100
+      "accuracy": 100,
+      "pp": 15,
+      "description": "상대의 얼굴에 모래를 뿌려서 명중률을 떨어뜨린다."
     },
     {
       "key": "SANDSTORM",
-      "name_ko": "Sandstorm",
+      "name_ko": "모래바람",
       "power": 0,
       "type": "rock",
       "category": 2,
-      "accuracy": 0
+      "accuracy": 0,
+      "pp": 10,
+      "description": "5턴 동안 모래바람으로 바위, 땅, 강철타입 이외의 포켓몬에게 데미지를 준다."
     },
     {
       "key": "SANDTOMB",
-      "name_ko": "Sand Tomb",
+      "name_ko": "모래지옥",
       "power": 35,
       "type": "ground",
       "category": 0,
-      "accuracy": 85
+      "accuracy": 85,
+      "pp": 15,
+      "description": "세차게 불어대는 모래바람 속에 4-5턴 동안 상대를 가두어 공격한다."
     },
     {
       "key": "SCARYFACE",
-      "name_ko": "Scary Face",
+      "name_ko": "겁나는얼굴",
       "power": 0,
       "type": "normal",
       "category": 2,
-      "accuracy": 100
+      "accuracy": 100,
+      "pp": 10,
+      "description": "무서운 얼굴로 노려보고 겁주어 상대의 스피드를 크게 떨어뜨린다."
     },
     {
       "key": "SCRATCH",
-      "name_ko": "Scratch",
+      "name_ko": "할퀴기",
       "power": 40,
       "type": "normal",
       "category": 0,
-      "accuracy": 100
+      "accuracy": 100,
+      "pp": 35,
+      "description": "단단하고 뾰족한 날카로운 손톱으로 상대를 할퀴어서 공격한다."
     },
     {
       "key": "SCREECH",
-      "name_ko": "Screech",
+      "name_ko": "싫은소리",
       "power": 0,
       "type": "normal",
       "category": 2,
-      "accuracy": 85
+      "accuracy": 85,
+      "pp": 40,
+      "description": "그만 귀를 막아버리고 싶은 싫은 소리를 내어 상대의 방어를 크게 떨어뜨린다."
     },
     {
       "key": "SEEDBOMB",
-      "name_ko": "Seed Bomb",
+      "name_ko": "씨폭탄",
       "power": 80,
       "type": "grass",
       "category": 0,
-      "accuracy": 100
+      "accuracy": 100,
+      "pp": 15,
+      "description": "단단한 껍질을 가지고 있는 큰 씨앗을 위에서 힘껏 내던져 상대를 공격한다."
     },
     {
       "key": "SEISMICTOSS",
-      "name_ko": "Seismic Toss",
+      "name_ko": "지구던지기",
       "power": 1,
       "type": "fighting",
       "category": 0,
-      "accuracy": 100
+      "accuracy": 100,
+      "pp": 20,
+      "description": "인력을 사용해 내던진다. 자신의 레벨과 똑같은 데미지를 상대에게 준다."
     },
     {
       "key": "SELFDESTRUCT",
-      "name_ko": "Self-Destruct",
+      "name_ko": "자폭",
       "power": 200,
       "type": "normal",
       "category": 0,
-      "accuracy": 100
+      "accuracy": 100,
+      "pp": 5,
+      "description": "폭발을 일으켜서 자신의 주위에 있는 포켓몬을 공격한다. 쓰고 나서 기절하게 된다."
     },
     {
       "key": "SHADOWBALL",
-      "name_ko": "Shadow Ball",
+      "name_ko": "섀도볼",
       "power": 80,
       "type": "ghost",
       "category": 1,
-      "accuracy": 100
+      "accuracy": 100,
+      "pp": 15,
+      "description": "까만 그림자의 덩어리를 내던져서 공격한다. 상대의 특수방어를 떨어뜨릴 때가 있다."
     },
     {
       "key": "SHADOWPUNCH",
-      "name_ko": "Shadow Punch",
+      "name_ko": "섀도펀치",
       "power": 60,
       "type": "ghost",
       "category": 0,
-      "accuracy": 0
+      "accuracy": 0,
+      "pp": 20,
+      "description": "그림자에 섞여 펀치를 날린다. 공격은 반드시 명중한다."
     },
     {
       "key": "SHEERCOLD",
-      "name_ko": "Sheer Cold",
+      "name_ko": "절대영도",
       "power": 1,
       "type": "ice",
       "category": 1,
-      "accuracy": 30
+      "accuracy": 30,
+      "pp": 5,
+      "description": "절대영도의 추위로 상대를 공격한다. 맞으면 일격에 기절한다."
     },
     {
       "key": "SHELLSMASH",
-      "name_ko": "Shell Smash",
+      "name_ko": "껍질깨기",
       "power": 0,
       "type": "normal",
       "category": 2,
-      "accuracy": 0
+      "accuracy": 0,
+      "pp": 15,
+      "description": "껍질을 깨서 자신의 방어와 특수방어를 떨어뜨리지만 공격과 특수공격, 스피드를 크게 올린다."
     },
     {
       "key": "SHOCKWAVE",
-      "name_ko": "Shock Wave",
+      "name_ko": "전격파",
       "power": 60,
       "type": "electric",
       "category": 1,
-      "accuracy": 0
+      "accuracy": 0,
+      "pp": 20,
+      "description": "전격을 재빠르게 상대에게 날린다. 공격은 반드시 명중한다."
     },
     {
       "key": "SING",
-      "name_ko": "Sing",
+      "name_ko": "노래하기",
       "power": 0,
       "type": "normal",
       "category": 2,
-      "accuracy": 55
+      "accuracy": 55,
+      "pp": 15,
+      "description": "기분 좋은 예쁜 노랫소리를 들려주고 상대를 잠듦 상태로 만든다."
     },
     {
       "key": "SKYATTACK",
-      "name_ko": "Sky Attack",
+      "name_ko": "불새",
       "power": 140,
       "type": "flying",
       "category": 0,
-      "accuracy": 90
+      "accuracy": 90,
+      "pp": 5,
+      "description": "2턴째에 상대를 공격한다. 가끔 풀죽게 만든다. 급소에 맞을 확률이 높다."
     },
     {
       "key": "SLACKOFF",
-      "name_ko": "Slack Off",
+      "name_ko": "게으름피우기",
       "power": 0,
       "type": "normal",
       "category": 2,
-      "accuracy": 0
+      "accuracy": 0,
+      "pp": 5,
+      "description": "게으름 피우며 쉰다. 자신의 HP를 최대 HP의 절반만큼 회복한다."
     },
     {
       "key": "SLAM",
-      "name_ko": "Slam",
+      "name_ko": "힘껏치기",
       "power": 80,
       "type": "normal",
       "category": 0,
-      "accuracy": 75
+      "accuracy": 75,
+      "pp": 20,
+      "description": "긴 꼬리나 덩굴 등을 사용해 상대를 힘껏 쳐서 공격한다."
     },
     {
       "key": "SLASH",
-      "name_ko": "Slash",
+      "name_ko": "베어가르기",
       "power": 70,
       "type": "normal",
       "category": 0,
-      "accuracy": 100
+      "accuracy": 100,
+      "pp": 20,
+      "description": "발톱이나 낫 등으로 상대를 베어 갈라서 공격한다. 급소에 맞을 확률이 높다."
     },
     {
       "key": "SLEEPPOWDER",
-      "name_ko": "Sleep Powder",
+      "name_ko": "수면가루",
       "power": 0,
       "type": "grass",
       "category": 2,
-      "accuracy": 75
+      "accuracy": 75,
+      "pp": 15,
+      "description": "잠이 오는 가루를 많이 흩뿌려서 상대를 잠듦 상태로 만든다."
     },
     {
       "key": "SLEEPTALK",
-      "name_ko": "Sleep Talk",
+      "name_ko": "잠꼬대",
       "power": 0,
       "type": "normal",
       "category": 2,
-      "accuracy": 0
+      "accuracy": 0,
+      "pp": 10,
+      "description": "자신이 배운 기술 중 하나를 무작위로 날린다. 자신이 잠들어 있을 때만 쓸 수 있다."
     },
     {
       "key": "SLUDGE",
-      "name_ko": "Sludge",
+      "name_ko": "오물공격",
       "power": 65,
       "type": "poison",
       "category": 1,
-      "accuracy": 100
+      "accuracy": 100,
+      "pp": 20,
+      "description": "더러운 오물을 상대에게 내던져서 공격한다. 독 상태로 만들 때가 있다."
     },
     {
       "key": "SLUDGEBOMB",
-      "name_ko": "Sludge Bomb",
+      "name_ko": "오물폭탄",
       "power": 90,
       "type": "poison",
       "category": 1,
-      "accuracy": 100
+      "accuracy": 100,
+      "pp": 10,
+      "description": "더러운 오물을 상대에게 내던져서 공격한다. 독 상태로 만들 때가 있다."
     },
     {
       "key": "SLUDGEWAVE",
-      "name_ko": "Sludge Wave",
+      "name_ko": "오물웨이브",
       "power": 95,
       "type": "poison",
       "category": 1,
-      "accuracy": 100
+      "accuracy": 100,
+      "pp": 10,
+      "description": "오물 파도로 자신의 주위에 있는 포켓몬을 공격한다. 독 상태로 만들 때가 있다."
     },
     {
       "key": "SMACKDOWN",
-      "name_ko": "Smack Down",
+      "name_ko": "떨어뜨리기",
       "power": 50,
       "type": "rock",
       "category": 0,
-      "accuracy": 100
+      "accuracy": 100,
+      "pp": 15,
+      "description": "돌이나 구슬을 던져서 날고 있는 상대를 공격한다. 맞은 상대는 땅에 떨어진다."
     },
     {
       "key": "SMARTSTRIKE",
-      "name_ko": "Smart Strike",
+      "name_ko": "스마트혼",
       "power": 70,
       "type": "steel",
       "category": 0,
-      "accuracy": 0
+      "accuracy": 0,
+      "pp": 10,
+      "description": "뾰족한 뿔로 상대를 꿰찔러서 공격한다. 공격은 반드시 명중한다."
     },
     {
       "key": "SMOG",
-      "name_ko": "Smog",
+      "name_ko": "스모그",
       "power": 30,
       "type": "poison",
       "category": 1,
-      "accuracy": 70
+      "accuracy": 70,
+      "pp": 20,
+      "description": "더러운 가스를 상대에게 내뿜어 공격한다. 독 상태로 만들 때가 있다."
     },
     {
       "key": "SMOKESCREEN",
-      "name_ko": "Smokescreen",
+      "name_ko": "연막",
       "power": 0,
       "type": "normal",
       "category": 2,
-      "accuracy": 100
+      "accuracy": 100,
+      "pp": 20,
+      "description": "연기나 먹물을 내뿜어 상대의 명중률을 떨어뜨린다."
     },
     {
       "key": "SNORE",
-      "name_ko": "Snore",
+      "name_ko": "코골기",
       "power": 50,
       "type": "normal",
       "category": 1,
-      "accuracy": 100
+      "accuracy": 100,
+      "pp": 15,
+      "description": "자신이 잠들어 있을 때 소음을 내어 공격한다. 상대를 풀죽게 만들 때가 있다."
     },
     {
       "key": "SNOWSCAPE",
@@ -2494,519 +3116,649 @@
       "power": 0,
       "type": "ice",
       "category": 2,
-      "accuracy": 0
+      "accuracy": 0,
+      "pp": 10,
+      "description": "Summons a five-turn snowstorm that boosts the Defense of Ice-type Pokémon."
     },
     {
       "key": "SOAK",
-      "name_ko": "Soak",
+      "name_ko": "물붓기",
       "power": 0,
       "type": "water",
       "category": 2,
-      "accuracy": 100
+      "accuracy": 100,
+      "pp": 20,
+      "description": "많은 물을 끼얹어서 상대를 물타입으로 바꾼다."
     },
     {
       "key": "SOFTBOILED",
-      "name_ko": "Soft-Boiled",
+      "name_ko": "알낳기",
       "power": 0,
       "type": "normal",
       "category": 2,
-      "accuracy": 0
+      "accuracy": 0,
+      "pp": 5,
+      "description": "자신의 HP를 최대 HP의 절반만큼 회복한다. 동료의 HP를 회복시킬 수도 있다."
     },
     {
       "key": "SOLARBEAM",
-      "name_ko": "Solar Beam",
+      "name_ko": "솔라빔",
       "power": 120,
       "type": "grass",
       "category": 1,
-      "accuracy": 100
+      "accuracy": 100,
+      "pp": 10,
+      "description": "1턴째에 빛을 가득 모아 2턴째에 빛의 다발을 발사하여 공격한다."
     },
     {
       "key": "SPARK",
-      "name_ko": "Spark",
+      "name_ko": "스파크",
       "power": 65,
       "type": "electric",
       "category": 0,
-      "accuracy": 100
+      "accuracy": 100,
+      "pp": 20,
+      "description": "전기를 둘러 돌진하여 공격한다. 마비 상태로 만들 때가 있다."
     },
     {
       "key": "SPIKES",
-      "name_ko": "Spikes",
+      "name_ko": "압정뿌리기",
       "power": 0,
       "type": "ground",
       "category": 2,
-      "accuracy": 0
+      "accuracy": 0,
+      "pp": 20,
+      "description": "상대의 발밑에 압정을 뿌린다. 교체된 상대 포켓몬에게 데미지를 준다."
     },
     {
       "key": "SPITE",
-      "name_ko": "Spite",
+      "name_ko": "원한",
       "power": 0,
       "type": "ghost",
       "category": 2,
-      "accuracy": 100
+      "accuracy": 100,
+      "pp": 10,
+      "description": "상대가 마지막으로 사용한 기술에 원한을 품어 그 기술의 PP를 4만큼 줄인다."
     },
     {
       "key": "SPITUP",
-      "name_ko": "Spit Up",
+      "name_ko": "토해내기",
       "power": 1,
       "type": "normal",
       "category": 1,
-      "accuracy": 100
+      "accuracy": 100,
+      "pp": 10,
+      "description": "비축된 힘을 상대에게 부딪쳐서 공격한다. 비축된 만큼 위력이 올라간다."
     },
     {
       "key": "SPLASH",
-      "name_ko": "Splash",
+      "name_ko": "튀어오르기",
       "power": 0,
       "type": "normal",
       "category": 2,
-      "accuracy": 0
+      "accuracy": 0,
+      "pp": 40,
+      "description": "공격도 하지 않고 팔딱팔딱 튈 뿐 아무 일도 일어나지 않는다..."
     },
     {
       "key": "SPORE",
-      "name_ko": "Spore",
+      "name_ko": "버섯포자",
       "power": 0,
       "type": "grass",
       "category": 2,
-      "accuracy": 100
+      "accuracy": 100,
+      "pp": 15,
+      "description": "최면 효과가 있는 포자를 흩뿌려서 상대를 잠듦 상태로 만든다."
     },
     {
       "key": "STEALTHROCK",
-      "name_ko": "Stealth Rock",
+      "name_ko": "스텔스록",
       "power": 0,
       "type": "rock",
       "category": 2,
-      "accuracy": 0
+      "accuracy": 0,
+      "pp": 20,
+      "description": "상대의 주위에 무수한 바위를 띄워 교체해서 나온 포켓몬에게 데미지를 준다."
     },
     {
       "key": "STOCKPILE",
-      "name_ko": "Stockpile",
+      "name_ko": "비축하기",
       "power": 0,
       "type": "normal",
       "category": 2,
-      "accuracy": 0
+      "accuracy": 0,
+      "pp": 20,
+      "description": "힘을 비축해서 자신의 방어와 특수방어를 올린다. 최대 3회까지 비축할 수 있다."
     },
     {
       "key": "STOMP",
-      "name_ko": "Stomp",
+      "name_ko": "짓밟기",
       "power": 65,
       "type": "normal",
       "category": 0,
-      "accuracy": 100
+      "accuracy": 100,
+      "pp": 20,
+      "description": "큰 발로 상대를 짓밟아서 공격한다. 상대를 풀이 죽게 할 때가 있다."
     },
     {
       "key": "STOMPINGTANTRUM",
-      "name_ko": "Stomping Tantrum",
+      "name_ko": "분함의발구르기",
       "power": 75,
       "type": "ground",
       "category": 0,
-      "accuracy": 100
+      "accuracy": 100,
+      "pp": 10,
+      "description": "분함을 발판삼아 공격한다. 앞 턴에서 기술이 빗나갔다면 위력이 배가 된다."
     },
     {
       "key": "STONEEDGE",
-      "name_ko": "Stone Edge",
+      "name_ko": "스톤에지",
       "power": 100,
       "type": "rock",
       "category": 0,
-      "accuracy": 80
+      "accuracy": 80,
+      "pp": 5,
+      "description": "뾰족한 바위를 상대에게 꿰찔러서 공격한다. 급소에 맞을 확률이 높다."
     },
     {
       "key": "STOREDPOWER",
-      "name_ko": "Stored Power",
+      "name_ko": "어시스트파워",
       "power": 20,
       "type": "psychic",
       "category": 1,
-      "accuracy": 100
+      "accuracy": 100,
+      "pp": 10,
+      "description": "축적된 파워로 상대를 공격한다. 자신의 능력이 올라가 있는 만큼 위력이 오른다."
     },
     {
       "key": "STORMTHROW",
-      "name_ko": "Storm Throw",
+      "name_ko": "업어후리기",
       "power": 60,
       "type": "fighting",
       "category": 0,
-      "accuracy": 100
+      "accuracy": 100,
+      "pp": 10,
+      "description": "강렬한 일격을 상대에게 날린다. 공격은 반드시 급소에 맞는다."
     },
     {
       "key": "STRENGTH",
-      "name_ko": "Strength",
+      "name_ko": "괴력",
       "power": 80,
       "type": "normal",
       "category": 0,
-      "accuracy": 100
+      "accuracy": 100,
+      "pp": 15,
+      "description": "혼신의 힘으로 상대를 세게 때려서 공격한다. 무거운 돌을 밀 수도 있다."
     },
     {
       "key": "STRINGSHOT",
-      "name_ko": "String Shot",
+      "name_ko": "실뿜기",
       "power": 0,
       "type": "bug",
       "category": 2,
-      "accuracy": 95
+      "accuracy": 95,
+      "pp": 40,
+      "description": "입에서 뿜어낸 실을 휘감아서 상대의 스피드를 떨어뜨린다."
     },
     {
       "key": "STUNSPORE",
-      "name_ko": "Stun Spore",
+      "name_ko": "저리가루",
       "power": 0,
       "type": "grass",
       "category": 2,
-      "accuracy": 75
+      "accuracy": 75,
+      "pp": 30,
+      "description": "저리 가루를 많이 흩뿌려서 상대를 마비 상태로 만든다."
     },
     {
       "key": "SUBMISSION",
-      "name_ko": "Submission",
+      "name_ko": "지옥의바퀴",
       "power": 80,
       "type": "fighting",
       "category": 0,
-      "accuracy": 80
+      "accuracy": 80,
+      "pp": 20,
+      "description": "땅에 자신과 함께 상대를 내던져 공격한다. 자신도 조금 데미지를 입는다."
     },
     {
       "key": "SUCKERPUNCH",
-      "name_ko": "Sucker Punch",
+      "name_ko": "기습",
       "power": 70,
       "type": "dark",
       "category": 0,
-      "accuracy": 100
+      "accuracy": 100,
+      "pp": 5,
+      "description": "상대보다 먼저 공격할 수 있다. 상대가 쓴 기술이 공격기술이 아니면 실패한다."
     },
     {
       "key": "SUNNYDAY",
-      "name_ko": "Sunny Day",
+      "name_ko": "쾌청",
       "power": 0,
       "type": "fire",
       "category": 2,
-      "accuracy": 0
+      "accuracy": 0,
+      "pp": 5,
+      "description": "5턴 동안 햇살을 강하게 해서 불꽃타입 기술의 위력을 올린다. 물타입의 위력은 떨어진다."
     },
     {
       "key": "SUPERFANG",
-      "name_ko": "Super Fang",
+      "name_ko": "분노의앞니",
       "power": 1,
       "type": "normal",
       "category": 0,
-      "accuracy": 90
+      "accuracy": 90,
+      "pp": 10,
+      "description": "날카로운 앞니로 강하게 물어서 공격한다. 상대의 HP는 절반이 된다."
     },
     {
       "key": "SUPERPOWER",
-      "name_ko": "Superpower",
+      "name_ko": "엄청난힘",
       "power": 120,
       "type": "fighting",
       "category": 0,
-      "accuracy": 100
+      "accuracy": 100,
+      "pp": 5,
+      "description": "엄청난 힘을 발휘하여 상대를 공격한다. 자신의 공격과 방어가 떨어진다."
     },
     {
       "key": "SUPERSONIC",
-      "name_ko": "Supersonic",
+      "name_ko": "초음파",
       "power": 0,
       "type": "normal",
       "category": 2,
-      "accuracy": 55
+      "accuracy": 55,
+      "pp": 20,
+      "description": "특수한 음파를 몸에서 발산하여 상대를 혼란 상태로 만든다."
     },
     {
       "key": "SURF",
-      "name_ko": "Surf",
+      "name_ko": "파도타기",
       "power": 90,
       "type": "water",
       "category": 1,
-      "accuracy": 100
+      "accuracy": 100,
+      "pp": 15,
+      "description": "큰 파도로 주위에 있는 모든 것을 공격한다."
     },
     {
       "key": "SWAGGER",
-      "name_ko": "Swagger",
+      "name_ko": "뽐내기",
       "power": 0,
       "type": "normal",
       "category": 2,
-      "accuracy": 85
+      "accuracy": 85,
+      "pp": 15,
+      "description": "상대를 화내게 해서 혼란 시킨다. 분노로 상대의 공격은 크게 올라가 버린다."
     },
     {
       "key": "SWALLOW",
-      "name_ko": "Swallow",
+      "name_ko": "꿀꺽",
       "power": 0,
       "type": "normal",
       "category": 2,
-      "accuracy": 0
+      "accuracy": 0,
+      "pp": 10,
+      "description": "비축된 힘을 꿀꺽해서 자신의 HP를 회복한다. 비축된 만큼 회복한다."
     },
     {
       "key": "SWEETKISS",
-      "name_ko": "Sweet Kiss",
+      "name_ko": "천사의키스",
       "power": 0,
       "type": "fairy",
       "category": 2,
-      "accuracy": 75
+      "accuracy": 75,
+      "pp": 10,
+      "description": "천사처럼 귀엽게 키스하여 상대를 혼란 상태로 만든다."
     },
     {
       "key": "SWEETSCENT",
-      "name_ko": "Sweet Scent",
+      "name_ko": "달콤한향기",
       "power": 0,
       "type": "normal",
       "category": 2,
-      "accuracy": 100
+      "accuracy": 100,
+      "pp": 20,
+      "description": "향기로 상대의 회피율을 크게 떨어뜨린다. 풀밭 등에서 쓰면 포켓몬이 다가온다."
     },
     {
       "key": "SWIFT",
-      "name_ko": "Swift",
+      "name_ko": "스피드스타",
       "power": 60,
       "type": "normal",
       "category": 1,
-      "accuracy": 0
+      "accuracy": 0,
+      "pp": 20,
+      "description": "별 모양의 빛을 발사해서 상대를 공격한다. 공격은 반드시 명중한다."
     },
     {
       "key": "SWITCHEROO",
-      "name_ko": "Switcheroo",
+      "name_ko": "바꿔치기",
       "power": 0,
       "type": "dark",
       "category": 2,
-      "accuracy": 100
+      "accuracy": 100,
+      "pp": 10,
+      "description": "눈에 보이지 않는 속도로 자신과 상대가 지닌 물건을 교환한다."
     },
     {
       "key": "SWORDSDANCE",
-      "name_ko": "Swords Dance",
+      "name_ko": "칼춤",
       "power": 0,
       "type": "normal",
       "category": 2,
-      "accuracy": 0
+      "accuracy": 0,
+      "pp": 10,
+      "description": "싸움의 춤을 격렬하게 춰서 기세를 높인다. 자신의 공격을 크게 올린다."
     },
     {
       "key": "SYNTHESIS",
-      "name_ko": "Synthesis",
+      "name_ko": "광합성",
       "power": 0,
       "type": "grass",
       "category": 2,
-      "accuracy": 0
+      "accuracy": 0,
+      "pp": 5,
+      "description": "자신의 HP를 회복한다. 날씨에 따라 회복량이 변한다."
     },
     {
       "key": "TACKLE",
-      "name_ko": "Tackle",
+      "name_ko": "몸통박치기",
       "power": 40,
       "type": "normal",
       "category": 0,
-      "accuracy": 100
+      "accuracy": 100,
+      "pp": 35,
+      "description": "상대를 향해서 몸 전체를 부딪쳐가며 공격한다."
     },
     {
       "key": "TAILWHIP",
-      "name_ko": "Tail Whip",
+      "name_ko": "꼬리흔들기",
       "power": 0,
       "type": "normal",
       "category": 2,
-      "accuracy": 100
+      "accuracy": 100,
+      "pp": 30,
+      "description": "꼬리를 좌우로 귀엽게 흔들어 방심을 유도한다. 상대의 방어를 떨어뜨린다."
     },
     {
       "key": "TAILWIND",
-      "name_ko": "Tailwind",
+      "name_ko": "순풍",
       "power": 0,
       "type": "flying",
       "category": 2,
-      "accuracy": 0
+      "accuracy": 0,
+      "pp": 15,
+      "description": "세차게 불어대는 바람의 소용돌이를 만들어 4턴 동안 같은 편 모두의 스피드를 올린다."
     },
     {
       "key": "TAKEDOWN",
-      "name_ko": "Take Down",
+      "name_ko": "돌진",
       "power": 90,
       "type": "normal",
       "category": 0,
-      "accuracy": 85
+      "accuracy": 85,
+      "pp": 20,
+      "description": "굉장한 기세로 상대에게 부딪쳐 공격한다. 자신도 조금 데미지를 입는다."
     },
     {
       "key": "TAUNT",
-      "name_ko": "Taunt",
+      "name_ko": "도발",
       "power": 0,
       "type": "dark",
       "category": 2,
-      "accuracy": 100
+      "accuracy": 100,
+      "pp": 20,
+      "description": "상대를 화나게 한다. 3턴 동안 상대는 데미지를 주는 기술밖에 쓸 수 없게 된다."
     },
     {
       "key": "TEETERDANCE",
-      "name_ko": "Teeter Dance",
+      "name_ko": "흔들흔들댄스",
       "power": 0,
       "type": "normal",
       "category": 2,
-      "accuracy": 100
+      "accuracy": 100,
+      "pp": 20,
+      "description": "흔들흔들 댄스를 춰서 주위에 있는 모두를 혼란 상태로 만든다."
     },
     {
       "key": "TELEPORT",
-      "name_ko": "Teleport",
+      "name_ko": "순간이동",
       "power": 0,
       "type": "psychic",
       "category": 2,
-      "accuracy": 0
+      "accuracy": 0,
+      "pp": 20,
+      "description": "야생 포켓몬과 배틀을 그만둔다. 마지막에 들어갔던 포켓몬 센터가 있는 도시에도 갈 수 있다."
     },
     {
       "key": "THRASH",
-      "name_ko": "Thrash",
+      "name_ko": "난동부리기",
       "power": 120,
       "type": "normal",
       "category": 0,
-      "accuracy": 100
+      "accuracy": 100,
+      "pp": 10,
+      "description": "2-3턴 동안 마구 난동 부려서 공격한다. 난동 부린 뒤에는 혼란에 빠진다."
     },
     {
       "key": "THUNDER",
-      "name_ko": "Thunder",
+      "name_ko": "번개",
       "power": 110,
       "type": "electric",
       "category": 1,
-      "accuracy": 70
+      "accuracy": 70,
+      "pp": 10,
+      "description": "강한 번개를 상대에게 떨어뜨려 공격한다. 마비 상태로 만들 때가 있다."
     },
     {
       "key": "THUNDERBOLT",
-      "name_ko": "Thunderbolt",
+      "name_ko": "10만볼트",
       "power": 90,
       "type": "electric",
       "category": 1,
-      "accuracy": 100
+      "accuracy": 100,
+      "pp": 15,
+      "description": "강한 전격을 상대에게 날려서 공격한다. 마비 상태로 만들 때가 있다."
     },
     {
       "key": "THUNDERFANG",
-      "name_ko": "Thunder Fang",
+      "name_ko": "번개엄니",
       "power": 65,
       "type": "electric",
       "category": 0,
-      "accuracy": 95
+      "accuracy": 95,
+      "pp": 15,
+      "description": "전기를 모은 이빨로 문다. 상대를 풀죽게 하거나 마비 상태로 만들 때가 있다."
     },
     {
       "key": "THUNDERPUNCH",
-      "name_ko": "Thunder Punch",
+      "name_ko": "번개펀치",
       "power": 75,
       "type": "electric",
       "category": 0,
-      "accuracy": 100
+      "accuracy": 100,
+      "pp": 15,
+      "description": "전격을 담은 펀치로 상대를 공격한다. 마비 상태로 만들 때가 있다."
     },
     {
       "key": "THUNDERSHOCK",
-      "name_ko": "Thunder Shock",
+      "name_ko": "전기쇼크",
       "power": 40,
       "type": "electric",
       "category": 1,
-      "accuracy": 100
+      "accuracy": 100,
+      "pp": 30,
+      "description": "전기 자극을 상대에게 날려서 공격한다. 마비 상태로 만들 때가 있다."
     },
     {
       "key": "THUNDERWAVE",
-      "name_ko": "Thunder Wave",
+      "name_ko": "전기자석파",
       "power": 0,
       "type": "electric",
       "category": 2,
-      "accuracy": 90
+      "accuracy": 90,
+      "pp": 20,
+      "description": "약한 전격을 날려서 상대를 마비 상태로 만든다."
     },
     {
       "key": "TICKLE",
-      "name_ko": "Tickle",
+      "name_ko": "간지르기",
       "power": 0,
       "type": "normal",
       "category": 2,
-      "accuracy": 100
+      "accuracy": 100,
+      "pp": 20,
+      "description": "몸을 간질여 웃게 만들어서 상대의 공격과 방어를 떨어뜨린다."
     },
     {
       "key": "TOXIC",
-      "name_ko": "Toxic",
+      "name_ko": "맹독",
       "power": 0,
       "type": "poison",
       "category": 2,
-      "accuracy": 90
+      "accuracy": 90,
+      "pp": 10,
+      "description": "상대를 맹독의 상태로 만든다. 턴이 진행될수록 독의 데미지가 증가한다."
     },
     {
       "key": "TOXICSPIKES",
-      "name_ko": "Toxic Spikes",
+      "name_ko": "독압정",
       "power": 0,
       "type": "poison",
       "category": 2,
-      "accuracy": 0
+      "accuracy": 0,
+      "pp": 20,
+      "description": "상대의 발밑에 독압정을 뿌린다. 교체로 나온 상대 포켓몬에 독을 덮어씌운다."
     },
     {
       "key": "TRANSFORM",
-      "name_ko": "Transform",
+      "name_ko": "변신",
       "power": 0,
       "type": "normal",
       "category": 2,
-      "accuracy": 0
+      "accuracy": 0,
+      "pp": 10,
+      "description": "상대 포켓몬으로 변신하여 상대와 완전히 똑같은 기술을 사용할 수 있다."
     },
     {
       "key": "TRIATTACK",
-      "name_ko": "Tri Attack",
+      "name_ko": "트라이어택",
       "power": 80,
       "type": "normal",
       "category": 1,
-      "accuracy": 100
+      "accuracy": 100,
+      "pp": 10,
+      "description": "3개의 광선으로 공격한다. 마비, 화상 또는 얼음 상태로 만들 때가 있다."
     },
     {
       "key": "TWISTER",
-      "name_ko": "Twister",
+      "name_ko": "회오리",
       "power": 40,
       "type": "dragon",
       "category": 1,
-      "accuracy": 100
+      "accuracy": 100,
+      "pp": 20,
+      "description": "회오리를 일으켜 상대를 끌어들여 공격한다. 상대를 풀죽게 만들 때가 있다."
     },
     {
       "key": "UPROAR",
-      "name_ko": "Uproar",
+      "name_ko": "소란피기",
       "power": 90,
       "type": "normal",
       "category": 1,
-      "accuracy": 100
+      "accuracy": 100,
+      "pp": 10,
+      "description": "2-5턴 동안 소란피워 공격한다. 그 동안은 아무도 잠들지 않게 된다."
     },
     {
       "key": "VACUUMWAVE",
-      "name_ko": "Vacuum Wave",
+      "name_ko": "진공파",
       "power": 40,
       "type": "fighting",
       "category": 1,
-      "accuracy": 100
+      "accuracy": 100,
+      "pp": 30,
+      "description": "주먹을 흔들어 진공의 파도를 일으킨다. 반드시 선제 공격을 할 수 있다."
     },
     {
       "key": "VENOSHOCK",
-      "name_ko": "Venoshock",
+      "name_ko": "베놈쇼크",
       "power": 65,
       "type": "poison",
       "category": 1,
-      "accuracy": 100
+      "accuracy": 100,
+      "pp": 10,
+      "description": "특수한 독액을 끼얹는다. 독 상태의 상대에게는 위력이 2배가 된다."
     },
     {
       "key": "VINEWHIP",
-      "name_ko": "Vine Whip",
+      "name_ko": "덩굴채찍",
       "power": 45,
       "type": "grass",
       "category": 0,
-      "accuracy": 100
+      "accuracy": 100,
+      "pp": 25,
+      "description": "채찍처럼 휘어지는 가늘고 긴 덩굴로 상대를 힘껏 쳐서 공격한다."
     },
     {
       "key": "VISEGRIP",
-      "name_ko": "Vise Grip",
+      "name_ko": "찝기",
       "power": 55,
       "type": "normal",
       "category": 0,
-      "accuracy": 100
+      "accuracy": 100,
+      "pp": 30,
+      "description": "상대를 양쪽에서 집어서 데미지를 준다."
     },
     {
       "key": "VITALTHROW",
-      "name_ko": "Vital Throw",
+      "name_ko": "받아던지기",
       "power": 70,
       "type": "fighting",
       "category": 0,
-      "accuracy": 0
+      "accuracy": 0,
+      "pp": 10,
+      "description": "상대보다 나중에 공격한다. 그 대신 자신의 공격은 반드시 명중한다."
     },
     {
       "key": "VOLTTACKLE",
-      "name_ko": "Volt Tackle",
+      "name_ko": "볼트태클",
       "power": 120,
       "type": "electric",
       "category": 0,
-      "accuracy": 100
+      "accuracy": 100,
+      "pp": 15,
+      "description": "전기를 한데 모아 돌진한다. 자신도 상당한 데미지를 입는다. 마비 상태로 만들 때가 있다."
     },
     {
       "key": "WATERFALL",
-      "name_ko": "Waterfall",
+      "name_ko": "폭포오르기",
       "power": 80,
       "type": "water",
       "category": 0,
-      "accuracy": 100
+      "accuracy": 100,
+      "pp": 15,
+      "description": "굉장한 기세로 상대에게 돌진하여 공격한다. 흘러내리는 폭포도 거슬러 올라갈 수 있다."
     },
     {
       "key": "WATERGUN",
-      "name_ko": "Water Gun",
+      "name_ko": "물대포",
       "power": 40,
       "type": "water",
       "category": 1,
-      "accuracy": 100
+      "accuracy": 100,
+      "pp": 25,
+      "description": "물을 기세 좋게 상대에게 발사하여 공격한다."
     },
     {
       "key": "WATERPULSE",
-      "name_ko": "Water Pulse",
+      "name_ko": "물의파동",
       "power": 60,
       "type": "water",
       "category": 1,
-      "accuracy": 100
+      "accuracy": 100,
+      "pp": 20,
+      "description": "물의 진동을 상대에게 가하여 공격한다. 상대를 혼란 시킬 때가 있다."
     },
     {
       "key": "WAVECRASH",
@@ -3014,127 +3766,159 @@
       "power": 120,
       "type": "water",
       "category": 0,
-      "accuracy": 100
+      "accuracy": 100,
+      "pp": 10,
+      "description": "The user shrouds itself in water and slams into the target. This also damages the user."
     },
     {
       "key": "WHIRLPOOL",
-      "name_ko": "Whirlpool",
+      "name_ko": "바다회오리",
       "power": 35,
       "type": "water",
       "category": 1,
-      "accuracy": 85
+      "accuracy": 85,
+      "pp": 15,
+      "description": "세차게 소용돌이치는 물속에 4-5턴 동안 상대를 가두어 공격한다."
     },
     {
       "key": "WHIRLWIND",
-      "name_ko": "Whirlwind",
+      "name_ko": "날려버리기",
       "power": 0,
       "type": "normal",
       "category": 2,
-      "accuracy": 0
+      "accuracy": 0,
+      "pp": 20,
+      "description": "상대를 날려버려서 교대할 포켓몬을 끌어낸다. 야생의 경우에는 배틀이 끝난다."
     },
     {
       "key": "WIDEGUARD",
-      "name_ko": "Wide Guard",
+      "name_ko": "와이드가드",
       "power": 0,
       "type": "rock",
       "category": 2,
-      "accuracy": 0
+      "accuracy": 0,
+      "pp": 10,
+      "description": "같은 편 전원에게 향하는 공격을 1턴 동안 막는다."
     },
     {
       "key": "WILLOWISP",
-      "name_ko": "Will-O-Wisp",
+      "name_ko": "도깨비불",
       "power": 0,
       "type": "fire",
       "category": 2,
-      "accuracy": 85
+      "accuracy": 85,
+      "pp": 15,
+      "description": "으스스하고 괴상한 불꽃을 쏘아 상대를 화상 상태로 만든다."
     },
     {
       "key": "WINGATTACK",
-      "name_ko": "Wing Attack",
+      "name_ko": "날개치기",
       "power": 60,
       "type": "flying",
       "category": 0,
-      "accuracy": 100
+      "accuracy": 100,
+      "pp": 35,
+      "description": "크게 펼친 훌륭한 날개를 상대에게 부딪쳐서 공격한다."
     },
     {
       "key": "WITHDRAW",
-      "name_ko": "Withdraw",
+      "name_ko": "껍질에숨기",
       "power": 0,
       "type": "water",
       "category": 2,
-      "accuracy": 0
+      "accuracy": 0,
+      "pp": 40,
+      "description": "껍질에 숨어 몸을 보호하여 자신의 방어를 올린다."
     },
     {
       "key": "WONDERROOM",
-      "name_ko": "Wonder Room",
+      "name_ko": "원더룸",
       "power": 0,
       "type": "psychic",
       "category": 2,
-      "accuracy": 0
+      "accuracy": 0,
+      "pp": 10,
+      "description": "이상한 공간을 만든다. 5턴 동안 모든 포켓몬의 방어와 특수방어가 바뀐다."
     },
     {
       "key": "WOODHAMMER",
-      "name_ko": "Wood Hammer",
+      "name_ko": "우드해머",
       "power": 120,
       "type": "grass",
       "category": 0,
-      "accuracy": 100
+      "accuracy": 100,
+      "pp": 15,
+      "description": "단단한 몸통을 상대에게 부딪쳐서 공격한다. 자신도 상당한 데미지를 입는다."
     },
     {
       "key": "WORKUP",
-      "name_ko": "Work Up",
+      "name_ko": "분발",
       "power": 0,
       "type": "normal",
       "category": 2,
-      "accuracy": 0
+      "accuracy": 0,
+      "pp": 30,
+      "description": "스스로 분발해서 공격과 특수공격을 올린다."
     },
     {
       "key": "WORRYSEED",
-      "name_ko": "Worry Seed",
+      "name_ko": "고민씨",
       "power": 0,
       "type": "grass",
       "category": 2,
-      "accuracy": 100
+      "accuracy": 100,
+      "pp": 10,
+      "description": "마음을 괴롭히는 씨앗을 심는다. 상대를 잠잘 수 없게 해서 특성을 불면으로 만든다."
     },
     {
       "key": "WRAP",
-      "name_ko": "Wrap",
+      "name_ko": "김밥말이",
       "power": 15,
       "type": "normal",
       "category": 0,
-      "accuracy": 90
+      "accuracy": 90,
+      "pp": 20,
+      "description": "긴 몸이나 덩굴을 사용해 4-5턴 동안 상대를 휘감아 공격한다."
     },
     {
       "key": "XSCISSOR",
-      "name_ko": "X-Scissor",
+      "name_ko": "시저크로스",
       "power": 80,
       "type": "bug",
       "category": 0,
-      "accuracy": 100
+      "accuracy": 100,
+      "pp": 15,
+      "description": "낫이나 발톱을 가위처럼 교차시키면서 상대를 베어 가른다."
     },
     {
       "key": "YAWN",
-      "name_ko": "Yawn",
+      "name_ko": "하품",
       "power": 0,
       "type": "normal",
       "category": 2,
-      "accuracy": 0
+      "accuracy": 0,
+      "pp": 10,
+      "description": "큰 하품으로 졸음을 유도한다. 다음 턴에 상대를 잠듦 상태로 만든다."
     },
     {
       "key": "ZAPCANNON",
-      "name_ko": "Zap Cannon",
+      "name_ko": "전자포",
       "power": 120,
       "type": "electric",
       "category": 1,
-      "accuracy": 50
+      "accuracy": 50,
+      "pp": 5,
+      "description": "대포처럼 전기를 발사해서 공격한다. 상대를 마비 상태로 만든다."
     },
     {
       "key": "ZENHEADBUTT",
-      "name_ko": "Zen Headbutt",
+      "name_ko": "사념의박치기",
       "power": 80,
       "type": "psychic",
       "category": 0,
-      "accuracy": 90
+      "accuracy": 90,
+      "pp": 15,
+      "description": "사념의 힘을 이마에 모아서 공격한다. 상대를 풀죽게 만들 때가 있다."
     }
   ]
 }
