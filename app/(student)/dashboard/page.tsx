@@ -3,7 +3,7 @@ import { redirect } from "next/navigation";
 import { requireRole } from "@/lib/auth";
 import { createClient } from "@/lib/supabase/server";
 import { getSpeciesInfo } from "@/lib/queries";
-import { PokemonCard } from "@/components/pokemon/PokemonCard";
+import { PendingQuestions } from "@/components/questions/PendingQuestions";
 import { CoinBalance } from "@/components/ui/CoinBalance";
 
 export default async function DashboardPage() {
@@ -21,6 +21,21 @@ export default async function DashboardPage() {
   const active = pets.find((p: any) => p.is_active) ?? pets[0];
   const info = await getSpeciesInfo(pets.map((p: any) => p.current_species_id));
   const activeInfo = info.get(active.current_species_id);
+
+  // 미답변 질문 수 (활성 포켓몬에 ! 표시)
+  const { data: qTargets } = await supabase
+    .from("question_targets")
+    .select("question_id, questions(is_active)")
+    .eq("student_id", profile.id);
+  const { data: qAnswers } = await supabase
+    .from("question_answers")
+    .select("question_id")
+    .eq("student_id", profile.id);
+  const answeredSet = new Set((qAnswers ?? []).map((a: any) => a.question_id));
+  const pendingQuestions = (qTargets ?? []).filter((t: any) => {
+    const q = Array.isArray(t.questions) ? t.questions[0] : t.questions;
+    return q?.is_active && !answeredSet.has(t.question_id);
+  }).length;
 
   // 검사 대기/제출 가능 숙제 수.
   const { data: assignments } = await supabase
@@ -50,8 +65,10 @@ export default async function DashboardPage() {
       <div className="grid gap-6 sm:grid-cols-2">
         <div>
           <h2 className="mb-2 text-sm font-semibold text-slate-500">내 대표 포켓몬</h2>
-          <PokemonCard
-            data={{
+          <PendingQuestions
+            studentId={profile.id}
+            initialPending={pendingQuestions}
+            card={{
               nameKo: activeInfo?.nameKo ?? "",
               name: activeInfo?.name ?? "",
               nickname: active.nickname,

@@ -7,6 +7,7 @@ const items = [
   { href: "/admin/pokemon", label: "포켓몬 데이터", icon: "📦" },
   { href: "/admin/starters", label: "스타터", icon: "✨" },
   { href: "/admin/shop", label: "상점", icon: "🛒" },
+  { href: "/admin/questions", label: "질문", icon: "💬" },
   // 관리자도 선생님 기능(숙제 검사/수업 관리)을 바로 쓸 수 있게.
   { href: "/queue", label: "검사 큐", icon: "✅" },
   { href: "/classes", label: "수업 반", icon: "👨‍🏫" },
