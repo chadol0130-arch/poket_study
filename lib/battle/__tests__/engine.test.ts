@@ -39,6 +39,7 @@ function mk(over: Partial<Combatant> = {}): Combatant {
     maxHp: 60,
     hp: 60,
     moves: [],
+    spriteUrl: null,
     ...over,
   };
 }

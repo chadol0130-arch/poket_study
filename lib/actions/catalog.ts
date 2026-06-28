@@ -124,13 +124,21 @@ export async function seedCatalog(json: string): Promise<ActionResult> {
   }
 
   // 5) 레벨업 학습세트(species_moves) 업서트 — 배틀용
-  const moveRows = rows.flatMap((r) =>
-    (r.moves ?? []).map(([lvl, key]) => ({
-      species_id: speciesIdByDex.get(r.pokedex_number)!,
-      move_key: key,
-      level_learned: lvl,
-    })),
-  );
+  //    같은 종이 같은 기술을 여러 레벨에 배우는 경우가 있어(예: 독침붕 독침 L1·L17),
+  //    (species_id, move_key) 중복을 제거하고 가장 낮은 레벨만 남긴다.
+  //    (안 그러면 ON CONFLICT 가 같은 행을 두 번 건드려 에러)
+  const moveRowMap = new Map<string, { species_id: string; move_key: string; level_learned: number }>();
+  for (const r of rows) {
+    const sid = speciesIdByDex.get(r.pokedex_number)!;
+    for (const [lvl, key] of r.moves ?? []) {
+      const k = `${sid}|${key}`;
+      const prev = moveRowMap.get(k);
+      if (!prev || lvl < prev.level_learned) {
+        moveRowMap.set(k, { species_id: sid, move_key: key, level_learned: lvl });
+      }
+    }
+  }
+  const moveRows = Array.from(moveRowMap.values());
   if (moveRows.length > 0) {
     const { error: smErr } = await supabase
       .from("species_moves")
