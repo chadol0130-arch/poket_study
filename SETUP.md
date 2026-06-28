@@ -48,6 +48,8 @@ Supabase는 회원·데이터·사진을 저장하는 무료 백엔드예요.
    → 사진 저장소(버킷) `homework-photos`, `pokemon-sprites` 가 자동으로 만들어져요 ✅
 4. 한 번 더 **New query** → **`supabase/migrations/0003_sprite_icon_variant.sql`** 붙여넣고 **Run**
    → 포켓몬 아이콘 저장이 가능해져요 ✅
+5. 마지막으로 **New query** → **`supabase/migrations/0004_daily_logs.sql`** 붙여넣고 **Run**
+   → 학습 캘린더(날짜별 기록) 기능이 켜져요 ✅
 
 > 📌 GitHub에서 파일 내용 보는 법: 저장소에서 해당 파일을 클릭 → 오른쪽 위
 > **Raw** 또는 복사 아이콘으로 전체 복사.
