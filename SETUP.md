@@ -162,6 +162,27 @@ Vercel은 이 앱을 인터넷에 띄워주는 무료 서비스예요.
 
 ---
 
+## (선택) 구글 로그인 켜기
+로그인 화면의 **"구글로 로그인"** 버튼을 동작시키려면 아래 설정이 필요해요 (약 10~15분).
+
+1. **Supabase URL 설정** — Authentication → **URL Configuration**
+   - **Site URL** = 배포 주소 (예: `https://....vercel.app`)
+   - **Redirect URLs**에 추가: `https://....vercel.app/auth/callback`
+     (로컬 테스트도 하면 `http://localhost:3000/auth/callback` 도 추가)
+2. **Supabase에서 콜백 URL 확인** — Authentication → **Providers → Google**
+   - 화면에 표시되는 **콜백 URL**(`https://<프로젝트ref>.supabase.co/auth/v1/callback`)을 복사
+3. **Google Cloud에서 OAuth 클라이언트 만들기** — https://console.cloud.google.com
+   - 프로젝트 생성 → **APIs & Services → OAuth consent screen** 구성 (External, 앱 이름, 이메일)
+   - **Credentials → Create Credentials → OAuth client ID → Web application**
+   - **Authorized redirect URIs**에 2번에서 복사한 **Supabase 콜백 URL** 붙여넣기
+   - 생성된 **Client ID / Client Secret** 복사
+4. **Supabase에 입력** — Authentication → Providers → Google → **Enable** → Client ID/Secret 붙여넣고 **Save**
+5. 끝! 로그인 화면의 "구글로 로그인" 버튼이 작동합니다.
+
+> ⚠️ 구글로 **처음** 로그인한 사람은 자동으로 **'학생'** 으로 생성돼요. 선생님/관리자로 쓰려면
+> 관리자가 **계정** 화면에서 역할을 바꿔주세요. 또 아무나 구글로 가입할 수 있으니, 외부 공개가
+> 부담되면 구글 로그인은 끄고 **이메일 계정 발급만** 쓰셔도 됩니다.
+
 ## 문제 해결 / 자주 묻는 질문
 
 **Q. 로그인했는데 화면이 비어 있거나 에러가 나요.**

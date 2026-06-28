@@ -5,6 +5,7 @@ import { CoinBalance } from "@/components/ui/CoinBalance";
 const items = [
   { href: "/dashboard", label: "홈", icon: "🏠" },
   { href: "/my-pokemon", label: "내 포켓몬", icon: "🐾" },
+  { href: "/pokedex", label: "도감", icon: "📖" },
   { href: "/assignments", label: "숙제", icon: "📒" },
   { href: "/shop", label: "상점", icon: "🛒" },
 ];
