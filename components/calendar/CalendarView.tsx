@@ -1,8 +1,25 @@
 "use client";
 
 /* eslint-disable @next/next/no-img-element */
-import { useCallback, useEffect, useState } from "react";
+import { useCallback, useEffect, useState, useTransition } from "react";
+import { useRouter } from "next/navigation";
 import { createClient } from "@/lib/supabase/client";
+import { startBossBattle, startWildBattle } from "@/lib/actions/battle";
+
+interface Boss {
+  encounterId: string;
+  name: string;
+  level: number;
+  won: boolean;
+}
+
+// 학생+날짜로 결정적으로 '흔들리는 수풀' 날을 정한다(주 2~3일 느낌).
+function isGrassDay(studentId: string, dateStr: string): boolean {
+  let h = 0;
+  const s = studentId.slice(0, 8) + dateStr;
+  for (let i = 0; i < s.length; i++) h = (h * 31 + s.charCodeAt(i)) >>> 0;
+  return h % 7 < 2;
+}
 
 interface DailyLog {
   id: string;
@@ -35,8 +52,12 @@ export function CalendarView({ studentId }: { studentId: string }) {
   const [month, setMonth] = useState(today.getMonth()); // 0-based
   const [logs, setLogs] = useState<Record<string, DailyLog>>({});
   const [thumbs, setThumbs] = useState<Record<string, string>>({});
+  const [bosses, setBosses] = useState<Record<string, Boss>>({});
   const [selected, setSelected] = useState<string | null>(todayStr);
+  const [battleError, setBattleError] = useState<string | null>(null);
+  const [pending, startTransition] = useTransition();
 
+  const router = useRouter();
   const supabase = createClient();
 
   const load = useCallback(async () => {
@@ -71,11 +92,70 @@ export function CalendarView({ studentId }: { studentId: string }) {
       });
     }
     setThumbs(t);
+
+    // 이번 달 보스(나에게 배치된 것) + 클리어 여부
+    const { data: tgts } = await supabase
+      .from("encounter_targets")
+      .select(
+        "encounter_id, battle_encounters(id, kind, level, encounter_date, is_active, species_id)",
+      )
+      .eq("student_id", studentId);
+    const encs = (tgts ?? [])
+      .map((t: any) => (Array.isArray(t.battle_encounters) ? t.battle_encounters[0] : t.battle_encounters))
+      .filter(
+        (e: any) =>
+          e && e.kind === "boss" && e.is_active && e.encounter_date >= start && e.encounter_date <= end,
+      );
+    const { data: wonRows } = await supabase
+      .from("battles")
+      .select("encounter_id")
+      .eq("student_id", studentId)
+      .eq("status", "won")
+      .not("encounter_id", "is", null);
+    const wonSet = new Set((wonRows ?? []).map((w: any) => w.encounter_id));
+
+    // 종 이름
+    const spIds = Array.from(new Set(encs.map((e: any) => e.species_id)));
+    const nameById = new Map<string, string>();
+    if (spIds.length) {
+      const { data: sps } = await supabase
+        .from("pokemon_species")
+        .select("id, name, name_ko")
+        .in("id", spIds);
+      (sps ?? []).forEach((s: any) => nameById.set(s.id, s.name_ko || s.name));
+    }
+    const bmap: Record<string, Boss> = {};
+    encs.forEach((e: any) => {
+      bmap[e.encounter_date] = {
+        encounterId: e.id,
+        name: nameById.get(e.species_id) ?? "보스",
+        level: e.level,
+        won: wonSet.has(e.id),
+      };
+    });
+    setBosses(bmap);
   }, [year, month, studentId, supabase]);
 
   useEffect(() => {
     load();
   }, [load]);
+
+  function goBoss(encounterId: string) {
+    setBattleError(null);
+    startTransition(async () => {
+      const res = await startBossBattle(encounterId);
+      if ("error" in res) return setBattleError(res.error);
+      router.push(`/battle/${res.battleId}`);
+    });
+  }
+  function goWild(dateStr: string) {
+    setBattleError(null);
+    startTransition(async () => {
+      const res = await startWildBattle(dateStr);
+      if ("error" in res) return setBattleError(res.error);
+      router.push(`/battle/${res.battleId}`);
+    });
+  }
 
   function prevMonth() {
     const d = new Date(year, month - 1, 1);
@@ -124,11 +204,15 @@ export function CalendarView({ studentId }: { studentId: string }) {
           const isToday = dateStr === todayStr;
           const isSel = dateStr === selected;
           const st = log ? STATUS[log.status] : null;
+          const boss = bosses[dateStr];
+          const grass = isGrassDay(studentId, dateStr);
           return (
-            <button
+            <div
               key={dateStr}
+              role="button"
+              tabIndex={0}
               onClick={() => setSelected(dateStr)}
-              className={`relative aspect-square rounded-lg border p-1 text-left text-xs transition ${
+              className={`relative aspect-square cursor-pointer rounded-lg border p-1 text-left text-xs transition ${
                 isSel ? "border-poke-blue ring-2 ring-poke-blue/30" : "border-slate-200"
               } ${isToday ? "bg-poke-yellow/10" : "bg-white"} hover:border-poke-blue`}
             >
@@ -139,7 +223,7 @@ export function CalendarView({ studentId }: { studentId: string }) {
                 <img
                   src={thumbs[dateStr]}
                   alt=""
-                  className="absolute inset-x-1 bottom-1 top-5 h-auto w-auto rounded object-cover"
+                  className="absolute inset-x-1 bottom-1 top-5 rounded object-cover"
                   style={{ objectFit: "cover" }}
                 />
               )}
@@ -149,10 +233,42 @@ export function CalendarView({ studentId }: { studentId: string }) {
                   title={st.label}
                 />
               )}
-            </button>
+              {/* 흔들리는 수풀 (오늘만 클릭 가능) */}
+              {grass && !boss && (
+                <span
+                  onClick={(e) => {
+                    e.stopPropagation();
+                    if (isToday && !pending) goWild(dateStr);
+                  }}
+                  title={isToday ? "야생 포켓몬과 배틀!" : "수풀"}
+                  className={`absolute bottom-0.5 left-0.5 text-sm ${
+                    isToday ? "animate-bounce cursor-pointer" : "opacity-40"
+                  }`}
+                >
+                  🌿
+                </span>
+              )}
+              {/* 보스 */}
+              {boss && (
+                <span
+                  onClick={(e) => {
+                    e.stopPropagation();
+                    if (!boss.won && !pending) goBoss(boss.encounterId);
+                  }}
+                  title={boss.won ? `${boss.name} (클리어)` : `${boss.name} Lv${boss.level} 도전!`}
+                  className={`absolute bottom-0.5 left-0.5 text-base ${
+                    boss.won ? "opacity-40" : "animate-pulse cursor-pointer"
+                  }`}
+                >
+                  {boss.won ? "✅" : "👑"}
+                </span>
+              )}
+            </div>
           );
         })}
       </div>
+
+      {battleError && <p className="text-sm text-poke-red">{battleError}</p>}
 
       {/* 선택한 날짜 편집 패널 */}
       {selected && (

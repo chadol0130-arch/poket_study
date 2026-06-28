@@ -194,6 +194,7 @@ def main():
 
     # 체인 키 이름: 베이스 종의 영문 ID 소문자
     species_rows = []
+    used_moves = set()
     for chain in chains:
         base_id = chain[0][0]
         chain_key = base_id.lower()
@@ -211,6 +212,14 @@ def main():
 
             types = [sym(t) for t in a.get("types", [])]
             base_stats = {sym(kk).lower(): vv for kk, vv in a.get("base_stats", {}).items()}
+
+            # 레벨업 학습세트 [[level, MOVEKEY], ...]
+            learnset = []
+            for m in a.get("moves", []):
+                lvl = m[0] if not isinstance(m[0], bool) else 1
+                mv = sym(m[1])
+                learnset.append([int(lvl), mv])
+                used_moves.add(mv)
 
             # 스프라이트 추출
             front = git_blob(args.ref, f"Graphics/Pokemon/Front/{sid}.png")
@@ -232,6 +241,7 @@ def main():
                 "chain": chain_key,
                 "stage_order": stage_order,
                 "min_level": min_level,
+                "moves": learnset,
             })
 
     species_rows.sort(key=lambda r: r["pokedex_number"])
@@ -245,6 +255,49 @@ def main():
     missing_ko = [r["pokedex_number"] for r in species_rows if not r["name_ko"]]
     if missing_ko:
         print(f"⚠️ 한글명 누락 도감번호: {missing_ko}")
+
+    # ---- 배틀 데이터: 기술(moves) ----
+    moves_data = loads(git_blob(args.ref, "Data/moves.dat"))
+    move_rows = []
+    for k, v in moves_data.items():
+        key = sym(k)
+        if key not in used_moves:
+            continue
+        ma = attrs(v)
+        move_rows.append({
+            "key": key,
+            "name_ko": rstr(ma.get("real_name")) or key.title(),
+            "power": int(ma.get("power") or 0),
+            "type": (sym(ma.get("type")) or "NORMAL").lower(),
+            "category": int(ma.get("category")) if ma.get("category") is not None else 2,
+            "accuracy": int(ma.get("accuracy")) if ma.get("accuracy") is not None else 100,
+        })
+    move_rows.sort(key=lambda m: m["key"])
+    with open(os.path.join(out_dir, "moves.json"), "w", encoding="utf-8") as f:
+        json.dump({"moves": move_rows}, f, ensure_ascii=False, indent=2)
+    missing_moves = used_moves - {m["key"] for m in move_rows}
+    print(f"✅ 기술 {len(move_rows)}개 → moves.json"
+          + (f" (누락 {len(missing_moves)})" if missing_moves else ""))
+
+    # ---- 배틀 데이터: 타입 상성표 ----
+    types_data = loads(git_blob(args.ref, "Data/types.dat"))
+    type_chart = {}
+    for k, v in types_data.items():
+        ta = attrs(v)
+        key = sym(k).lower()
+        type_chart[key] = {
+            "weaknesses": [sym(x).lower() for x in ta.get("weaknesses", [])],
+            "resistances": [sym(x).lower() for x in ta.get("resistances", [])],
+            "immunities": [sym(x).lower() for x in ta.get("immunities", [])],
+        }
+    with open(os.path.join(out_dir, "type_chart.json"), "w", encoding="utf-8") as f:
+        json.dump(type_chart, f, ensure_ascii=False, indent=2)
+    print(f"✅ 타입 {len(type_chart)}개 → type_chart.json")
+
+    # ---- 관리자 임포트용 통합 파일(한 번에 붙여넣기) ----
+    with open(os.path.join(out_dir, "battle_data.json"), "w", encoding="utf-8") as f:
+        json.dump({"moves": move_rows, "type_chart": type_chart}, f, ensure_ascii=False, indent=2)
+    print("✅ 통합 → battle_data.json")
 
 
 if __name__ == "__main__":

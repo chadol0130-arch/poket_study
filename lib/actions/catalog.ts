@@ -20,6 +20,7 @@ const SpeciesRow = z.object({
   chain: z.string().min(1), // 같은 진화 라인은 같은 키
   stage_order: z.number().int().min(1),
   min_level: z.number().int().min(1).default(1),
+  moves: z.array(z.tuple([z.number(), z.string()])).optional(), // 레벨업 학습세트 [[lv, KEY]]
 });
 const SeedSchema = z.object({ species: z.array(SpeciesRow).min(1) });
 
@@ -122,6 +123,21 @@ export async function seedCatalog(json: string): Promise<ActionResult> {
     if (imgErr) return { error: `스프라이트 업서트 실패: ${imgErr.message}` };
   }
 
+  // 5) 레벨업 학습세트(species_moves) 업서트 — 배틀용
+  const moveRows = rows.flatMap((r) =>
+    (r.moves ?? []).map(([lvl, key]) => ({
+      species_id: speciesIdByDex.get(r.pokedex_number)!,
+      move_key: key,
+      level_learned: lvl,
+    })),
+  );
+  if (moveRows.length > 0) {
+    const { error: smErr } = await supabase
+      .from("species_moves")
+      .upsert(moveRows, { onConflict: "species_id,move_key" });
+    if (smErr) return { error: `학습세트 업서트 실패: ${smErr.message}` };
+  }
+
   revalidatePath("/admin/pokemon");
   revalidatePath("/admin/starters");
   revalidatePath("/admin/shop");
@@ -187,5 +203,70 @@ export async function upsertShopListing(input: {
   if (error) return { error: error.message };
   revalidatePath("/admin/shop");
   revalidatePath("/shop");
+  return { ok: true };
+}
+
+// 배틀 기초 데이터(기술 + 타입 상성) 임포트
+const BattleDataSchema = z.object({
+  moves: z.array(
+    z.object({
+      key: z.string(),
+      name_ko: z.string().default(""),
+      power: z.number().int().default(0),
+      type: z.string().default("normal"),
+      category: z.number().int().default(2),
+      accuracy: z.number().int().default(100),
+    }),
+  ),
+  type_chart: z.record(
+    z.string(),
+    z.object({
+      weaknesses: z.array(z.string()).default([]),
+      resistances: z.array(z.string()).default([]),
+      immunities: z.array(z.string()).default([]),
+    }),
+  ),
+});
+
+/** 관리자: 배틀 기초 데이터(기술/타입 상성) 업서트. (data/pokemon/battle_data.json) */
+export async function seedBattleData(json: string): Promise<ActionResult> {
+  await requireRole("admin");
+  let payload: unknown;
+  try {
+    payload = JSON.parse(json);
+  } catch {
+    return { error: "JSON 파싱 실패: 형식을 확인하세요." };
+  }
+  const parsed = BattleDataSchema.safeParse(payload);
+  if (!parsed.success) {
+    return { error: parsed.error.issues[0]?.message ?? "입력값 오류" };
+  }
+  const supabase = await createClient();
+
+  const moveRows = parsed.data.moves.map((m) => ({
+    move_key: m.key,
+    name_ko: m.name_ko,
+    power: m.power,
+    move_type: m.type,
+    category: m.category,
+    accuracy: m.accuracy,
+  }));
+  const { error: mErr } = await supabase
+    .from("moves")
+    .upsert(moveRows, { onConflict: "move_key" });
+  if (mErr) return { error: `기술 업서트 실패: ${mErr.message}` };
+
+  const typeRows = Object.entries(parsed.data.type_chart).map(([type, rel]) => ({
+    type,
+    weaknesses: rel.weaknesses,
+    resistances: rel.resistances,
+    immunities: rel.immunities,
+  }));
+  const { error: tErr } = await supabase
+    .from("type_relations")
+    .upsert(typeRows, { onConflict: "type" });
+  if (tErr) return { error: `타입 상성 업서트 실패: ${tErr.message}` };
+
+  revalidatePath("/admin/pokemon");
   return { ok: true };
 }
