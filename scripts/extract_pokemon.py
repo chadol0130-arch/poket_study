@@ -256,6 +256,18 @@ def main():
     if missing_ko:
         print(f"⚠️ 한글명 누락 도감번호: {missing_ko}")
 
+    # ---- 한글 메시지 팩 (기술 한글명/설명) ----
+    # messages_kor_core.dat = list. idx 5 = 기술명(영문→한글), idx 6 = 기술설명(영문→한글)
+    name_ko_map, desc_ko_map = {}, {}
+    try:
+        msgs = loads(git_blob(args.ref, "Data/messages_kor_core.dat"))
+        if isinstance(msgs, list) and len(msgs) > 6:
+            name_ko_map = {rstr(k): rstr(v) for k, v in (msgs[5] or {}).items()}
+            desc_ko_map = {rstr(k): rstr(v) for k, v in (msgs[6] or {}).items()}
+        print(f"한글 메시지 팩 로드: 기술명 {len(name_ko_map)} / 설명 {len(desc_ko_map)}")
+    except Exception as e:
+        print(f"⚠️ 한글 메시지 팩 로드 실패(영문 폴백): {e}")
+
     # ---- 배틀 데이터: 기술(moves) ----
     moves_data = loads(git_blob(args.ref, "Data/moves.dat"))
     move_rows = []
@@ -264,13 +276,17 @@ def main():
         if key not in used_moves:
             continue
         ma = attrs(v)
+        real_name = rstr(ma.get("real_name")) or key.title()
+        real_desc = rstr(ma.get("real_description")) or ""
         move_rows.append({
             "key": key,
-            "name_ko": rstr(ma.get("real_name")) or key.title(),
+            "name_ko": name_ko_map.get(real_name, real_name),
             "power": int(ma.get("power") or 0),
             "type": (sym(ma.get("type")) or "NORMAL").lower(),
             "category": int(ma.get("category")) if ma.get("category") is not None else 2,
             "accuracy": int(ma.get("accuracy")) if ma.get("accuracy") is not None else 100,
+            "pp": int(ma.get("total_pp") or 0),
+            "description": desc_ko_map.get(real_desc, real_desc),
         })
     move_rows.sort(key=lambda m: m["key"])
     with open(os.path.join(out_dir, "moves.json"), "w", encoding="utf-8") as f:
