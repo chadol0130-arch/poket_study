@@ -7,6 +7,7 @@ const items = [
   { href: "/calendar", label: "캘린더", icon: "📅" },
   { href: "/my-pokemon", label: "내 포켓몬", icon: "🐾" },
   { href: "/pokedex", label: "도감", icon: "📖" },
+  { href: "/battles", label: "배틀", icon: "⚔️" },
   { href: "/leaderboard", label: "랭킹", icon: "🏆" },
   { href: "/assignments", label: "숙제", icon: "📒" },
   { href: "/shop", label: "상점", icon: "🛒" },
