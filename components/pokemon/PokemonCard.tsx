@@ -15,9 +15,12 @@ export interface PokemonCardData {
 export function PokemonCard({
   data,
   footer,
+  topNotice,
 }: {
   data: PokemonCardData;
   footer?: React.ReactNode;
+  /** "대표" 칸과 포켓몬 사이에 끼워 넣는 영역(예: 질문 "!" 말풍선) */
+  topNotice?: React.ReactNode;
 }) {
   const label = data.nickname || data.nameKo || data.name;
   return (
@@ -27,9 +30,15 @@ export function PokemonCard({
       }`}
     >
       {data.isActive && (
-        <span className="mb-1 rounded-full bg-poke-red px-2 py-0.5 text-[10px] font-bold text-white">
+        <span className="rounded-full bg-poke-red px-2 py-0.5 text-[10px] font-bold text-white">
           대표
         </span>
+      )}
+      {/* 대표 ↔ 포켓몬 사이 영역: 알림이 있으면 넉넉한 간격, 없으면 기본 간격 */}
+      {topNotice ? (
+        <div className="flex h-10 items-center justify-center py-1">{topNotice}</div>
+      ) : (
+        <div className="h-2" />
       )}
       <PokemonSprite url={data.spriteUrl} alt={label} size={96} />
       <p className="mt-2 text-center font-semibold">{label}</p>

@@ -87,22 +87,26 @@ export function PendingQuestions({
 
   return (
     <>
-      <div className="relative inline-block w-full">
+      <div className="inline-block w-full">
         <button
           onClick={loadAndOpen}
           className={`block w-full text-left ${count > 0 ? "cursor-pointer" : "cursor-default"}`}
         >
-          <PokemonCard data={card} />
-        </button>
-        {count > 0 && (
-          <img
-            src="/exclaim.png"
-            alt="새 질문!"
-            title="포켓몬이 궁금해해요! 눌러서 답해보세요"
-            className="absolute -right-1 -top-3 h-9 w-9 animate-bounce drop-shadow-md"
-            style={{ imageRendering: "pixelated" }}
+          <PokemonCard
+            data={card}
+            topNotice={
+              count > 0 ? (
+                <img
+                  src="/exclaim.png"
+                  alt="새 질문!"
+                  title="포켓몬이 궁금해해요! 눌러서 답해보세요"
+                  className="h-9 w-9 animate-bounce drop-shadow-md"
+                  style={{ imageRendering: "pixelated" }}
+                />
+              ) : undefined
+            }
           />
-        )}
+        </button>
       </div>
 
       {open && (
