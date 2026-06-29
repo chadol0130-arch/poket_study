@@ -27,24 +27,45 @@ export function PendingQuestions({
   const [open, setOpen] = useState(false);
   const [questions, setQuestions] = useState<PendingQ[]>([]);
   const [loading, setLoading] = useState(false);
+  const [loadError, setLoadError] = useState<string | null>(null);
   const [count, setCount] = useState(initialPending);
 
   async function loadAndOpen() {
     if (count === 0) return;
     setOpen(true);
     setLoading(true);
-    // 내가 대상인 활성 질문 + 내 답변 목록 → 미답변만 추리기
-    const [{ data: targets }, { data: answered }] = await Promise.all([
-      supabase
-        .from("question_targets")
-        .select("questions(id, body, kind, options, xp_reward, is_active)")
-        .eq("student_id", studentId),
+    setLoadError(null);
+    // 1) 내가 대상인 질문 id 목록  2) 내 답변 목록 (중첩 임베드 대신 명시적 2단계 — 견고)
+    const [tRes, aRes] = await Promise.all([
+      supabase.from("question_targets").select("question_id").eq("student_id", studentId),
       supabase.from("question_answers").select("question_id").eq("student_id", studentId),
     ]);
-    const answeredSet = new Set((answered ?? []).map((a: any) => a.question_id));
-    const pending: PendingQ[] = (targets ?? [])
-      .map((t: any) => t.questions)
-      .filter((q: any) => q && q.is_active && !answeredSet.has(q.id))
+    if (tRes.error || aRes.error) {
+      setLoadError("질문을 불러오지 못했어요: " + (tRes.error?.message ?? aRes.error?.message));
+      setLoading(false);
+      return;
+    }
+    const targetIds = (tRes.data ?? []).map((t: any) => t.question_id);
+    if (targetIds.length === 0) {
+      setQuestions([]);
+      setCount(0);
+      setLoading(false);
+      return;
+    }
+    // 3) 질문 본문 조회 (활성만)
+    const { data: qs, error: qErr } = await supabase
+      .from("questions")
+      .select("id, body, kind, options, xp_reward, is_active")
+      .in("id", targetIds)
+      .eq("is_active", true);
+    if (qErr) {
+      setLoadError("질문을 불러오지 못했어요: " + qErr.message);
+      setLoading(false);
+      return;
+    }
+    const answeredSet = new Set((aRes.data ?? []).map((a: any) => a.question_id));
+    const pending: PendingQ[] = (qs ?? [])
+      .filter((q: any) => !answeredSet.has(q.id))
       .map((q: any) => ({
         id: q.id,
         body: q.body,
@@ -97,6 +118,10 @@ export function PendingQuestions({
 
             {loading ? (
               <p className="py-8 text-center text-slate-400">불러오는 중...</p>
+            ) : loadError ? (
+              <p className="rounded-lg bg-poke-red/5 p-4 text-center text-sm text-poke-red">
+                {loadError}
+              </p>
             ) : questions.length === 0 ? (
               <p className="py-8 text-center text-slate-400">새 질문이 없어요!</p>
             ) : (
@@ -130,7 +155,14 @@ function QuestionForm({ q, onAnswered }: { q: PendingQ; onAnswered: () => void }
         p_choice_index: q.kind === "choice" ? choice : null,
       });
       if (error) {
-        setError("제출 실패: " + error.message);
+        const m = error.message ?? "";
+        if (/does not exist|schema cache|function .*answer_question/i.test(m)) {
+          setError("질문 기능 설정이 아직 적용되지 않았어요. (관리자: 마이그레이션 0005 실행 필요)");
+        } else if (/not a target/i.test(m)) {
+          setError("이 질문의 대상이 아니에요.");
+        } else {
+          setError("제출 실패: " + m);
+        }
         return;
       }
       onAnswered();

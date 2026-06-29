@@ -214,6 +214,21 @@ Vercel은 이 앱을 인터넷에 띄워주는 무료 서비스예요.
 **Q. "코인이 부족합니다" 가 떠요.**
 → 정상이에요. 숙제를 통과받아 코인을 모으면 상점에서 살 수 있어요.
 
+**Q. 포켓몬 "!" 질문 기능이 안 돼요 (학생 화면에 ! 가 안 뜨거나, 답하면 에러).**
+→ 거의 항상 **질문 기능 마이그레이션(0005)이 적용되지 않은** 경우예요. Supabase
+   **SQL Editor** 에 아래를 붙여넣고 **Run** 해서 점검하세요(읽기 전용, 안전):
+
+   ```sql
+   select count(*) as questions from public.questions;
+   select count(*) as targets   from public.question_targets;
+   select proname from pg_proc where proname = 'answer_question';
+   ```
+   - 마지막 줄이 **비어 있으면** `answer_question` 함수가 없는 것 → `supabase/migrations/0005_questions.sql`
+     를 SQL Editor에 붙여넣고 Run 하세요. (반드시 `0006`·`0007` **보다 먼저/순서대로** 적용)
+   - 함수는 있는데 `targets` 가 **0** 이면, 관리자가 질문을 보낼 때 **받을 학생이 없었던** 것
+     (그 학생이 반에 등록 안 됨/대상 선택 누락). 관리자 → 질문에서 대상을 다시 확인하세요.
+   - 이제 학생 화면에서도 실패 시 **빨간 에러 메시지**가 직접 표시되니, 그 문구를 보고 원인을 알 수 있어요.
+
 **Q. service_role key 를 실수로 노출했어요.**
 → Supabase → Project Settings → API 에서 키를 **Reset(재발급)** 하고, Vercel 환경
    변수도 새 값으로 바꿔 Redeploy 하세요.
