@@ -15,11 +15,10 @@ interface PendingQ {
 }
 
 export function PendingQuestions({
-  studentId,
   card,
   initialPending,
 }: {
-  studentId: string;
+  studentId?: string; // (호환용, 더 이상 사용 안 함 — 학생은 auth.uid() 기준으로 조회)
   card: PokemonCardData;
   initialPending: number;
 }) {
@@ -31,38 +30,26 @@ export function PendingQuestions({
   const [loadError, setLoadError] = useState<string | null>(null);
   const [count, setCount] = useState(initialPending);
 
-  // 미답변 질문을 DB에서 직접 조회 (중첩 임베드 대신 명시적 2단계 — 견고).
+  // 미답변(활성) 질문을 SECURITY DEFINER 함수로 조회 — 학생 읽기 RLS에 의존하지 않아 견고.
   // 반환: { list, error }
   const fetchPending = useCallback(async (): Promise<{ list: PendingQ[]; error: string | null }> => {
-    const [tRes, aRes] = await Promise.all([
-      supabase.from("question_targets").select("question_id").eq("student_id", studentId),
-      supabase.from("question_answers").select("question_id").eq("student_id", studentId),
-    ]);
-    if (tRes.error || aRes.error) {
-      return { list: [], error: "질문을 불러오지 못했어요: " + (tRes.error?.message ?? aRes.error?.message) };
+    const { data, error } = await supabase.rpc("my_pending_questions");
+    if (error) {
+      const m = error.message ?? "";
+      if (/does not exist|schema cache|my_pending_questions/i.test(m)) {
+        return { list: [], error: "질문 기능 업데이트가 아직 적용되지 않았어요. (관리자: 마이그레이션 0009 실행 필요)" };
+      }
+      return { list: [], error: "질문을 불러오지 못했어요: " + m };
     }
-    const targetIds = (tRes.data ?? []).map((t: any) => t.question_id);
-    if (targetIds.length === 0) return { list: [], error: null };
-
-    const { data: qs, error: qErr } = await supabase
-      .from("questions")
-      .select("id, body, kind, options, xp_reward, is_active")
-      .in("id", targetIds)
-      .eq("is_active", true);
-    if (qErr) return { list: [], error: "질문을 불러오지 못했어요: " + qErr.message };
-
-    const answeredSet = new Set((aRes.data ?? []).map((a: any) => a.question_id));
-    const list: PendingQ[] = (qs ?? [])
-      .filter((q: any) => !answeredSet.has(q.id))
-      .map((q: any) => ({
-        id: q.id,
-        body: q.body,
-        kind: q.kind,
-        options: q.options ?? [],
-        xp_reward: q.xp_reward,
-      }));
+    const list: PendingQ[] = (data ?? []).map((q: any) => ({
+      id: q.id,
+      body: q.body,
+      kind: q.kind,
+      options: q.options ?? [],
+      xp_reward: q.xp_reward,
+    }));
     return { list, error: null };
-  }, [supabase, studentId]);
+  }, [supabase]);
 
   // 마운트 시 실제 DB 기준으로 미답변 수를 다시 계산 → 서버 렌더 값이 캐시/지연돼도 배지가 정확.
   useEffect(() => {

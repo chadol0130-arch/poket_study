@@ -56,8 +56,10 @@ Supabase는 회원·데이터·사진을 저장하는 무료 백엔드예요.
    → 연속 출석(스트릭)·데일리 미션·주간 랭킹이 켜져요 ✅
 8. **New query** → **`supabase/migrations/0007_battles.sql`** 붙여넣고 **Run**
    → 포켓몬 배틀(시험 보스전·야생 조우)이 켜져요 ✅
-9. 마지막으로 **New query** → **`supabase/migrations/0008_move_details.sql`** 붙여넣고 **Run**
+9. **New query** → **`supabase/migrations/0008_move_details.sql`** 붙여넣고 **Run**
    → '내 포켓몬' 요약 화면에서 기술 설명·PP가 보여요 ✅
+10. 마지막으로 **New query** → **`supabase/migrations/0009_question_read_fix.sql`** 붙여넣고 **Run**
+   → 학생이 받은 질문을 안정적으로 읽어 대표 포켓몬에 "!"가 떠요 ✅
 
 > ♻️ **이미 배틀 데이터를 등록하셨다면**: 기술 한글명·설명·PP가 새로 추가됐어요.
 > 관리자 → '포켓몬 데이터' 화면에서 **`data/pokemon/battle_data.json`** 을 다시 한 번
@@ -228,6 +230,8 @@ Vercel은 이 앱을 인터넷에 띄워주는 무료 서비스예요.
    - 함수는 있는데 `targets` 가 **0** 이면, 관리자가 질문을 보낼 때 **받을 학생이 없었던** 것
      (그 학생이 반에 등록 안 됨/대상 선택 누락). 관리자 → 질문에서 대상을 다시 확인하세요.
    - 이제 학생 화면에서도 실패 시 **빨간 에러 메시지**가 직접 표시되니, 그 문구를 보고 원인을 알 수 있어요.
+   - **학생에게 질문은 갔는데(=targets 있음) "!"가 안 뜨면**: `0009_question_read_fix.sql` 을 실행하세요.
+     (학생이 자기 질문을 읽는 보안 규칙 문제를 안전한 함수로 우회합니다.)
 
 **Q. service_role key 를 실수로 노출했어요.**
 → Supabase → Project Settings → API 에서 키를 **Reset(재발급)** 하고, Vercel 환경
