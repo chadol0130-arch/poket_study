@@ -8,12 +8,12 @@ import {
   type Combatant,
   type BattleMove,
   type TypeChart,
-  computeDamage,
-  effLabel,
   scaleStat,
   maxHpFor,
+  zeroStages,
 } from "@/lib/battle/engine";
 import { selectBattleMoves } from "@/lib/battle/moveset";
+import { resolveRound } from "@/lib/battle/turn";
 
 type Admin = ReturnType<typeof createAdminClient>;
 
@@ -68,7 +68,7 @@ async function buildCombatant(
   if (keys.length) {
     const { data: md } = await admin
       .from("moves")
-      .select("move_key, name_ko, power, move_type, category")
+      .select("move_key, name_ko, power, move_type, category, accuracy, function_code, effect_chance")
       .in("move_key", keys);
     const learned = (md ?? []).map((m: any) => ({
       key: m.move_key,
@@ -76,6 +76,9 @@ async function buildCombatant(
       power: m.power,
       type: m.move_type,
       category: m.category,
+      accuracy: m.accuracy ?? 100,
+      function_code: m.function_code ?? "None",
+      effect_chance: m.effect_chance ?? 0,
       level_learned: levelByKey.get(m.move_key) ?? 1,
     }));
     moves = selectBattleMoves(learned).map(({ level_learned, ...mv }) => mv);
@@ -106,6 +109,8 @@ async function buildCombatant(
     hp: maxHp,
     moves,
     spriteUrl: spriteUrl(def?.storage_path),
+    stages: zeroStages(),
+    status: null,
   };
 }
 
@@ -281,34 +286,17 @@ export async function battleTurn(battleId: string, moveKey: string): Promise<Tur
   const student = st.student as Combatant;
   const enemy = st.enemy as Combatant;
 
-  const move = student.moves.find((m) => m.key === moveKey);
-  if (!move) return { error: "사용할 수 없는 기술이에요." };
-
-  const log: string[] = (st.log ?? []).slice(-12);
-
-  // 내 공격
-  const pr = computeDamage(student, enemy, move, chart);
-  enemy.hp = Math.max(0, enemy.hp - pr.damage);
-  log.push(`${student.name}의 ${move.name_ko}! (${pr.damage}) ${effLabel(pr.mult)}`.trim());
-
-  let status: "ongoing" | "won" | "lost" = "ongoing";
-  if (enemy.hp <= 0) {
-    log.push(`${enemy.name}을(를) 쓰러뜨렸다!`);
-    status = "won";
-  } else {
-    const epool = enemy.moves.filter((m) => m.power > 0);
-    const emove = epool.length ? epool[Math.floor(Math.random() * epool.length)] : enemy.moves[0];
-    const er = computeDamage(enemy, student, emove, chart);
-    student.hp = Math.max(0, student.hp - er.damage);
-    log.push(`적 ${enemy.name}의 ${emove.name_ko}! (${er.damage}) ${effLabel(er.mult)}`.trim());
-    if (student.hp <= 0) {
-      log.push(`${student.name}이(가) 쓰러졌다…`);
-      status = "lost";
-    }
+  if (!student.moves.find((m) => m.key === moveKey)) {
+    return { error: "사용할 수 없는 기술이에요." };
   }
 
+  // 한 라운드 해석 (선공/명중/급소/상태이상/능력변화/도트 등 어나더레드급)
+  const res = resolveRound(student, enemy, moveKey, chart);
+  st.student = res.student;
+  st.enemy = res.enemy;
   st.turn = (st.turn ?? 1) + 1;
-  st.log = log;
+  st.log = [...(st.log ?? []), ...res.log].slice(-40);
+  const status = res.status;
 
   const update: Record<string, any> = { state: st, status };
   if (status !== "ongoing") update.finished_at = new Date().toISOString();

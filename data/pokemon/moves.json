@@ -8,7 +8,9 @@
       "category": 1,
       "accuracy": 100,
       "pp": 25,
-      "description": "양분을 흡수하여 공격한다. 입힌 데미지의 절반에 해당하는 HP를 회복할 수 있다."
+      "description": "양분을 흡수하여 공격한다. 입힌 데미지의 절반에 해당하는 HP를 회복할 수 있다.",
+      "function_code": "HealUserByHalfOfDamageDone",
+      "effect_chance": 0
     },
     {
       "key": "ACID",
@@ -18,7 +20,9 @@
       "category": 1,
       "accuracy": 100,
       "pp": 30,
-      "description": "강한 산을 상대에게 끼얹어 공격한다. 상대의 특수방어를 떨어뜨릴 때가 있다."
+      "description": "강한 산을 상대에게 끼얹어 공격한다. 상대의 특수방어를 떨어뜨릴 때가 있다.",
+      "function_code": "LowerTargetSpDef1",
+      "effect_chance": 10
     },
     {
       "key": "ACIDARMOR",
@@ -28,7 +32,9 @@
       "category": 2,
       "accuracy": 0,
       "pp": 20,
-      "description": "세포의 변화로 액체가 되어 자신의 방어를 크게 올린다."
+      "description": "세포의 변화로 액체가 되어 자신의 방어를 크게 올린다.",
+      "function_code": "RaiseUserDefense2",
+      "effect_chance": 0
     },
     {
       "key": "ACIDSPRAY",
@@ -38,7 +44,9 @@
       "category": 1,
       "accuracy": 100,
       "pp": 20,
-      "description": "상대를 녹이는 액체를 토해내서 공격한다. 상대의 특수방어를 크게 떨어뜨린다."
+      "description": "상대를 녹이는 액체를 토해내서 공격한다. 상대의 특수방어를 크게 떨어뜨린다.",
+      "function_code": "LowerTargetSpDef2",
+      "effect_chance": 100
     },
     {
       "key": "ACUPRESSURE",
@@ -48,7 +56,9 @@
       "category": 2,
       "accuracy": 0,
       "pp": 30,
-      "description": "경혈을 눌러 몸을 활성화시킨다. 능력 중 하나를 크게 올린다."
+      "description": "경혈을 눌러 몸을 활성화시킨다. 능력 중 하나를 크게 올린다.",
+      "function_code": "RaiseTargetRandomStat2",
+      "effect_chance": 0
     },
     {
       "key": "AERIALACE",
@@ -58,7 +68,9 @@
       "category": 0,
       "accuracy": 0,
       "pp": 20,
-      "description": "재빠른 움직임으로 상대를 농락해 벤다. 공격은 반드시 명중한다."
+      "description": "재빠른 움직임으로 상대를 농락해 벤다. 공격은 반드시 명중한다.",
+      "function_code": "None",
+      "effect_chance": 0
     },
     {
       "key": "AFTERYOU",
@@ -68,7 +80,9 @@
       "category": 2,
       "accuracy": 0,
       "pp": 15,
-      "description": "상대의 행동을 도와서 자신이 행동한 뒤에 바로 움직일 수 있도록 한다."
+      "description": "상대의 행동을 도와서 자신이 행동한 뒤에 바로 움직일 수 있도록 한다.",
+      "function_code": "TargetActsNext",
+      "effect_chance": 0
     },
     {
       "key": "AGILITY",
@@ -78,7 +92,9 @@
       "category": 2,
       "accuracy": 0,
       "pp": 30,
-      "description": "힘을 빼고 몸을 가볍게 해서 고속으로 움직인다. 자신의 스피드를 크게 올린다."
+      "description": "힘을 빼고 몸을 가볍게 해서 고속으로 움직인다. 자신의 스피드를 크게 올린다.",
+      "function_code": "RaiseUserSpeed2",
+      "effect_chance": 0
     },
     {
       "key": "AIRCUTTER",
@@ -88,7 +104,9 @@
       "category": 1,
       "accuracy": 95,
       "pp": 25,
-      "description": "날카로운 바람으로 상대를 베어 공격한다. 급소에 맞을 확률이 높다."
+      "description": "날카로운 바람으로 상대를 베어 공격한다. 급소에 맞을 확률이 높다.",
+      "function_code": "None",
+      "effect_chance": 0
     },
     {
       "key": "AIRSLASH",
@@ -98,7 +116,9 @@
       "category": 1,
       "accuracy": 95,
       "pp": 15,
-      "description": "하늘까지 베어 가르는 공기의 칼날로 공격한다. 상대를 풀죽게 만들 때가 있다."
+      "description": "하늘까지 베어 가르는 공기의 칼날로 공격한다. 상대를 풀죽게 만들 때가 있다.",
+      "function_code": "FlinchTarget",
+      "effect_chance": 30
     },
     {
       "key": "ALLYSWITCH",
@@ -108,7 +128,9 @@
       "category": 2,
       "accuracy": 0,
       "pp": 15,
-      "description": "The user switches places with an ally. This move's chance of failing rises if it is used in succession."
+      "description": "The user switches places with an ally. This move's chance of failing rises if it is used in succession.",
+      "function_code": "UserSwapsPositionsWithAlly",
+      "effect_chance": 0
     },
     {
       "key": "AMNESIA",
@@ -118,7 +140,9 @@
       "category": 2,
       "accuracy": 0,
       "pp": 20,
-      "description": "머리를 비워서 순간적으로 무언가를 잊어버림으로써 자신의 특수방어를 크게 올린다."
+      "description": "머리를 비워서 순간적으로 무언가를 잊어버림으로써 자신의 특수방어를 크게 올린다.",
+      "function_code": "RaiseUserSpDef2",
+      "effect_chance": 0
     },
     {
       "key": "ANCIENTPOWER",
@@ -128,7 +152,9 @@
       "category": 1,
       "accuracy": 100,
       "pp": 5,
-      "description": "원시의 힘으로 공격한다. 자신의 모든 능력이 오를 때가 있다."
+      "description": "원시의 힘으로 공격한다. 자신의 모든 능력이 오를 때가 있다.",
+      "function_code": "RaiseUserMainStats1",
+      "effect_chance": 10
     },
     {
       "key": "AQUAJET",
@@ -138,7 +164,9 @@
       "category": 0,
       "accuracy": 100,
       "pp": 20,
-      "description": "눈에 보이지 않는 굉장한 속도로 상대에게 돌진한다. 반드시 선제 공격할 수 있다."
+      "description": "눈에 보이지 않는 굉장한 속도로 상대에게 돌진한다. 반드시 선제 공격할 수 있다.",
+      "function_code": "None",
+      "effect_chance": 0
     },
     {
       "key": "AQUARING",
@@ -148,7 +176,9 @@
       "category": 2,
       "accuracy": 0,
       "pp": 20,
-      "description": "몸 주변을 물로 만든 베일로 덮는다. 매 턴 HP를 회복한다."
+      "description": "몸 주변을 물로 만든 베일로 덮는다. 매 턴 HP를 회복한다.",
+      "function_code": "StartHealUserEachTurn",
+      "effect_chance": 0
     },
     {
       "key": "AQUATAIL",
@@ -158,7 +188,9 @@
       "category": 0,
       "accuracy": 90,
       "pp": 10,
-      "description": "세차게 날뛰는 거친 파도와 같이 큰 꼬리를 흔들어서 공격한다."
+      "description": "세차게 날뛰는 거친 파도와 같이 큰 꼬리를 흔들어서 공격한다.",
+      "function_code": "None",
+      "effect_chance": 0
     },
     {
       "key": "AROMATHERAPY",
@@ -168,7 +200,9 @@
       "category": 2,
       "accuracy": 0,
       "pp": 5,
-      "description": "기분 좋은 평온한 향기를 맡게 하여 같은 편 모두의 상태 이상을 회복한다."
+      "description": "기분 좋은 평온한 향기를 맡게 하여 같은 편 모두의 상태 이상을 회복한다.",
+      "function_code": "CureUserPartyStatus",
+      "effect_chance": 0
     },
     {
       "key": "ASSURANCE",
@@ -178,7 +212,9 @@
       "category": 0,
       "accuracy": 100,
       "pp": 10,
-      "description": "그 턴에 상대가 이미 데미지를 입었다면 기술의 위력은 2배가 된다."
+      "description": "그 턴에 상대가 이미 데미지를 입었다면 기술의 위력은 2배가 된다.",
+      "function_code": "DoublePowerIfTargetLostHPThisTurn",
+      "effect_chance": 0
     },
     {
       "key": "ASTONISH",
@@ -188,7 +224,9 @@
       "category": 0,
       "accuracy": 100,
       "pp": 15,
-      "description": "큰 소리 등으로 불시에 놀래켜서 공격한다. 상대를 풀죽게 만들 때가 있다."
+      "description": "큰 소리 등으로 불시에 놀래켜서 공격한다. 상대를 풀죽게 만들 때가 있다.",
+      "function_code": "FlinchTarget",
+      "effect_chance": 30
     },
     {
       "key": "AURASPHERE",
@@ -198,7 +236,9 @@
       "category": 1,
       "accuracy": 0,
       "pp": 20,
-      "description": "몸속에서 파동의 힘을 끌어내 쏜다. 공격은 반드시 명중한다."
+      "description": "몸속에서 파동의 힘을 끌어내 쏜다. 공격은 반드시 명중한다.",
+      "function_code": "None",
+      "effect_chance": 0
     },
     {
       "key": "AURORABEAM",
@@ -208,7 +248,9 @@
       "category": 1,
       "accuracy": 100,
       "pp": 20,
-      "description": "무지개색의 빔을 상대에게 발사하여 공격한다. 공격을 떨어뜨릴 때가 있다."
+      "description": "무지개색의 빔을 상대에게 발사하여 공격한다. 공격을 떨어뜨릴 때가 있다.",
+      "function_code": "LowerTargetAttack1",
+      "effect_chance": 10
     },
     {
       "key": "AXEKICK",
@@ -218,7 +260,9 @@
       "category": 0,
       "accuracy": 90,
       "pp": 10,
-      "description": "Performs a downward kick which may confuse the target. The user takes damage if it misses."
+      "description": "Performs a downward kick which may confuse the target. The user takes damage if it misses.",
+      "function_code": "CrashDamageIfFailsConfuseTarget",
+      "effect_chance": 30
     },
     {
       "key": "BABYDOLLEYES",
@@ -228,7 +272,9 @@
       "category": 2,
       "accuracy": 100,
       "pp": 30,
-      "description": "초롱초롱한 눈동자로 상대를 바라보며 공격을 떨어뜨린다. 반드시 선제공격할 수 있다."
+      "description": "초롱초롱한 눈동자로 상대를 바라보며 공격을 떨어뜨린다. 반드시 선제공격할 수 있다.",
+      "function_code": "LowerTargetAttack1",
+      "effect_chance": 0
     },
     {
       "key": "BATONPASS",
@@ -238,7 +284,9 @@
       "category": 2,
       "accuracy": 0,
       "pp": 40,
-      "description": "교대 포켓몬과 교대한다. 능력변화는 교대 포켓몬이 이어받는다."
+      "description": "교대 포켓몬과 교대한다. 능력변화는 교대 포켓몬이 이어받는다.",
+      "function_code": "SwitchOutUserPassOnEffects",
+      "effect_chance": 0
     },
     {
       "key": "BELCH",
@@ -248,7 +296,9 @@
       "category": 1,
       "accuracy": 90,
       "pp": 10,
-      "description": "상대를 향해 트림을 하여 데미지를 준다. 나무열매를 먹지 않으면 쓸 수 없다."
+      "description": "상대를 향해 트림을 하여 데미지를 준다. 나무열매를 먹지 않으면 쓸 수 없다.",
+      "function_code": "FailsIfUserNotConsumedBerry",
+      "effect_chance": 0
     },
     {
       "key": "BELLYDRUM",
@@ -258,7 +308,9 @@
       "category": 2,
       "accuracy": 0,
       "pp": 10,
-      "description": "자신의 HP를 깎아 공격력을 최대치로 올린다."
+      "description": "자신의 HP를 깎아 공격력을 최대치로 올린다.",
+      "function_code": "MaxUserAttackLoseHalfOfTotalHP",
+      "effect_chance": 0
     },
     {
       "key": "BIND",
@@ -268,7 +320,9 @@
       "category": 0,
       "accuracy": 85,
       "pp": 20,
-      "description": "긴 몸이나 덩굴 등을 써서 4-5턴 동안 상대를 조여 공격한다."
+      "description": "긴 몸이나 덩굴 등을 써서 4-5턴 동안 상대를 조여 공격한다.",
+      "function_code": "BindTarget",
+      "effect_chance": 0
     },
     {
       "key": "BITE",
@@ -278,7 +332,9 @@
       "category": 0,
       "accuracy": 100,
       "pp": 25,
-      "description": "날카롭고 뾰족한 이빨로 물어서 공격한다. 상대를 풀이 죽게 할 때가 있다."
+      "description": "날카롭고 뾰족한 이빨로 물어서 공격한다. 상대를 풀이 죽게 할 때가 있다.",
+      "function_code": "FlinchTarget",
+      "effect_chance": 30
     },
     {
       "key": "BLAZEKICK",
@@ -288,7 +344,9 @@
       "category": 0,
       "accuracy": 90,
       "pp": 10,
-      "description": "공격한 상대를 화상 상태로 만들 때가 있다. 급소에 맞을 확률이 높다."
+      "description": "공격한 상대를 화상 상태로 만들 때가 있다. 급소에 맞을 확률이 높다.",
+      "function_code": "BurnTarget",
+      "effect_chance": 10
     },
     {
       "key": "BLIZZARD",
@@ -298,7 +356,9 @@
       "category": 1,
       "accuracy": 70,
       "pp": 5,
-      "description": "세찬 눈보라를 부딪쳐서 공격한다. 상대를 얼음 상태로 만들기도 한다."
+      "description": "세찬 눈보라를 부딪쳐서 공격한다. 상대를 얼음 상태로 만들기도 한다.",
+      "function_code": "FreezeTargetAlwaysHitsInHail",
+      "effect_chance": 10
     },
     {
       "key": "BLOCK",
@@ -308,7 +368,9 @@
       "category": 2,
       "accuracy": 0,
       "pp": 5,
-      "description": "양팔을 벌려 막아서서 상대의 도주로를 가로막아 도망칠 수 없게 한다."
+      "description": "양팔을 벌려 막아서서 상대의 도주로를 가로막아 도망칠 수 없게 한다.",
+      "function_code": "TrapTargetInBattle",
+      "effect_chance": 0
     },
     {
       "key": "BODYSLAM",
@@ -318,7 +380,9 @@
       "category": 0,
       "accuracy": 100,
       "pp": 15,
-      "description": "몸 전체로 상대를 덮쳐눌러 공격한다. 마비 상태로 만들 때가 있다."
+      "description": "몸 전체로 상대를 덮쳐눌러 공격한다. 마비 상태로 만들 때가 있다.",
+      "function_code": "ParalyzeTarget",
+      "effect_chance": 30
     },
     {
       "key": "BONEMERANG",
@@ -328,7 +392,9 @@
       "category": 0,
       "accuracy": 90,
       "pp": 10,
-      "description": "손에 들고 있는 뼈를 상대에게 날려서 날아갈 때와 돌아올 때 2회 연속 데미지를 준다."
+      "description": "손에 들고 있는 뼈를 상대에게 날려서 날아갈 때와 돌아올 때 2회 연속 데미지를 준다.",
+      "function_code": "HitTwoTimes",
+      "effect_chance": 0
     },
     {
       "key": "BONERUSH",
@@ -338,7 +404,9 @@
       "category": 0,
       "accuracy": 90,
       "pp": 10,
-      "description": "단단한 뼈로 상대를 세게 때려서 공격한다. 2-5회 동안 연속으로 쓴다."
+      "description": "단단한 뼈로 상대를 세게 때려서 공격한다. 2-5회 동안 연속으로 쓴다.",
+      "function_code": "HitTwoToFiveTimes",
+      "effect_chance": 0
     },
     {
       "key": "BRAVEBIRD",
@@ -348,7 +416,9 @@
       "category": 0,
       "accuracy": 100,
       "pp": 15,
-      "description": "날개를 접어 저공비행으로 돌격한다. 자신도 상당한 데미지를 입는다."
+      "description": "날개를 접어 저공비행으로 돌격한다. 자신도 상당한 데미지를 입는다.",
+      "function_code": "RecoilThirdOfDamageDealt",
+      "effect_chance": 0
     },
     {
       "key": "BRICKBREAK",
@@ -358,7 +428,9 @@
       "category": 0,
       "accuracy": 100,
       "pp": 15,
-      "description": "수도로 기세 좋게 내려쳐서 상대를 공격한다. 빛의장막이나 리플렉터 등도 파괴할 수 있다."
+      "description": "수도로 기세 좋게 내려쳐서 상대를 공격한다. 빛의장막이나 리플렉터 등도 파괴할 수 있다.",
+      "function_code": "RemoveScreens",
+      "effect_chance": 0
     },
     {
       "key": "BRINE",
@@ -368,7 +440,9 @@
       "category": 1,
       "accuracy": 100,
       "pp": 10,
-      "description": "상대가 HP의 절반 정도 상처를 입고 있으면 기술의 위력이 2배가 된다."
+      "description": "상대가 HP의 절반 정도 상처를 입고 있으면 기술의 위력이 2배가 된다.",
+      "function_code": "DoublePowerIfTargetHPLessThanHalf",
+      "effect_chance": 0
     },
     {
       "key": "BUBBLEBEAM",
@@ -378,7 +452,9 @@
       "category": 1,
       "accuracy": 100,
       "pp": 20,
-      "description": "거품을 기세 좋게 상대에게 발사하여 공격한다. 스피드를 떨어뜨릴 때가 있다."
+      "description": "거품을 기세 좋게 상대에게 발사하여 공격한다. 스피드를 떨어뜨릴 때가 있다.",
+      "function_code": "LowerTargetSpeed1",
+      "effect_chance": 10
     },
     {
       "key": "BUGBITE",
@@ -388,7 +464,9 @@
       "category": 0,
       "accuracy": 100,
       "pp": 20,
-      "description": "물어서 공격한다. 상대가 나무열매를 지니고 있을 때 먹어서 나무열매의 효과를 받을 수 있다."
+      "description": "물어서 공격한다. 상대가 나무열매를 지니고 있을 때 먹어서 나무열매의 효과를 받을 수 있다.",
+      "function_code": "UserConsumeTargetBerry",
+      "effect_chance": 0
     },
     {
       "key": "BUGBUZZ",
@@ -398,7 +476,9 @@
       "category": 1,
       "accuracy": 100,
       "pp": 10,
-      "description": "The user vibrates its wings to generate a sound wave. It may also lower the target's Sp. Def stat."
+      "description": "The user vibrates its wings to generate a sound wave. It may also lower the target's Sp. Def stat.",
+      "function_code": "LowerTargetSpDef1",
+      "effect_chance": 10
     },
     {
       "key": "BULKUP",
@@ -408,7 +488,9 @@
       "category": 2,
       "accuracy": 0,
       "pp": 20,
-      "description": "몸에 힘을 담아 근육을 두껍게 해서 자신의 공격과 방어를 올린다."
+      "description": "몸에 힘을 담아 근육을 두껍게 해서 자신의 공격과 방어를 올린다.",
+      "function_code": "RaiseUserAtkDef1",
+      "effect_chance": 0
     },
     {
       "key": "BULLDOZE",
@@ -418,7 +500,9 @@
       "category": 0,
       "accuracy": 100,
       "pp": 20,
-      "description": "땅을 힘껏 밟아 자신의 주위에 있는 포켓몬을 공격한다. 상대의 스피드를 떨어뜨린다."
+      "description": "땅을 힘껏 밟아 자신의 주위에 있는 포켓몬을 공격한다. 상대의 스피드를 떨어뜨린다.",
+      "function_code": "LowerTargetSpeed1WeakerInGrassyTerrain",
+      "effect_chance": 100
     },
     {
       "key": "BULLETPUNCH",
@@ -428,7 +512,9 @@
       "category": 0,
       "accuracy": 100,
       "pp": 30,
-      "description": "탄환처럼 빠르고 단단한 펀치를 날린다. 반드시 선제 공격을 할 수 있다."
+      "description": "탄환처럼 빠르고 단단한 펀치를 날린다. 반드시 선제 공격을 할 수 있다.",
+      "function_code": "None",
+      "effect_chance": 0
     },
     {
       "key": "BULLETSEED",
@@ -438,7 +524,9 @@
       "category": 0,
       "accuracy": 100,
       "pp": 30,
-      "description": "씨앗을 기세 좋게 상대에게 발사하여 공격한다. 2-5회 동안 연속으로 쓴다."
+      "description": "씨앗을 기세 좋게 상대에게 발사하여 공격한다. 2-5회 동안 연속으로 쓴다.",
+      "function_code": "HitTwoToFiveTimes",
+      "effect_chance": 0
     },
     {
       "key": "CALMMIND",
@@ -448,7 +536,9 @@
       "category": 2,
       "accuracy": 0,
       "pp": 20,
-      "description": "조용히 정신을 통일하고 마음을 가라앉혀서 자신의 특수공격과 특수방어를 올린다."
+      "description": "조용히 정신을 통일하고 마음을 가라앉혀서 자신의 특수공격과 특수방어를 올린다.",
+      "function_code": "RaiseUserSpAtkSpDef1",
+      "effect_chance": 0
     },
     {
       "key": "CHARGE",
@@ -458,7 +548,9 @@
       "category": 2,
       "accuracy": 0,
       "pp": 20,
-      "description": "다음 턴에 쓸 전기타입 기술의 위력이 2배가 된다. 자신의 특수방어도 올라간다."
+      "description": "다음 턴에 쓸 전기타입 기술의 위력이 2배가 된다. 자신의 특수방어도 올라간다.",
+      "function_code": "RaiseUserSpDef1PowerUpElectricMove",
+      "effect_chance": 0
     },
     {
       "key": "CHARGEBEAM",
@@ -468,7 +560,9 @@
       "category": 1,
       "accuracy": 90,
       "pp": 10,
-      "description": "전격의 다발을 상대에게 발사한다. 전기를 모아서 자신의 특수공격을 올릴 때가 있다."
+      "description": "전격의 다발을 상대에게 발사한다. 전기를 모아서 자신의 특수공격을 올릴 때가 있다.",
+      "function_code": "RaiseUserSpAtk1",
+      "effect_chance": 70
     },
     {
       "key": "CHARM",
@@ -478,7 +572,9 @@
       "category": 2,
       "accuracy": 100,
       "pp": 20,
-      "description": "귀엽게 바라보고 방심을 유도하여 상대의 공격을 크게 떨어뜨린다."
+      "description": "귀엽게 바라보고 방심을 유도하여 상대의 공격을 크게 떨어뜨린다.",
+      "function_code": "LowerTargetAttack2",
+      "effect_chance": 0
     },
     {
       "key": "CIRCLETHROW",
@@ -488,7 +584,9 @@
       "category": 0,
       "accuracy": 90,
       "pp": 10,
-      "description": "상대를 내던져서 교대할 포켓몬을 끌어낸다. 야생의 경우에는 배틀이 끝난다."
+      "description": "상대를 내던져서 교대할 포켓몬을 끌어낸다. 야생의 경우에는 배틀이 끝난다.",
+      "function_code": "SwitchOutTargetDamagingMove",
+      "effect_chance": 0
     },
     {
       "key": "CLEARSMOG",
@@ -498,7 +596,9 @@
       "category": 1,
       "accuracy": 0,
       "pp": 15,
-      "description": "특수한 진흙 덩어리를 상대에게 내던져서 공격한다. 능력 변화를 원래대로 돌린다."
+      "description": "특수한 진흙 덩어리를 상대에게 내던져서 공격한다. 능력 변화를 원래대로 돌린다.",
+      "function_code": "ResetTargetStatStages",
+      "effect_chance": 0
     },
     {
       "key": "CLOSECOMBAT",
@@ -508,7 +608,9 @@
       "category": 0,
       "accuracy": 100,
       "pp": 5,
-      "description": "방어를 포기하고 상대 쪽으로 깊숙이 돌격한다. 자신의 방어와 특수방어가 떨어진다."
+      "description": "방어를 포기하고 상대 쪽으로 깊숙이 돌격한다. 자신의 방어와 특수방어가 떨어진다.",
+      "function_code": "LowerUserDefSpDef1",
+      "effect_chance": 0
     },
     {
       "key": "COIL",
@@ -518,7 +620,9 @@
       "category": 2,
       "accuracy": 0,
       "pp": 20,
-      "description": "똬리를 틀어서 집중한다. 자신의 공격과 방어와 명중률을 올린다."
+      "description": "똬리를 틀어서 집중한다. 자신의 공격과 방어와 명중률을 올린다.",
+      "function_code": "RaiseUserAtkDefAcc1",
+      "effect_chance": 0
     },
     {
       "key": "CONFUSERAY",
@@ -528,7 +632,9 @@
       "category": 2,
       "accuracy": 100,
       "pp": 10,
-      "description": "이상한 빛을 상대에게 비춰 혼란시킨다. 상대를 혼란 상태로 만든다."
+      "description": "이상한 빛을 상대에게 비춰 혼란시킨다. 상대를 혼란 상태로 만든다.",
+      "function_code": "ConfuseTarget",
+      "effect_chance": 0
     },
     {
       "key": "CONFUSION",
@@ -538,7 +644,9 @@
       "category": 1,
       "accuracy": 100,
       "pp": 25,
-      "description": "약한 염동력을 상대에게 보내어 공격한다. 상대를 혼란 시킬 때가 있다."
+      "description": "약한 염동력을 상대에게 보내어 공격한다. 상대를 혼란 시킬 때가 있다.",
+      "function_code": "ConfuseTarget",
+      "effect_chance": 10
     },
     {
       "key": "CONVERSION",
@@ -548,7 +656,9 @@
       "category": 2,
       "accuracy": 0,
       "pp": 30,
-      "description": "자신의 타입을 배운 기술 중 어느 하나와 같은 타입으로 바꾼다."
+      "description": "자신의 타입을 배운 기술 중 어느 하나와 같은 타입으로 바꾼다.",
+      "function_code": "SetUserTypesToUserMoveType",
+      "effect_chance": 0
     },
     {
       "key": "CONVERSION2",
@@ -558,7 +668,9 @@
       "category": 2,
       "accuracy": 0,
       "pp": 30,
-      "description": "자신의 타입을 마지막으로 받은 기술에 저항할 수 있는 타입으로 변화시킨다."
+      "description": "자신의 타입을 마지막으로 받은 기술에 저항할 수 있는 타입으로 변화시킨다.",
+      "function_code": "SetUserTypesToResistLastAttack",
+      "effect_chance": 0
     },
     {
       "key": "COPYCAT",
@@ -568,7 +680,9 @@
       "category": 2,
       "accuracy": 0,
       "pp": 20,
-      "description": "직전에 나온 기술을 흉내 내어 같은 기술을 쓴다. 기술이 나오지 않았으면 실패한다."
+      "description": "직전에 나온 기술을 흉내 내어 같은 기술을 쓴다. 기술이 나오지 않았으면 실패한다.",
+      "function_code": "UseLastMoveUsed",
+      "effect_chance": 0
     },
     {
       "key": "COSMICPOWER",
@@ -578,7 +692,9 @@
       "category": 2,
       "accuracy": 0,
       "pp": 20,
-      "description": "우주로부터 신비한 힘을 손에 넣음으로써 자신의 방어와 특수방어를 올린다."
+      "description": "우주로부터 신비한 힘을 손에 넣음으로써 자신의 방어와 특수방어를 올린다.",
+      "function_code": "RaiseUserDefSpDef1",
+      "effect_chance": 0
     },
     {
       "key": "COUNTER",
@@ -588,7 +704,9 @@
       "category": 0,
       "accuracy": 100,
       "pp": 20,
-      "description": "상대로부터 받은 물리공격의 데미지를 2배로 만들어 그 상대에게 돌려준다."
+      "description": "상대로부터 받은 물리공격의 데미지를 2배로 만들어 그 상대에게 돌려준다.",
+      "function_code": "CounterPhysicalDamage",
+      "effect_chance": 0
     },
     {
       "key": "COVET",
@@ -598,7 +716,9 @@
       "category": 0,
       "accuracy": 100,
       "pp": 25,
-      "description": "귀엽게 애교부리며 상대에게 다가가 지니고 있는 도구를 뺏는다."
+      "description": "귀엽게 애교부리며 상대에게 다가가 지니고 있는 도구를 뺏는다.",
+      "function_code": "UserTakesTargetItem",
+      "effect_chance": 0
     },
     {
       "key": "CRABHAMMER",
@@ -608,7 +728,9 @@
       "category": 0,
       "accuracy": 90,
       "pp": 10,
-      "description": "큰 집게를 상대에게 내리쳐서 공격한다. 급소에 맞을 확률이 높다."
+      "description": "큰 집게를 상대에게 내리쳐서 공격한다. 급소에 맞을 확률이 높다.",
+      "function_code": "None",
+      "effect_chance": 0
     },
     {
       "key": "CROSSCHOP",
@@ -618,7 +740,9 @@
       "category": 0,
       "accuracy": 80,
       "pp": 5,
-      "description": "양손으로 당수를 상대에게 힘껏 쳐서 공격한다. 급소에 맞기 쉽다."
+      "description": "양손으로 당수를 상대에게 힘껏 쳐서 공격한다. 급소에 맞기 쉽다.",
+      "function_code": "None",
+      "effect_chance": 0
     },
     {
       "key": "CROSSPOISON",
@@ -628,7 +752,9 @@
       "category": 0,
       "accuracy": 100,
       "pp": 20,
-      "description": "상대를 베어 가른다. 독 상태로 만들 때가 있고 급소에 맞을 확률이 높다."
+      "description": "상대를 베어 가른다. 독 상태로 만들 때가 있고 급소에 맞을 확률이 높다.",
+      "function_code": "PoisonTarget",
+      "effect_chance": 10
     },
     {
       "key": "CRUNCH",
@@ -638,7 +764,9 @@
       "category": 0,
       "accuracy": 100,
       "pp": 15,
-      "description": "날카로운 이빨로 상대를 깨물어 부숴서 공격한다. 상대의 방어를 떨어뜨릴 때가 있다."
+      "description": "날카로운 이빨로 상대를 깨물어 부숴서 공격한다. 상대의 방어를 떨어뜨릴 때가 있다.",
+      "function_code": "LowerTargetDefense1",
+      "effect_chance": 20
     },
     {
       "key": "CRUSHCLAW",
@@ -648,7 +776,9 @@
       "category": 0,
       "accuracy": 95,
       "pp": 10,
-      "description": "단단하고 날카로운 손톱으로 베어 갈라서 공격한다. 상대의 방어를 떨어뜨릴 때가 있다."
+      "description": "단단하고 날카로운 손톱으로 베어 갈라서 공격한다. 상대의 방어를 떨어뜨릴 때가 있다.",
+      "function_code": "LowerTargetDefense1",
+      "effect_chance": 50
     },
     {
       "key": "CURSE",
@@ -658,7 +788,9 @@
       "category": 2,
       "accuracy": 0,
       "pp": 10,
-      "description": "기술을 쓰는 포켓몬이 고스트 타입일 때와 그 이외의 타입일 때 효과가 다르다."
+      "description": "기술을 쓰는 포켓몬이 고스트 타입일 때와 그 이외의 타입일 때 효과가 다르다.",
+      "function_code": "CurseTargetOrLowerUserSpd1RaiseUserAtkDef1",
+      "effect_chance": 0
     },
     {
       "key": "CUT",
@@ -668,7 +800,9 @@
       "category": 0,
       "accuracy": 95,
       "pp": 30,
-      "description": "낫이나 손톱 등으로 상대를 베어 공격한다. 가느다란 나무 등도 자를 수 있다."
+      "description": "낫이나 손톱 등으로 상대를 베어 공격한다. 가느다란 나무 등도 자를 수 있다.",
+      "function_code": "None",
+      "effect_chance": 0
     },
     {
       "key": "DARKPULSE",
@@ -678,7 +812,9 @@
       "category": 1,
       "accuracy": 100,
       "pp": 15,
-      "description": "몸에서 악의로 가득한 무서운 오라를 발한다. 상대를 풀죽게 만들 때가 있다."
+      "description": "몸에서 악의로 가득한 무서운 오라를 발한다. 상대를 풀죽게 만들 때가 있다.",
+      "function_code": "FlinchTarget",
+      "effect_chance": 20
     },
     {
       "key": "DAZZLINGGLEAM",
@@ -688,7 +824,9 @@
       "category": 1,
       "accuracy": 100,
       "pp": 10,
-      "description": "강력한 빛을 내어 상대에게 데미지를 준다."
+      "description": "강력한 빛을 내어 상대에게 데미지를 준다.",
+      "function_code": "None",
+      "effect_chance": 0
     },
     {
       "key": "DEFENSECURL",
@@ -698,7 +836,9 @@
       "category": 2,
       "accuracy": 0,
       "pp": 40,
-      "description": "몸을 둥글게 웅크려서 자신의 방어를 올린다."
+      "description": "몸을 둥글게 웅크려서 자신의 방어를 올린다.",
+      "function_code": "RaiseUserDefense1CurlUpUser",
+      "effect_chance": 0
     },
     {
       "key": "DESTINYBOND",
@@ -708,7 +848,9 @@
       "category": 2,
       "accuracy": 0,
       "pp": 5,
-      "description": "기술을 쓴 뒤 공격을 받아 기절했을 때 공격한 상대도 기절하게 한다."
+      "description": "기술을 쓴 뒤 공격을 받아 기절했을 때 공격한 상대도 기절하게 한다.",
+      "function_code": "AttackerFaintsIfUserFaints",
+      "effect_chance": 0
     },
     {
       "key": "DETECT",
@@ -718,7 +860,9 @@
       "category": 2,
       "accuracy": 0,
       "pp": 5,
-      "description": "상대의 공격을 전혀 받지 않는다. 연속으로 쓰면 실패하기 쉽다."
+      "description": "상대의 공격을 전혀 받지 않는다. 연속으로 쓰면 실패하기 쉽다.",
+      "function_code": "ProtectUser",
+      "effect_chance": 0
     },
     {
       "key": "DIG",
@@ -728,7 +872,9 @@
       "category": 0,
       "accuracy": 100,
       "pp": 10,
-      "description": "1턴째에 땅속으로 파고들어 2턴째에 상대를 공격한다."
+      "description": "1턴째에 땅속으로 파고들어 2턴째에 상대를 공격한다.",
+      "function_code": "TwoTurnAttackInvulnerableUnderground",
+      "effect_chance": 0
     },
     {
       "key": "DISABLE",
@@ -738,7 +884,9 @@
       "category": 2,
       "accuracy": 100,
       "pp": 20,
-      "description": "상대의 움직임을 막아 바로 전에 쓴 기술을 잠시 동안 사용할 수 없게 만든다."
+      "description": "상대의 움직임을 막아 바로 전에 쓴 기술을 잠시 동안 사용할 수 없게 만든다.",
+      "function_code": "DisableTargetLastMoveUsed",
+      "effect_chance": 0
     },
     {
       "key": "DISARMINGVOICE",
@@ -748,7 +896,9 @@
       "category": 1,
       "accuracy": 0,
       "pp": 15,
-      "description": "매혹적인 울음소리를 내어 상대에게 정신적 데미지를 준다. 공격은 반드시 명중한다."
+      "description": "매혹적인 울음소리를 내어 상대에게 정신적 데미지를 준다. 공격은 반드시 명중한다.",
+      "function_code": "None",
+      "effect_chance": 0
     },
     {
       "key": "DISCHARGE",
@@ -758,7 +908,9 @@
       "category": 1,
       "accuracy": 100,
       "pp": 15,
-      "description": "눈부신 전격으로 주위에 있는 모두를 공격한다. 마비 상태로 만들 때가 있다."
+      "description": "눈부신 전격으로 주위에 있는 모두를 공격한다. 마비 상태로 만들 때가 있다.",
+      "function_code": "ParalyzeTarget",
+      "effect_chance": 30
     },
     {
       "key": "DIVE",
@@ -768,7 +920,9 @@
       "category": 0,
       "accuracy": 100,
       "pp": 10,
-      "description": "1턴째에 잠수했다가 2턴째에 떠올라 공격한다."
+      "description": "1턴째에 잠수했다가 2턴째에 떠올라 공격한다.",
+      "function_code": "TwoTurnAttackInvulnerableUnderwater",
+      "effect_chance": 0
     },
     {
       "key": "DOUBLEEDGE",
@@ -778,7 +932,9 @@
       "category": 0,
       "accuracy": 100,
       "pp": 15,
-      "description": "목숨을 걸고 상대에게 돌진 공격을 한다. 자신도 상당한 데미지를 입는다."
+      "description": "목숨을 걸고 상대에게 돌진 공격을 한다. 자신도 상당한 데미지를 입는다.",
+      "function_code": "RecoilThirdOfDamageDealt",
+      "effect_chance": 0
     },
     {
       "key": "DOUBLEHIT",
@@ -788,7 +944,9 @@
       "category": 0,
       "accuracy": 90,
       "pp": 10,
-      "description": "꼬리 등을 써서 상대를 때려 공격한다. 2회 연속으로 데미지를 준다."
+      "description": "꼬리 등을 써서 상대를 때려 공격한다. 2회 연속으로 데미지를 준다.",
+      "function_code": "HitTwoTimes",
+      "effect_chance": 0
     },
     {
       "key": "DOUBLEKICK",
@@ -798,7 +956,9 @@
       "category": 0,
       "accuracy": 100,
       "pp": 30,
-      "description": "2개의 다리로 상대를 걷어차서 공격한다. 2회 연속으로 데미지를 준다."
+      "description": "2개의 다리로 상대를 걷어차서 공격한다. 2회 연속으로 데미지를 준다.",
+      "function_code": "HitTwoTimes",
+      "effect_chance": 0
     },
     {
       "key": "DOUBLETEAM",
@@ -808,7 +968,9 @@
       "category": 2,
       "accuracy": 0,
       "pp": 15,
-      "description": "재빠른 움직임으로 분신을 만들어 상대를 혼란시켜 회피율을 올린다."
+      "description": "재빠른 움직임으로 분신을 만들어 상대를 혼란시켜 회피율을 올린다.",
+      "function_code": "RaiseUserEvasion1",
+      "effect_chance": 0
     },
     {
       "key": "DRAGONBREATH",
@@ -818,7 +980,9 @@
       "category": 1,
       "accuracy": 100,
       "pp": 20,
-      "description": "굉장한 숨결을 상대에게 내뿜어 공격한다. 마비 상태로 만들 때가 있다."
+      "description": "굉장한 숨결을 상대에게 내뿜어 공격한다. 마비 상태로 만들 때가 있다.",
+      "function_code": "ParalyzeTarget",
+      "effect_chance": 30
     },
     {
       "key": "DRAGONCLAW",
@@ -828,7 +992,9 @@
       "category": 0,
       "accuracy": 100,
       "pp": 15,
-      "description": "날카롭고 뾰족한 거대한 발톱으로 상대를 베어 갈라서 공격한다."
+      "description": "날카롭고 뾰족한 거대한 발톱으로 상대를 베어 갈라서 공격한다.",
+      "function_code": "None",
+      "effect_chance": 0
     },
     {
       "key": "DRAGONDANCE",
@@ -838,7 +1004,9 @@
       "category": 2,
       "accuracy": 0,
       "pp": 20,
-      "description": "신비롭고 힘센 춤을 격렬하게 춘다. 자신의 공격과 스피드를 올린다."
+      "description": "신비롭고 힘센 춤을 격렬하게 춘다. 자신의 공격과 스피드를 올린다.",
+      "function_code": "RaiseUserAtkSpd1",
+      "effect_chance": 0
     },
     {
       "key": "DRAGONPULSE",
@@ -848,7 +1016,9 @@
       "category": 1,
       "accuracy": 100,
       "pp": 10,
-      "description": "큰 입으로 충격파를 일으켜서 상대를 공격한다."
+      "description": "큰 입으로 충격파를 일으켜서 상대를 공격한다.",
+      "function_code": "None",
+      "effect_chance": 0
     },
     {
       "key": "DRAGONRUSH",
@@ -858,7 +1028,9 @@
       "category": 0,
       "accuracy": 75,
       "pp": 10,
-      "description": "굉장한 살기로 위압하면서 몸통박치기한다. 상대를 풀죽게 만들 때가 있다."
+      "description": "굉장한 살기로 위압하면서 몸통박치기한다. 상대를 풀죽게 만들 때가 있다.",
+      "function_code": "FlinchTarget",
+      "effect_chance": 20
     },
     {
       "key": "DRAGONTAIL",
@@ -868,7 +1040,9 @@
       "category": 0,
       "accuracy": 90,
       "pp": 10,
-      "description": "상대를 튕겨내서 교대할 포켓몬을 끌어낸다. 야생의 경우에는 배틀이 끝난다."
+      "description": "상대를 튕겨내서 교대할 포켓몬을 끌어낸다. 야생의 경우에는 배틀이 끝난다.",
+      "function_code": "SwitchOutTargetDamagingMove",
+      "effect_chance": 0
     },
     {
       "key": "DRAINPUNCH",
@@ -878,7 +1052,9 @@
       "category": 0,
       "accuracy": 100,
       "pp": 10,
-      "description": "주먹으로 상대의 힘을 흡수한다. 입힌 데미지의 절반에 해당하는 HP를 회복할 수 있다."
+      "description": "주먹으로 상대의 힘을 흡수한다. 입힌 데미지의 절반에 해당하는 HP를 회복할 수 있다.",
+      "function_code": "HealUserByHalfOfDamageDone",
+      "effect_chance": 0
     },
     {
       "key": "DREAMEATER",
@@ -888,7 +1064,9 @@
       "category": 1,
       "accuracy": 100,
       "pp": 15,
-      "description": "잠자고 있는 상대의 꿈을 먹어 공격한다. 데미지의 절반을 HP로 회복한다."
+      "description": "잠자고 있는 상대의 꿈을 먹어 공격한다. 데미지의 절반을 HP로 회복한다.",
+      "function_code": "HealUserByHalfOfDamageDoneIfTargetAsleep",
+      "effect_chance": 0
     },
     {
       "key": "DRILLPECK",
@@ -898,7 +1076,9 @@
       "category": 0,
       "accuracy": 100,
       "pp": 20,
-      "description": "회전하면서 뾰족한 부리를 상대에게 꿰찔러 공격한다."
+      "description": "회전하면서 뾰족한 부리를 상대에게 꿰찔러 공격한다.",
+      "function_code": "None",
+      "effect_chance": 0
     },
     {
       "key": "DRILLRUN",
@@ -908,7 +1088,9 @@
       "category": 0,
       "accuracy": 95,
       "pp": 10,
-      "description": "드릴처럼 몸을 회전시켜서 상대에게 몸통박치기한다. 급소에 맞기 쉽다."
+      "description": "드릴처럼 몸을 회전시켜서 상대에게 몸통박치기한다. 급소에 맞기 쉽다.",
+      "function_code": "None",
+      "effect_chance": 0
     },
     {
       "key": "DUALCHOP",
@@ -918,7 +1100,9 @@
       "category": 0,
       "accuracy": 90,
       "pp": 15,
-      "description": "몸의 단단한 부분으로 상대를 때려 공격한다. 2회 연속으로 데미지를 준다."
+      "description": "몸의 단단한 부분으로 상대를 때려 공격한다. 2회 연속으로 데미지를 준다.",
+      "function_code": "HitTwoTimes",
+      "effect_chance": 0
     },
     {
       "key": "DYNAMICPUNCH",
@@ -928,7 +1112,9 @@
       "category": 0,
       "accuracy": 50,
       "pp": 5,
-      "description": "혼신의 힘으로 펀치를 날려서 공격한다. 상대를 반드시 혼란 시킨다."
+      "description": "혼신의 힘으로 펀치를 날려서 공격한다. 상대를 반드시 혼란 시킨다.",
+      "function_code": "ConfuseTarget",
+      "effect_chance": 100
     },
     {
       "key": "EARTHPOWER",
@@ -938,7 +1124,9 @@
       "category": 1,
       "accuracy": 100,
       "pp": 10,
-      "description": "상대의 발밑에 대지의 힘을 방출한다. 상대의 특수방어를 떨어뜨릴 때가 있다."
+      "description": "상대의 발밑에 대지의 힘을 방출한다. 상대의 특수방어를 떨어뜨릴 때가 있다.",
+      "function_code": "LowerTargetSpDef1",
+      "effect_chance": 10
     },
     {
       "key": "EARTHQUAKE",
@@ -948,7 +1136,9 @@
       "category": 0,
       "accuracy": 100,
       "pp": 10,
-      "description": "지진의 충격으로 주위에 있는 모든 것을 공격한다."
+      "description": "지진의 충격으로 주위에 있는 모든 것을 공격한다.",
+      "function_code": "DoublePowerIfTargetUnderground",
+      "effect_chance": 0
     },
     {
       "key": "ECHOEDVOICE",
@@ -958,7 +1148,9 @@
       "category": 1,
       "accuracy": 100,
       "pp": 15,
-      "description": "울리는 목소리로 상대를 공격한다. 매 턴 누군가 이 기술을 계속해서 쓰면 위력이 올라간다."
+      "description": "울리는 목소리로 상대를 공격한다. 매 턴 누군가 이 기술을 계속해서 쓰면 위력이 올라간다.",
+      "function_code": "PowerHigherWithConsecutiveUseOnUserSide",
+      "effect_chance": 0
     },
     {
       "key": "EERIEIMPULSE",
@@ -968,7 +1160,9 @@
       "category": 2,
       "accuracy": 100,
       "pp": 15,
-      "description": "몸에서 괴전파를 내어 상대에게 쏨으로써 특수공격을 크게 떨어뜨린다."
+      "description": "몸에서 괴전파를 내어 상대에게 쏨으로써 특수공격을 크게 떨어뜨린다.",
+      "function_code": "LowerTargetSpAtk2",
+      "effect_chance": 0
     },
     {
       "key": "ELECTRICTERRAIN",
@@ -978,7 +1172,9 @@
       "category": 2,
       "accuracy": 0,
       "pp": 10,
-      "description": "5턴 동안 일렉트릭필드로 만든다. 땅에 있는 포켓몬은 잠들지 않는다. 전기타입의 위력이 올라간다."
+      "description": "5턴 동안 일렉트릭필드로 만든다. 땅에 있는 포켓몬은 잠들지 않는다. 전기타입의 위력이 올라간다.",
+      "function_code": "StartElectricTerrain",
+      "effect_chance": 0
     },
     {
       "key": "ELECTROBALL",
@@ -988,7 +1184,9 @@
       "category": 1,
       "accuracy": 100,
       "pp": 10,
-      "description": "전기 덩어리를 상대에게 부딪쳐서 공격한다. 상대보다 스피드가 빠를수록 위력이 올라간다."
+      "description": "전기 덩어리를 상대에게 부딪쳐서 공격한다. 상대보다 스피드가 빠를수록 위력이 올라간다.",
+      "function_code": "PowerHigherWithUserFasterThanTarget",
+      "effect_chance": 0
     },
     {
       "key": "EMBER",
@@ -998,7 +1196,9 @@
       "category": 1,
       "accuracy": 100,
       "pp": 25,
-      "description": "작은 불꽃을 상대에게 발사하여 공격한다. 화상 상태로 만들 때가 있다."
+      "description": "작은 불꽃을 상대에게 발사하여 공격한다. 화상 상태로 만들 때가 있다.",
+      "function_code": "BurnTarget",
+      "effect_chance": 10
     },
     {
       "key": "ENCORE",
@@ -1008,7 +1208,9 @@
       "category": 2,
       "accuracy": 100,
       "pp": 5,
-      "description": "상대에게 앙코르를 외쳐서 기술을 3번 연속으로 쓰게 한다."
+      "description": "상대에게 앙코르를 외쳐서 기술을 3번 연속으로 쓰게 한다.",
+      "function_code": "DisableTargetUsingDifferentMove",
+      "effect_chance": 0
     },
     {
       "key": "ENDEAVOR",
@@ -1018,7 +1220,9 @@
       "category": 0,
       "accuracy": 100,
       "pp": 5,
-      "description": "상대의 HP가 자신의 HP와 같아지도록 데미지를 준다."
+      "description": "상대의 HP가 자신의 HP와 같아지도록 데미지를 준다.",
+      "function_code": "LowerTargetHPToUserHP",
+      "effect_chance": 0
     },
     {
       "key": "ENDURE",
@@ -1028,7 +1232,9 @@
       "category": 2,
       "accuracy": 0,
       "pp": 10,
-      "description": "공격을 받아도 HP를 반드시 1만큼은 남긴다. 연속으로 쓰면 실패하기 쉽다."
+      "description": "공격을 받아도 HP를 반드시 1만큼은 남긴다. 연속으로 쓰면 실패하기 쉽다.",
+      "function_code": "UserEnduresFaintingThisTurn",
+      "effect_chance": 0
     },
     {
       "key": "EXPLOSION",
@@ -1038,7 +1244,9 @@
       "category": 0,
       "accuracy": 100,
       "pp": 5,
-      "description": "커다란 폭발로 주위에 있는 모든 것을 공격한다. 사용한 다음 기절한다."
+      "description": "커다란 폭발로 주위에 있는 모든 것을 공격한다. 사용한 다음 기절한다.",
+      "function_code": "UserFaintsExplosive",
+      "effect_chance": 0
     },
     {
       "key": "EXTRASENSORY",
@@ -1048,7 +1256,9 @@
       "category": 1,
       "accuracy": 100,
       "pp": 20,
-      "description": "보이지 않는 이상한 힘을 보내어 공격한다. 상대를 풀죽게 만들 때가 있다."
+      "description": "보이지 않는 이상한 힘을 보내어 공격한다. 상대를 풀죽게 만들 때가 있다.",
+      "function_code": "FlinchTarget",
+      "effect_chance": 10
     },
     {
       "key": "EXTREMESPEED",
@@ -1058,7 +1268,9 @@
       "category": 0,
       "accuracy": 100,
       "pp": 5,
-      "description": "눈에 보이지 않을 스피드로 상대에게 돌진한다. 반드시 선제 공격을 할 수 있다."
+      "description": "눈에 보이지 않을 스피드로 상대에게 돌진한다. 반드시 선제 공격을 할 수 있다.",
+      "function_code": "None",
+      "effect_chance": 0
     },
     {
       "key": "FAKEOUT",
@@ -1068,7 +1280,9 @@
       "category": 0,
       "accuracy": 100,
       "pp": 10,
-      "description": "선제공격으로 상대를 풀죽게 한다. 배틀에 나가서 바로 쓰지 않으면 성공할 수 없다."
+      "description": "선제공격으로 상대를 풀죽게 한다. 배틀에 나가서 바로 쓰지 않으면 성공할 수 없다.",
+      "function_code": "FlinchTargetFailsIfNotUserFirstTurn",
+      "effect_chance": 100
     },
     {
       "key": "FAKETEARS",
@@ -1078,7 +1292,9 @@
       "category": 2,
       "accuracy": 100,
       "pp": 20,
-      "description": "우는 척을 하며 눈물을 흘린다. 난처하게 만들어 상대의 특수방어를 크게 떨어뜨린다."
+      "description": "우는 척을 하며 눈물을 흘린다. 난처하게 만들어 상대의 특수방어를 크게 떨어뜨린다.",
+      "function_code": "LowerTargetSpDef2",
+      "effect_chance": 0
     },
     {
       "key": "FALSESWIPE",
@@ -1088,7 +1304,9 @@
       "category": 0,
       "accuracy": 100,
       "pp": 40,
-      "description": "상대의 HP가 반드시 1만큼 남도록 조절하여 공격한다."
+      "description": "상대의 HP가 반드시 1만큼 남도록 조절하여 공격한다.",
+      "function_code": "CannotMakeTargetFaint",
+      "effect_chance": 0
     },
     {
       "key": "FEATHERDANCE",
@@ -1098,7 +1316,9 @@
       "category": 2,
       "accuracy": 100,
       "pp": 15,
-      "description": "깃털을 흩뿌려 상대의 몸에 휘감는다. 상대의 공격을 크게 떨어뜨린다."
+      "description": "깃털을 흩뿌려 상대의 몸에 휘감는다. 상대의 공격을 크게 떨어뜨린다.",
+      "function_code": "LowerTargetAttack2",
+      "effect_chance": 0
     },
     {
       "key": "FEINT",
@@ -1108,7 +1328,9 @@
       "category": 0,
       "accuracy": 100,
       "pp": 10,
-      "description": "방어나 판별을 하고 있는 상대에게 공격할 수 있다. 방어 효과를 해제시킨다."
+      "description": "방어나 판별을 하고 있는 상대에게 공격할 수 있다. 방어 효과를 해제시킨다.",
+      "function_code": "RemoveProtections",
+      "effect_chance": 0
     },
     {
       "key": "FELLSTINGER",
@@ -1118,7 +1340,9 @@
       "category": 0,
       "accuracy": 100,
       "pp": 25,
-      "description": "이 기술을 사용하여 상대를 쓰러뜨리면 공격이 매우 크게 오른다."
+      "description": "이 기술을 사용하여 상대를 쓰러뜨리면 공격이 매우 크게 오른다.",
+      "function_code": "RaiseUserAttack3IfTargetFaints",
+      "effect_chance": 0
     },
     {
       "key": "FINALGAMBIT",
@@ -1128,7 +1352,9 @@
       "category": 1,
       "accuracy": 100,
       "pp": 5,
-      "description": "목숨을 걸고 상대를 공격한다. 자신은 기절하게 되지만 상대에게 HP만큼의 데미지를 준다."
+      "description": "목숨을 걸고 상대를 공격한다. 자신은 기절하게 되지만 상대에게 HP만큼의 데미지를 준다.",
+      "function_code": "UserFaintsFixedDamageUserHP",
+      "effect_chance": 0
     },
     {
       "key": "FIREBLAST",
@@ -1138,7 +1364,9 @@
       "category": 1,
       "accuracy": 85,
       "pp": 5,
-      "description": "큰 대자의 불꽃으로 상대를 불태운다. 화상상태로 만들 때가 있다."
+      "description": "큰 대자의 불꽃으로 상대를 불태운다. 화상상태로 만들 때가 있다.",
+      "function_code": "BurnTarget",
+      "effect_chance": 10
     },
     {
       "key": "FIREFANG",
@@ -1148,7 +1376,9 @@
       "category": 0,
       "accuracy": 95,
       "pp": 15,
-      "description": "불꽃을 두른 이빨로 문다. 상대를 풀죽게 하거나 화상 상태로 만들 때가 있다."
+      "description": "불꽃을 두른 이빨로 문다. 상대를 풀죽게 하거나 화상 상태로 만들 때가 있다.",
+      "function_code": "BurnFlinchTarget",
+      "effect_chance": 101
     },
     {
       "key": "FIREPUNCH",
@@ -1158,7 +1388,9 @@
       "category": 0,
       "accuracy": 100,
       "pp": 15,
-      "description": "불꽃을 담은 펀치로 상대를 공격한다. 화상 상태가 되는 경우가 있다."
+      "description": "불꽃을 담은 펀치로 상대를 공격한다. 화상 상태가 되는 경우가 있다.",
+      "function_code": "BurnTarget",
+      "effect_chance": 10
     },
     {
       "key": "FIRESPIN",
@@ -1168,7 +1400,9 @@
       "category": 1,
       "accuracy": 85,
       "pp": 15,
-      "description": "세차게 소용돌이치는 불꽃 속에 4-5턴 동안 상대를 가두어 공격한다."
+      "description": "세차게 소용돌이치는 불꽃 속에 4-5턴 동안 상대를 가두어 공격한다.",
+      "function_code": "BindTarget",
+      "effect_chance": 0
     },
     {
       "key": "FISSURE",
@@ -1178,7 +1412,9 @@
       "category": 0,
       "accuracy": 30,
       "pp": 5,
-      "description": "땅이 갈라진 곳에 상대를 떨어뜨려 공격한다. 맞으면 일격에 기절한다."
+      "description": "땅이 갈라진 곳에 상대를 떨어뜨려 공격한다. 맞으면 일격에 기절한다.",
+      "function_code": "OHKOHitsUndergroundTarget",
+      "effect_chance": 0
     },
     {
       "key": "FLAIL",
@@ -1188,7 +1424,9 @@
       "category": 0,
       "accuracy": 100,
       "pp": 15,
-      "description": "바둥바둥 난동부려서 공격한다. 자신의 HP가 적을수록 기술의 위력이 올라간다."
+      "description": "바둥바둥 난동부려서 공격한다. 자신의 HP가 적을수록 기술의 위력이 올라간다.",
+      "function_code": "PowerLowerWithUserHP",
+      "effect_chance": 0
     },
     {
       "key": "FLAMECHARGE",
@@ -1198,7 +1436,9 @@
       "category": 0,
       "accuracy": 100,
       "pp": 20,
-      "description": "불꽃을 둘러 상대를 공격한다. 힘을 모아서 자신의 스피드를 올린다."
+      "description": "불꽃을 둘러 상대를 공격한다. 힘을 모아서 자신의 스피드를 올린다.",
+      "function_code": "RaiseUserSpeed1",
+      "effect_chance": 100
     },
     {
       "key": "FLAMETHROWER",
@@ -1208,7 +1448,9 @@
       "category": 1,
       "accuracy": 100,
       "pp": 15,
-      "description": "세찬 불꽃을 상대에게 발사하여 공격한다. 화상 상태로 만들 때가 있다."
+      "description": "세찬 불꽃을 상대에게 발사하여 공격한다. 화상 상태로 만들 때가 있다.",
+      "function_code": "BurnTarget",
+      "effect_chance": 10
     },
     {
       "key": "FLAMEWHEEL",
@@ -1218,7 +1460,9 @@
       "category": 0,
       "accuracy": 100,
       "pp": 25,
-      "description": "불꽃을 둘러 상대에게 돌진 공격한다. 화상 상태로 만들 때가 있다."
+      "description": "불꽃을 둘러 상대에게 돌진 공격한다. 화상 상태로 만들 때가 있다.",
+      "function_code": "BurnTarget",
+      "effect_chance": 10
     },
     {
       "key": "FLAREBLITZ",
@@ -1228,7 +1472,9 @@
       "category": 0,
       "accuracy": 100,
       "pp": 15,
-      "description": "The user cloaks itself in fire and charges at the foe. The user takes damage and may burn the target."
+      "description": "The user cloaks itself in fire and charges at the foe. The user takes damage and may burn the target.",
+      "function_code": "RecoilThirdOfDamageDealtBurnTarget",
+      "effect_chance": 10
     },
     {
       "key": "FLASHCANNON",
@@ -1238,7 +1484,9 @@
       "category": 1,
       "accuracy": 100,
       "pp": 10,
-      "description": "몸의 빛을 한곳에 모아서 힘을 쏜다. 상대의 특수방어를 떨어뜨릴 때가 있다."
+      "description": "몸의 빛을 한곳에 모아서 힘을 쏜다. 상대의 특수방어를 떨어뜨릴 때가 있다.",
+      "function_code": "LowerTargetSpDef1",
+      "effect_chance": 10
     },
     {
       "key": "FLATTER",
@@ -1248,7 +1496,9 @@
       "category": 2,
       "accuracy": 100,
       "pp": 15,
-      "description": "상대를 부추겨서 혼란시킨다. 동시에 상대의 특수공격도 올라가 버린다."
+      "description": "상대를 부추겨서 혼란시킨다. 동시에 상대의 특수공격도 올라가 버린다.",
+      "function_code": "RaiseTargetSpAtk1ConfuseTarget",
+      "effect_chance": 0
     },
     {
       "key": "FLING",
@@ -1258,7 +1508,9 @@
       "category": 0,
       "accuracy": 100,
       "pp": 10,
-      "description": "지니게 한 도구를 재빠르게 내던져서 공격한다. 도구에 따라 위력과 효과가 바뀐다."
+      "description": "지니게 한 도구를 재빠르게 내던져서 공격한다. 도구에 따라 위력과 효과가 바뀐다.",
+      "function_code": "ThrowUserItemAtTarget",
+      "effect_chance": 0
     },
     {
       "key": "FOCUSENERGY",
@@ -1268,7 +1520,9 @@
       "category": 2,
       "accuracy": 0,
       "pp": 30,
-      "description": "깊게 숨을 들이마셔 기합을 넣는다. 자신의 공격이 급소에 맞을 확률을 올린다."
+      "description": "깊게 숨을 들이마셔 기합을 넣는다. 자신의 공격이 급소에 맞을 확률을 올린다.",
+      "function_code": "RaiseUserCriticalHitRate2",
+      "effect_chance": 0
     },
     {
       "key": "FOCUSPUNCH",
@@ -1278,7 +1532,9 @@
       "category": 0,
       "accuracy": 100,
       "pp": 20,
-      "description": "정신력을 높여 펀치를 날린다. 기술을 쓰기 전에 공격을 받으면 실패한다."
+      "description": "정신력을 높여 펀치를 날린다. 기술을 쓰기 전에 공격을 받으면 실패한다.",
+      "function_code": "FailsIfUserDamagedThisTurn",
+      "effect_chance": 0
     },
     {
       "key": "FOLLOWME",
@@ -1288,7 +1544,9 @@
       "category": 2,
       "accuracy": 0,
       "pp": 20,
-      "description": "자신에게 주목시켜 상대로부터의 공격을 모두 자신에게 향하게 한다."
+      "description": "자신에게 주목시켜 상대로부터의 공격을 모두 자신에게 향하게 한다.",
+      "function_code": "RedirectAllMovesToUser",
+      "effect_chance": 0
     },
     {
       "key": "FREEZEDRY",
@@ -1298,7 +1556,9 @@
       "category": 1,
       "accuracy": 100,
       "pp": 20,
-      "description": "상대를 급격히 차갑게 하여 얼음 상태로 만들 때가 있다. 물타입 포켓몬에게도 효과가 굉장해진다."
+      "description": "상대를 급격히 차갑게 하여 얼음 상태로 만들 때가 있다. 물타입 포켓몬에게도 효과가 굉장해진다.",
+      "function_code": "FreezeTargetSuperEffectiveAgainstWater",
+      "effect_chance": 10
     },
     {
       "key": "FURYATTACK",
@@ -1308,7 +1568,9 @@
       "category": 0,
       "accuracy": 85,
       "pp": 20,
-      "description": "뿔이나 부리로 상대를 찔러서 공격한다. 2-5회 동안 연속으로 쓴다."
+      "description": "뿔이나 부리로 상대를 찔러서 공격한다. 2-5회 동안 연속으로 쓴다.",
+      "function_code": "HitTwoToFiveTimes",
+      "effect_chance": 0
     },
     {
       "key": "FURYCUTTER",
@@ -1318,7 +1580,9 @@
       "category": 0,
       "accuracy": 95,
       "pp": 20,
-      "description": "낫이나 발톱 등으로 상대를 베어 공격한다. 연속으로 맞히면 위력이 올라간다."
+      "description": "낫이나 발톱 등으로 상대를 베어 공격한다. 연속으로 맞히면 위력이 올라간다.",
+      "function_code": "PowerHigherWithConsecutiveUse",
+      "effect_chance": 0
     },
     {
       "key": "FURYSWIPES",
@@ -1328,7 +1592,9 @@
       "category": 0,
       "accuracy": 80,
       "pp": 15,
-      "description": "발톱이나 낫 등으로 상대를 할퀴어서 공격한다. 2-5회 동안 연속으로 쓴다."
+      "description": "발톱이나 낫 등으로 상대를 할퀴어서 공격한다. 2-5회 동안 연속으로 쓴다.",
+      "function_code": "HitTwoToFiveTimes",
+      "effect_chance": 0
     },
     {
       "key": "FUTURESIGHT",
@@ -1338,7 +1604,9 @@
       "category": 1,
       "accuracy": 100,
       "pp": 10,
-      "description": "기술을 사용한 2턴 뒤에 상대에게 염동력의 덩어리를 보내어 공격한다."
+      "description": "기술을 사용한 2턴 뒤에 상대에게 염동력의 덩어리를 보내어 공격한다.",
+      "function_code": "AttackTwoTurnsLater",
+      "effect_chance": 0
     },
     {
       "key": "GASTROACID",
@@ -1348,7 +1616,9 @@
       "category": 2,
       "accuracy": 100,
       "pp": 10,
-      "description": "상대의 몸에 위액을 내뱉는다. 달라붙은 위액은 상대의 특성 효과를 지운다."
+      "description": "상대의 몸에 위액을 내뱉는다. 달라붙은 위액은 상대의 특성 효과를 지운다.",
+      "function_code": "NegateTargetAbility",
+      "effect_chance": 0
     },
     {
       "key": "GIGADRAIN",
@@ -1358,7 +1628,9 @@
       "category": 1,
       "accuracy": 100,
       "pp": 10,
-      "description": "양분을 흡수하여 공격한다. 입힌 데미지의 절반에 해당하는 HP를 회복할 수 있다."
+      "description": "양분을 흡수하여 공격한다. 입힌 데미지의 절반에 해당하는 HP를 회복할 수 있다.",
+      "function_code": "HealUserByHalfOfDamageDone",
+      "effect_chance": 0
     },
     {
       "key": "GIGAIMPACT",
@@ -1368,7 +1640,9 @@
       "category": 0,
       "accuracy": 90,
       "pp": 5,
-      "description": "가진 힘을 모두 사용해서 상대에게 돌격한다. 다음 턴은 움직일 수 없다."
+      "description": "가진 힘을 모두 사용해서 상대에게 돌격한다. 다음 턴은 움직일 수 없다.",
+      "function_code": "AttackAndSkipNextTurn",
+      "effect_chance": 0
     },
     {
       "key": "GLARE",
@@ -1378,7 +1652,9 @@
       "category": 2,
       "accuracy": 100,
       "pp": 30,
-      "description": "배의 무늬로 겁을 주어 상대를 마비 상태로 만든다."
+      "description": "배의 무늬로 겁을 주어 상대를 마비 상태로 만든다.",
+      "function_code": "ParalyzeTarget",
+      "effect_chance": 0
     },
     {
       "key": "GRASSYTERRAIN",
@@ -1388,7 +1664,9 @@
       "category": 2,
       "accuracy": 0,
       "pp": 10,
-      "description": "5턴 동안 발 밑을 그래스필드로 만든다. 땅에 있는 포켓몬은 매 턴 회복한다."
+      "description": "5턴 동안 발 밑을 그래스필드로 만든다. 땅에 있는 포켓몬은 매 턴 회복한다.",
+      "function_code": "StartGrassyTerrain",
+      "effect_chance": 0
     },
     {
       "key": "GRAVITY",
@@ -1398,7 +1676,9 @@
       "category": 2,
       "accuracy": 0,
       "pp": 5,
-      "description": "5턴 동안 부유나 비행타입에 땅타입의 기술이 맞게 된다. 공중으로 나는 기술도 사용할 수 없다."
+      "description": "5턴 동안 부유나 비행타입에 땅타입의 기술이 맞게 된다. 공중으로 나는 기술도 사용할 수 없다.",
+      "function_code": "StartGravity",
+      "effect_chance": 0
     },
     {
       "key": "GROWL",
@@ -1408,7 +1688,9 @@
       "category": 2,
       "accuracy": 100,
       "pp": 40,
-      "description": "귀여운 울음소리를 들려주고 관심을 끌어 방심한 사이에 상대의 공격을 떨어뜨린다."
+      "description": "귀여운 울음소리를 들려주고 관심을 끌어 방심한 사이에 상대의 공격을 떨어뜨린다.",
+      "function_code": "LowerTargetAttack1",
+      "effect_chance": 0
     },
     {
       "key": "GROWTH",
@@ -1418,7 +1700,9 @@
       "category": 2,
       "accuracy": 0,
       "pp": 20,
-      "description": "몸을 일시에 크게 성장시켜 자신의 공격과 특수공격을 올린다."
+      "description": "몸을 일시에 크게 성장시켜 자신의 공격과 특수공격을 올린다.",
+      "function_code": "RaiseUserAtkSpAtk1Or2InSun",
+      "effect_chance": 0
     },
     {
       "key": "GUARDSWAP",
@@ -1428,7 +1712,9 @@
       "category": 2,
       "accuracy": 0,
       "pp": 10,
-      "description": "초능력으로 자신과 상대의 방어와 특수방어의 능력 변화를 교체한다."
+      "description": "초능력으로 자신과 상대의 방어와 특수방어의 능력 변화를 교체한다.",
+      "function_code": "UserTargetSwapDefSpDefStages",
+      "effect_chance": 0
     },
     {
       "key": "GUILLOTINE",
@@ -1438,7 +1724,9 @@
       "category": 0,
       "accuracy": 30,
       "pp": 5,
-      "description": "큰 집게로 상대를 베어 갈라 공격한다. 맞으면 일격에 기절한다."
+      "description": "큰 집게로 상대를 베어 갈라 공격한다. 맞으면 일격에 기절한다.",
+      "function_code": "OHKO",
+      "effect_chance": 0
     },
     {
       "key": "GUNKSHOT",
@@ -1448,7 +1736,9 @@
       "category": 0,
       "accuracy": 80,
       "pp": 5,
-      "description": "더러운 쓰레기를 상대에게 부딪쳐서 공격한다. 독 상태로 만들 때가 있다."
+      "description": "더러운 쓰레기를 상대에게 부딪쳐서 공격한다. 독 상태로 만들 때가 있다.",
+      "function_code": "PoisonTarget",
+      "effect_chance": 30
     },
     {
       "key": "GUST",
@@ -1458,7 +1748,9 @@
       "category": 1,
       "accuracy": 100,
       "pp": 35,
-      "description": "날개로 일으킨 격한 바람을 상대에게 부딪혀서 공격한다."
+      "description": "날개로 일으킨 격한 바람을 상대에게 부딪혀서 공격한다.",
+      "function_code": "DoublePowerIfTargetInSky",
+      "effect_chance": 0
     },
     {
       "key": "GYROBALL",
@@ -1468,7 +1760,9 @@
       "category": 0,
       "accuracy": 100,
       "pp": 5,
-      "description": "몸을 고속으로 회전시켜서 몸통박치기한다. 상대보다 스피드가 느릴수록 강하다."
+      "description": "몸을 고속으로 회전시켜서 몸통박치기한다. 상대보다 스피드가 느릴수록 강하다.",
+      "function_code": "PowerHigherWithTargetFasterThanUser",
+      "effect_chance": 0
     },
     {
       "key": "HAMMERARM",
@@ -1478,7 +1772,9 @@
       "category": 0,
       "accuracy": 90,
       "pp": 10,
-      "description": "강하고 무거운 주먹을 휘둘러 데미지를 준다. 자신의 스피드가 떨어진다."
+      "description": "강하고 무거운 주먹을 휘둘러 데미지를 준다. 자신의 스피드가 떨어진다.",
+      "function_code": "LowerUserSpeed1",
+      "effect_chance": 0
     },
     {
       "key": "HARDEN",
@@ -1488,7 +1784,9 @@
       "category": 2,
       "accuracy": 0,
       "pp": 30,
-      "description": "전신에 힘을 담아 몸을 단단하게 해서 자신의 방어를 올린다."
+      "description": "전신에 힘을 담아 몸을 단단하게 해서 자신의 방어를 올린다.",
+      "function_code": "RaiseUserDefense1",
+      "effect_chance": 0
     },
     {
       "key": "HAZE",
@@ -1498,7 +1796,9 @@
       "category": 2,
       "accuracy": 0,
       "pp": 30,
-      "description": "흑안개를 뿜어 배틀에 참가 중인 포켓몬 전원의 능력 변화를 원래대로 돌린다."
+      "description": "흑안개를 뿜어 배틀에 참가 중인 포켓몬 전원의 능력 변화를 원래대로 돌린다.",
+      "function_code": "ResetAllBattlersStatStages",
+      "effect_chance": 0
     },
     {
       "key": "HEADBUTT",
@@ -1508,7 +1808,9 @@
       "category": 0,
       "accuracy": 100,
       "pp": 15,
-      "description": "머리를 내밀고 무작정 돌진하여 공격한다. 가끔 풀죽게 만든다. 나무를 흔들어 포켓몬을 떨어뜨릴 수도 있다."
+      "description": "머리를 내밀고 무작정 돌진하여 공격한다. 가끔 풀죽게 만든다. 나무를 흔들어 포켓몬을 떨어뜨릴 수도 있다.",
+      "function_code": "FlinchTarget",
+      "effect_chance": 30
     },
     {
       "key": "HEALINGWISH",
@@ -1518,7 +1820,9 @@
       "category": 2,
       "accuracy": 0,
       "pp": 10,
-      "description": "자신은 기절하지만 교대하여 나오는 포켓몬의 상태 이상과 HP를 회복한다."
+      "description": "자신은 기절하지만 교대하여 나오는 포켓몬의 상태 이상과 HP를 회복한다.",
+      "function_code": "UserFaintsHealAndCureReplacement",
+      "effect_chance": 0
     },
     {
       "key": "HEALPULSE",
@@ -1528,7 +1832,9 @@
       "category": 2,
       "accuracy": 0,
       "pp": 10,
-      "description": "치유파동을 날려서 최대 HP의 절반만큼 상대의 HP를 회복한다."
+      "description": "치유파동을 날려서 최대 HP의 절반만큼 상대의 HP를 회복한다.",
+      "function_code": "HealTargetHalfOfTotalHP",
+      "effect_chance": 0
     },
     {
       "key": "HEATWAVE",
@@ -1538,7 +1844,9 @@
       "category": 1,
       "accuracy": 90,
       "pp": 10,
-      "description": "뜨거운 숨결을 상대에게 내뿜어 공격한다. 화상 상태로 만들 때가 있다."
+      "description": "뜨거운 숨결을 상대에게 내뿜어 공격한다. 화상 상태로 만들 때가 있다.",
+      "function_code": "BurnTarget",
+      "effect_chance": 10
     },
     {
       "key": "HEAVYSLAM",
@@ -1548,7 +1856,9 @@
       "category": 0,
       "accuracy": 100,
       "pp": 10,
-      "description": "무거운 몸으로 상대에게 부딪쳐 공격한다. 자신이 상대보다 무거울수록 위력이 올라간다."
+      "description": "무거운 몸으로 상대에게 부딪쳐 공격한다. 자신이 상대보다 무거울수록 위력이 올라간다.",
+      "function_code": "PowerHigherWithUserHeavierThanTarget",
+      "effect_chance": 0
     },
     {
       "key": "HELPINGHAND",
@@ -1558,7 +1868,9 @@
       "category": 2,
       "accuracy": 0,
       "pp": 20,
-      "description": "동료를 돕는다. 도움받은 포켓몬이 쓰는 기술의 위력은 여느 때보다 커진다."
+      "description": "동료를 돕는다. 도움받은 포켓몬이 쓰는 기술의 위력은 여느 때보다 커진다.",
+      "function_code": "PowerUpAllyMove",
+      "effect_chance": 0
     },
     {
       "key": "HEX",
@@ -1568,7 +1880,9 @@
       "category": 1,
       "accuracy": 100,
       "pp": 10,
-      "description": "엎친 데 덮친 격으로 공격한다. 상태 이상인 상대에게 큰 데미지를 준다."
+      "description": "엎친 데 덮친 격으로 공격한다. 상태 이상인 상대에게 큰 데미지를 준다.",
+      "function_code": "DoublePowerIfTargetStatusProblem",
+      "effect_chance": 0
     },
     {
       "key": "HIGHHORSEPOWER",
@@ -1578,7 +1892,9 @@
       "category": 0,
       "accuracy": 95,
       "pp": 10,
-      "description": "온몸을 써서 상대를 맹렬히 공격한다."
+      "description": "온몸을 써서 상대를 맹렬히 공격한다.",
+      "function_code": "None",
+      "effect_chance": 0
     },
     {
       "key": "HIGHJUMPKICK",
@@ -1588,7 +1904,9 @@
       "category": 0,
       "accuracy": 90,
       "pp": 10,
-      "description": "점프해서 무릎차기로 상대를 공격한다. 빗나가면 자신이 데미지를 입는다."
+      "description": "점프해서 무릎차기로 상대를 공격한다. 빗나가면 자신이 데미지를 입는다.",
+      "function_code": "CrashDamageIfFailsUnusableInGravity",
+      "effect_chance": 0
     },
     {
       "key": "HORNATTACK",
@@ -1598,7 +1916,9 @@
       "category": 0,
       "accuracy": 100,
       "pp": 25,
-      "description": "날카롭고 뾰족한 뿔로 상대를 공격한다."
+      "description": "날카롭고 뾰족한 뿔로 상대를 공격한다.",
+      "function_code": "None",
+      "effect_chance": 0
     },
     {
       "key": "HORNDRILL",
@@ -1608,7 +1928,9 @@
       "category": 0,
       "accuracy": 30,
       "pp": 5,
-      "description": "회전하는 뿔을 상대에 꿰찔러서 공격한다. 맞으면 일격에 기절한다."
+      "description": "회전하는 뿔을 상대에 꿰찔러서 공격한다. 맞으면 일격에 기절한다.",
+      "function_code": "OHKO",
+      "effect_chance": 0
     },
     {
       "key": "HOWL",
@@ -1618,7 +1940,9 @@
       "category": 2,
       "accuracy": 0,
       "pp": 40,
-      "description": "큰 소리로 짖고 기합을 높여 자신의 공격을 올린다."
+      "description": "큰 소리로 짖고 기합을 높여 자신의 공격을 올린다.",
+      "function_code": "RaiseTargetAttack1",
+      "effect_chance": 0
     },
     {
       "key": "HURRICANE",
@@ -1628,7 +1952,9 @@
       "category": 1,
       "accuracy": 70,
       "pp": 10,
-      "description": "강렬한 바람으로 상대를 둘러싸서 공격한다. 상대를 혼란시킬 때가 있다."
+      "description": "강렬한 바람으로 상대를 둘러싸서 공격한다. 상대를 혼란시킬 때가 있다.",
+      "function_code": "ConfuseTargetAlwaysHitsInRainHitsTargetInSky",
+      "effect_chance": 30
     },
     {
       "key": "HYDROPUMP",
@@ -1638,7 +1964,9 @@
       "category": 1,
       "accuracy": 80,
       "pp": 5,
-      "description": "대량의 물을 세찬 기세로 상대에게 발사하여 공격한다."
+      "description": "대량의 물을 세찬 기세로 상대에게 발사하여 공격한다.",
+      "function_code": "None",
+      "effect_chance": 0
     },
     {
       "key": "HYPERBEAM",
@@ -1648,7 +1976,9 @@
       "category": 1,
       "accuracy": 90,
       "pp": 5,
-      "description": "강한 광선을 상대에게 발사하여 공격한다. 다음 턴은 움직일 수 없다."
+      "description": "강한 광선을 상대에게 발사하여 공격한다. 다음 턴은 움직일 수 없다.",
+      "function_code": "AttackAndSkipNextTurn",
+      "effect_chance": 0
     },
     {
       "key": "HYPERVOICE",
@@ -1658,7 +1988,9 @@
       "category": 1,
       "accuracy": 100,
       "pp": 10,
-      "description": "시끄럽게 울리는 큰 진동을 상대에게 전달하여 공격한다."
+      "description": "시끄럽게 울리는 큰 진동을 상대에게 전달하여 공격한다.",
+      "function_code": "None",
+      "effect_chance": 0
     },
     {
       "key": "HYPNOSIS",
@@ -1668,7 +2000,9 @@
       "category": 2,
       "accuracy": 60,
       "pp": 20,
-      "description": "졸음을 유도하는 암시를 걸어서 상대를 잠듦 상태로 만든다."
+      "description": "졸음을 유도하는 암시를 걸어서 상대를 잠듦 상태로 만든다.",
+      "function_code": "SleepTarget",
+      "effect_chance": 0
     },
     {
       "key": "ICEBEAM",
@@ -1678,7 +2012,9 @@
       "category": 1,
       "accuracy": 100,
       "pp": 10,
-      "description": "냉동빔을 상대에게 발사하여 공격한다. 얼음 상태로 만들 때가 있다."
+      "description": "냉동빔을 상대에게 발사하여 공격한다. 얼음 상태로 만들 때가 있다.",
+      "function_code": "FreezeTarget",
+      "effect_chance": 10
     },
     {
       "key": "ICEFANG",
@@ -1688,7 +2024,9 @@
       "category": 0,
       "accuracy": 95,
       "pp": 15,
-      "description": "냉기를 품은 이빨로 문다. 상대를 풀죽게 하거나 얼음 상태로 만들 때가 있다."
+      "description": "냉기를 품은 이빨로 문다. 상대를 풀죽게 하거나 얼음 상태로 만들 때가 있다.",
+      "function_code": "FreezeFlinchTarget",
+      "effect_chance": 101
     },
     {
       "key": "ICEPUNCH",
@@ -1698,7 +2036,9 @@
       "category": 0,
       "accuracy": 100,
       "pp": 15,
-      "description": "냉기를 담은 펀치로 상대를 공격한다. 얼음 상태가 되는 경우가 있다."
+      "description": "냉기를 담은 펀치로 상대를 공격한다. 얼음 상태가 되는 경우가 있다.",
+      "function_code": "FreezeTarget",
+      "effect_chance": 10
     },
     {
       "key": "ICESHARD",
@@ -1708,7 +2048,9 @@
       "category": 0,
       "accuracy": 100,
       "pp": 30,
-      "description": "얼음 덩어리를 순식간에 만들어 빠르게 쏜다. 반드시 선제 공격을 할 수 있다."
+      "description": "얼음 덩어리를 순식간에 만들어 빠르게 쏜다. 반드시 선제 공격을 할 수 있다.",
+      "function_code": "None",
+      "effect_chance": 0
     },
     {
       "key": "ICICLECRASH",
@@ -1718,7 +2060,9 @@
       "category": 0,
       "accuracy": 90,
       "pp": 10,
-      "description": "큰 고드름을 격렬하게 부딪쳐서 공격한다. 상대를 풀죽게 만들 때가 있다."
+      "description": "큰 고드름을 격렬하게 부딪쳐서 공격한다. 상대를 풀죽게 만들 때가 있다.",
+      "function_code": "FlinchTarget",
+      "effect_chance": 30
     },
     {
       "key": "ICICLESPEAR",
@@ -1728,7 +2072,9 @@
       "category": 0,
       "accuracy": 100,
       "pp": 30,
-      "description": "날카로운 고드름을 상대에게 발사하여 공격한다. 2-5회 동안 연속으로 쓴다."
+      "description": "날카로운 고드름을 상대에게 발사하여 공격한다. 2-5회 동안 연속으로 쓴다.",
+      "function_code": "HitTwoToFiveTimes",
+      "effect_chance": 0
     },
     {
       "key": "ICYWIND",
@@ -1738,7 +2084,9 @@
       "category": 1,
       "accuracy": 95,
       "pp": 15,
-      "description": "차가운 냉기를 상대에게 내뿜어 공격한다. 동시에 상대의 스피드를 떨어뜨린다."
+      "description": "차가운 냉기를 상대에게 내뿜어 공격한다. 동시에 상대의 스피드를 떨어뜨린다.",
+      "function_code": "LowerTargetSpeed1",
+      "effect_chance": 100
     },
     {
       "key": "IMPRISON",
@@ -1748,7 +2096,9 @@
       "category": 2,
       "accuracy": 0,
       "pp": 10,
-      "description": "상대가 자신과 같은 기술을 기억하고 있으면 상대만 그 기술을 사용할 수 없게 한다."
+      "description": "상대가 자신과 같은 기술을 기억하고 있으면 상대만 그 기술을 사용할 수 없게 한다.",
+      "function_code": "DisableTargetMovesKnownByUser",
+      "effect_chance": 0
     },
     {
       "key": "INCINERATE",
@@ -1758,7 +2108,9 @@
       "category": 1,
       "accuracy": 100,
       "pp": 15,
-      "description": "불꽃으로 상대를 공격한다. 상대가 나무열매 등을 지니고 있을 때 불태워서 쓸 수 없게 만든다."
+      "description": "불꽃으로 상대를 공격한다. 상대가 나무열매 등을 지니고 있을 때 불태워서 쓸 수 없게 만든다.",
+      "function_code": "DestroyTargetBerryOrGem",
+      "effect_chance": 0
     },
     {
       "key": "INFERNO",
@@ -1768,7 +2120,9 @@
       "category": 1,
       "accuracy": 50,
       "pp": 5,
-      "description": "격렬한 불꽃으로 상대를 둘러싸 공격한다. 화상 상태로 만든다."
+      "description": "격렬한 불꽃으로 상대를 둘러싸 공격한다. 화상 상태로 만든다.",
+      "function_code": "BurnTarget",
+      "effect_chance": 100
     },
     {
       "key": "INGRAIN",
@@ -1778,7 +2132,9 @@
       "category": 2,
       "accuracy": 0,
       "pp": 20,
-      "description": "대지에 뿌리를 박아 매 턴마다 HP를 회복한다. 뿌리 박고 있으므로 교체할 수 없다."
+      "description": "대지에 뿌리를 박아 매 턴마다 HP를 회복한다. 뿌리 박고 있으므로 교체할 수 없다.",
+      "function_code": "StartHealUserEachTurnTrapUserInBattle",
+      "effect_chance": 0
     },
     {
       "key": "IRONDEFENSE",
@@ -1788,7 +2144,9 @@
       "category": 2,
       "accuracy": 0,
       "pp": 15,
-      "description": "피부를 쇠처럼 단단하게 함으로써 자신의 방어를 크게 올린다."
+      "description": "피부를 쇠처럼 단단하게 함으로써 자신의 방어를 크게 올린다.",
+      "function_code": "RaiseUserDefense2",
+      "effect_chance": 0
     },
     {
       "key": "IRONHEAD",
@@ -1798,7 +2156,9 @@
       "category": 0,
       "accuracy": 100,
       "pp": 15,
-      "description": "강철과 같은 단단한 머리로 공격한다. 상대를 풀죽게 만들 때가 있다."
+      "description": "강철과 같은 단단한 머리로 공격한다. 상대를 풀죽게 만들 때가 있다.",
+      "function_code": "FlinchTarget",
+      "effect_chance": 30
     },
     {
       "key": "IRONTAIL",
@@ -1808,7 +2168,9 @@
       "category": 0,
       "accuracy": 75,
       "pp": 15,
-      "description": "단단한 꼬리로 상대를 힘껏 쳐서 공격한다. 상대의 방어를 떨어뜨릴 때가 있다."
+      "description": "단단한 꼬리로 상대를 힘껏 쳐서 공격한다. 상대의 방어를 떨어뜨릴 때가 있다.",
+      "function_code": "LowerTargetDefense1",
+      "effect_chance": 30
     },
     {
       "key": "KINESIS",
@@ -1818,7 +2180,9 @@
       "category": 2,
       "accuracy": 80,
       "pp": 15,
-      "description": "숟가락을 휘고 주의를 끌어 상대 포켓몬의 명중률을 낮춘다."
+      "description": "숟가락을 휘고 주의를 끌어 상대 포켓몬의 명중률을 낮춘다.",
+      "function_code": "LowerTargetAccuracy1",
+      "effect_chance": 0
     },
     {
       "key": "KNOCKOFF",
@@ -1828,7 +2192,9 @@
       "category": 0,
       "accuracy": 100,
       "pp": 20,
-      "description": "상대의 지닌 물건을 탁 쳐서 떨어뜨려 배틀이 끝날 때까지 사용할 수 없게 한다. 물건을 가진 상대에게는 데미지를 더 준다."
+      "description": "상대의 지닌 물건을 탁 쳐서 떨어뜨려 배틀이 끝날 때까지 사용할 수 없게 한다. 물건을 가진 상대에게는 데미지를 더 준다.",
+      "function_code": "RemoveTargetItem",
+      "effect_chance": 0
     },
     {
       "key": "LASERFOCUS",
@@ -1838,7 +2204,9 @@
       "category": 2,
       "accuracy": 0,
       "pp": 30,
-      "description": "정신을 집중해서 다음 공격을 반드시 급소에 맞춘다."
+      "description": "정신을 집중해서 다음 공격을 반드시 급소에 맞춘다.",
+      "function_code": "EnsureNextCriticalHit",
+      "effect_chance": 0
     },
     {
       "key": "LASTRESORT",
@@ -1848,7 +2216,9 @@
       "category": 0,
       "accuracy": 100,
       "pp": 5,
-      "description": "배틀 중에 기억하고 있는 기술을 모두 사용하면 그때부터 쓸 수 있는 비장의 기술."
+      "description": "배틀 중에 기억하고 있는 기술을 모두 사용하면 그때부터 쓸 수 있는 비장의 기술.",
+      "function_code": "FailsIfUserHasUnusedMove",
+      "effect_chance": 0
     },
     {
       "key": "LAVAPLUME",
@@ -1858,7 +2228,9 @@
       "category": 1,
       "accuracy": 100,
       "pp": 15,
-      "description": "새빨간 불꽃으로 주위에 있는 모두를 공격한다. 화상 상태로 만들 때가 있다."
+      "description": "새빨간 불꽃으로 주위에 있는 모두를 공격한다. 화상 상태로 만들 때가 있다.",
+      "function_code": "BurnTarget",
+      "effect_chance": 30
     },
     {
       "key": "LEAFBLADE",
@@ -1868,7 +2240,9 @@
       "category": 0,
       "accuracy": 100,
       "pp": 15,
-      "description": "잎사귀를 칼처럼 이용해 상대를 베어 공격한다. 급소에 맞기 쉽다."
+      "description": "잎사귀를 칼처럼 이용해 상대를 베어 공격한다. 급소에 맞기 쉽다.",
+      "function_code": "None",
+      "effect_chance": 0
     },
     {
       "key": "LEAFSTORM",
@@ -1878,7 +2252,9 @@
       "category": 1,
       "accuracy": 90,
       "pp": 5,
-      "description": "뾰족한 잎사귀로 상대에게 바람을 일으킨다. 사용하면 반동으로 자신의 특수공격이 크게 떨어진다."
+      "description": "뾰족한 잎사귀로 상대에게 바람을 일으킨다. 사용하면 반동으로 자신의 특수공격이 크게 떨어진다.",
+      "function_code": "LowerUserSpAtk2",
+      "effect_chance": 0
     },
     {
       "key": "LEECHLIFE",
@@ -1888,7 +2264,9 @@
       "category": 0,
       "accuracy": 100,
       "pp": 10,
-      "description": "피를 빨아서 공격한다. 준 데미지의 절반을 HP로 회복한다."
+      "description": "피를 빨아서 공격한다. 준 데미지의 절반을 HP로 회복한다.",
+      "function_code": "HealUserByHalfOfDamageDone",
+      "effect_chance": 0
     },
     {
       "key": "LEECHSEED",
@@ -1898,7 +2276,9 @@
       "category": 2,
       "accuracy": 90,
       "pp": 10,
-      "description": "씨가 뿌려진 상대의 HP를 매 턴 조금씩 흡수하여 자신의 HP를 회복한다."
+      "description": "씨가 뿌려진 상대의 HP를 매 턴 조금씩 흡수하여 자신의 HP를 회복한다.",
+      "function_code": "StartLeechSeedTarget",
+      "effect_chance": 0
     },
     {
       "key": "LEER",
@@ -1908,7 +2288,9 @@
       "category": 2,
       "accuracy": 100,
       "pp": 30,
-      "description": "날카로운 눈초리로 겁을 주어 상대의 방어를 떨어뜨린다."
+      "description": "날카로운 눈초리로 겁을 주어 상대의 방어를 떨어뜨린다.",
+      "function_code": "LowerTargetDefense1",
+      "effect_chance": 0
     },
     {
       "key": "LICK",
@@ -1918,7 +2300,9 @@
       "category": 0,
       "accuracy": 100,
       "pp": 30,
-      "description": "긴 혀로 상대를 핥아서 공격한다. 마비 상태로 만들 때가 있다."
+      "description": "긴 혀로 상대를 핥아서 공격한다. 마비 상태로 만들 때가 있다.",
+      "function_code": "ParalyzeTarget",
+      "effect_chance": 30
     },
     {
       "key": "LIFEDEW",
@@ -1928,7 +2312,9 @@
       "category": 2,
       "accuracy": 0,
       "pp": 10,
-      "description": "신비한 물을 흩뿌려서 자신과 배틀에 나와 있는 같은 편의 HP를 회복한다."
+      "description": "신비한 물을 흩뿌려서 자신과 배틀에 나와 있는 같은 편의 HP를 회복한다.",
+      "function_code": "HealUserAndAlliesQuarterOfTotalHP",
+      "effect_chance": 0
     },
     {
       "key": "LIGHTSCREEN",
@@ -1938,7 +2324,9 @@
       "category": 2,
       "accuracy": 0,
       "pp": 30,
-      "description": "5턴 동안 이상한 장막으로 상대로부터 받는 특수공격의 데미지를 약하게 한다."
+      "description": "5턴 동안 이상한 장막으로 상대로부터 받는 특수공격의 데미지를 약하게 한다.",
+      "function_code": "StartWeakenSpecialDamageAgainstUserSide",
+      "effect_chance": 0
     },
     {
       "key": "LIQUIDATION",
@@ -1948,7 +2336,9 @@
       "category": 0,
       "accuracy": 100,
       "pp": 10,
-      "description": "물의 힘으로 상대에게 부딪쳐서 공격한다. 상대의 방어를 떨어뜨릴 때가 있다."
+      "description": "물의 힘으로 상대에게 부딪쳐서 공격한다. 상대의 방어를 떨어뜨릴 때가 있다.",
+      "function_code": "LowerTargetDefense1",
+      "effect_chance": 20
     },
     {
       "key": "LOCKON",
@@ -1958,7 +2348,9 @@
       "category": 2,
       "accuracy": 0,
       "pp": 5,
-      "description": "조준을 잘 맞춰 다음 공격이 반드시 상대에게 명중하도록 한다."
+      "description": "조준을 잘 맞춰 다음 공격이 반드시 상대에게 명중하도록 한다.",
+      "function_code": "EnsureNextMoveAlwaysHits",
+      "effect_chance": 0
     },
     {
       "key": "LOVELYKISS",
@@ -1968,7 +2360,9 @@
       "category": 2,
       "accuracy": 75,
       "pp": 10,
-      "description": "무서운 얼굴로 키스한다. 키스한 상대를 잠듦 상태로 만들 수 있다."
+      "description": "무서운 얼굴로 키스한다. 키스한 상대를 잠듦 상태로 만들 수 있다.",
+      "function_code": "SleepTarget",
+      "effect_chance": 0
     },
     {
       "key": "LOWKICK",
@@ -1978,7 +2372,9 @@
       "category": 0,
       "accuracy": 100,
       "pp": 20,
-      "description": "발을 강하게 걸고 상대를 넘어뜨려 공격한다. 상대가 무거울수록 위력이 올라간다."
+      "description": "발을 강하게 걸고 상대를 넘어뜨려 공격한다. 상대가 무거울수록 위력이 올라간다.",
+      "function_code": "PowerHigherWithTargetWeight",
+      "effect_chance": 0
     },
     {
       "key": "LOWSWEEP",
@@ -1988,7 +2384,9 @@
       "category": 0,
       "accuracy": 100,
       "pp": 20,
-      "description": "재빠른 움직임으로 상대의 다리를 노려 공격한다. 상대의 스피드를 떨어뜨린다."
+      "description": "재빠른 움직임으로 상대의 다리를 노려 공격한다. 상대의 스피드를 떨어뜨린다.",
+      "function_code": "LowerTargetSpeed1",
+      "effect_chance": 100
     },
     {
       "key": "MACHPUNCH",
@@ -1998,7 +2396,9 @@
       "category": 0,
       "accuracy": 100,
       "pp": 30,
-      "description": "눈에 보이지 않는 굉장한 속도로 펀치를 날린다. 반드시 선제 공격을 할 수 있다."
+      "description": "눈에 보이지 않는 굉장한 속도로 펀치를 날린다. 반드시 선제 공격을 할 수 있다.",
+      "function_code": "None",
+      "effect_chance": 0
     },
     {
       "key": "MAGNETICFLUX",
@@ -2008,7 +2408,9 @@
       "category": 2,
       "accuracy": 0,
       "pp": 20,
-      "description": "자기장 조작으로 인해 특성 플러스와 마이너스의 방어, 특수방어가 오른다."
+      "description": "자기장 조작으로 인해 특성 플러스와 마이너스의 방어, 특수방어가 오른다.",
+      "function_code": "RaisePlusMinusUserAndAlliesDefSpDef1",
+      "effect_chance": 0
     },
     {
       "key": "MAGNETRISE",
@@ -2018,7 +2420,9 @@
       "category": 2,
       "accuracy": 0,
       "pp": 10,
-      "description": "전기로 만든 자력의 힘으로 허공에 뜬다. 5턴 동안 부유할 수 있다."
+      "description": "전기로 만든 자력의 힘으로 허공에 뜬다. 5턴 동안 부유할 수 있다.",
+      "function_code": "StartUserAirborne",
+      "effect_chance": 0
     },
     {
       "key": "MEANLOOK",
@@ -2028,7 +2432,9 @@
       "category": 2,
       "accuracy": 0,
       "pp": 5,
-      "description": "빨려 들어갈 것 같은 까만 눈빛으로 가만히 응시하여 상대를 배틀에서 도망갈 수 없게 한다."
+      "description": "빨려 들어갈 것 같은 까만 눈빛으로 가만히 응시하여 상대를 배틀에서 도망갈 수 없게 한다.",
+      "function_code": "TrapTargetInBattle",
+      "effect_chance": 0
     },
     {
       "key": "MEGADRAIN",
@@ -2038,7 +2444,9 @@
       "category": 1,
       "accuracy": 100,
       "pp": 15,
-      "description": "양분을 흡수하여 공격한다. 입힌 데미지의 절반에 해당하는 HP를 회복할 수 있다."
+      "description": "양분을 흡수하여 공격한다. 입힌 데미지의 절반에 해당하는 HP를 회복할 수 있다.",
+      "function_code": "HealUserByHalfOfDamageDone",
+      "effect_chance": 0
     },
     {
       "key": "MEGAHORN",
@@ -2048,7 +2456,9 @@
       "category": 0,
       "accuracy": 85,
       "pp": 10,
-      "description": "단단하고 훌륭한 뿔로 마음껏 상대를 꿰찔러서 공격한다."
+      "description": "단단하고 훌륭한 뿔로 마음껏 상대를 꿰찔러서 공격한다.",
+      "function_code": "None",
+      "effect_chance": 0
     },
     {
       "key": "MEGAKICK",
@@ -2058,7 +2468,9 @@
       "category": 0,
       "accuracy": 75,
       "pp": 5,
-      "description": "굉장한 힘을 담은 킥으로 상대를 걷어차서 공격한다."
+      "description": "굉장한 힘을 담은 킥으로 상대를 걷어차서 공격한다.",
+      "function_code": "None",
+      "effect_chance": 0
     },
     {
       "key": "MEGAPUNCH",
@@ -2068,7 +2480,9 @@
       "category": 0,
       "accuracy": 85,
       "pp": 20,
-      "description": "힘을 담은 펀치로 상대를 공격한다."
+      "description": "힘을 담은 펀치로 상대를 공격한다.",
+      "function_code": "None",
+      "effect_chance": 0
     },
     {
       "key": "MEMENTO",
@@ -2078,7 +2492,9 @@
       "category": 2,
       "accuracy": 100,
       "pp": 10,
-      "description": "자신은 기절하게 되지만 그 대신 상대의 공격과 특수공격을 크게 떨어뜨린다."
+      "description": "자신은 기절하게 되지만 그 대신 상대의 공격과 특수공격을 크게 떨어뜨린다.",
+      "function_code": "UserFaintsLowerTargetAtkSpAtk2",
+      "effect_chance": 0
     },
     {
       "key": "METALCLAW",
@@ -2088,7 +2504,9 @@
       "category": 0,
       "accuracy": 95,
       "pp": 35,
-      "description": "강철의 발톱으로 상대를 베어 갈라 공격한다. 자신의 공격이 올라갈 때도 있다."
+      "description": "강철의 발톱으로 상대를 베어 갈라 공격한다. 자신의 공격이 올라갈 때도 있다.",
+      "function_code": "RaiseUserAttack1",
+      "effect_chance": 10
     },
     {
       "key": "METALSOUND",
@@ -2098,7 +2516,9 @@
       "category": 2,
       "accuracy": 85,
       "pp": 40,
-      "description": "금속을 긁을 때 나는 듯한 싫은 소리를 들려준다. 상대의 특수방어를 크게 떨어뜨린다."
+      "description": "금속을 긁을 때 나는 듯한 싫은 소리를 들려준다. 상대의 특수방어를 크게 떨어뜨린다.",
+      "function_code": "LowerTargetSpDef2",
+      "effect_chance": 0
     },
     {
       "key": "METEORMASH",
@@ -2108,7 +2528,9 @@
       "category": 0,
       "accuracy": 90,
       "pp": 10,
-      "description": "혜성과 같은 펀치를 날려서 공격한다. 자신의 공격이 올라갈 때가 있다."
+      "description": "혜성과 같은 펀치를 날려서 공격한다. 자신의 공격이 올라갈 때가 있다.",
+      "function_code": "RaiseUserAttack1",
+      "effect_chance": 20
     },
     {
       "key": "METRONOME",
@@ -2118,7 +2540,9 @@
       "category": 2,
       "accuracy": 0,
       "pp": 10,
-      "description": "손가락을 흔들어 자신의 뇌를 자극해서 모든 기술 중 어느 하나를 날린다."
+      "description": "손가락을 흔들어 자신의 뇌를 자극해서 모든 기술 중 어느 하나를 날린다.",
+      "function_code": "UseRandomMove",
+      "effect_chance": 0
     },
     {
       "key": "MIMIC",
@@ -2128,7 +2552,9 @@
       "category": 2,
       "accuracy": 0,
       "pp": 10,
-      "description": "상대가 마지막에 사용한 기술을 배틀을 하는 동안 자신의 기술로 만들 수 있다."
+      "description": "상대가 마지막에 사용한 기술을 배틀을 하는 동안 자신의 기술로 만들 수 있다.",
+      "function_code": "ReplaceMoveThisBattleWithTargetLastMoveUsed",
+      "effect_chance": 0
     },
     {
       "key": "MINIMIZE",
@@ -2138,7 +2564,9 @@
       "category": 2,
       "accuracy": 0,
       "pp": 10,
-      "description": "몸을 축소하여 작게 보임으로써 회피율을 올린다."
+      "description": "몸을 축소하여 작게 보임으로써 회피율을 올린다.",
+      "function_code": "RaiseUserEvasion2MinimizeUser",
+      "effect_chance": 0
     },
     {
       "key": "MIRRORCOAT",
@@ -2148,7 +2576,9 @@
       "category": 1,
       "accuracy": 100,
       "pp": 20,
-      "description": "상대에게 받은 특수공격의 데미지를 2배로 만들어 그 상대에게 돌려준다."
+      "description": "상대에게 받은 특수공격의 데미지를 2배로 만들어 그 상대에게 돌려준다.",
+      "function_code": "CounterSpecialDamage",
+      "effect_chance": 0
     },
     {
       "key": "MIST",
@@ -2158,7 +2588,9 @@
       "category": 2,
       "accuracy": 0,
       "pp": 30,
-      "description": "하얀 안개로 몸을 덮는다. 5턴 동안 상대에 의해 능력이 떨어지지 않게 된다."
+      "description": "하얀 안개로 몸을 덮는다. 5턴 동안 상대에 의해 능력이 떨어지지 않게 된다.",
+      "function_code": "StartUserSideImmunityToStatStageLowering",
+      "effect_chance": 0
     },
     {
       "key": "MOONBLAST",
@@ -2168,7 +2600,9 @@
       "category": 1,
       "accuracy": 100,
       "pp": 15,
-      "description": "달의 파워를 빌려서 상대를 공격한다. 상대의 특수공격을 떨어뜨릴 때가 있다."
+      "description": "달의 파워를 빌려서 상대를 공격한다. 상대의 특수공격을 떨어뜨릴 때가 있다.",
+      "function_code": "LowerTargetSpAtk1",
+      "effect_chance": 30
     },
     {
       "key": "MOONLIGHT",
@@ -2178,7 +2612,9 @@
       "category": 2,
       "accuracy": 0,
       "pp": 5,
-      "description": "자신의 HP를 회복한다. 날씨에 따라 회복량이 변한다."
+      "description": "자신의 HP를 회복한다. 날씨에 따라 회복량이 변한다.",
+      "function_code": "HealUserDependingOnWeather",
+      "effect_chance": 0
     },
     {
       "key": "MUDDYWATER",
@@ -2188,7 +2624,9 @@
       "category": 1,
       "accuracy": 85,
       "pp": 10,
-      "description": "탁해진 물을 상대에게 발사하여 공격한다. 명중률을 떨어뜨릴 때가 있다."
+      "description": "탁해진 물을 상대에게 발사하여 공격한다. 명중률을 떨어뜨릴 때가 있다.",
+      "function_code": "LowerTargetAccuracy1",
+      "effect_chance": 30
     },
     {
       "key": "MUDSHOT",
@@ -2198,7 +2636,9 @@
       "category": 1,
       "accuracy": 95,
       "pp": 15,
-      "description": "진흙 덩어리를 상대에게 내던져서 공격한다. 동시에 상대의 스피드를 떨어뜨린다."
+      "description": "진흙 덩어리를 상대에게 내던져서 공격한다. 동시에 상대의 스피드를 떨어뜨린다.",
+      "function_code": "LowerTargetSpeed1",
+      "effect_chance": 100
     },
     {
       "key": "MUDSLAP",
@@ -2208,7 +2648,9 @@
       "category": 1,
       "accuracy": 100,
       "pp": 10,
-      "description": "상대의 얼굴 등에 진흙을 내던져서 공격한다. 명중률을 떨어뜨린다."
+      "description": "상대의 얼굴 등에 진흙을 내던져서 공격한다. 명중률을 떨어뜨린다.",
+      "function_code": "LowerTargetAccuracy1",
+      "effect_chance": 100
     },
     {
       "key": "NASTYPLOT",
@@ -2218,7 +2660,9 @@
       "category": 2,
       "accuracy": 0,
       "pp": 20,
-      "description": "나쁜 일을 생각해서 머리를 활성화시킨다. 자신의 특수공격을 크게 올린다."
+      "description": "나쁜 일을 생각해서 머리를 활성화시킨다. 자신의 특수공격을 크게 올린다.",
+      "function_code": "RaiseUserSpAtk2",
+      "effect_chance": 0
     },
     {
       "key": "NIGHTSHADE",
@@ -2228,7 +2672,9 @@
       "category": 1,
       "accuracy": 100,
       "pp": 15,
-      "description": "환상을 보게 해서 자신의 레벨과 똑같은 만큼의 데미지를 상대에게 준다."
+      "description": "환상을 보게 해서 자신의 레벨과 똑같은 만큼의 데미지를 상대에게 준다.",
+      "function_code": "FixedDamageUserLevel",
+      "effect_chance": 0
     },
     {
       "key": "NIGHTSLASH",
@@ -2238,7 +2684,9 @@
       "category": 0,
       "accuracy": 100,
       "pp": 15,
-      "description": "순간적으로 틈을 노려 상대를 베어 버린다. 급소에 맞기 쉽다."
+      "description": "순간적으로 틈을 노려 상대를 베어 버린다. 급소에 맞기 쉽다.",
+      "function_code": "None",
+      "effect_chance": 0
     },
     {
       "key": "NUZZLE",
@@ -2248,7 +2696,9 @@
       "category": 0,
       "accuracy": 100,
       "pp": 20,
-      "description": "전기가 흐르는 볼을 비벼서 공격한다. 상대를 마비 상태로 만든다."
+      "description": "전기가 흐르는 볼을 비벼서 공격한다. 상대를 마비 상태로 만든다.",
+      "function_code": "ParalyzeTarget",
+      "effect_chance": 100
     },
     {
       "key": "OUTRAGE",
@@ -2258,7 +2708,9 @@
       "category": 0,
       "accuracy": 100,
       "pp": 10,
-      "description": "2-3턴 동안 마구 난동 부려서 공격한다. 난동 부린 뒤에는 혼란에 빠진다."
+      "description": "2-3턴 동안 마구 난동 부려서 공격한다. 난동 부린 뒤에는 혼란에 빠진다.",
+      "function_code": "MultiTurnAttackConfuseUserAtEnd",
+      "effect_chance": 0
     },
     {
       "key": "OVERHEAT",
@@ -2268,7 +2720,9 @@
       "category": 1,
       "accuracy": 90,
       "pp": 5,
-      "description": "풀 파워로 상대를 공격한다. 쓰면 반동으로 자신의 특수공격이 크게 떨어진다."
+      "description": "풀 파워로 상대를 공격한다. 쓰면 반동으로 자신의 특수공격이 크게 떨어진다.",
+      "function_code": "LowerUserSpAtk2",
+      "effect_chance": 0
     },
     {
       "key": "PAYBACK",
@@ -2278,7 +2732,9 @@
       "category": 0,
       "accuracy": 100,
       "pp": 10,
-      "description": "모아서 공격한다. 상대보다 뒤에 공격할 수 있으면 기술의 위력은 2배가 된다."
+      "description": "모아서 공격한다. 상대보다 뒤에 공격할 수 있으면 기술의 위력은 2배가 된다.",
+      "function_code": "DoublePowerIfTargetActed",
+      "effect_chance": 0
     },
     {
       "key": "PAYDAY",
@@ -2288,7 +2744,9 @@
       "category": 0,
       "accuracy": 100,
       "pp": 20,
-      "description": "상대의 몸에 금화를 던져서 공격한다. 전투 후에 돈을 얻는다."
+      "description": "상대의 몸에 금화를 던져서 공격한다. 전투 후에 돈을 얻는다.",
+      "function_code": "AddMoneyGainedFromBattle",
+      "effect_chance": 0
     },
     {
       "key": "PECK",
@@ -2298,7 +2756,9 @@
       "category": 0,
       "accuracy": 100,
       "pp": 35,
-      "description": "날카롭고 뾰족한 부리나 뿔로 상대를 쪼아서 공격한다."
+      "description": "날카롭고 뾰족한 부리나 뿔로 상대를 쪼아서 공격한다.",
+      "function_code": "None",
+      "effect_chance": 0
     },
     {
       "key": "PERISHSONG",
@@ -2308,7 +2768,9 @@
       "category": 2,
       "accuracy": 0,
       "pp": 5,
-      "description": "상대와 친해져서 싸울 마음을 잃게 하여 상대의 공격을 떨어뜨린다."
+      "description": "상대와 친해져서 싸울 마음을 잃게 하여 상대의 공격을 떨어뜨린다.",
+      "function_code": "StartPerishCountsForAllBattlers",
+      "effect_chance": 0
     },
     {
       "key": "PETALBLIZZARD",
@@ -2318,7 +2780,9 @@
       "category": 0,
       "accuracy": 100,
       "pp": 15,
-      "description": "세찬 꽃보라를 일으켜서 주위에 있는 포켓몬을 공격하여 대미지를 준다."
+      "description": "세찬 꽃보라를 일으켜서 주위에 있는 포켓몬을 공격하여 대미지를 준다.",
+      "function_code": "None",
+      "effect_chance": 0
     },
     {
       "key": "PETALDANCE",
@@ -2328,7 +2792,9 @@
       "category": 1,
       "accuracy": 100,
       "pp": 10,
-      "description": "2-3턴 동안 꽃을 흩뿌려서 공격한다. 흩뿌린 뒤에는 혼란에 빠진다."
+      "description": "2-3턴 동안 꽃을 흩뿌려서 공격한다. 흩뿌린 뒤에는 혼란에 빠진다.",
+      "function_code": "MultiTurnAttackConfuseUserAtEnd",
+      "effect_chance": 0
     },
     {
       "key": "PINMISSILE",
@@ -2338,7 +2804,9 @@
       "category": 0,
       "accuracy": 95,
       "pp": 20,
-      "description": "날카로운 침을 상대에게 발사해서 공격한다. 2-5회 동안 연속으로 쓴다."
+      "description": "날카로운 침을 상대에게 발사해서 공격한다. 2-5회 동안 연속으로 쓴다.",
+      "function_code": "HitTwoToFiveTimes",
+      "effect_chance": 0
     },
     {
       "key": "PLAYNICE",
@@ -2348,7 +2816,9 @@
       "category": 2,
       "accuracy": 0,
       "pp": 20,
-      "description": "상대와 친해져서 싸울 마음을 잃게 하여 상대의 공격을 떨어뜨린다."
+      "description": "상대와 친해져서 싸울 마음을 잃게 하여 상대의 공격을 떨어뜨린다.",
+      "function_code": "LowerTargetAttack1BypassSubstitute",
+      "effect_chance": 0
     },
     {
       "key": "PLAYROUGH",
@@ -2358,7 +2828,9 @@
       "category": 0,
       "accuracy": 90,
       "pp": 10,
-      "description": "상대에게 치근거리며 공격한다. 상대의 공격을 떨어뜨릴 때가 있다."
+      "description": "상대에게 치근거리며 공격한다. 상대의 공격을 떨어뜨릴 때가 있다.",
+      "function_code": "LowerTargetAttack1",
+      "effect_chance": 10
     },
     {
       "key": "PLUCK",
@@ -2368,7 +2840,9 @@
       "category": 0,
       "accuracy": 100,
       "pp": 20,
-      "description": "부리로 공격한다. 상대가 나무열매를 지니고 있을 때 쪼아서 나무열매의 효과를 받을 수 있다."
+      "description": "부리로 공격한다. 상대가 나무열매를 지니고 있을 때 쪼아서 나무열매의 효과를 받을 수 있다.",
+      "function_code": "UserConsumeTargetBerry",
+      "effect_chance": 0
     },
     {
       "key": "POISONFANG",
@@ -2378,7 +2852,9 @@
       "category": 0,
       "accuracy": 100,
       "pp": 15,
-      "description": "독이 있는 이빨로 상대를 물어서 공격한다. 맹독을 주입할 때가 있다."
+      "description": "독이 있는 이빨로 상대를 물어서 공격한다. 맹독을 주입할 때가 있다.",
+      "function_code": "BadPoisonTarget",
+      "effect_chance": 50
     },
     {
       "key": "POISONGAS",
@@ -2388,7 +2864,9 @@
       "category": 2,
       "accuracy": 90,
       "pp": 40,
-      "description": "독가스를 상대의 얼굴에 내뿜어 독 상태로 만든다."
+      "description": "독가스를 상대의 얼굴에 내뿜어 독 상태로 만든다.",
+      "function_code": "PoisonTarget",
+      "effect_chance": 0
     },
     {
       "key": "POISONJAB",
@@ -2398,7 +2876,9 @@
       "category": 0,
       "accuracy": 100,
       "pp": 20,
-      "description": "독에 물든 촉수나 팔로 상대를 꿰찌른다. 독 상태로 만들 때가 있다."
+      "description": "독에 물든 촉수나 팔로 상대를 꿰찌른다. 독 상태로 만들 때가 있다.",
+      "function_code": "PoisonTarget",
+      "effect_chance": 30
     },
     {
       "key": "POISONPOWDER",
@@ -2408,7 +2888,9 @@
       "category": 2,
       "accuracy": 75,
       "pp": 35,
-      "description": "독이 있는 가루를 많이 흩뿌려서 상대를 독 상태로 만든다."
+      "description": "독이 있는 가루를 많이 흩뿌려서 상대를 독 상태로 만든다.",
+      "function_code": "PoisonTarget",
+      "effect_chance": 0
     },
     {
       "key": "POISONSTING",
@@ -2418,7 +2900,9 @@
       "category": 0,
       "accuracy": 100,
       "pp": 35,
-      "description": "독이 있는 침을 상대에게 꿰찔러서 공격한다. 독 상태로 만들 때가 있다."
+      "description": "독이 있는 침을 상대에게 꿰찔러서 공격한다. 독 상태로 만들 때가 있다.",
+      "function_code": "PoisonTarget",
+      "effect_chance": 30
     },
     {
       "key": "POUND",
@@ -2428,7 +2912,9 @@
       "category": 0,
       "accuracy": 100,
       "pp": 35,
-      "description": "긴 꼬리나 손 등을 사용하여 상대를 때려서 공격한다."
+      "description": "긴 꼬리나 손 등을 사용하여 상대를 때려서 공격한다.",
+      "function_code": "None",
+      "effect_chance": 0
     },
     {
       "key": "POWDERSNOW",
@@ -2438,7 +2924,9 @@
       "category": 1,
       "accuracy": 100,
       "pp": 25,
-      "description": "차가운 가랑눈을 상대에게 내뿜어 공격한다. 얼음 상태가 되는 경우가 있다."
+      "description": "차가운 가랑눈을 상대에게 내뿜어 공격한다. 얼음 상태가 되는 경우가 있다.",
+      "function_code": "FreezeTarget",
+      "effect_chance": 10
     },
     {
       "key": "POWERGEM",
@@ -2448,7 +2936,9 @@
       "category": 1,
       "accuracy": 100,
       "pp": 20,
-      "description": "보석처럼 반짝이는 빛을 발사하여 상대를 공격한다."
+      "description": "보석처럼 반짝이는 빛을 발사하여 상대를 공격한다.",
+      "function_code": "None",
+      "effect_chance": 0
     },
     {
       "key": "POWERSWAP",
@@ -2458,7 +2948,9 @@
       "category": 2,
       "accuracy": 0,
       "pp": 10,
-      "description": "초능력으로 자신과 상대의 공격과 특수공격의 능력 변화를 교체한다."
+      "description": "초능력으로 자신과 상대의 공격과 특수공격의 능력 변화를 교체한다.",
+      "function_code": "UserTargetSwapAtkSpAtkStages",
+      "effect_chance": 0
     },
     {
       "key": "POWERWHIP",
@@ -2468,7 +2960,9 @@
       "category": 0,
       "accuracy": 85,
       "pp": 10,
-      "description": "덩굴이나 촉수를 세차게 흔들어 상대를 힘껏 쳐서 공격한다."
+      "description": "덩굴이나 촉수를 세차게 흔들어 상대를 힘껏 쳐서 공격한다.",
+      "function_code": "None",
+      "effect_chance": 0
     },
     {
       "key": "PROTECT",
@@ -2478,7 +2972,9 @@
       "category": 2,
       "accuracy": 0,
       "pp": 10,
-      "description": "상대의 공격을 전혀 받지 않는다. 연속으로 쓰면 실패하기 쉽다."
+      "description": "상대의 공격을 전혀 받지 않는다. 연속으로 쓰면 실패하기 쉽다.",
+      "function_code": "ProtectUser",
+      "effect_chance": 0
     },
     {
       "key": "PSYBEAM",
@@ -2488,7 +2984,9 @@
       "category": 1,
       "accuracy": 100,
       "pp": 20,
-      "description": "이상한 광선을 상대에게 발사하여 공격한다. 상대를 혼란 시킬 때가 있다."
+      "description": "이상한 광선을 상대에게 발사하여 공격한다. 상대를 혼란 시킬 때가 있다.",
+      "function_code": "ConfuseTarget",
+      "effect_chance": 10
     },
     {
       "key": "PSYCHIC",
@@ -2498,7 +2996,9 @@
       "category": 1,
       "accuracy": 100,
       "pp": 10,
-      "description": "강한 염동력을 상대에게 보내어 공격한다. 상대의 특수방어를 떨어뜨릴 때가 있다."
+      "description": "강한 염동력을 상대에게 보내어 공격한다. 상대의 특수방어를 떨어뜨릴 때가 있다.",
+      "function_code": "LowerTargetSpDef1",
+      "effect_chance": 10
     },
     {
       "key": "PSYCHOCUT",
@@ -2508,7 +3008,9 @@
       "category": 0,
       "accuracy": 100,
       "pp": 20,
-      "description": "실체화시킨 마음의 칼날로 상대를 베어 가른다. 급소에 맞을 확률이 높다."
+      "description": "실체화시킨 마음의 칼날로 상대를 베어 가른다. 급소에 맞을 확률이 높다.",
+      "function_code": "None",
+      "effect_chance": 0
     },
     {
       "key": "PSYCHUP",
@@ -2518,7 +3020,9 @@
       "category": 2,
       "accuracy": 0,
       "pp": 10,
-      "description": "자신에게 암시를 걸어서 능력 변화 상태를 상대와 같게 만든다."
+      "description": "자신에게 암시를 걸어서 능력 변화 상태를 상대와 같게 만든다.",
+      "function_code": "UserCopyTargetStatStages",
+      "effect_chance": 0
     },
     {
       "key": "PSYSHOCK",
@@ -2528,7 +3032,9 @@
       "category": 1,
       "accuracy": 100,
       "pp": 10,
-      "description": "이상한 염력파를 실체화하여 상대를 공격한다. 물리적인 데미지를 준다."
+      "description": "이상한 염력파를 실체화하여 상대를 공격한다. 물리적인 데미지를 준다.",
+      "function_code": "UseTargetDefenseInsteadOfTargetSpDef",
+      "effect_chance": 0
     },
     {
       "key": "PSYSTRIKE",
@@ -2538,7 +3044,9 @@
       "category": 1,
       "accuracy": 100,
       "pp": 10,
-      "description": "이상한 염력파를 실체화하여 상대를 공격한다. 물리적인 데미지를 준다."
+      "description": "이상한 염력파를 실체화하여 상대를 공격한다. 물리적인 데미지를 준다.",
+      "function_code": "UseTargetDefenseInsteadOfTargetSpDef",
+      "effect_chance": 0
     },
     {
       "key": "QUICKATTACK",
@@ -2548,7 +3056,9 @@
       "category": 0,
       "accuracy": 100,
       "pp": 30,
-      "description": "눈에 보이지 않는 굉장한 속도로 상대에게 돌진한다. 반드시 선제 공격할 수 있다."
+      "description": "눈에 보이지 않는 굉장한 속도로 상대에게 돌진한다. 반드시 선제 공격할 수 있다.",
+      "function_code": "None",
+      "effect_chance": 0
     },
     {
       "key": "QUICKGUARD",
@@ -2558,7 +3068,9 @@
       "category": 2,
       "accuracy": 0,
       "pp": 15,
-      "description": "자신과 같은 편을 상대의 선제공격으로부터 지킨다."
+      "description": "자신과 같은 편을 상대의 선제공격으로부터 지킨다.",
+      "function_code": "ProtectUserSideFromPriorityMoves",
+      "effect_chance": 0
     },
     {
       "key": "QUIVERDANCE",
@@ -2568,7 +3080,9 @@
       "category": 2,
       "accuracy": 0,
       "pp": 20,
-      "description": "신비롭고 아름다운 춤을 경쾌하게 춘다. 자신의 특수공격과 특수방어와 스피드를 올린다."
+      "description": "신비롭고 아름다운 춤을 경쾌하게 춘다. 자신의 특수공격과 특수방어와 스피드를 올린다.",
+      "function_code": "RaiseUserSpAtkSpDefSpd1",
+      "effect_chance": 0
     },
     {
       "key": "RAGEFIST",
@@ -2578,7 +3092,9 @@
       "category": 0,
       "accuracy": 100,
       "pp": 10,
-      "description": "The user converts its rage into energy to attack. The move’s power increases every time the user is hit."
+      "description": "The user converts its rage into energy to attack. The move’s power increases every time the user is hit.",
+      "function_code": "IncreasePowerEachTimeHit",
+      "effect_chance": 0
     },
     {
       "key": "RAGEPOWDER",
@@ -2588,7 +3104,9 @@
       "category": 2,
       "accuracy": 0,
       "pp": 20,
-      "description": "안절부절못하게 하는 가루를 자신에게 뿌려서 주의를 끈다. 상대의 공격은 모두 자신에게 향한다."
+      "description": "안절부절못하게 하는 가루를 자신에게 뿌려서 주의를 끈다. 상대의 공격은 모두 자신에게 향한다.",
+      "function_code": "RedirectAllMovesToUser",
+      "effect_chance": 0
     },
     {
       "key": "RAGINGBULL",
@@ -2598,7 +3116,9 @@
       "category": 0,
       "accuracy": 100,
       "pp": 10,
-      "description": "The user charges and destroys enemy barriers. This move’s type depends on the user’s form."
+      "description": "The user charges and destroys enemy barriers. This move’s type depends on the user’s form.",
+      "function_code": "TypeIsUserSecondTypeRemoveScreens",
+      "effect_chance": 0
     },
     {
       "key": "RAINDANCE",
@@ -2608,7 +3128,9 @@
       "category": 2,
       "accuracy": 0,
       "pp": 5,
-      "description": "5턴 동안 비를 내리게 해서 물타입 기술의 위력을 올린다. 불꽃타입의 위력은 떨어진다."
+      "description": "5턴 동안 비를 내리게 해서 물타입 기술의 위력을 올린다. 불꽃타입의 위력은 떨어진다.",
+      "function_code": "StartRainWeather",
+      "effect_chance": 0
     },
     {
       "key": "RAPIDSPIN",
@@ -2618,7 +3140,9 @@
       "category": 0,
       "accuracy": 100,
       "pp": 40,
-      "description": "회전해서 상대를 공격한다. 조이기, 김밥말이, 씨뿌리기 등의 효과를 날려 버린다. 자신의 스피드도 올라간다."
+      "description": "회전해서 상대를 공격한다. 조이기, 김밥말이, 씨뿌리기 등의 효과를 날려 버린다. 자신의 스피드도 올라간다.",
+      "function_code": "RemoveUserBindingAndEntryHazards",
+      "effect_chance": 100
     },
     {
       "key": "RAZORLEAF",
@@ -2628,7 +3152,9 @@
       "category": 0,
       "accuracy": 95,
       "pp": 25,
-      "description": "잎사귀를 날려 상대를 베어 공격한다. 급소에 맞을 확률이 높다."
+      "description": "잎사귀를 날려 상대를 베어 공격한다. 급소에 맞을 확률이 높다.",
+      "function_code": "None",
+      "effect_chance": 0
     },
     {
       "key": "RAZORSHELL",
@@ -2638,7 +3164,9 @@
       "category": 0,
       "accuracy": 95,
       "pp": 10,
-      "description": "날카로운 조개껍질로 베어 공격한다. 상대의 방어를 떨어뜨릴 때가 있다."
+      "description": "날카로운 조개껍질로 베어 공격한다. 상대의 방어를 떨어뜨릴 때가 있다.",
+      "function_code": "LowerTargetDefense1",
+      "effect_chance": 50
     },
     {
       "key": "RECOVER",
@@ -2648,7 +3176,9 @@
       "category": 2,
       "accuracy": 0,
       "pp": 5,
-      "description": "세포를 재생시켜 자신의 최대 HP의 절반만큼 HP를 회복한다."
+      "description": "세포를 재생시켜 자신의 최대 HP의 절반만큼 HP를 회복한다.",
+      "function_code": "HealUserHalfOfTotalHP",
+      "effect_chance": 0
     },
     {
       "key": "RECYCLE",
@@ -2658,7 +3188,9 @@
       "category": 2,
       "accuracy": 0,
       "pp": 10,
-      "description": "배틀 중에 사용하여 없어진 자신의 지닌 물건을 재생시켜 사용할 수 있게 한다."
+      "description": "배틀 중에 사용하여 없어진 자신의 지닌 물건을 재생시켜 사용할 수 있게 한다.",
+      "function_code": "RestoreUserConsumedItem",
+      "effect_chance": 0
     },
     {
       "key": "REFLECT",
@@ -2668,7 +3200,9 @@
       "category": 2,
       "accuracy": 0,
       "pp": 20,
-      "description": "5턴 동안 이상한 장막을 쳐서 상대로부터 받는 물리공격의 데미지를 약하게 한다."
+      "description": "5턴 동안 이상한 장막을 쳐서 상대로부터 받는 물리공격의 데미지를 약하게 한다.",
+      "function_code": "StartWeakenPhysicalDamageAgainstUserSide",
+      "effect_chance": 0
     },
     {
       "key": "REFLECTTYPE",
@@ -2678,7 +3212,9 @@
       "category": 2,
       "accuracy": 0,
       "pp": 15,
-      "description": "상대의 타입을 반사해서 자신도 똑같은 타입이 된다."
+      "description": "상대의 타입을 반사해서 자신도 똑같은 타입이 된다.",
+      "function_code": "SetUserTypesToTargetTypes",
+      "effect_chance": 0
     },
     {
       "key": "REST",
@@ -2688,7 +3224,9 @@
       "category": 2,
       "accuracy": 0,
       "pp": 5,
-      "description": "2턴 동안 계속 잠잔다. HP와 몸의 이상을 모두 회복한다."
+      "description": "2턴 동안 계속 잠잔다. HP와 몸의 이상을 모두 회복한다.",
+      "function_code": "HealUserFullyAndFallAsleep",
+      "effect_chance": 0
     },
     {
       "key": "RETALIATE",
@@ -2698,7 +3236,9 @@
       "category": 0,
       "accuracy": 100,
       "pp": 5,
-      "description": "쓰러진 같은 편의 원수를 갚는다. 앞 턴에서 같은 편이 쓰러졌다면 위력이 올라간다."
+      "description": "쓰러진 같은 편의 원수를 갚는다. 앞 턴에서 같은 편이 쓰러졌다면 위력이 올라간다.",
+      "function_code": "DoublePowerIfAllyFaintedLastTurn",
+      "effect_chance": 0
     },
     {
       "key": "REVENGE",
@@ -2708,7 +3248,9 @@
       "category": 0,
       "accuracy": 100,
       "pp": 10,
-      "description": "기술을 사용하기 전에 공격을 받았다면 그 상대에게는 위력이 2배가 된다."
+      "description": "기술을 사용하기 전에 공격을 받았다면 그 상대에게는 위력이 2배가 된다.",
+      "function_code": "DoublePowerIfUserLostHPThisTurn",
+      "effect_chance": 0
     },
     {
       "key": "REVERSAL",
@@ -2718,7 +3260,9 @@
       "category": 0,
       "accuracy": 100,
       "pp": 15,
-      "description": "힘을 쥐어짜서 공격한다. 자신의 HP가 적을수록 기술의 위력이 올라간다."
+      "description": "힘을 쥐어짜서 공격한다. 자신의 HP가 적을수록 기술의 위력이 올라간다.",
+      "function_code": "PowerLowerWithUserHP",
+      "effect_chance": 0
     },
     {
       "key": "ROAR",
@@ -2728,7 +3272,9 @@
       "category": 2,
       "accuracy": 0,
       "pp": 20,
-      "description": "상대를 도망가게 해서 교대할 포켓몬을 끌어낸다. 야생의 경우에는 배틀이 끝난다."
+      "description": "상대를 도망가게 해서 교대할 포켓몬을 끌어낸다. 야생의 경우에는 배틀이 끝난다.",
+      "function_code": "SwitchOutTargetStatusMove",
+      "effect_chance": 0
     },
     {
       "key": "ROCKBLAST",
@@ -2738,7 +3284,9 @@
       "category": 0,
       "accuracy": 90,
       "pp": 10,
-      "description": "단단한 암석을 상대에게 발사하여 공격한다. 2-5회 동안 연속으로 쓴다."
+      "description": "단단한 암석을 상대에게 발사하여 공격한다. 2-5회 동안 연속으로 쓴다.",
+      "function_code": "HitTwoToFiveTimes",
+      "effect_chance": 0
     },
     {
       "key": "ROCKPOLISH",
@@ -2748,7 +3296,9 @@
       "category": 2,
       "accuracy": 0,
       "pp": 20,
-      "description": "몸을 닦아 공기의 저항을 적게 한다. 스피드를 크게 올릴 수 있다."
+      "description": "몸을 닦아 공기의 저항을 적게 한다. 스피드를 크게 올릴 수 있다.",
+      "function_code": "RaiseUserSpeed2",
+      "effect_chance": 0
     },
     {
       "key": "ROCKSLIDE",
@@ -2758,7 +3308,9 @@
       "category": 0,
       "accuracy": 90,
       "pp": 10,
-      "description": "큰 바위를 세차게 부딪쳐서 공격한다. 상대를 풀죽게 만들 때가 있다."
+      "description": "큰 바위를 세차게 부딪쳐서 공격한다. 상대를 풀죽게 만들 때가 있다.",
+      "function_code": "FlinchTarget",
+      "effect_chance": 30
     },
     {
       "key": "ROCKTHROW",
@@ -2768,7 +3320,9 @@
       "category": 0,
       "accuracy": 90,
       "pp": 15,
-      "description": "작은 바위를 들어올려 상대에게 내던져서 공격한다."
+      "description": "작은 바위를 들어올려 상대에게 내던져서 공격한다.",
+      "function_code": "None",
+      "effect_chance": 0
     },
     {
       "key": "ROLEPLAY",
@@ -2778,7 +3332,9 @@
       "category": 2,
       "accuracy": 0,
       "pp": 10,
-      "description": "상대의 역할을 하여 자신도 상대와 같은 특성으로 변화한다."
+      "description": "상대의 역할을 하여 자신도 상대와 같은 특성으로 변화한다.",
+      "function_code": "SetUserAbilityToTargetAbility",
+      "effect_chance": 0
     },
     {
       "key": "ROLLOUT",
@@ -2788,7 +3344,9 @@
       "category": 0,
       "accuracy": 90,
       "pp": 20,
-      "description": "5턴 동안 계속 굴러서 공격한다. 기술이 맞을 때마다 위력이 올라간다."
+      "description": "5턴 동안 계속 굴러서 공격한다. 기술이 맞을 때마다 위력이 올라간다.",
+      "function_code": "MultiTurnAttackPowersUpEachTurn",
+      "effect_chance": 0
     },
     {
       "key": "ROOST",
@@ -2798,7 +3356,9 @@
       "category": 2,
       "accuracy": 0,
       "pp": 5,
-      "description": "땅에 내려와 몸을 쉬게 한다. 최대 HP의 절반만큼 HP를 회복한다."
+      "description": "땅에 내려와 몸을 쉬게 한다. 최대 HP의 절반만큼 HP를 회복한다.",
+      "function_code": "HealUserHalfOfTotalHPLoseFlyingTypeThisTurn",
+      "effect_chance": 0
     },
     {
       "key": "ROUND",
@@ -2808,7 +3368,9 @@
       "category": 1,
       "accuracy": 100,
       "pp": 15,
-      "description": "노래로 상대를 공격한다. 함께 돌림노래를 하면 계속해서 쓸 수 있고 위력도 올라간다."
+      "description": "노래로 상대를 공격한다. 함께 돌림노래를 하면 계속해서 쓸 수 있고 위력도 올라간다.",
+      "function_code": "UsedAfterAllyRoundWithDoublePower",
+      "effect_chance": 0
     },
     {
       "key": "SAFEGUARD",
@@ -2818,7 +3380,9 @@
       "category": 2,
       "accuracy": 0,
       "pp": 25,
-      "description": "5턴 동안 이상한 힘의 보호를 받아 상태 이상이 되지 않는다."
+      "description": "5턴 동안 이상한 힘의 보호를 받아 상태 이상이 되지 않는다.",
+      "function_code": "StartUserSideImmunityToInflictedStatus",
+      "effect_chance": 0
     },
     {
       "key": "SANDATTACK",
@@ -2828,7 +3392,9 @@
       "category": 2,
       "accuracy": 100,
       "pp": 15,
-      "description": "상대의 얼굴에 모래를 뿌려서 명중률을 떨어뜨린다."
+      "description": "상대의 얼굴에 모래를 뿌려서 명중률을 떨어뜨린다.",
+      "function_code": "LowerTargetAccuracy1",
+      "effect_chance": 0
     },
     {
       "key": "SANDSTORM",
@@ -2838,7 +3404,9 @@
       "category": 2,
       "accuracy": 0,
       "pp": 10,
-      "description": "5턴 동안 모래바람으로 바위, 땅, 강철타입 이외의 포켓몬에게 데미지를 준다."
+      "description": "5턴 동안 모래바람으로 바위, 땅, 강철타입 이외의 포켓몬에게 데미지를 준다.",
+      "function_code": "StartSandstormWeather",
+      "effect_chance": 0
     },
     {
       "key": "SANDTOMB",
@@ -2848,7 +3416,9 @@
       "category": 0,
       "accuracy": 85,
       "pp": 15,
-      "description": "세차게 불어대는 모래바람 속에 4-5턴 동안 상대를 가두어 공격한다."
+      "description": "세차게 불어대는 모래바람 속에 4-5턴 동안 상대를 가두어 공격한다.",
+      "function_code": "BindTarget",
+      "effect_chance": 0
     },
     {
       "key": "SCARYFACE",
@@ -2858,7 +3428,9 @@
       "category": 2,
       "accuracy": 100,
       "pp": 10,
-      "description": "무서운 얼굴로 노려보고 겁주어 상대의 스피드를 크게 떨어뜨린다."
+      "description": "무서운 얼굴로 노려보고 겁주어 상대의 스피드를 크게 떨어뜨린다.",
+      "function_code": "LowerTargetSpeed2",
+      "effect_chance": 0
     },
     {
       "key": "SCRATCH",
@@ -2868,7 +3440,9 @@
       "category": 0,
       "accuracy": 100,
       "pp": 35,
-      "description": "단단하고 뾰족한 날카로운 손톱으로 상대를 할퀴어서 공격한다."
+      "description": "단단하고 뾰족한 날카로운 손톱으로 상대를 할퀴어서 공격한다.",
+      "function_code": "None",
+      "effect_chance": 0
     },
     {
       "key": "SCREECH",
@@ -2878,7 +3452,9 @@
       "category": 2,
       "accuracy": 85,
       "pp": 40,
-      "description": "그만 귀를 막아버리고 싶은 싫은 소리를 내어 상대의 방어를 크게 떨어뜨린다."
+      "description": "그만 귀를 막아버리고 싶은 싫은 소리를 내어 상대의 방어를 크게 떨어뜨린다.",
+      "function_code": "LowerTargetDefense2",
+      "effect_chance": 0
     },
     {
       "key": "SEEDBOMB",
@@ -2888,7 +3464,9 @@
       "category": 0,
       "accuracy": 100,
       "pp": 15,
-      "description": "단단한 껍질을 가지고 있는 큰 씨앗을 위에서 힘껏 내던져 상대를 공격한다."
+      "description": "단단한 껍질을 가지고 있는 큰 씨앗을 위에서 힘껏 내던져 상대를 공격한다.",
+      "function_code": "None",
+      "effect_chance": 0
     },
     {
       "key": "SEISMICTOSS",
@@ -2898,7 +3476,9 @@
       "category": 0,
       "accuracy": 100,
       "pp": 20,
-      "description": "인력을 사용해 내던진다. 자신의 레벨과 똑같은 데미지를 상대에게 준다."
+      "description": "인력을 사용해 내던진다. 자신의 레벨과 똑같은 데미지를 상대에게 준다.",
+      "function_code": "FixedDamageUserLevel",
+      "effect_chance": 0
     },
     {
       "key": "SELFDESTRUCT",
@@ -2908,7 +3488,9 @@
       "category": 0,
       "accuracy": 100,
       "pp": 5,
-      "description": "폭발을 일으켜서 자신의 주위에 있는 포켓몬을 공격한다. 쓰고 나서 기절하게 된다."
+      "description": "폭발을 일으켜서 자신의 주위에 있는 포켓몬을 공격한다. 쓰고 나서 기절하게 된다.",
+      "function_code": "UserFaintsExplosive",
+      "effect_chance": 0
     },
     {
       "key": "SHADOWBALL",
@@ -2918,7 +3500,9 @@
       "category": 1,
       "accuracy": 100,
       "pp": 15,
-      "description": "까만 그림자의 덩어리를 내던져서 공격한다. 상대의 특수방어를 떨어뜨릴 때가 있다."
+      "description": "까만 그림자의 덩어리를 내던져서 공격한다. 상대의 특수방어를 떨어뜨릴 때가 있다.",
+      "function_code": "LowerTargetSpDef1",
+      "effect_chance": 20
     },
     {
       "key": "SHADOWPUNCH",
@@ -2928,7 +3512,9 @@
       "category": 0,
       "accuracy": 0,
       "pp": 20,
-      "description": "그림자에 섞여 펀치를 날린다. 공격은 반드시 명중한다."
+      "description": "그림자에 섞여 펀치를 날린다. 공격은 반드시 명중한다.",
+      "function_code": "None",
+      "effect_chance": 0
     },
     {
       "key": "SHEERCOLD",
@@ -2938,7 +3524,9 @@
       "category": 1,
       "accuracy": 30,
       "pp": 5,
-      "description": "절대영도의 추위로 상대를 공격한다. 맞으면 일격에 기절한다."
+      "description": "절대영도의 추위로 상대를 공격한다. 맞으면 일격에 기절한다.",
+      "function_code": "OHKOIce",
+      "effect_chance": 0
     },
     {
       "key": "SHELLSMASH",
@@ -2948,7 +3536,9 @@
       "category": 2,
       "accuracy": 0,
       "pp": 15,
-      "description": "껍질을 깨서 자신의 방어와 특수방어를 떨어뜨리지만 공격과 특수공격, 스피드를 크게 올린다."
+      "description": "껍질을 깨서 자신의 방어와 특수방어를 떨어뜨리지만 공격과 특수공격, 스피드를 크게 올린다.",
+      "function_code": "LowerUserDefSpDef1RaiseUserAtkSpAtkSpd2",
+      "effect_chance": 0
     },
     {
       "key": "SHOCKWAVE",
@@ -2958,7 +3548,9 @@
       "category": 1,
       "accuracy": 0,
       "pp": 20,
-      "description": "전격을 재빠르게 상대에게 날린다. 공격은 반드시 명중한다."
+      "description": "전격을 재빠르게 상대에게 날린다. 공격은 반드시 명중한다.",
+      "function_code": "None",
+      "effect_chance": 0
     },
     {
       "key": "SING",
@@ -2968,7 +3560,9 @@
       "category": 2,
       "accuracy": 55,
       "pp": 15,
-      "description": "기분 좋은 예쁜 노랫소리를 들려주고 상대를 잠듦 상태로 만든다."
+      "description": "기분 좋은 예쁜 노랫소리를 들려주고 상대를 잠듦 상태로 만든다.",
+      "function_code": "SleepTarget",
+      "effect_chance": 0
     },
     {
       "key": "SKYATTACK",
@@ -2978,7 +3572,9 @@
       "category": 0,
       "accuracy": 90,
       "pp": 5,
-      "description": "2턴째에 상대를 공격한다. 가끔 풀죽게 만든다. 급소에 맞을 확률이 높다."
+      "description": "2턴째에 상대를 공격한다. 가끔 풀죽게 만든다. 급소에 맞을 확률이 높다.",
+      "function_code": "TwoTurnAttackFlinchTarget",
+      "effect_chance": 30
     },
     {
       "key": "SLACKOFF",
@@ -2988,7 +3584,9 @@
       "category": 2,
       "accuracy": 0,
       "pp": 5,
-      "description": "게으름 피우며 쉰다. 자신의 HP를 최대 HP의 절반만큼 회복한다."
+      "description": "게으름 피우며 쉰다. 자신의 HP를 최대 HP의 절반만큼 회복한다.",
+      "function_code": "HealUserHalfOfTotalHP",
+      "effect_chance": 0
     },
     {
       "key": "SLAM",
@@ -2998,7 +3596,9 @@
       "category": 0,
       "accuracy": 75,
       "pp": 20,
-      "description": "긴 꼬리나 덩굴 등을 사용해 상대를 힘껏 쳐서 공격한다."
+      "description": "긴 꼬리나 덩굴 등을 사용해 상대를 힘껏 쳐서 공격한다.",
+      "function_code": "None",
+      "effect_chance": 0
     },
     {
       "key": "SLASH",
@@ -3008,7 +3608,9 @@
       "category": 0,
       "accuracy": 100,
       "pp": 20,
-      "description": "발톱이나 낫 등으로 상대를 베어 갈라서 공격한다. 급소에 맞을 확률이 높다."
+      "description": "발톱이나 낫 등으로 상대를 베어 갈라서 공격한다. 급소에 맞을 확률이 높다.",
+      "function_code": "None",
+      "effect_chance": 0
     },
     {
       "key": "SLEEPPOWDER",
@@ -3018,7 +3620,9 @@
       "category": 2,
       "accuracy": 75,
       "pp": 15,
-      "description": "잠이 오는 가루를 많이 흩뿌려서 상대를 잠듦 상태로 만든다."
+      "description": "잠이 오는 가루를 많이 흩뿌려서 상대를 잠듦 상태로 만든다.",
+      "function_code": "SleepTarget",
+      "effect_chance": 0
     },
     {
       "key": "SLEEPTALK",
@@ -3028,7 +3632,9 @@
       "category": 2,
       "accuracy": 0,
       "pp": 10,
-      "description": "자신이 배운 기술 중 하나를 무작위로 날린다. 자신이 잠들어 있을 때만 쓸 수 있다."
+      "description": "자신이 배운 기술 중 하나를 무작위로 날린다. 자신이 잠들어 있을 때만 쓸 수 있다.",
+      "function_code": "UseRandomUserMoveIfAsleep",
+      "effect_chance": 0
     },
     {
       "key": "SLUDGE",
@@ -3038,7 +3644,9 @@
       "category": 1,
       "accuracy": 100,
       "pp": 20,
-      "description": "더러운 오물을 상대에게 내던져서 공격한다. 독 상태로 만들 때가 있다."
+      "description": "더러운 오물을 상대에게 내던져서 공격한다. 독 상태로 만들 때가 있다.",
+      "function_code": "PoisonTarget",
+      "effect_chance": 30
     },
     {
       "key": "SLUDGEBOMB",
@@ -3048,7 +3656,9 @@
       "category": 1,
       "accuracy": 100,
       "pp": 10,
-      "description": "더러운 오물을 상대에게 내던져서 공격한다. 독 상태로 만들 때가 있다."
+      "description": "더러운 오물을 상대에게 내던져서 공격한다. 독 상태로 만들 때가 있다.",
+      "function_code": "PoisonTarget",
+      "effect_chance": 30
     },
     {
       "key": "SLUDGEWAVE",
@@ -3058,7 +3668,9 @@
       "category": 1,
       "accuracy": 100,
       "pp": 10,
-      "description": "오물 파도로 자신의 주위에 있는 포켓몬을 공격한다. 독 상태로 만들 때가 있다."
+      "description": "오물 파도로 자신의 주위에 있는 포켓몬을 공격한다. 독 상태로 만들 때가 있다.",
+      "function_code": "PoisonTarget",
+      "effect_chance": 10
     },
     {
       "key": "SMACKDOWN",
@@ -3068,7 +3680,9 @@
       "category": 0,
       "accuracy": 100,
       "pp": 15,
-      "description": "돌이나 구슬을 던져서 날고 있는 상대를 공격한다. 맞은 상대는 땅에 떨어진다."
+      "description": "돌이나 구슬을 던져서 날고 있는 상대를 공격한다. 맞은 상대는 땅에 떨어진다.",
+      "function_code": "HitsTargetInSkyGroundsTarget",
+      "effect_chance": 0
     },
     {
       "key": "SMARTSTRIKE",
@@ -3078,7 +3692,9 @@
       "category": 0,
       "accuracy": 0,
       "pp": 10,
-      "description": "뾰족한 뿔로 상대를 꿰찔러서 공격한다. 공격은 반드시 명중한다."
+      "description": "뾰족한 뿔로 상대를 꿰찔러서 공격한다. 공격은 반드시 명중한다.",
+      "function_code": "None",
+      "effect_chance": 0
     },
     {
       "key": "SMOG",
@@ -3088,7 +3704,9 @@
       "category": 1,
       "accuracy": 70,
       "pp": 20,
-      "description": "더러운 가스를 상대에게 내뿜어 공격한다. 독 상태로 만들 때가 있다."
+      "description": "더러운 가스를 상대에게 내뿜어 공격한다. 독 상태로 만들 때가 있다.",
+      "function_code": "PoisonTarget",
+      "effect_chance": 40
     },
     {
       "key": "SMOKESCREEN",
@@ -3098,7 +3716,9 @@
       "category": 2,
       "accuracy": 100,
       "pp": 20,
-      "description": "연기나 먹물을 내뿜어 상대의 명중률을 떨어뜨린다."
+      "description": "연기나 먹물을 내뿜어 상대의 명중률을 떨어뜨린다.",
+      "function_code": "LowerTargetAccuracy1",
+      "effect_chance": 0
     },
     {
       "key": "SNORE",
@@ -3108,7 +3728,9 @@
       "category": 1,
       "accuracy": 100,
       "pp": 15,
-      "description": "자신이 잠들어 있을 때 소음을 내어 공격한다. 상대를 풀죽게 만들 때가 있다."
+      "description": "자신이 잠들어 있을 때 소음을 내어 공격한다. 상대를 풀죽게 만들 때가 있다.",
+      "function_code": "FlinchTargetFailsIfUserNotAsleep",
+      "effect_chance": 30
     },
     {
       "key": "SNOWSCAPE",
@@ -3118,7 +3740,9 @@
       "category": 2,
       "accuracy": 0,
       "pp": 10,
-      "description": "Summons a five-turn snowstorm that boosts the Defense of Ice-type Pokémon."
+      "description": "Summons a five-turn snowstorm that boosts the Defense of Ice-type Pokémon.",
+      "function_code": "StartHailWeather",
+      "effect_chance": 0
     },
     {
       "key": "SOAK",
@@ -3128,7 +3752,9 @@
       "category": 2,
       "accuracy": 100,
       "pp": 20,
-      "description": "많은 물을 끼얹어서 상대를 물타입으로 바꾼다."
+      "description": "많은 물을 끼얹어서 상대를 물타입으로 바꾼다.",
+      "function_code": "SetTargetTypesToWater",
+      "effect_chance": 0
     },
     {
       "key": "SOFTBOILED",
@@ -3138,7 +3764,9 @@
       "category": 2,
       "accuracy": 0,
       "pp": 5,
-      "description": "자신의 HP를 최대 HP의 절반만큼 회복한다. 동료의 HP를 회복시킬 수도 있다."
+      "description": "자신의 HP를 최대 HP의 절반만큼 회복한다. 동료의 HP를 회복시킬 수도 있다.",
+      "function_code": "HealUserHalfOfTotalHP",
+      "effect_chance": 0
     },
     {
       "key": "SOLARBEAM",
@@ -3148,7 +3776,9 @@
       "category": 1,
       "accuracy": 100,
       "pp": 10,
-      "description": "1턴째에 빛을 가득 모아 2턴째에 빛의 다발을 발사하여 공격한다."
+      "description": "1턴째에 빛을 가득 모아 2턴째에 빛의 다발을 발사하여 공격한다.",
+      "function_code": "TwoTurnAttackOneTurnInSun",
+      "effect_chance": 0
     },
     {
       "key": "SPARK",
@@ -3158,7 +3788,9 @@
       "category": 0,
       "accuracy": 100,
       "pp": 20,
-      "description": "전기를 둘러 돌진하여 공격한다. 마비 상태로 만들 때가 있다."
+      "description": "전기를 둘러 돌진하여 공격한다. 마비 상태로 만들 때가 있다.",
+      "function_code": "ParalyzeTarget",
+      "effect_chance": 30
     },
     {
       "key": "SPIKES",
@@ -3168,7 +3800,9 @@
       "category": 2,
       "accuracy": 0,
       "pp": 20,
-      "description": "상대의 발밑에 압정을 뿌린다. 교체된 상대 포켓몬에게 데미지를 준다."
+      "description": "상대의 발밑에 압정을 뿌린다. 교체된 상대 포켓몬에게 데미지를 준다.",
+      "function_code": "AddSpikesToFoeSide",
+      "effect_chance": 0
     },
     {
       "key": "SPITE",
@@ -3178,7 +3812,9 @@
       "category": 2,
       "accuracy": 100,
       "pp": 10,
-      "description": "상대가 마지막으로 사용한 기술에 원한을 품어 그 기술의 PP를 4만큼 줄인다."
+      "description": "상대가 마지막으로 사용한 기술에 원한을 품어 그 기술의 PP를 4만큼 줄인다.",
+      "function_code": "LowerPPOfTargetLastMoveBy4",
+      "effect_chance": 0
     },
     {
       "key": "SPITUP",
@@ -3188,7 +3824,9 @@
       "category": 1,
       "accuracy": 100,
       "pp": 10,
-      "description": "비축된 힘을 상대에게 부딪쳐서 공격한다. 비축된 만큼 위력이 올라간다."
+      "description": "비축된 힘을 상대에게 부딪쳐서 공격한다. 비축된 만큼 위력이 올라간다.",
+      "function_code": "PowerDependsOnUserStockpile",
+      "effect_chance": 0
     },
     {
       "key": "SPLASH",
@@ -3198,7 +3836,9 @@
       "category": 2,
       "accuracy": 0,
       "pp": 40,
-      "description": "공격도 하지 않고 팔딱팔딱 튈 뿐 아무 일도 일어나지 않는다..."
+      "description": "공격도 하지 않고 팔딱팔딱 튈 뿐 아무 일도 일어나지 않는다...",
+      "function_code": "DoesNothingUnusableInGravity",
+      "effect_chance": 0
     },
     {
       "key": "SPORE",
@@ -3208,7 +3848,9 @@
       "category": 2,
       "accuracy": 100,
       "pp": 15,
-      "description": "최면 효과가 있는 포자를 흩뿌려서 상대를 잠듦 상태로 만든다."
+      "description": "최면 효과가 있는 포자를 흩뿌려서 상대를 잠듦 상태로 만든다.",
+      "function_code": "SleepTarget",
+      "effect_chance": 0
     },
     {
       "key": "STEALTHROCK",
@@ -3218,7 +3860,9 @@
       "category": 2,
       "accuracy": 0,
       "pp": 20,
-      "description": "상대의 주위에 무수한 바위를 띄워 교체해서 나온 포켓몬에게 데미지를 준다."
+      "description": "상대의 주위에 무수한 바위를 띄워 교체해서 나온 포켓몬에게 데미지를 준다.",
+      "function_code": "AddStealthRocksToFoeSide",
+      "effect_chance": 0
     },
     {
       "key": "STOCKPILE",
@@ -3228,7 +3872,9 @@
       "category": 2,
       "accuracy": 0,
       "pp": 20,
-      "description": "힘을 비축해서 자신의 방어와 특수방어를 올린다. 최대 3회까지 비축할 수 있다."
+      "description": "힘을 비축해서 자신의 방어와 특수방어를 올린다. 최대 3회까지 비축할 수 있다.",
+      "function_code": "UserAddStockpileRaiseDefSpDef1",
+      "effect_chance": 0
     },
     {
       "key": "STOMP",
@@ -3238,7 +3884,9 @@
       "category": 0,
       "accuracy": 100,
       "pp": 20,
-      "description": "큰 발로 상대를 짓밟아서 공격한다. 상대를 풀이 죽게 할 때가 있다."
+      "description": "큰 발로 상대를 짓밟아서 공격한다. 상대를 풀이 죽게 할 때가 있다.",
+      "function_code": "FlinchTarget",
+      "effect_chance": 30
     },
     {
       "key": "STOMPINGTANTRUM",
@@ -3248,7 +3896,9 @@
       "category": 0,
       "accuracy": 100,
       "pp": 10,
-      "description": "분함을 발판삼아 공격한다. 앞 턴에서 기술이 빗나갔다면 위력이 배가 된다."
+      "description": "분함을 발판삼아 공격한다. 앞 턴에서 기술이 빗나갔다면 위력이 배가 된다.",
+      "function_code": "DoublePowerIfUserLastMoveFailed",
+      "effect_chance": 0
     },
     {
       "key": "STONEEDGE",
@@ -3258,7 +3908,9 @@
       "category": 0,
       "accuracy": 80,
       "pp": 5,
-      "description": "뾰족한 바위를 상대에게 꿰찔러서 공격한다. 급소에 맞을 확률이 높다."
+      "description": "뾰족한 바위를 상대에게 꿰찔러서 공격한다. 급소에 맞을 확률이 높다.",
+      "function_code": "None",
+      "effect_chance": 0
     },
     {
       "key": "STOREDPOWER",
@@ -3268,7 +3920,9 @@
       "category": 1,
       "accuracy": 100,
       "pp": 10,
-      "description": "축적된 파워로 상대를 공격한다. 자신의 능력이 올라가 있는 만큼 위력이 오른다."
+      "description": "축적된 파워로 상대를 공격한다. 자신의 능력이 올라가 있는 만큼 위력이 오른다.",
+      "function_code": "PowerHigherWithUserPositiveStatStages",
+      "effect_chance": 0
     },
     {
       "key": "STORMTHROW",
@@ -3278,7 +3932,9 @@
       "category": 0,
       "accuracy": 100,
       "pp": 10,
-      "description": "강렬한 일격을 상대에게 날린다. 공격은 반드시 급소에 맞는다."
+      "description": "강렬한 일격을 상대에게 날린다. 공격은 반드시 급소에 맞는다.",
+      "function_code": "AlwaysCriticalHit",
+      "effect_chance": 0
     },
     {
       "key": "STRENGTH",
@@ -3288,7 +3944,9 @@
       "category": 0,
       "accuracy": 100,
       "pp": 15,
-      "description": "혼신의 힘으로 상대를 세게 때려서 공격한다. 무거운 돌을 밀 수도 있다."
+      "description": "혼신의 힘으로 상대를 세게 때려서 공격한다. 무거운 돌을 밀 수도 있다.",
+      "function_code": "None",
+      "effect_chance": 0
     },
     {
       "key": "STRINGSHOT",
@@ -3298,7 +3956,9 @@
       "category": 2,
       "accuracy": 95,
       "pp": 40,
-      "description": "입에서 뿜어낸 실을 휘감아서 상대의 스피드를 떨어뜨린다."
+      "description": "입에서 뿜어낸 실을 휘감아서 상대의 스피드를 떨어뜨린다.",
+      "function_code": "LowerTargetSpeed2",
+      "effect_chance": 0
     },
     {
       "key": "STUNSPORE",
@@ -3308,7 +3968,9 @@
       "category": 2,
       "accuracy": 75,
       "pp": 30,
-      "description": "저리 가루를 많이 흩뿌려서 상대를 마비 상태로 만든다."
+      "description": "저리 가루를 많이 흩뿌려서 상대를 마비 상태로 만든다.",
+      "function_code": "ParalyzeTarget",
+      "effect_chance": 0
     },
     {
       "key": "SUBMISSION",
@@ -3318,7 +3980,9 @@
       "category": 0,
       "accuracy": 80,
       "pp": 20,
-      "description": "땅에 자신과 함께 상대를 내던져 공격한다. 자신도 조금 데미지를 입는다."
+      "description": "땅에 자신과 함께 상대를 내던져 공격한다. 자신도 조금 데미지를 입는다.",
+      "function_code": "RecoilQuarterOfDamageDealt",
+      "effect_chance": 0
     },
     {
       "key": "SUCKERPUNCH",
@@ -3328,7 +3992,9 @@
       "category": 0,
       "accuracy": 100,
       "pp": 5,
-      "description": "상대보다 먼저 공격할 수 있다. 상대가 쓴 기술이 공격기술이 아니면 실패한다."
+      "description": "상대보다 먼저 공격할 수 있다. 상대가 쓴 기술이 공격기술이 아니면 실패한다.",
+      "function_code": "FailsIfTargetActed",
+      "effect_chance": 0
     },
     {
       "key": "SUNNYDAY",
@@ -3338,7 +4004,9 @@
       "category": 2,
       "accuracy": 0,
       "pp": 5,
-      "description": "5턴 동안 햇살을 강하게 해서 불꽃타입 기술의 위력을 올린다. 물타입의 위력은 떨어진다."
+      "description": "5턴 동안 햇살을 강하게 해서 불꽃타입 기술의 위력을 올린다. 물타입의 위력은 떨어진다.",
+      "function_code": "StartSunWeather",
+      "effect_chance": 0
     },
     {
       "key": "SUPERFANG",
@@ -3348,7 +4016,9 @@
       "category": 0,
       "accuracy": 90,
       "pp": 10,
-      "description": "날카로운 앞니로 강하게 물어서 공격한다. 상대의 HP는 절반이 된다."
+      "description": "날카로운 앞니로 강하게 물어서 공격한다. 상대의 HP는 절반이 된다.",
+      "function_code": "FixedDamageHalfTargetHP",
+      "effect_chance": 0
     },
     {
       "key": "SUPERPOWER",
@@ -3358,7 +4028,9 @@
       "category": 0,
       "accuracy": 100,
       "pp": 5,
-      "description": "엄청난 힘을 발휘하여 상대를 공격한다. 자신의 공격과 방어가 떨어진다."
+      "description": "엄청난 힘을 발휘하여 상대를 공격한다. 자신의 공격과 방어가 떨어진다.",
+      "function_code": "LowerUserAtkDef1",
+      "effect_chance": 0
     },
     {
       "key": "SUPERSONIC",
@@ -3368,7 +4040,9 @@
       "category": 2,
       "accuracy": 55,
       "pp": 20,
-      "description": "특수한 음파를 몸에서 발산하여 상대를 혼란 상태로 만든다."
+      "description": "특수한 음파를 몸에서 발산하여 상대를 혼란 상태로 만든다.",
+      "function_code": "ConfuseTarget",
+      "effect_chance": 0
     },
     {
       "key": "SURF",
@@ -3378,7 +4052,9 @@
       "category": 1,
       "accuracy": 100,
       "pp": 15,
-      "description": "큰 파도로 주위에 있는 모든 것을 공격한다."
+      "description": "큰 파도로 주위에 있는 모든 것을 공격한다.",
+      "function_code": "DoublePowerIfTargetUnderwater",
+      "effect_chance": 0
     },
     {
       "key": "SWAGGER",
@@ -3388,7 +4064,9 @@
       "category": 2,
       "accuracy": 85,
       "pp": 15,
-      "description": "상대를 화내게 해서 혼란 시킨다. 분노로 상대의 공격은 크게 올라가 버린다."
+      "description": "상대를 화내게 해서 혼란 시킨다. 분노로 상대의 공격은 크게 올라가 버린다.",
+      "function_code": "RaiseTargetAttack2ConfuseTarget",
+      "effect_chance": 0
     },
     {
       "key": "SWALLOW",
@@ -3398,7 +4076,9 @@
       "category": 2,
       "accuracy": 0,
       "pp": 10,
-      "description": "비축된 힘을 꿀꺽해서 자신의 HP를 회복한다. 비축된 만큼 회복한다."
+      "description": "비축된 힘을 꿀꺽해서 자신의 HP를 회복한다. 비축된 만큼 회복한다.",
+      "function_code": "HealUserDependingOnUserStockpile",
+      "effect_chance": 0
     },
     {
       "key": "SWEETKISS",
@@ -3408,7 +4088,9 @@
       "category": 2,
       "accuracy": 75,
       "pp": 10,
-      "description": "천사처럼 귀엽게 키스하여 상대를 혼란 상태로 만든다."
+      "description": "천사처럼 귀엽게 키스하여 상대를 혼란 상태로 만든다.",
+      "function_code": "ConfuseTarget",
+      "effect_chance": 0
     },
     {
       "key": "SWEETSCENT",
@@ -3418,7 +4100,9 @@
       "category": 2,
       "accuracy": 100,
       "pp": 20,
-      "description": "향기로 상대의 회피율을 크게 떨어뜨린다. 풀밭 등에서 쓰면 포켓몬이 다가온다."
+      "description": "향기로 상대의 회피율을 크게 떨어뜨린다. 풀밭 등에서 쓰면 포켓몬이 다가온다.",
+      "function_code": "LowerTargetEvasion2",
+      "effect_chance": 0
     },
     {
       "key": "SWIFT",
@@ -3428,7 +4112,9 @@
       "category": 1,
       "accuracy": 0,
       "pp": 20,
-      "description": "별 모양의 빛을 발사해서 상대를 공격한다. 공격은 반드시 명중한다."
+      "description": "별 모양의 빛을 발사해서 상대를 공격한다. 공격은 반드시 명중한다.",
+      "function_code": "None",
+      "effect_chance": 0
     },
     {
       "key": "SWITCHEROO",
@@ -3438,7 +4124,9 @@
       "category": 2,
       "accuracy": 100,
       "pp": 10,
-      "description": "눈에 보이지 않는 속도로 자신과 상대가 지닌 물건을 교환한다."
+      "description": "눈에 보이지 않는 속도로 자신과 상대가 지닌 물건을 교환한다.",
+      "function_code": "UserTargetSwapItems",
+      "effect_chance": 0
     },
     {
       "key": "SWORDSDANCE",
@@ -3448,7 +4136,9 @@
       "category": 2,
       "accuracy": 0,
       "pp": 10,
-      "description": "싸움의 춤을 격렬하게 춰서 기세를 높인다. 자신의 공격을 크게 올린다."
+      "description": "싸움의 춤을 격렬하게 춰서 기세를 높인다. 자신의 공격을 크게 올린다.",
+      "function_code": "RaiseUserAttack2",
+      "effect_chance": 0
     },
     {
       "key": "SYNTHESIS",
@@ -3458,7 +4148,9 @@
       "category": 2,
       "accuracy": 0,
       "pp": 5,
-      "description": "자신의 HP를 회복한다. 날씨에 따라 회복량이 변한다."
+      "description": "자신의 HP를 회복한다. 날씨에 따라 회복량이 변한다.",
+      "function_code": "HealUserDependingOnWeather",
+      "effect_chance": 0
     },
     {
       "key": "TACKLE",
@@ -3468,7 +4160,9 @@
       "category": 0,
       "accuracy": 100,
       "pp": 35,
-      "description": "상대를 향해서 몸 전체를 부딪쳐가며 공격한다."
+      "description": "상대를 향해서 몸 전체를 부딪쳐가며 공격한다.",
+      "function_code": "None",
+      "effect_chance": 0
     },
     {
       "key": "TAILWHIP",
@@ -3478,7 +4172,9 @@
       "category": 2,
       "accuracy": 100,
       "pp": 30,
-      "description": "꼬리를 좌우로 귀엽게 흔들어 방심을 유도한다. 상대의 방어를 떨어뜨린다."
+      "description": "꼬리를 좌우로 귀엽게 흔들어 방심을 유도한다. 상대의 방어를 떨어뜨린다.",
+      "function_code": "LowerTargetDefense1",
+      "effect_chance": 0
     },
     {
       "key": "TAILWIND",
@@ -3488,7 +4184,9 @@
       "category": 2,
       "accuracy": 0,
       "pp": 15,
-      "description": "세차게 불어대는 바람의 소용돌이를 만들어 4턴 동안 같은 편 모두의 스피드를 올린다."
+      "description": "세차게 불어대는 바람의 소용돌이를 만들어 4턴 동안 같은 편 모두의 스피드를 올린다.",
+      "function_code": "StartUserSideDoubleSpeed",
+      "effect_chance": 0
     },
     {
       "key": "TAKEDOWN",
@@ -3498,7 +4196,9 @@
       "category": 0,
       "accuracy": 85,
       "pp": 20,
-      "description": "굉장한 기세로 상대에게 부딪쳐 공격한다. 자신도 조금 데미지를 입는다."
+      "description": "굉장한 기세로 상대에게 부딪쳐 공격한다. 자신도 조금 데미지를 입는다.",
+      "function_code": "RecoilQuarterOfDamageDealt",
+      "effect_chance": 0
     },
     {
       "key": "TAUNT",
@@ -3508,7 +4208,9 @@
       "category": 2,
       "accuracy": 100,
       "pp": 20,
-      "description": "상대를 화나게 한다. 3턴 동안 상대는 데미지를 주는 기술밖에 쓸 수 없게 된다."
+      "description": "상대를 화나게 한다. 3턴 동안 상대는 데미지를 주는 기술밖에 쓸 수 없게 된다.",
+      "function_code": "DisableTargetStatusMoves",
+      "effect_chance": 0
     },
     {
       "key": "TEETERDANCE",
@@ -3518,7 +4220,9 @@
       "category": 2,
       "accuracy": 100,
       "pp": 20,
-      "description": "흔들흔들 댄스를 춰서 주위에 있는 모두를 혼란 상태로 만든다."
+      "description": "흔들흔들 댄스를 춰서 주위에 있는 모두를 혼란 상태로 만든다.",
+      "function_code": "ConfuseTarget",
+      "effect_chance": 0
     },
     {
       "key": "TELEPORT",
@@ -3528,7 +4232,9 @@
       "category": 2,
       "accuracy": 0,
       "pp": 20,
-      "description": "야생 포켓몬과 배틀을 그만둔다. 마지막에 들어갔던 포켓몬 센터가 있는 도시에도 갈 수 있다."
+      "description": "야생 포켓몬과 배틀을 그만둔다. 마지막에 들어갔던 포켓몬 센터가 있는 도시에도 갈 수 있다.",
+      "function_code": "SwitchOutUserStatusMove",
+      "effect_chance": 0
     },
     {
       "key": "THRASH",
@@ -3538,7 +4244,9 @@
       "category": 0,
       "accuracy": 100,
       "pp": 10,
-      "description": "2-3턴 동안 마구 난동 부려서 공격한다. 난동 부린 뒤에는 혼란에 빠진다."
+      "description": "2-3턴 동안 마구 난동 부려서 공격한다. 난동 부린 뒤에는 혼란에 빠진다.",
+      "function_code": "MultiTurnAttackConfuseUserAtEnd",
+      "effect_chance": 0
     },
     {
       "key": "THUNDER",
@@ -3548,7 +4256,9 @@
       "category": 1,
       "accuracy": 70,
       "pp": 10,
-      "description": "강한 번개를 상대에게 떨어뜨려 공격한다. 마비 상태로 만들 때가 있다."
+      "description": "강한 번개를 상대에게 떨어뜨려 공격한다. 마비 상태로 만들 때가 있다.",
+      "function_code": "ParalyzeTargetAlwaysHitsInRainHitsTargetInSky",
+      "effect_chance": 30
     },
     {
       "key": "THUNDERBOLT",
@@ -3558,7 +4268,9 @@
       "category": 1,
       "accuracy": 100,
       "pp": 15,
-      "description": "강한 전격을 상대에게 날려서 공격한다. 마비 상태로 만들 때가 있다."
+      "description": "강한 전격을 상대에게 날려서 공격한다. 마비 상태로 만들 때가 있다.",
+      "function_code": "ParalyzeTarget",
+      "effect_chance": 10
     },
     {
       "key": "THUNDERFANG",
@@ -3568,7 +4280,9 @@
       "category": 0,
       "accuracy": 95,
       "pp": 15,
-      "description": "전기를 모은 이빨로 문다. 상대를 풀죽게 하거나 마비 상태로 만들 때가 있다."
+      "description": "전기를 모은 이빨로 문다. 상대를 풀죽게 하거나 마비 상태로 만들 때가 있다.",
+      "function_code": "ParalyzeFlinchTarget",
+      "effect_chance": 101
     },
     {
       "key": "THUNDERPUNCH",
@@ -3578,7 +4292,9 @@
       "category": 0,
       "accuracy": 100,
       "pp": 15,
-      "description": "전격을 담은 펀치로 상대를 공격한다. 마비 상태로 만들 때가 있다."
+      "description": "전격을 담은 펀치로 상대를 공격한다. 마비 상태로 만들 때가 있다.",
+      "function_code": "ParalyzeTarget",
+      "effect_chance": 10
     },
     {
       "key": "THUNDERSHOCK",
@@ -3588,7 +4304,9 @@
       "category": 1,
       "accuracy": 100,
       "pp": 30,
-      "description": "전기 자극을 상대에게 날려서 공격한다. 마비 상태로 만들 때가 있다."
+      "description": "전기 자극을 상대에게 날려서 공격한다. 마비 상태로 만들 때가 있다.",
+      "function_code": "ParalyzeTarget",
+      "effect_chance": 10
     },
     {
       "key": "THUNDERWAVE",
@@ -3598,7 +4316,9 @@
       "category": 2,
       "accuracy": 90,
       "pp": 20,
-      "description": "약한 전격을 날려서 상대를 마비 상태로 만든다."
+      "description": "약한 전격을 날려서 상대를 마비 상태로 만든다.",
+      "function_code": "ParalyzeTargetIfNotTypeImmune",
+      "effect_chance": 0
     },
     {
       "key": "TICKLE",
@@ -3608,7 +4328,9 @@
       "category": 2,
       "accuracy": 100,
       "pp": 20,
-      "description": "몸을 간질여 웃게 만들어서 상대의 공격과 방어를 떨어뜨린다."
+      "description": "몸을 간질여 웃게 만들어서 상대의 공격과 방어를 떨어뜨린다.",
+      "function_code": "LowerTargetAtkDef1",
+      "effect_chance": 0
     },
     {
       "key": "TOXIC",
@@ -3618,7 +4340,9 @@
       "category": 2,
       "accuracy": 90,
       "pp": 10,
-      "description": "상대를 맹독의 상태로 만든다. 턴이 진행될수록 독의 데미지가 증가한다."
+      "description": "상대를 맹독의 상태로 만든다. 턴이 진행될수록 독의 데미지가 증가한다.",
+      "function_code": "BadPoisonTarget",
+      "effect_chance": 0
     },
     {
       "key": "TOXICSPIKES",
@@ -3628,7 +4352,9 @@
       "category": 2,
       "accuracy": 0,
       "pp": 20,
-      "description": "상대의 발밑에 독압정을 뿌린다. 교체로 나온 상대 포켓몬에 독을 덮어씌운다."
+      "description": "상대의 발밑에 독압정을 뿌린다. 교체로 나온 상대 포켓몬에 독을 덮어씌운다.",
+      "function_code": "AddToxicSpikesToFoeSide",
+      "effect_chance": 0
     },
     {
       "key": "TRANSFORM",
@@ -3638,7 +4364,9 @@
       "category": 2,
       "accuracy": 0,
       "pp": 10,
-      "description": "상대 포켓몬으로 변신하여 상대와 완전히 똑같은 기술을 사용할 수 있다."
+      "description": "상대 포켓몬으로 변신하여 상대와 완전히 똑같은 기술을 사용할 수 있다.",
+      "function_code": "TransformUserIntoTarget",
+      "effect_chance": 0
     },
     {
       "key": "TRIATTACK",
@@ -3648,7 +4376,9 @@
       "category": 1,
       "accuracy": 100,
       "pp": 10,
-      "description": "3개의 광선으로 공격한다. 마비, 화상 또는 얼음 상태로 만들 때가 있다."
+      "description": "3개의 광선으로 공격한다. 마비, 화상 또는 얼음 상태로 만들 때가 있다.",
+      "function_code": "ParalyzeBurnOrFreezeTarget",
+      "effect_chance": 20
     },
     {
       "key": "TWISTER",
@@ -3658,7 +4388,9 @@
       "category": 1,
       "accuracy": 100,
       "pp": 20,
-      "description": "회오리를 일으켜 상대를 끌어들여 공격한다. 상대를 풀죽게 만들 때가 있다."
+      "description": "회오리를 일으켜 상대를 끌어들여 공격한다. 상대를 풀죽게 만들 때가 있다.",
+      "function_code": "FlinchTargetDoublePowerIfTargetInSky",
+      "effect_chance": 20
     },
     {
       "key": "UPROAR",
@@ -3668,7 +4400,9 @@
       "category": 1,
       "accuracy": 100,
       "pp": 10,
-      "description": "2-5턴 동안 소란피워 공격한다. 그 동안은 아무도 잠들지 않게 된다."
+      "description": "2-5턴 동안 소란피워 공격한다. 그 동안은 아무도 잠들지 않게 된다.",
+      "function_code": "MultiTurnAttackPreventSleeping",
+      "effect_chance": 0
     },
     {
       "key": "VACUUMWAVE",
@@ -3678,7 +4412,9 @@
       "category": 1,
       "accuracy": 100,
       "pp": 30,
-      "description": "주먹을 흔들어 진공의 파도를 일으킨다. 반드시 선제 공격을 할 수 있다."
+      "description": "주먹을 흔들어 진공의 파도를 일으킨다. 반드시 선제 공격을 할 수 있다.",
+      "function_code": "None",
+      "effect_chance": 0
     },
     {
       "key": "VENOSHOCK",
@@ -3688,7 +4424,9 @@
       "category": 1,
       "accuracy": 100,
       "pp": 10,
-      "description": "특수한 독액을 끼얹는다. 독 상태의 상대에게는 위력이 2배가 된다."
+      "description": "특수한 독액을 끼얹는다. 독 상태의 상대에게는 위력이 2배가 된다.",
+      "function_code": "DoublePowerIfTargetPoisoned",
+      "effect_chance": 0
     },
     {
       "key": "VINEWHIP",
@@ -3698,7 +4436,9 @@
       "category": 0,
       "accuracy": 100,
       "pp": 25,
-      "description": "채찍처럼 휘어지는 가늘고 긴 덩굴로 상대를 힘껏 쳐서 공격한다."
+      "description": "채찍처럼 휘어지는 가늘고 긴 덩굴로 상대를 힘껏 쳐서 공격한다.",
+      "function_code": "None",
+      "effect_chance": 0
     },
     {
       "key": "VISEGRIP",
@@ -3708,7 +4448,9 @@
       "category": 0,
       "accuracy": 100,
       "pp": 30,
-      "description": "상대를 양쪽에서 집어서 데미지를 준다."
+      "description": "상대를 양쪽에서 집어서 데미지를 준다.",
+      "function_code": "None",
+      "effect_chance": 0
     },
     {
       "key": "VITALTHROW",
@@ -3718,7 +4460,9 @@
       "category": 0,
       "accuracy": 0,
       "pp": 10,
-      "description": "상대보다 나중에 공격한다. 그 대신 자신의 공격은 반드시 명중한다."
+      "description": "상대보다 나중에 공격한다. 그 대신 자신의 공격은 반드시 명중한다.",
+      "function_code": "None",
+      "effect_chance": 0
     },
     {
       "key": "VOLTTACKLE",
@@ -3728,7 +4472,9 @@
       "category": 0,
       "accuracy": 100,
       "pp": 15,
-      "description": "전기를 한데 모아 돌진한다. 자신도 상당한 데미지를 입는다. 마비 상태로 만들 때가 있다."
+      "description": "전기를 한데 모아 돌진한다. 자신도 상당한 데미지를 입는다. 마비 상태로 만들 때가 있다.",
+      "function_code": "RecoilThirdOfDamageDealtParalyzeTarget",
+      "effect_chance": 10
     },
     {
       "key": "WATERFALL",
@@ -3738,7 +4484,9 @@
       "category": 0,
       "accuracy": 100,
       "pp": 15,
-      "description": "굉장한 기세로 상대에게 돌진하여 공격한다. 흘러내리는 폭포도 거슬러 올라갈 수 있다."
+      "description": "굉장한 기세로 상대에게 돌진하여 공격한다. 흘러내리는 폭포도 거슬러 올라갈 수 있다.",
+      "function_code": "FlinchTarget",
+      "effect_chance": 20
     },
     {
       "key": "WATERGUN",
@@ -3748,7 +4496,9 @@
       "category": 1,
       "accuracy": 100,
       "pp": 25,
-      "description": "물을 기세 좋게 상대에게 발사하여 공격한다."
+      "description": "물을 기세 좋게 상대에게 발사하여 공격한다.",
+      "function_code": "None",
+      "effect_chance": 0
     },
     {
       "key": "WATERPULSE",
@@ -3758,7 +4508,9 @@
       "category": 1,
       "accuracy": 100,
       "pp": 20,
-      "description": "물의 진동을 상대에게 가하여 공격한다. 상대를 혼란 시킬 때가 있다."
+      "description": "물의 진동을 상대에게 가하여 공격한다. 상대를 혼란 시킬 때가 있다.",
+      "function_code": "ConfuseTarget",
+      "effect_chance": 20
     },
     {
       "key": "WAVECRASH",
@@ -3768,7 +4520,9 @@
       "category": 0,
       "accuracy": 100,
       "pp": 10,
-      "description": "The user shrouds itself in water and slams into the target. This also damages the user."
+      "description": "The user shrouds itself in water and slams into the target. This also damages the user.",
+      "function_code": "RecoilThirdOfDamageDealt",
+      "effect_chance": 100
     },
     {
       "key": "WHIRLPOOL",
@@ -3778,7 +4532,9 @@
       "category": 1,
       "accuracy": 85,
       "pp": 15,
-      "description": "세차게 소용돌이치는 물속에 4-5턴 동안 상대를 가두어 공격한다."
+      "description": "세차게 소용돌이치는 물속에 4-5턴 동안 상대를 가두어 공격한다.",
+      "function_code": "BindTargetDoublePowerIfTargetUnderwater",
+      "effect_chance": 0
     },
     {
       "key": "WHIRLWIND",
@@ -3788,7 +4544,9 @@
       "category": 2,
       "accuracy": 0,
       "pp": 20,
-      "description": "상대를 날려버려서 교대할 포켓몬을 끌어낸다. 야생의 경우에는 배틀이 끝난다."
+      "description": "상대를 날려버려서 교대할 포켓몬을 끌어낸다. 야생의 경우에는 배틀이 끝난다.",
+      "function_code": "SwitchOutTargetStatusMove",
+      "effect_chance": 0
     },
     {
       "key": "WIDEGUARD",
@@ -3798,7 +4556,9 @@
       "category": 2,
       "accuracy": 0,
       "pp": 10,
-      "description": "같은 편 전원에게 향하는 공격을 1턴 동안 막는다."
+      "description": "같은 편 전원에게 향하는 공격을 1턴 동안 막는다.",
+      "function_code": "ProtectUserSideFromMultiTargetDamagingMoves",
+      "effect_chance": 0
     },
     {
       "key": "WILLOWISP",
@@ -3808,7 +4568,9 @@
       "category": 2,
       "accuracy": 85,
       "pp": 15,
-      "description": "으스스하고 괴상한 불꽃을 쏘아 상대를 화상 상태로 만든다."
+      "description": "으스스하고 괴상한 불꽃을 쏘아 상대를 화상 상태로 만든다.",
+      "function_code": "BurnTarget",
+      "effect_chance": 0
     },
     {
       "key": "WINGATTACK",
@@ -3818,7 +4580,9 @@
       "category": 0,
       "accuracy": 100,
       "pp": 35,
-      "description": "크게 펼친 훌륭한 날개를 상대에게 부딪쳐서 공격한다."
+      "description": "크게 펼친 훌륭한 날개를 상대에게 부딪쳐서 공격한다.",
+      "function_code": "None",
+      "effect_chance": 0
     },
     {
       "key": "WITHDRAW",
@@ -3828,7 +4592,9 @@
       "category": 2,
       "accuracy": 0,
       "pp": 40,
-      "description": "껍질에 숨어 몸을 보호하여 자신의 방어를 올린다."
+      "description": "껍질에 숨어 몸을 보호하여 자신의 방어를 올린다.",
+      "function_code": "RaiseUserDefense1",
+      "effect_chance": 0
     },
     {
       "key": "WONDERROOM",
@@ -3838,7 +4604,9 @@
       "category": 2,
       "accuracy": 0,
       "pp": 10,
-      "description": "이상한 공간을 만든다. 5턴 동안 모든 포켓몬의 방어와 특수방어가 바뀐다."
+      "description": "이상한 공간을 만든다. 5턴 동안 모든 포켓몬의 방어와 특수방어가 바뀐다.",
+      "function_code": "StartSwapAllBattlersBaseDefensiveStats",
+      "effect_chance": 0
     },
     {
       "key": "WOODHAMMER",
@@ -3848,7 +4616,9 @@
       "category": 0,
       "accuracy": 100,
       "pp": 15,
-      "description": "단단한 몸통을 상대에게 부딪쳐서 공격한다. 자신도 상당한 데미지를 입는다."
+      "description": "단단한 몸통을 상대에게 부딪쳐서 공격한다. 자신도 상당한 데미지를 입는다.",
+      "function_code": "RecoilThirdOfDamageDealt",
+      "effect_chance": 0
     },
     {
       "key": "WORKUP",
@@ -3858,7 +4628,9 @@
       "category": 2,
       "accuracy": 0,
       "pp": 30,
-      "description": "스스로 분발해서 공격과 특수공격을 올린다."
+      "description": "스스로 분발해서 공격과 특수공격을 올린다.",
+      "function_code": "RaiseUserAtkSpAtk1",
+      "effect_chance": 0
     },
     {
       "key": "WORRYSEED",
@@ -3868,7 +4640,9 @@
       "category": 2,
       "accuracy": 100,
       "pp": 10,
-      "description": "마음을 괴롭히는 씨앗을 심는다. 상대를 잠잘 수 없게 해서 특성을 불면으로 만든다."
+      "description": "마음을 괴롭히는 씨앗을 심는다. 상대를 잠잘 수 없게 해서 특성을 불면으로 만든다.",
+      "function_code": "SetTargetAbilityToInsomnia",
+      "effect_chance": 0
     },
     {
       "key": "WRAP",
@@ -3878,7 +4652,9 @@
       "category": 0,
       "accuracy": 90,
       "pp": 20,
-      "description": "긴 몸이나 덩굴을 사용해 4-5턴 동안 상대를 휘감아 공격한다."
+      "description": "긴 몸이나 덩굴을 사용해 4-5턴 동안 상대를 휘감아 공격한다.",
+      "function_code": "BindTarget",
+      "effect_chance": 0
     },
     {
       "key": "XSCISSOR",
@@ -3888,7 +4664,9 @@
       "category": 0,
       "accuracy": 100,
       "pp": 15,
-      "description": "낫이나 발톱을 가위처럼 교차시키면서 상대를 베어 가른다."
+      "description": "낫이나 발톱을 가위처럼 교차시키면서 상대를 베어 가른다.",
+      "function_code": "None",
+      "effect_chance": 0
     },
     {
       "key": "YAWN",
@@ -3898,7 +4676,9 @@
       "category": 2,
       "accuracy": 0,
       "pp": 10,
-      "description": "큰 하품으로 졸음을 유도한다. 다음 턴에 상대를 잠듦 상태로 만든다."
+      "description": "큰 하품으로 졸음을 유도한다. 다음 턴에 상대를 잠듦 상태로 만든다.",
+      "function_code": "SleepTargetNextTurn",
+      "effect_chance": 0
     },
     {
       "key": "ZAPCANNON",
@@ -3908,7 +4688,9 @@
       "category": 1,
       "accuracy": 50,
       "pp": 5,
-      "description": "대포처럼 전기를 발사해서 공격한다. 상대를 마비 상태로 만든다."
+      "description": "대포처럼 전기를 발사해서 공격한다. 상대를 마비 상태로 만든다.",
+      "function_code": "ParalyzeTarget",
+      "effect_chance": 100
     },
     {
       "key": "ZENHEADBUTT",
@@ -3918,7 +4700,9 @@
       "category": 0,
       "accuracy": 90,
       "pp": 15,
-      "description": "사념의 힘을 이마에 모아서 공격한다. 상대를 풀죽게 만들 때가 있다."
+      "description": "사념의 힘을 이마에 모아서 공격한다. 상대를 풀죽게 만들 때가 있다.",
+      "function_code": "FlinchTarget",
+      "effect_chance": 20
     }
   ]
 }
