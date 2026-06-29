@@ -1,6 +1,7 @@
 "use client";
 
-import { useState, useTransition } from "react";
+/* eslint-disable @next/next/no-img-element */
+import { useCallback, useEffect, useState, useTransition } from "react";
 import { useRouter } from "next/navigation";
 import { createClient } from "@/lib/supabase/client";
 import { PokemonCard, type PokemonCardData } from "@/components/pokemon/PokemonCard";
@@ -30,41 +31,28 @@ export function PendingQuestions({
   const [loadError, setLoadError] = useState<string | null>(null);
   const [count, setCount] = useState(initialPending);
 
-  async function loadAndOpen() {
-    if (count === 0) return;
-    setOpen(true);
-    setLoading(true);
-    setLoadError(null);
-    // 1) 내가 대상인 질문 id 목록  2) 내 답변 목록 (중첩 임베드 대신 명시적 2단계 — 견고)
+  // 미답변 질문을 DB에서 직접 조회 (중첩 임베드 대신 명시적 2단계 — 견고).
+  // 반환: { list, error }
+  const fetchPending = useCallback(async (): Promise<{ list: PendingQ[]; error: string | null }> => {
     const [tRes, aRes] = await Promise.all([
       supabase.from("question_targets").select("question_id").eq("student_id", studentId),
       supabase.from("question_answers").select("question_id").eq("student_id", studentId),
     ]);
     if (tRes.error || aRes.error) {
-      setLoadError("질문을 불러오지 못했어요: " + (tRes.error?.message ?? aRes.error?.message));
-      setLoading(false);
-      return;
+      return { list: [], error: "질문을 불러오지 못했어요: " + (tRes.error?.message ?? aRes.error?.message) };
     }
     const targetIds = (tRes.data ?? []).map((t: any) => t.question_id);
-    if (targetIds.length === 0) {
-      setQuestions([]);
-      setCount(0);
-      setLoading(false);
-      return;
-    }
-    // 3) 질문 본문 조회 (활성만)
+    if (targetIds.length === 0) return { list: [], error: null };
+
     const { data: qs, error: qErr } = await supabase
       .from("questions")
       .select("id, body, kind, options, xp_reward, is_active")
       .in("id", targetIds)
       .eq("is_active", true);
-    if (qErr) {
-      setLoadError("질문을 불러오지 못했어요: " + qErr.message);
-      setLoading(false);
-      return;
-    }
+    if (qErr) return { list: [], error: "질문을 불러오지 못했어요: " + qErr.message };
+
     const answeredSet = new Set((aRes.data ?? []).map((a: any) => a.question_id));
-    const pending: PendingQ[] = (qs ?? [])
+    const list: PendingQ[] = (qs ?? [])
       .filter((q: any) => !answeredSet.has(q.id))
       .map((q: any) => ({
         id: q.id,
@@ -73,8 +61,34 @@ export function PendingQuestions({
         options: q.options ?? [],
         xp_reward: q.xp_reward,
       }));
-    setQuestions(pending);
-    setCount(pending.length);
+    return { list, error: null };
+  }, [supabase, studentId]);
+
+  // 마운트 시 실제 DB 기준으로 미답변 수를 다시 계산 → 서버 렌더 값이 캐시/지연돼도 배지가 정확.
+  useEffect(() => {
+    let alive = true;
+    fetchPending().then(({ list, error }) => {
+      if (!alive || error) return;
+      setCount(list.length);
+    });
+    return () => {
+      alive = false;
+    };
+  }, [fetchPending]);
+
+  async function loadAndOpen() {
+    if (count === 0) return;
+    setOpen(true);
+    setLoading(true);
+    setLoadError(null);
+    const { list, error } = await fetchPending();
+    if (error) {
+      setLoadError(error);
+      setLoading(false);
+      return;
+    }
+    setQuestions(list);
+    setCount(list.length);
     setLoading(false);
   }
 
@@ -94,9 +108,13 @@ export function PendingQuestions({
           <PokemonCard data={card} />
         </button>
         {count > 0 && (
-          <span className="absolute -right-2 -top-2 flex h-8 w-8 animate-bounce items-center justify-center rounded-full bg-poke-red text-lg font-black text-white shadow-lg ring-2 ring-white">
-            !
-          </span>
+          <img
+            src="/exclaim.png"
+            alt="새 질문!"
+            title="포켓몬이 궁금해해요! 눌러서 답해보세요"
+            className="absolute -right-1 -top-3 h-9 w-9 animate-bounce drop-shadow-md"
+            style={{ imageRendering: "pixelated" }}
+          />
         )}
       </div>
 
