@@ -23,20 +23,26 @@ export default async function DashboardPage() {
   const info = await getSpeciesInfo(pets.map((p: any) => p.current_species_id));
   const activeInfo = info.get(active.current_species_id);
 
-  // 미답변 질문 수 (활성 포켓몬에 ! 표시)
-  const { data: qTargets } = await supabase
-    .from("question_targets")
-    .select("question_id, questions(is_active)")
-    .eq("student_id", profile.id);
-  const { data: qAnswers } = await supabase
-    .from("question_answers")
-    .select("question_id")
-    .eq("student_id", profile.id);
-  const answeredSet = new Set((qAnswers ?? []).map((a: any) => a.question_id));
-  const pendingQuestions = (qTargets ?? []).filter((t: any) => {
-    const q = Array.isArray(t.questions) ? t.questions[0] : t.questions;
-    return q?.is_active && !answeredSet.has(t.question_id);
-  }).length;
+  // 미답변 질문 수 (활성 포켓몬에 ! 표시) — 중첩 임베드 대신 명시적 2단계 쿼리(견고)
+  const [qtRes, qaRes] = await Promise.all([
+    supabase.from("question_targets").select("question_id").eq("student_id", profile.id),
+    supabase.from("question_answers").select("question_id").eq("student_id", profile.id),
+  ]);
+  if (qtRes.error || qaRes.error) {
+    console.error("[dashboard] 질문 조회 실패:", qtRes.error?.message, qaRes.error?.message);
+  }
+  const targetIds = (qtRes.data ?? []).map((t: any) => t.question_id);
+  let pendingQuestions = 0;
+  if (targetIds.length > 0) {
+    const { data: activeQs, error: qErr } = await supabase
+      .from("questions")
+      .select("id")
+      .in("id", targetIds)
+      .eq("is_active", true);
+    if (qErr) console.error("[dashboard] 활성 질문 조회 실패:", qErr.message);
+    const answeredSet = new Set((qaRes.data ?? []).map((a: any) => a.question_id));
+    pendingQuestions = (activeQs ?? []).filter((q: any) => !answeredSet.has(q.id)).length;
+  }
 
   // 검사 대기/제출 가능 숙제 수.
   const { data: assignments } = await supabase
