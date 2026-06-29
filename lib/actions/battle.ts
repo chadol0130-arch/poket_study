@@ -13,6 +13,7 @@ import {
   scaleStat,
   maxHpFor,
 } from "@/lib/battle/engine";
+import { selectBattleMoves } from "@/lib/battle/moveset";
 
 type Admin = ReturnType<typeof createAdminClient>;
 
@@ -53,32 +54,32 @@ async function buildCombatant(
   const bs = (sp?.base_stats ?? {}) as Record<string, number>;
   const types = [sp?.type1, sp?.type2].filter(Boolean) as string[];
 
-  // 학습한(레벨 이하) 공격 기술
+  // 학습한(레벨 이하) 기술 — 요약 화면과 동일한 규칙(selectBattleMoves)으로 4개 선택
   const { data: sm } = await admin
     .from("species_moves")
-    .select("move_key")
+    .select("move_key, level_learned")
     .eq("species_id", speciesId)
     .lte("level_learned", level);
-  const keys = (sm ?? []).map((r: any) => r.move_key);
+  const levelByKey = new Map<string, number>(
+    (sm ?? []).map((r: any) => [r.move_key, r.level_learned]),
+  );
+  const keys = Array.from(levelByKey.keys());
   let moves: BattleMove[] = [];
   if (keys.length) {
     const { data: md } = await admin
       .from("moves")
       .select("move_key, name_ko, power, move_type, category")
       .in("move_key", keys);
-    moves = (md ?? [])
-      .filter((m: any) => m.power > 0)
-      .map((m: any) => ({
-        key: m.move_key,
-        name_ko: m.name_ko || m.move_key,
-        power: m.power,
-        type: m.move_type,
-        category: m.category,
-      }));
+    const learned = (md ?? []).map((m: any) => ({
+      key: m.move_key,
+      name_ko: m.name_ko || m.move_key,
+      power: m.power,
+      type: m.move_type,
+      category: m.category,
+      level_learned: levelByKey.get(m.move_key) ?? 1,
+    }));
+    moves = selectBattleMoves(learned).map(({ level_learned, ...mv }) => mv);
   }
-  // 너무 많으면 위력 높은 6개로
-  moves.sort((a, b) => b.power - a.power);
-  moves = moves.slice(0, 6);
   if (moves.length === 0) {
     moves = [{ key: "STRUGGLE", name_ko: "발버둥", power: 30, type: "normal", category: 0 }];
   }

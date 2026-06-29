@@ -5,6 +5,7 @@ import { createClient } from "@/lib/supabase/server";
 import { spriteUrl } from "@/lib/storage";
 import { levelProgress } from "@/lib/xp";
 import { scaleStat, maxHpFor } from "@/lib/battle/engine";
+import { selectBattleMoves } from "@/lib/battle/moveset";
 import { typeKo, typeColor, categoryKo } from "@/lib/i18n";
 import { PokemonManager } from "@/components/pokemon/PokemonManager";
 
@@ -94,6 +95,14 @@ export default async function PokemonDetailPage({
     .filter((r: any) => r.mv)
     .sort((a: any, b: any) => b.level_learned - a.level_learned);
 
+  // 배틀에서 실제로 쓰는 기술(요약·배틀 공용 규칙) — 두 화면이 항상 일치
+  const battleFlat = selectBattleMoves(
+    learned.map((r: any) => ({ level_learned: r.level_learned, power: r.mv.power, r })),
+  );
+  const battleKeys = new Set(battleFlat.map((x: any) => x.r.move_key));
+  const battleMoves = battleFlat.map((x: any) => x.r);
+  const otherLearned = learned.filter((r: any) => !battleKeys.has(r.move_key));
+
   const upcoming = learnset
     .filter((r: any) => r.level_learned > level)
     .map((r: any) => ({ ...r, mv: moveById.get(r.move_key) }))
@@ -173,14 +182,16 @@ export default async function PokemonDetailPage({
         </div>
       </div>
 
-      {/* 현재 배운 기술 */}
-      <div className="rounded-2xl border border-slate-200 bg-white p-4">
-        <h2 className="mb-3 font-bold">배운 기술 <span className="text-xs font-normal text-slate-400">({learned.length})</span></h2>
-        {learned.length === 0 ? (
-          <p className="text-sm text-slate-400">아직 공격 기술이 없어요.</p>
+      {/* 배틀에서 쓰는 기술 (요약·배틀 동일) */}
+      <div className="rounded-2xl border border-poke-red/30 bg-white p-4">
+        <h2 className="font-bold">
+          배틀 기술 <span className="text-xs font-normal text-slate-400">⚔️ 배틀에서 이 {battleMoves.length}개를 사용</span>
+        </h2>
+        {battleMoves.length === 0 ? (
+          <p className="mt-2 text-sm text-slate-400">아직 공격 기술이 없어요. 레벨을 올려 기술을 배워보세요!</p>
         ) : (
-          <ul className="space-y-2">
-            {learned.map((r: any) => (
+          <ul className="mt-3 space-y-2">
+            {battleMoves.map((r: any) => (
               <li key={r.move_key} className="rounded-xl border border-slate-100 bg-slate-50 p-3">
                 <div className="flex items-center justify-between gap-2">
                   <div className="flex items-center gap-2">
@@ -200,6 +211,31 @@ export default async function PokemonDetailPage({
           </ul>
         )}
       </div>
+
+      {/* 그 외 익힌 기술 (배틀 미사용 — 변화기술/낮은 위력 등) */}
+      {otherLearned.length > 0 && (
+        <div className="rounded-2xl border border-slate-200 bg-white p-4">
+          <h2 className="mb-1 font-bold">그 외 익힌 기술</h2>
+          <p className="mb-3 text-xs text-slate-400">배운 적은 있지만 지금 배틀 기술 4개에는 빠진 기술이에요.</p>
+          <ul className="space-y-1.5">
+            {otherLearned.map((r: any) => (
+              <li
+                key={r.move_key}
+                className="flex items-center justify-between rounded-lg px-2 py-1.5 text-sm"
+              >
+                <div className="flex items-center gap-2">
+                  <span className="text-slate-600">{r.mv.name_ko}</span>
+                  <TypeBadge type={r.mv.move_type} />
+                  <span className="text-xs text-slate-400">{categoryKo(r.mv.category)}</span>
+                </div>
+                <span className="text-xs text-slate-400">
+                  {r.mv.power > 0 ? `위력 ${r.mv.power}` : "변화"}
+                </span>
+              </li>
+            ))}
+          </ul>
+        </div>
+      )}
 
       {/* 앞으로 배울 기술 */}
       {upcoming.length > 0 && (
