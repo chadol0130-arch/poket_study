@@ -58,8 +58,14 @@ Supabase는 회원·데이터·사진을 저장하는 무료 백엔드예요.
    → 포켓몬 배틀(시험 보스전·야생 조우)이 켜져요 ✅
 9. **New query** → **`supabase/migrations/0008_move_details.sql`** 붙여넣고 **Run**
    → '내 포켓몬' 요약 화면에서 기술 설명·PP가 보여요 ✅
-10. 마지막으로 **New query** → **`supabase/migrations/0009_question_read_fix.sql`** 붙여넣고 **Run**
+10. **New query** → **`supabase/migrations/0009_question_read_fix.sql`** 붙여넣고 **Run**
    → 학생이 받은 질문을 안정적으로 읽어 대표 포켓몬에 "!"가 떠요 ✅
+11. 마지막으로 **New query** → **`supabase/migrations/0010_move_effects.sql`** 붙여넣고 **Run**
+   → 배틀에서 능력변화·상태이상(독/마비/잠듦 등) 효과가 켜져요 ✅
+
+> ⚔️ **배틀을 어나더레드급으로 업그레이드했어요(능력변화·상태이상·명중/급소·스피드 선공).**
+> 0010 실행 후, 관리자 → '포켓몬 데이터' 화면에서 **`data/pokemon/battle_data.json`** 을
+> **다시 한 번 등록**하세요. (기술 효과 데이터가 채워집니다. 스프라이트 재업로드는 불필요)
 
 > ♻️ **이미 배틀 데이터를 등록하셨다면**: 기술 한글명·설명·PP가 새로 추가됐어요.
 > 관리자 → '포켓몬 데이터' 화면에서 **`data/pokemon/battle_data.json`** 을 다시 한 번

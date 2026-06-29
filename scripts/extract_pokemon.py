@@ -287,6 +287,8 @@ def main():
             "accuracy": int(ma.get("accuracy")) if ma.get("accuracy") is not None else 100,
             "pp": int(ma.get("total_pp") or 0),
             "description": desc_ko_map.get(real_desc, real_desc),
+            "function_code": rstr(ma.get("function_code")) or "None",
+            "effect_chance": int(ma.get("effect_chance") or 0),
         })
     move_rows.sort(key=lambda m: m["key"])
     with open(os.path.join(out_dir, "moves.json"), "w", encoding="utf-8") as f:

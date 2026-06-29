@@ -5,6 +5,7 @@ import { useState, useTransition } from "react";
 import Link from "next/link";
 import { battleTurn } from "@/lib/actions/battle";
 import { typeKo, categoryKo } from "@/lib/i18n";
+import { STATUS_KO, type StatusKind } from "@/lib/battle/effects";
 
 interface Mv {
   key: string;
@@ -21,6 +22,33 @@ interface Side {
   types: string[];
   spriteUrl: string | null;
   moves: Mv[];
+  status?: StatusKind | null;
+  confuseTurns?: number;
+}
+
+const STATUS_STYLE: Record<string, string> = {
+  poison: "bg-purple-500",
+  badpoison: "bg-purple-700",
+  burn: "bg-orange-500",
+  paralyze: "bg-yellow-500",
+  sleep: "bg-slate-500",
+  freeze: "bg-cyan-500",
+  confuse: "bg-pink-500",
+};
+
+function StatusBadge({ status, confused }: { status?: StatusKind | null; confused?: number }) {
+  return (
+    <span className="ml-1 inline-flex gap-1 align-middle">
+      {status && (
+        <span className={`rounded px-1.5 py-0.5 text-[10px] font-bold text-white ${STATUS_STYLE[status]}`}>
+          {STATUS_KO[status]}
+        </span>
+      )}
+      {confused && confused > 0 && (
+        <span className="rounded bg-pink-500 px-1.5 py-0.5 text-[10px] font-bold text-white">혼란</span>
+      )}
+    </span>
+  );
 }
 interface BState {
   student: Side;
@@ -176,6 +204,7 @@ export function BattleArena({
         <div className="mb-1 flex items-center justify-between text-sm font-semibold">
           <span>
             {enemy.name} <span className="text-slate-400">Lv{enemy.level}</span>
+            <StatusBadge status={enemy.status} confused={enemy.confuseTurns} />
           </span>
           <span className="text-xs text-slate-400">{enemy.types.map(typeKo).join("·")}</span>
         </div>
@@ -203,6 +232,7 @@ export function BattleArena({
         <div className="mb-1 mt-2 flex items-center justify-between text-sm font-semibold">
           <span>
             {student.name} <span className="text-slate-400">Lv{student.level}</span>
+            <StatusBadge status={student.status} confused={student.confuseTurns} />
           </span>
           <span className="text-xs text-slate-400">
             {student.hp}/{student.maxHp}

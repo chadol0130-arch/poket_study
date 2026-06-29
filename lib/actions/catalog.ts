@@ -226,6 +226,8 @@ const BattleDataSchema = z.object({
       accuracy: z.number().int().default(100),
       pp: z.number().int().default(0),
       description: z.string().default(""),
+      function_code: z.string().default("None"),
+      effect_chance: z.number().int().default(0),
     }),
   ),
   type_chart: z.record(
@@ -262,6 +264,8 @@ export async function seedBattleData(json: string): Promise<ActionResult> {
     accuracy: m.accuracy,
     pp: m.pp,
     description: m.description,
+    function_code: m.function_code,
+    effect_chance: m.effect_chance,
   }));
   const { error: mErr } = await supabase
     .from("moves")
