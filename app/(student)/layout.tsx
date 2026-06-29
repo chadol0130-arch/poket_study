@@ -11,6 +11,7 @@ const items = [
   { href: "/leaderboard", label: "랭킹", icon: "🏆" },
   { href: "/assignments", label: "숙제", icon: "📒" },
   { href: "/shop", label: "상점", icon: "🛒" },
+  { href: "/account", label: "내 정보", icon: "👤" },
 ];
 
 export default async function StudentLayout({
