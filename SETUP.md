@@ -60,8 +60,12 @@ Supabase는 회원·데이터·사진을 저장하는 무료 백엔드예요.
    → '내 포켓몬' 요약 화면에서 기술 설명·PP가 보여요 ✅
 10. **New query** → **`supabase/migrations/0009_question_read_fix.sql`** 붙여넣고 **Run**
    → 학생이 받은 질문을 안정적으로 읽어 대표 포켓몬에 "!"가 떠요 ✅
-11. 마지막으로 **New query** → **`supabase/migrations/0010_move_effects.sql`** 붙여넣고 **Run**
+11. **New query** → **`supabase/migrations/0010_move_effects.sql`** 붙여넣고 **Run**
    → 배틀에서 능력변화·상태이상(독/마비/잠듦 등) 효과가 켜져요 ✅
+12. **New query** → **`supabase/migrations/0011_secure_profiles.sql`** 붙여넣고 **Run**
+   → 학생이 자기 권한·코인을 임의로 바꾸지 못하게 보안이 강화돼요 🔒
+13. 마지막으로 **New query** → **`supabase/migrations/0012_notifications.sql`** 붙여넣고 **Run**
+   → 검사 통과·새 질문 등 **인앱 알림(🔔)** 이 켜져요 ✅
 
 > ⚔️ **배틀을 어나더레드급으로 업그레이드했어요(능력변화·상태이상·명중/급소·스피드 선공).**
 > 0010 실행 후, 관리자 → '포켓몬 데이터' 화면에서 **`data/pokemon/battle_data.json`** 을

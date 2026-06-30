@@ -5,6 +5,7 @@ import { useCallback, useEffect, useState, useTransition } from "react";
 import { useRouter } from "next/navigation";
 import { createClient } from "@/lib/supabase/client";
 import { startBossBattle, startWildBattle } from "@/lib/actions/battle";
+import { compressImage } from "@/lib/image";
 
 interface Boss {
   encounterId: string;
@@ -320,7 +321,8 @@ function DayEditor({
     setError(null);
     try {
       const newPaths: string[] = [];
-      for (const file of files) {
+      for (const raw of files) {
+        const file = await compressImage(raw);
         const ext = file.name.split(".").pop() ?? "jpg";
         const path = `${studentId}/daily/${date}/${crypto.randomUUID()}.${ext}`;
         const { error: upErr } = await supabase.storage

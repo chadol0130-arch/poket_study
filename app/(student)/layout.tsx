@@ -1,6 +1,7 @@
 import { requireRole } from "@/lib/auth";
 import { NavShell } from "@/components/NavShell";
 import { CoinBalance } from "@/components/ui/CoinBalance";
+import { NotificationBell } from "@/components/NotificationBell";
 import type { BottomTab } from "@/components/BottomTabBar";
 
 // 핸드폰 친화 하단 탭 5개. match = 이 탭으로 강조할 경로 접두사들.
@@ -27,7 +28,12 @@ export default async function StudentLayout({
     <NavShell
       title="포켓몬 숙제"
       bottomTabs={tabs}
-      right={<CoinBalance amount={profile.coin_balance} />}
+      right={
+        <>
+          <NotificationBell />
+          <CoinBalance amount={profile.coin_balance} />
+        </>
+      }
     >
       {children}
     </NavShell>

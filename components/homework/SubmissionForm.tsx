@@ -4,6 +4,7 @@ import { useState, useTransition } from "react";
 import { useRouter } from "next/navigation";
 import { createClient } from "@/lib/supabase/client";
 import { submitHomework } from "@/lib/actions/submissions";
+import { compressImage } from "@/lib/image";
 
 export function SubmissionForm({
   assignmentId,
@@ -26,8 +27,9 @@ export function SubmissionForm({
       const supabase = createClient();
       const paths: string[] = [];
 
-      // 사진을 비공개 버킷의 본인 폴더에 업로드.
-      for (const file of files) {
+      // 사진을 비공개 버킷의 본인 폴더에 업로드 (업로드 전 자동 압축).
+      for (const raw of files) {
+        const file = await compressImage(raw);
         const ext = file.name.split(".").pop() ?? "jpg";
         const path = `${studentId}/${assignmentId}/${crypto.randomUUID()}.${ext}`;
         const { error: upErr } = await supabase.storage
@@ -45,7 +47,7 @@ export function SubmissionForm({
         setError(res.error);
         return;
       }
-      router.push("/assignments");
+      router.push("/homework/status");
       router.refresh();
     });
   }
