@@ -1,3 +1,4 @@
+import Link from "next/link";
 import { requireRole } from "@/lib/auth";
 import { createClient } from "@/lib/supabase/server";
 import { AccountForm } from "@/components/account/AccountForm";
@@ -69,6 +70,15 @@ export default async function AccountPage() {
         <StatBox icon="🔥" label="연속 출석" value={`${profile.current_streak ?? 0}일`} />
         <StatBox icon="🐾" label="포켓몬" value={`${petCount ?? 0}마리`} />
       </div>
+
+      {/* 도전과제 */}
+      <Link
+        href="/achievements"
+        className="flex items-center justify-between rounded-2xl border border-slate-200 bg-white p-4 hover:border-poke-blue"
+      >
+        <span className="font-semibold">🏅 도전과제</span>
+        <span className="text-sm text-poke-blue">보기 →</span>
+      </Link>
 
       {/* 기본 정보 */}
       <div className="rounded-2xl border border-slate-200 bg-white p-4">

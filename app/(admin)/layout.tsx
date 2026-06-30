@@ -4,6 +4,7 @@ import { NavShell } from "@/components/NavShell";
 // 그룹 순서(운영→콘텐츠→참여→검사)로 정렬. 자세한 설명은 /admin 허브 카드 참고.
 const items = [
   { href: "/admin", label: "홈", icon: "🏠" },
+  { href: "/admin/analytics", label: "분석", icon: "📊" },
   { href: "/admin/users", label: "계정", icon: "👤" },
   { href: "/admin/classes", label: "반 관리", icon: "🏫" },
   { href: "/admin/pokemon", label: "포켓몬", icon: "📦" },
