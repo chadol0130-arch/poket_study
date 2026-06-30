@@ -2,6 +2,8 @@ import { requireRole } from "@/lib/auth";
 import { createClient } from "@/lib/supabase/server";
 import { getSpeciesInfo } from "@/lib/queries";
 import { BattleEntry, type BossCard } from "@/components/battle/BattleEntry";
+import { SubTabs } from "@/components/SubTabs";
+import { POKEMON_TABS } from "@/lib/hubTabs";
 
 export default async function BattlesPage() {
   const profile = await requireRole("student", "admin");
@@ -51,6 +53,7 @@ export default async function BattlesPage() {
 
   return (
     <div className="mx-auto max-w-2xl space-y-4">
+      <SubTabs tabs={POKEMON_TABS} />
       <div>
         <h1 className="text-2xl font-bold">배틀 ⚔️</h1>
         <p className="text-slate-500">

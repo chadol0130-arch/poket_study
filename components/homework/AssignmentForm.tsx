@@ -10,6 +10,7 @@ export function AssignmentForm({ classId }: { classId: string }) {
   const [description, setDescription] = useState("");
   const [xpReward, setXpReward] = useState(50);
   const [coinReward, setCoinReward] = useState(10);
+  const [dueAt, setDueAt] = useState("");
   const [error, setError] = useState<string | null>(null);
   const [pending, startTransition] = useTransition();
 
@@ -22,10 +23,12 @@ export function AssignmentForm({ classId }: { classId: string }) {
         description,
         xpReward,
         coinReward,
+        dueAt: dueAt || null,
       });
       if ("error" in res) return setError(res.error);
       setTitle("");
       setDescription("");
+      setDueAt("");
       router.refresh();
     });
   }
@@ -68,6 +71,15 @@ export function AssignmentForm({ classId }: { classId: string }) {
           />
         </label>
       </div>
+      <label className="block text-sm">
+        마감일 (선택)
+        <input
+          type="date"
+          value={dueAt}
+          onChange={(e) => setDueAt(e.target.value)}
+          className="mt-1 w-full rounded-lg border border-slate-300 px-3 py-2 text-sm focus:outline-none"
+        />
+      </label>
       {error && <p className="text-sm text-poke-red">{error}</p>}
       <button
         onClick={submit}

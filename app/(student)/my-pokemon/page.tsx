@@ -3,6 +3,8 @@ import { requireRole } from "@/lib/auth";
 import { createClient } from "@/lib/supabase/server";
 import { getSpeciesInfo } from "@/lib/queries";
 import { CollectionGrid, type CollectionPet } from "@/components/pokemon/CollectionGrid";
+import { SubTabs } from "@/components/SubTabs";
+import { POKEMON_TABS } from "@/lib/hubTabs";
 
 export default async function MyPokemonPage() {
   const profile = await requireRole("student", "admin");
@@ -43,6 +45,7 @@ export default async function MyPokemonPage() {
 
   return (
     <div className="space-y-4">
+      <SubTabs tabs={POKEMON_TABS} />
       <div>
         <h1 className="text-2xl font-bold">내 포켓몬</h1>
         <p className="text-slate-500">

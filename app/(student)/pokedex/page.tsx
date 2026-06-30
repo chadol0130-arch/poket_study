@@ -2,6 +2,8 @@ import { requireRole } from "@/lib/auth";
 import { createClient } from "@/lib/supabase/server";
 import { spriteUrl } from "@/lib/storage";
 import { PokemonSprite } from "@/components/pokemon/PokemonSprite";
+import { SubTabs } from "@/components/SubTabs";
+import { POKEMON_TABS } from "@/lib/hubTabs";
 
 export default async function PokedexPage() {
   const profile = await requireRole("student", "admin");
@@ -29,6 +31,7 @@ export default async function PokedexPage() {
 
   return (
     <div className="space-y-4">
+      <SubTabs tabs={POKEMON_TABS} />
       <div className="flex items-center justify-between">
         <div>
           <h1 className="text-2xl font-bold">포켓몬 도감</h1>
