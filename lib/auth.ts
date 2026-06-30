@@ -30,7 +30,7 @@ export async function requireRole(...roles: Role[]): Promise<Profile> {
 }
 
 export function homeForRole(role: Role): string {
-  if (role === "admin") return "/admin/users";
+  if (role === "admin") return "/admin";
   if (role === "teacher") return "/queue";
   return "/dashboard";
 }

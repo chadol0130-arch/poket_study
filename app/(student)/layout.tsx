@@ -1,17 +1,20 @@
 import { requireRole } from "@/lib/auth";
 import { NavShell } from "@/components/NavShell";
 import { CoinBalance } from "@/components/ui/CoinBalance";
+import type { BottomTab } from "@/components/BottomTabBar";
 
-const items = [
-  { href: "/dashboard", label: "홈", icon: "🏠" },
-  { href: "/calendar", label: "캘린더", icon: "📅" },
-  { href: "/my-pokemon", label: "내 포켓몬", icon: "🐾" },
-  { href: "/pokedex", label: "도감", icon: "📖" },
-  { href: "/battles", label: "배틀", icon: "⚔️" },
-  { href: "/leaderboard", label: "랭킹", icon: "🏆" },
-  { href: "/assignments", label: "숙제", icon: "📒" },
-  { href: "/shop", label: "상점", icon: "🛒" },
-  { href: "/account", label: "내 정보", icon: "👤" },
+// 핸드폰 친화 하단 탭 5개. match = 이 탭으로 강조할 경로 접두사들.
+const tabs: BottomTab[] = [
+  { href: "/dashboard", label: "홈", icon: "🏠", match: ["/dashboard"] },
+  { href: "/homework", label: "숙제", icon: "📒", match: ["/homework", "/calendar", "/assignments"] },
+  {
+    href: "/my-pokemon",
+    label: "포켓몬",
+    icon: "🐾",
+    match: ["/my-pokemon", "/pokedex", "/battles", "/battle", "/leaderboard", "/pokemon"],
+  },
+  { href: "/shop", label: "상점", icon: "🛒", match: ["/shop"] },
+  { href: "/account", label: "내 정보", icon: "👤", match: ["/account"] },
 ];
 
 export default async function StudentLayout({
@@ -23,7 +26,7 @@ export default async function StudentLayout({
   return (
     <NavShell
       title="포켓몬 숙제"
-      items={items}
+      bottomTabs={tabs}
       right={<CoinBalance amount={profile.coin_balance} />}
     >
       {children}

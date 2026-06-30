@@ -2,8 +2,8 @@ import { requireRole } from "@/lib/auth";
 import { NavShell } from "@/components/NavShell";
 
 const items = [
-  { href: "/queue", label: "검사 큐", icon: "✅" },
-  { href: "/classes", label: "내 반", icon: "👨‍🏫" },
+  { href: "/queue", label: "검사", icon: "✅" },
+  { href: "/classes", label: "수업·숙제 내기", icon: "👨‍🏫" },
 ];
 
 export default async function TeacherLayout({

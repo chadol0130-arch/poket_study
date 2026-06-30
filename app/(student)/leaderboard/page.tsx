@@ -1,5 +1,7 @@
 import { requireRole } from "@/lib/auth";
 import { createClient } from "@/lib/supabase/server";
+import { SubTabs } from "@/components/SubTabs";
+import { POKEMON_TABS } from "@/lib/hubTabs";
 
 const MEDAL = ["🥇", "🥈", "🥉"];
 
@@ -12,6 +14,7 @@ export default async function LeaderboardPage() {
 
   return (
     <div className="mx-auto max-w-xl space-y-4">
+      <SubTabs tabs={POKEMON_TABS} />
       <div>
         <h1 className="text-2xl font-bold">주간 랭킹 🏆</h1>
         <p className="text-slate-500">

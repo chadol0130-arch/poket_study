@@ -28,10 +28,10 @@ export default async function DashboardPage() {
   if (pqErr) console.error("[dashboard] 미답변 질문 조회 실패:", pqErr.message);
   const pendingQuestions = (pendingQs ?? []).length;
 
-  // 검사 대기/제출 가능 숙제 수.
+  // 검사 대기/제출 가능 숙제 수 + 마감 임박.
   const { data: assignments } = await supabase
     .from("homework_assignments")
-    .select("id");
+    .select("id, due_at");
   const { data: subs } = await supabase
     .from("submissions")
     .select("assignment_id, status")
@@ -39,9 +39,17 @@ export default async function DashboardPage() {
   const subByAssignment = new Map<string, string>(
     (subs ?? []).map((s: any) => [s.assignment_id, s.status]),
   );
-  const todo = (assignments ?? []).filter(
+  const notDone = (assignments ?? []).filter(
     (a: any) => subByAssignment.get(a.id) !== "approved",
-  ).length;
+  );
+  const todo = notDone.length;
+  // 마감 3일 이내(미완료) 개수 — "오늘 할 일" 표시
+  const nowMs = Date.now();
+  const dueSoon = notDone.filter((a: any) => {
+    if (!a.due_at) return false;
+    const diff = (new Date(a.due_at).getTime() - nowMs) / 86400000;
+    return diff >= -1 && diff <= 3;
+  }).length;
 
   // 오늘의 미션/스트릭 상태 (한국시간 기준)
   const todayKST = new Intl.DateTimeFormat("en-CA", {
@@ -112,13 +120,18 @@ export default async function DashboardPage() {
 
         <div className="space-y-3">
           <Link
-            href="/assignments"
+            href="/homework"
             className="block rounded-2xl border border-slate-200 bg-white p-5 shadow-sm hover:border-poke-blue"
           >
             <p className="text-3xl">📒</p>
             <p className="mt-2 font-semibold">숙제 제출하기</p>
             <p className="text-sm text-slate-500">
               해야 할 숙제 <b className="text-poke-red">{todo}</b>개
+              {dueSoon > 0 && (
+                <span className="ml-1 rounded-full bg-red-100 px-2 py-0.5 text-xs font-bold text-red-700">
+                  마감 임박 {dueSoon}
+                </span>
+              )}
             </p>
           </Link>
           <Link
