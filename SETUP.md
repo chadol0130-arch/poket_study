@@ -66,8 +66,10 @@ Supabase는 회원·데이터·사진을 저장하는 무료 백엔드예요.
    → 학생이 자기 권한·코인을 임의로 바꾸지 못하게 보안이 강화돼요 🔒
 13. **New query** → **`supabase/migrations/0012_notifications.sql`** 붙여넣고 **Run**
    → 검사 통과·새 질문 등 **인앱 알림(🔔)** 이 켜져요 ✅
-14. 마지막으로 **New query** → **`supabase/migrations/0013_reminders.sql`** 붙여넣고 **Run**
+14. **New query** → **`supabase/migrations/0013_reminders.sql`** 붙여넣고 **Run**
    → 마감 임박·스트릭 끊김 **자동 리마인더** 함수가 준비돼요 ⏰
+15. 마지막으로 **New query** → **`supabase/migrations/0014_feedback.sql`** 붙여넣고 **Run**
+   → 학생이 **문의·건의**를 보내고(내 정보 → 💬), 관리자가 **문의함(💌)** 에서 읽을 수 있어요 ✅
 
 > ⏰ **리마인더 자동 발송(선택):** 매일 자동으로 보내려면 Supabase **Database → Extensions** 에서
 > `pg_cron` 을 켠 뒤, SQL Editor 에 한 줄 실행:

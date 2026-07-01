@@ -80,6 +80,15 @@ export default async function AccountPage() {
         <span className="text-sm text-poke-blue">보기 →</span>
       </Link>
 
+      {/* 문의·건의 */}
+      <Link
+        href="/feedback"
+        className="flex items-center justify-between rounded-2xl border border-slate-200 bg-white p-4 hover:border-poke-blue"
+      >
+        <span className="font-semibold">💬 문의·건의 보내기</span>
+        <span className="text-sm text-poke-blue">보내기 →</span>
+      </Link>
+
       {/* 기본 정보 */}
       <div className="rounded-2xl border border-slate-200 bg-white p-4">
         <h2 className="mb-1 font-bold">계정</h2>
