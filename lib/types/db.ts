@@ -121,3 +121,19 @@ export interface Submission {
   xp_awarded: number;
   coin_awarded: number;
 }
+
+export type FeedbackCategory = "bug" | "idea" | "question" | "etc";
+export type FeedbackStatus = "open" | "in_progress" | "resolved" | "wontfix";
+
+export interface Feedback {
+  id: string;
+  student_id: string;
+  category: FeedbackCategory;
+  body: string;
+  status: FeedbackStatus;
+  admin_note: string;
+  xp_awarded: number;
+  coin_awarded: number;
+  created_at: string;
+  updated_at: string;
+}

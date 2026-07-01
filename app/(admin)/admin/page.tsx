@@ -8,6 +8,7 @@ const GROUPS: { title: string; items: { href: string; label: string; icon: strin
       { href: "/admin/analytics", label: "분석 대시보드", icon: "📊", desc: "참여 지표·통과율·인기 포켓몬" },
       { href: "/admin/users", label: "계정", icon: "👤", desc: "학생·선생님 계정 관리" },
       { href: "/admin/classes", label: "반 관리", icon: "🏫", desc: "반 만들기·학생/선생님 배정" },
+      { href: "/admin/feedback", label: "문의함", icon: "💌", desc: "학생 문의·건의 읽고 정리" },
     ],
   },
   {

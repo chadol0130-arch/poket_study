@@ -7,6 +7,7 @@ const items = [
   { href: "/admin/analytics", label: "분석", icon: "📊" },
   { href: "/admin/users", label: "계정", icon: "👤" },
   { href: "/admin/classes", label: "반 관리", icon: "🏫" },
+  { href: "/admin/feedback", label: "문의함", icon: "💌" },
   { href: "/admin/pokemon", label: "포켓몬", icon: "📦" },
   { href: "/admin/starters", label: "스타터", icon: "✨" },
   { href: "/admin/shop", label: "상점", icon: "🛒" },
