@@ -9,13 +9,21 @@ export default async function BattlesPage() {
   const profile = await requireRole("student", "admin");
   const supabase = await createClient();
 
-  // 나에게 배치된 활성 보스 (날짜 무관)
-  const { data: tgts } = await supabase
-    .from("encounter_targets")
-    .select(
-      "battle_encounters(id, kind, level, title, reward_xp, reward_coin, is_active, species_id)",
-    )
-    .eq("student_id", profile.id);
+  // 나에게 배치된 활성 보스(날짜 무관) + 클리어한 보스 — 서로 독립이라 병렬 조회
+  const [{ data: tgts }, { data: wonRows }] = await Promise.all([
+    supabase
+      .from("encounter_targets")
+      .select(
+        "battle_encounters(id, kind, level, title, reward_xp, reward_coin, is_active, species_id)",
+      )
+      .eq("student_id", profile.id),
+    supabase
+      .from("battles")
+      .select("encounter_id")
+      .eq("student_id", profile.id)
+      .eq("status", "won")
+      .not("encounter_id", "is", null),
+  ]);
 
   const encs = (tgts ?? [])
     .map((t: any) =>
@@ -23,13 +31,6 @@ export default async function BattlesPage() {
     )
     .filter((e: any) => e && e.kind === "boss" && e.is_active);
 
-  // 클리어한 보스
-  const { data: wonRows } = await supabase
-    .from("battles")
-    .select("encounter_id")
-    .eq("student_id", profile.id)
-    .eq("status", "won")
-    .not("encounter_id", "is", null);
   const wonSet = new Set((wonRows ?? []).map((w: any) => w.encounter_id));
 
   const speciesInfo = await getSpeciesInfo(encs.map((e: any) => e.species_id));

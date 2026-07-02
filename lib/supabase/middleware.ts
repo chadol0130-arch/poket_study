@@ -54,38 +54,18 @@ export async function updateSession(request: NextRequest) {
     return NextResponse.redirect(url);
   }
 
-  if (user) {
+  // 역할 조회는 역할 홈 리다이렉트가 실제로 필요한 경로(/, /login)에서만.
+  // 역할 영역 보호(/admin·/queue·/classes)는 각 레이아웃의 requireRole + RLS 가 수행하므로
+  // 여기서 매 요청마다 profiles 를 조회하지 않는다 (요청당 DB 왕복 2→1회).
+  if (user && (path === "/login" || path === "/")) {
     const { data: profile } = await supabase
       .from("profiles")
       .select("role")
       .eq("id", user.id)
       .single();
-    const role = profile?.role as string | undefined;
-
-    // 로그인 상태에서 /login 또는 루트면 역할 홈으로
-    if (path === "/login" || path === "/") {
-      const url = request.nextUrl.clone();
-      url.pathname = homeForRole(role);
-      return NextResponse.redirect(url);
-    }
-
-    // 역할 영역 보호: 학생이 교사/관리자 경로 접근 시 본인 홈으로.
-    // (/assignments 는 학생 영역이라 제외 — 교사는 /classes 하위에서 과제 관리)
-    const teacherOnly = ["/queue", "/classes"];
-    const adminOnly = ["/admin"];
-    const isTeacherPath = teacherOnly.some((p) => path === p || path.startsWith(p + "/"));
-    const isAdminPath = adminOnly.some((p) => path === p || path.startsWith(p + "/"));
-
-    if (isAdminPath && role !== "admin") {
-      const url = request.nextUrl.clone();
-      url.pathname = homeForRole(role);
-      return NextResponse.redirect(url);
-    }
-    if (isTeacherPath && !(role === "teacher" || role === "admin")) {
-      const url = request.nextUrl.clone();
-      url.pathname = homeForRole(role);
-      return NextResponse.redirect(url);
-    }
+    const url = request.nextUrl.clone();
+    url.pathname = homeForRole(profile?.role as string | undefined);
+    return NextResponse.redirect(url);
   }
 
   return response;

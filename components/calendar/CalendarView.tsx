@@ -64,12 +64,28 @@ export function CalendarView({ studentId }: { studentId: string }) {
   const load = useCallback(async () => {
     const start = ymd(new Date(year, month, 1));
     const end = ymd(new Date(year, month + 1, 0));
-    const { data } = await supabase
-      .from("daily_logs")
-      .select("id, log_date, goal, photo_paths, status, reject_reason")
-      .eq("student_id", studentId)
-      .gte("log_date", start)
-      .lte("log_date", end);
+
+    // 서로 독립인 1차 조회(기록/보스 배치/클리어)를 병렬로
+    const [{ data }, { data: tgts }, { data: wonRows }] = await Promise.all([
+      supabase
+        .from("daily_logs")
+        .select("id, log_date, goal, photo_paths, status, reject_reason")
+        .eq("student_id", studentId)
+        .gte("log_date", start)
+        .lte("log_date", end),
+      supabase
+        .from("encounter_targets")
+        .select(
+          "encounter_id, battle_encounters(id, kind, level, encounter_date, is_active, species_id)",
+        )
+        .eq("student_id", studentId),
+      supabase
+        .from("battles")
+        .select("encounter_id")
+        .eq("student_id", studentId)
+        .eq("status", "won")
+        .not("encounter_id", "is", null),
+    ]);
 
     const map: Record<string, DailyLog> = {};
     const firstPhotos: string[] = [];
@@ -83,48 +99,34 @@ export function CalendarView({ studentId }: { studentId: string }) {
     });
     setLogs(map);
 
-    const t: Record<string, string> = {};
-    if (firstPhotos.length) {
-      const { data: signed } = await supabase.storage
-        .from("homework-photos")
-        .createSignedUrls(firstPhotos, 3600);
-      (signed ?? []).forEach((s: any, i: number) => {
-        if (s.signedUrl) t[photoDate[i]] = s.signedUrl;
-      });
-    }
-    setThumbs(t);
-
-    // 이번 달 보스(나에게 배치된 것) + 클리어 여부
-    const { data: tgts } = await supabase
-      .from("encounter_targets")
-      .select(
-        "encounter_id, battle_encounters(id, kind, level, encounter_date, is_active, species_id)",
-      )
-      .eq("student_id", studentId);
+    // 이번 달 보스(나에게 배치된 것)
     const encs = (tgts ?? [])
       .map((t: any) => (Array.isArray(t.battle_encounters) ? t.battle_encounters[0] : t.battle_encounters))
       .filter(
         (e: any) =>
           e && e.kind === "boss" && e.is_active && e.encounter_date >= start && e.encounter_date <= end,
       );
-    const { data: wonRows } = await supabase
-      .from("battles")
-      .select("encounter_id")
-      .eq("student_id", studentId)
-      .eq("status", "won")
-      .not("encounter_id", "is", null);
     const wonSet = new Set((wonRows ?? []).map((w: any) => w.encounter_id));
-
-    // 종 이름
     const spIds = Array.from(new Set(encs.map((e: any) => e.species_id)));
+
+    // 2차 조회(사진 서명 URL / 종 이름)도 병렬로
+    const [signedRes, spsRes] = await Promise.all([
+      firstPhotos.length
+        ? supabase.storage.from("homework-photos").createSignedUrls(firstPhotos, 3600)
+        : Promise.resolve({ data: [] as any[] }),
+      spIds.length
+        ? supabase.from("pokemon_species").select("id, name, name_ko").in("id", spIds)
+        : Promise.resolve({ data: [] as any[] }),
+    ]);
+
+    const t: Record<string, string> = {};
+    (signedRes.data ?? []).forEach((s: any, i: number) => {
+      if (s.signedUrl) t[photoDate[i]] = s.signedUrl;
+    });
+    setThumbs(t);
+
     const nameById = new Map<string, string>();
-    if (spIds.length) {
-      const { data: sps } = await supabase
-        .from("pokemon_species")
-        .select("id, name, name_ko")
-        .in("id", spIds);
-      (sps ?? []).forEach((s: any) => nameById.set(s.id, s.name_ko || s.name));
-    }
+    (spsRes.data ?? []).forEach((s: any) => nameById.set(s.id, s.name_ko || s.name));
     const bmap: Record<string, Boss> = {};
     encs.forEach((e: any) => {
       bmap[e.encounter_date] = {
