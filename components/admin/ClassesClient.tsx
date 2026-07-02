@@ -3,6 +3,7 @@
 import { useState, useTransition } from "react";
 import { useRouter } from "next/navigation";
 import { createClass, assignTeacher, enrollStudent } from "@/lib/actions/classes";
+import { StudentPicker } from "@/components/admin/StudentPicker";
 
 interface Person {
   id: string;
@@ -48,13 +49,11 @@ export function CreateClassForm() {
 export function ClassRow({
   klass,
   teachers,
-  students,
   assignedTeachers,
   enrolledStudents,
 }: {
   klass: Person;
   teachers: Person[];
-  students: Person[];
   assignedTeachers: Person[];
   enrolledStudents: Person[];
 }) {
@@ -111,22 +110,13 @@ export function ClassRow({
           <p className="text-sm">
             {enrolledStudents.map((s) => s.name).join(", ") || "—"}
           </p>
-          <select
-            disabled={pending}
-            onChange={(e) => {
-              addStudent(e.target.value);
-              e.target.value = "";
-            }}
-            className="mt-1 w-full rounded-lg border border-slate-300 px-2 py-1.5 text-sm focus:outline-none"
-            defaultValue=""
-          >
-            <option value="">+ 학생 등록</option>
-            {students.map((s) => (
-              <option key={s.id} value={s.id}>
-                {s.name}
-              </option>
-            ))}
-          </select>
+          <div className="mt-1">
+            <StudentPicker
+              multi={false}
+              onPick={(p) => addStudent(p.id)}
+              placeholder="+ 학생 등록 (이름 검색)"
+            />
+          </div>
         </div>
       </div>
     </div>

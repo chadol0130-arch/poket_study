@@ -2,10 +2,6 @@ import { requireRole } from "@/lib/auth";
 import { createAdminClient } from "@/lib/supabase/admin";
 import { getSpeciesInfo } from "@/lib/queries";
 
-function kstDate(offsetDays = 0): string {
-  const d = new Date(Date.now() + offsetDays * 86400000);
-  return new Intl.DateTimeFormat("en-CA", { timeZone: "Asia/Seoul" }).format(d);
-}
 const pct = (n: number, d: number) => (d > 0 ? Math.round((n / d) * 100) : 0);
 
 function Stat({ label, value, sub }: { label: string; value: React.ReactNode; sub?: string }) {
@@ -18,82 +14,53 @@ function Stat({ label, value, sub }: { label: string; value: React.ReactNode; su
   );
 }
 
+interface Analytics {
+  students: number;
+  teachers: number;
+  classes: number;
+  dau: number;
+  wau: number;
+  sub_approved: number;
+  sub_rejected: number;
+  sub_pending: number;
+  log_approved: number;
+  log_rejected: number;
+  q_targets: number;
+  q_answers: number;
+  avg_streak: number;
+  max_streak: number;
+  top_species: { species_id: string; n: number }[];
+  by_day: { d: string; n: number }[];
+}
+
 export default async function AnalyticsPage() {
   await requireRole("admin");
   const admin = createAdminClient();
 
-  const today = kstDate();
-  const day7 = kstDate(-6); // 오늘 포함 7일
-  const start7 = `${day7}T00:00:00+09:00`;
-  const startToday = `${today}T00:00:00+09:00`;
+  // 행 전체를 앱으로 끌어오지 않고 DB 에서 한 번에 집계 (0015 admin_analytics RPC).
+  const { data, error } = await admin.rpc("admin_analytics");
 
-  const headCount = async (q: any) => (await q).count ?? 0;
+  if (error || !data) {
+    return (
+      <div className="space-y-4">
+        <h1 className="text-2xl font-bold">분석 대시보드 📊</h1>
+        <div className="rounded-2xl border border-amber-200 bg-amber-50 p-5 text-sm text-amber-800">
+          <p className="font-semibold">집계 함수가 아직 준비되지 않았어요.</p>
+          <p className="mt-1">
+            Supabase SQL Editor 에서 <b>supabase/migrations/0015_scale.sql</b> 을 실행해 주세요.
+            (SETUP.md 16번 단계)
+          </p>
+          {error && <p className="mt-2 text-xs text-amber-600">{error.message}</p>}
+        </div>
+      </div>
+    );
+  }
 
-  // 기본 규모
-  const [students, teachers, classes] = await Promise.all([
-    headCount(admin.from("profiles").select("id", { count: "exact", head: true }).eq("role", "student")),
-    headCount(admin.from("profiles").select("id", { count: "exact", head: true }).eq("role", "teacher")),
-    headCount(admin.from("classes").select("id", { count: "exact", head: true })),
-  ]);
-
-  // 활동 데이터(최근 7일) — 활성 사용자(DAU/WAU) 계산용
-  const [subs7, logs7, ans7, chk7] = await Promise.all([
-    admin.from("submissions").select("student_id, status, submitted_at").gte("submitted_at", start7),
-    admin.from("daily_logs").select("student_id, status, log_date").gte("log_date", day7),
-    admin.from("question_answers").select("student_id, answered_at").gte("answered_at", start7),
-    admin.from("streak_checkins").select("student_id, checkin_date").gte("checkin_date", day7),
-  ]);
-  const S = (r: any) => (r.data ?? []) as any[];
-
-  const activeIn = (sinceISO: string, sinceDate: string) => {
-    const set = new Set<string>();
-    S(subs7).forEach((x) => x.submitted_at >= sinceISO && set.add(x.student_id));
-    S(logs7).forEach((x) => x.log_date >= sinceDate && set.add(x.student_id));
-    S(ans7).forEach((x) => x.answered_at >= sinceISO && set.add(x.student_id));
-    S(chk7).forEach((x) => x.checkin_date >= sinceDate && set.add(x.student_id));
-    return set.size;
-  };
-  const dau = activeIn(startToday, today);
-  const wau = activeIn(start7, day7);
-
-  // 누적 검사 통계 (전체)
-  const [subApproved, subRejected, subPending, logApproved, logRejected] = await Promise.all([
-    headCount(admin.from("submissions").select("id", { count: "exact", head: true }).eq("status", "approved")),
-    headCount(admin.from("submissions").select("id", { count: "exact", head: true }).eq("status", "rejected")),
-    headCount(admin.from("submissions").select("id", { count: "exact", head: true }).eq("status", "pending")),
-    headCount(admin.from("daily_logs").select("id", { count: "exact", head: true }).eq("status", "approved")),
-    headCount(admin.from("daily_logs").select("id", { count: "exact", head: true }).eq("status", "rejected")),
-  ]);
-
-  // 질문 응답률
-  const [qTargets, qAnswers] = await Promise.all([
-    headCount(admin.from("question_targets").select("id", { count: "exact", head: true })),
-    headCount(admin.from("question_answers").select("id", { count: "exact", head: true })),
-  ]);
-
-  // 스트릭 분포 + 인기 포켓몬
-  const { data: profStreaks } = await admin.from("profiles").select("current_streak").eq("role", "student");
-  const streaks = (profStreaks ?? []).map((p: any) => p.current_streak ?? 0);
-  const avgStreak = streaks.length ? Math.round((streaks.reduce((a, b) => a + b, 0) / streaks.length) * 10) / 10 : 0;
-  const maxStreak = streaks.length ? Math.max(...streaks) : 0;
-
-  const { data: pets } = await admin.from("student_pokemon").select("current_species_id");
-  const speciesCount = new Map<string, number>();
-  (pets ?? []).forEach((p: any) => speciesCount.set(p.current_species_id, (speciesCount.get(p.current_species_id) ?? 0) + 1));
-  const topSpecies = [...speciesCount.entries()].sort((a, b) => b[1] - a[1]).slice(0, 5);
-  const info = await getSpeciesInfo(topSpecies.map(([id]) => id));
-
-  // 최근 7일 일별 제출+기록 건수 (간단 막대)
-  const days = Array.from({ length: 7 }, (_, i) => kstDate(-6 + i));
-  const byDay = new Map<string, number>(days.map((d) => [d, 0]));
-  S(subs7).forEach((x) => {
-    const d = new Intl.DateTimeFormat("en-CA", { timeZone: "Asia/Seoul" }).format(new Date(x.submitted_at));
-    if (byDay.has(d)) byDay.set(d, (byDay.get(d) ?? 0) + 1);
-  });
-  S(logs7).forEach((x) => {
-    if (byDay.has(x.log_date)) byDay.set(x.log_date, (byDay.get(x.log_date) ?? 0) + 1);
-  });
-  const maxDay = Math.max(1, ...days.map((d) => byDay.get(d) ?? 0));
+  const a = data as Analytics;
+  const topSpecies = a.top_species ?? [];
+  const info = await getSpeciesInfo(topSpecies.map((t) => t.species_id));
+  const days = a.by_day ?? [];
+  const maxDay = Math.max(1, ...days.map((d) => d.n));
 
   return (
     <div className="space-y-6">
@@ -103,27 +70,27 @@ export default async function AnalyticsPage() {
       </div>
 
       <div className="grid grid-cols-2 gap-3 sm:grid-cols-4">
-        <Stat label="학생 수" value={students} sub={`선생님 ${teachers} · 반 ${classes}`} />
-        <Stat label="오늘 활동(DAU)" value={dau} sub={`참여율 ${pct(dau, students)}%`} />
-        <Stat label="이번 주 활동(WAU)" value={wau} sub={`참여율 ${pct(wau, students)}%`} />
-        <Stat label="평균 스트릭" value={`${avgStreak}일`} sub={`최고 ${maxStreak}일`} />
+        <Stat label="학생 수" value={a.students} sub={`선생님 ${a.teachers} · 반 ${a.classes}`} />
+        <Stat label="오늘 활동(DAU)" value={a.dau} sub={`참여율 ${pct(a.dau, a.students)}%`} />
+        <Stat label="이번 주 활동(WAU)" value={a.wau} sub={`참여율 ${pct(a.wau, a.students)}%`} />
+        <Stat label="평균 스트릭" value={`${a.avg_streak}일`} sub={`최고 ${a.max_streak}일`} />
       </div>
 
       <section className="grid gap-3 sm:grid-cols-3">
         <Stat
           label="숙제 검사"
-          value={`${pct(subApproved, subApproved + subRejected)}%`}
-          sub={`통과 ${subApproved} · 반려 ${subRejected} · 대기 ${subPending}`}
+          value={`${pct(a.sub_approved, a.sub_approved + a.sub_rejected)}%`}
+          sub={`통과 ${a.sub_approved} · 반려 ${a.sub_rejected} · 대기 ${a.sub_pending}`}
         />
         <Stat
           label="일일 학습기록"
-          value={`${pct(logApproved, logApproved + logRejected)}%`}
-          sub={`통과 ${logApproved} · 반려 ${logRejected}`}
+          value={`${pct(a.log_approved, a.log_approved + a.log_rejected)}%`}
+          sub={`통과 ${a.log_approved} · 반려 ${a.log_rejected}`}
         />
         <Stat
           label="질문 응답률"
-          value={`${pct(qAnswers, qTargets)}%`}
-          sub={`응답 ${qAnswers} / 발송 ${qTargets}`}
+          value={`${pct(a.q_answers, a.q_targets)}%`}
+          sub={`응답 ${a.q_answers} / 발송 ${a.q_targets}`}
         />
       </section>
 
@@ -131,19 +98,16 @@ export default async function AnalyticsPage() {
       <section className="rounded-2xl border border-slate-200 bg-white p-4">
         <h2 className="mb-3 font-bold">최근 7일 제출·기록</h2>
         <div className="flex items-end justify-between gap-2" style={{ height: 120 }}>
-          {days.map((d) => {
-            const v = byDay.get(d) ?? 0;
-            return (
-              <div key={d} className="flex flex-1 flex-col items-center justify-end gap-1">
-                <span className="text-xs font-semibold text-slate-600">{v}</span>
-                <div
-                  className="w-full rounded-t bg-poke-blue"
-                  style={{ height: `${Math.round((v / maxDay) * 90)}%`, minHeight: v > 0 ? 4 : 0 }}
-                />
-                <span className="text-[10px] text-slate-400">{d.slice(5)}</span>
-              </div>
-            );
-          })}
+          {days.map((d) => (
+            <div key={d.d} className="flex flex-1 flex-col items-center justify-end gap-1">
+              <span className="text-xs font-semibold text-slate-600">{d.n}</span>
+              <div
+                className="w-full rounded-t bg-poke-blue"
+                style={{ height: `${Math.round((d.n / maxDay) * 90)}%`, minHeight: d.n > 0 ? 4 : 0 }}
+              />
+              <span className="text-[10px] text-slate-400">{d.d.slice(5)}</span>
+            </div>
+          ))}
         </div>
       </section>
 
@@ -154,15 +118,15 @@ export default async function AnalyticsPage() {
           <p className="text-sm text-slate-400">아직 데이터가 없어요.</p>
         ) : (
           <ol className="space-y-1.5">
-            {topSpecies.map(([id, n], i) => {
-              const s = info.get(id);
+            {topSpecies.map((t, i) => {
+              const s = info.get(t.species_id);
               return (
-                <li key={id} className="flex items-center justify-between text-sm">
+                <li key={t.species_id} className="flex items-center justify-between text-sm">
                   <span>
                     <b className="mr-2 text-slate-400">{i + 1}</b>
                     {s?.nameKo || s?.name || "?"}
                   </span>
-                  <span className="font-semibold text-poke-blue">{n}마리</span>
+                  <span className="font-semibold text-poke-blue">{t.n}마리</span>
                 </li>
               );
             })}

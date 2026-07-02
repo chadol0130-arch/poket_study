@@ -68,8 +68,14 @@ Supabase는 회원·데이터·사진을 저장하는 무료 백엔드예요.
    → 검사 통과·새 질문 등 **인앱 알림(🔔)** 이 켜져요 ✅
 14. **New query** → **`supabase/migrations/0013_reminders.sql`** 붙여넣고 **Run**
    → 마감 임박·스트릭 끊김 **자동 리마인더** 함수가 준비돼요 ⏰
-15. 마지막으로 **New query** → **`supabase/migrations/0014_feedback.sql`** 붙여넣고 **Run**
+15. **New query** → **`supabase/migrations/0014_feedback.sql`** 붙여넣고 **Run**
    → 학생이 **문의·건의**를 보내고(내 정보 → 💬), 관리자가 **문의함(💌)** 에서 읽을 수 있어요 ✅
+16. 마지막으로 **New query** → **`supabase/migrations/0015_scale.sql`** 붙여넣고 **Run**
+   → 학생 수가 많아져도 빨라지는 **성능 인덱스·최적화**가 적용돼요 🚀 (분석 대시보드 필수)
+
+> 🚀 **학생 수가 수천 명 이상으로 커지면:** 코드는 준비돼 있지만 **무료 요금제로는 불가**해요.
+> Supabase **Pro**(월 $25 — 무료는 DB 500MB·1주 미사용 시 일시정지)와 Vercel **Pro**(월 $20)로
+> 업그레이드하세요. 합쳐서 월 5만 원 안팎이면 1만 명 규모를 감당합니다.
 
 > ⏰ **리마인더 자동 발송(선택):** 매일 자동으로 보내려면 Supabase **Database → Extensions** 에서
 > `pg_cron` 을 켠 뒤, SQL Editor 에 한 줄 실행:
