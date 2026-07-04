@@ -70,10 +70,14 @@ export async function createBoss(
     .single();
   if (eErr || !enc) return { error: eErr?.message ?? "보스 생성 실패" };
 
-  const { error: tErr } = await supabase
-    .from("encounter_targets")
-    .insert(studentIds.map((sid) => ({ encounter_id: enc.id, student_id: sid })));
-  if (tErr) return { error: tErr.message };
+  // 대규모(수천 명)도 안전하게 500행씩 청크 삽입
+  const rows = studentIds.map((sid) => ({ encounter_id: enc.id, student_id: sid }));
+  for (let i = 0; i < rows.length; i += 500) {
+    const { error: tErr } = await supabase
+      .from("encounter_targets")
+      .insert(rows.slice(i, i + 500));
+    if (tErr) return { error: tErr.message };
+  }
 
   revalidatePath("/admin/encounters");
   return { ok: true };

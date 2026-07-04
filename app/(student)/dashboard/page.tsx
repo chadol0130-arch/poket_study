@@ -11,10 +11,58 @@ export default async function DashboardPage() {
   const profile = await requireRole("student", "admin");
   const supabase = await createClient();
 
-  const { data: pets } = await supabase
-    .from("student_pokemon")
-    .select("*")
-    .eq("student_id", profile.id);
+  // 오늘의 미션/스트릭 상태 기준 (한국시간)
+  const todayKST = new Intl.DateTimeFormat("en-CA", {
+    timeZone: "Asia/Seoul",
+  }).format(new Date());
+  const startKST = `${todayKST}T00:00:00+09:00`;
+
+  // 서로 독립인 조회는 전부 한 번에 (순차 왕복 제거 — 원거리 DB에서 체감 큼)
+  const [
+    { data: pets },
+    { data: pendingQs, error: pqErr },
+    { data: assignments },
+    { data: subs },
+    { count: checkinCount },
+    { count: subTodayCount },
+    { count: dlTodayCount },
+    { count: ansTodayCount },
+  ] = await Promise.all([
+    supabase.from("student_pokemon").select("*").eq("student_id", profile.id),
+    // 미답변 질문 수 (활성 포켓몬에 ! 표시) — SECURITY DEFINER 함수로 견고하게 조회
+    supabase.rpc("my_pending_questions"),
+    // RLS 가 내 활성 반 과제로 제한. 최근 마감순 500개면 "할 일" 계산에 충분.
+    supabase
+      .from("homework_assignments")
+      .select("id, due_at")
+      .order("created_at", { ascending: false })
+      .limit(500),
+    supabase
+      .from("submissions")
+      .select("assignment_id, status")
+      .eq("student_id", profile.id)
+      .limit(1000),
+    supabase
+      .from("streak_checkins")
+      .select("id", { count: "exact", head: true })
+      .eq("student_id", profile.id)
+      .eq("checkin_date", todayKST),
+    supabase
+      .from("submissions")
+      .select("id", { count: "exact", head: true })
+      .eq("student_id", profile.id)
+      .gte("submitted_at", startKST),
+    supabase
+      .from("daily_logs")
+      .select("id", { count: "exact", head: true })
+      .eq("student_id", profile.id)
+      .eq("log_date", todayKST),
+    supabase
+      .from("question_answers")
+      .select("id", { count: "exact", head: true })
+      .eq("student_id", profile.id)
+      .gte("answered_at", startKST),
+  ]);
 
   // 포켓몬이 없으면 스타터 선택으로.
   if (!pets || pets.length === 0) redirect("/onboarding");
@@ -23,19 +71,10 @@ export default async function DashboardPage() {
   const info = await getSpeciesInfo(pets.map((p: any) => p.current_species_id));
   const activeInfo = info.get(active.current_species_id);
 
-  // 미답변 질문 수 (활성 포켓몬에 ! 표시) — SECURITY DEFINER 함수로 견고하게 조회
-  const { data: pendingQs, error: pqErr } = await supabase.rpc("my_pending_questions");
   if (pqErr) console.error("[dashboard] 미답변 질문 조회 실패:", pqErr.message);
   const pendingQuestions = (pendingQs ?? []).length;
 
   // 검사 대기/제출 가능 숙제 수 + 마감 임박.
-  const { data: assignments } = await supabase
-    .from("homework_assignments")
-    .select("id, due_at");
-  const { data: subs } = await supabase
-    .from("submissions")
-    .select("assignment_id, status")
-    .eq("student_id", profile.id);
   const subByAssignment = new Map<string, string>(
     (subs ?? []).map((s: any) => [s.assignment_id, s.status]),
   );
@@ -51,34 +90,6 @@ export default async function DashboardPage() {
     return diff >= -1 && diff <= 3;
   }).length;
 
-  // 오늘의 미션/스트릭 상태 (한국시간 기준)
-  const todayKST = new Intl.DateTimeFormat("en-CA", {
-    timeZone: "Asia/Seoul",
-  }).format(new Date());
-  const startKST = `${todayKST}T00:00:00+09:00`;
-  const [{ count: checkinCount }, { count: subTodayCount }, { count: dlTodayCount }, { count: ansTodayCount }] =
-    await Promise.all([
-      supabase
-        .from("streak_checkins")
-        .select("id", { count: "exact", head: true })
-        .eq("student_id", profile.id)
-        .eq("checkin_date", todayKST),
-      supabase
-        .from("submissions")
-        .select("id", { count: "exact", head: true })
-        .eq("student_id", profile.id)
-        .gte("submitted_at", startKST),
-      supabase
-        .from("daily_logs")
-        .select("id", { count: "exact", head: true })
-        .eq("student_id", profile.id)
-        .eq("log_date", todayKST),
-      supabase
-        .from("question_answers")
-        .select("id", { count: "exact", head: true })
-        .eq("student_id", profile.id)
-        .gte("answered_at", startKST),
-    ]);
   const checkedIn = (checkinCount ?? 0) > 0;
   const submittedToday = (subTodayCount ?? 0) + (dlTodayCount ?? 0) > 0;
   const answeredToday = (ansTodayCount ?? 0) > 0;

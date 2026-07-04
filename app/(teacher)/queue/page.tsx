@@ -23,61 +23,66 @@ export default async function QueuePage() {
       .order("log_date", { ascending: true }),
   ]);
 
-  // 학생 이름 (제출 + 날짜기록 합쳐서 한 번에)
   const studentIds = Array.from(
     new Set([
       ...(subs ?? []).map((s: any) => s.student_id),
       ...(dailies ?? []).map((d: any) => d.student_id),
     ]),
   );
-  const nameById = new Map<string, string>();
-  if (studentIds.length > 0) {
-    const { data: profiles } = await supabase
-      .from("profiles")
-      .select("id, display_name")
-      .in("id", studentIds);
-    (profiles ?? []).forEach((p: any) => nameById.set(p.id, p.display_name));
-  }
+  // 큐 전체의 사진 경로를 모아 서명 URL 을 한 번에 발급 (항목별 호출 = 큐 크기만큼 왕복)
+  const allPaths = Array.from(
+    new Set([
+      ...(subs ?? []).flatMap((s: any) => (s.photo_paths ?? []) as string[]),
+      ...(dailies ?? []).flatMap((d: any) => (d.photo_paths ?? []) as string[]),
+    ]),
+  );
 
-  async function sign(paths: string[]): Promise<string[]> {
-    if (!paths?.length) return [];
-    const { data } = await supabase.storage
-      .from("homework-photos")
-      .createSignedUrls(paths, 3600);
-    return (data ?? [])
-      .map((x: any) => x.signedUrl)
-      .filter((u: string | null): u is string => Boolean(u));
-  }
+  const [profilesRes, signedRes] = await Promise.all([
+    studentIds.length > 0
+      ? supabase.from("profiles").select("id, display_name").in("id", studentIds)
+      : Promise.resolve({ data: [] as any[] }),
+    allPaths.length > 0
+      ? supabase.storage.from("homework-photos").createSignedUrls(allPaths, 3600)
+      : Promise.resolve({ data: [] as any[] }),
+  ]);
+
+  const nameById = new Map<string, string>();
+  (profilesRes.data ?? []).forEach((p: any) => nameById.set(p.id, p.display_name));
+
+  const urlByPath = new Map<string, string>();
+  (signedRes.data ?? []).forEach((x: any) => {
+    if (x.path && x.signedUrl) urlByPath.set(x.path, x.signedUrl);
+  });
+  const sign = (paths: string[]): string[] =>
+    (paths ?? [])
+      .map((p) => urlByPath.get(p))
+      .filter((u): u is string => Boolean(u));
 
   // 과제 제출
-  const items: QueueItemData[] = [];
-  for (const s of (subs ?? []) as any[]) {
+  const items: QueueItemData[] = ((subs ?? []) as any[]).map((s) => {
     const a = Array.isArray(s.homework_assignments)
       ? s.homework_assignments[0]
       : s.homework_assignments;
-    items.push({
+    return {
       submissionId: s.id,
       studentName: nameById.get(s.student_id) ?? "학생",
       assignmentTitle: a?.title ?? "숙제",
       xpReward: a?.xp_reward ?? 0,
       coinReward: a?.coin_reward ?? 0,
       note: s.note ?? "",
-      photoUrls: await sign(s.photo_paths),
+      photoUrls: sign(s.photo_paths),
       submittedAt: s.submitted_at,
-    });
-  }
+    };
+  });
 
   // 날짜별 기록
-  const dailyItems: DailyItemData[] = [];
-  for (const d of (dailies ?? []) as any[]) {
-    dailyItems.push({
-      logId: d.id,
-      studentName: nameById.get(d.student_id) ?? "학생",
-      date: d.log_date,
-      goal: d.goal ?? "",
-      photoUrls: await sign(d.photo_paths),
-    });
-  }
+  const dailyItems: DailyItemData[] = ((dailies ?? []) as any[]).map((d) => ({
+    logId: d.id,
+    studentName: nameById.get(d.student_id) ?? "학생",
+    date: d.log_date,
+    goal: d.goal ?? "",
+    photoUrls: sign(d.photo_paths),
+  }));
 
   const empty = items.length === 0 && dailyItems.length === 0;
 

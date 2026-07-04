@@ -75,11 +75,14 @@ export async function createQuestion(
     .single();
   if (qErr || !q) return { error: qErr?.message ?? "질문 생성 실패" };
 
-  // 3) 대상 펼쳐 저장
-  const { error: tErr } = await supabase
-    .from("question_targets")
-    .insert(studentIds.map((sid) => ({ question_id: q.id, student_id: sid })));
-  if (tErr) return { error: tErr.message };
+  // 3) 대상 펼쳐 저장 — 대규모(수천 명)도 안전하게 500행씩 청크 삽입
+  const rows = studentIds.map((sid) => ({ question_id: q.id, student_id: sid }));
+  for (let i = 0; i < rows.length; i += 500) {
+    const { error: tErr } = await supabase
+      .from("question_targets")
+      .insert(rows.slice(i, i + 500));
+    if (tErr) return { error: tErr.message };
+  }
 
   revalidatePath("/admin/questions");
   return { ok: true };

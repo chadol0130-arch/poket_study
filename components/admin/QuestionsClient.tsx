@@ -3,19 +3,14 @@
 import { useState, useTransition } from "react";
 import { useRouter } from "next/navigation";
 import { createQuestion, setQuestionActive } from "@/lib/actions/questions";
+import { StudentPicker, type PickerPerson } from "@/components/admin/StudentPicker";
 
 interface Opt {
   id: string;
   name: string;
 }
 
-export function CreateQuestionForm({
-  classes,
-  students,
-}: {
-  classes: Opt[];
-  students: Opt[];
-}) {
+export function CreateQuestionForm({ classes }: { classes: Opt[] }) {
   const router = useRouter();
   const [body, setBody] = useState("");
   const [kind, setKind] = useState<"open" | "choice">("open");
@@ -23,18 +18,10 @@ export function CreateQuestionForm({
   const [xpReward, setXpReward] = useState(20);
   const [audience, setAudience] = useState<"all" | "class" | "students">("all");
   const [classId, setClassId] = useState("");
-  const [selected, setSelected] = useState<Set<string>>(new Set());
+  const [selected, setSelected] = useState<PickerPerson[]>([]);
   const [error, setError] = useState<string | null>(null);
   const [msg, setMsg] = useState<string | null>(null);
   const [pending, startTransition] = useTransition();
-
-  function toggleStudent(id: string) {
-    setSelected((prev) => {
-      const next = new Set(prev);
-      next.has(id) ? next.delete(id) : next.add(id);
-      return next;
-    });
-  }
 
   function submit() {
     setError(null);
@@ -47,13 +34,13 @@ export function CreateQuestionForm({
         xpReward,
         audience,
         classId: audience === "class" ? classId : null,
-        studentIds: audience === "students" ? Array.from(selected) : [],
+        studentIds: audience === "students" ? selected.map((s) => s.id) : [],
       });
       if ("error" in res) return setError(res.error);
       setMsg("질문을 보냈어요! 학생 포켓몬에 ❗가 표시됩니다.");
       setBody("");
       setOptions(["", ""]);
-      setSelected(new Set());
+      setSelected([]);
       router.refresh();
     });
   }
@@ -162,21 +149,7 @@ export function CreateQuestionForm({
         )}
 
         {audience === "students" && (
-          <div className="max-h-40 space-y-1 overflow-y-auto rounded-lg border border-slate-200 p-2">
-            {students.length === 0 && (
-              <p className="text-xs text-slate-400">학생 계정이 없어요.</p>
-            )}
-            {students.map((s) => (
-              <label key={s.id} className="flex items-center gap-2 text-sm">
-                <input
-                  type="checkbox"
-                  checked={selected.has(s.id)}
-                  onChange={() => toggleStudent(s.id)}
-                />
-                {s.name}
-              </label>
-            ))}
-          </div>
+          <StudentPicker multi selected={selected} onChange={setSelected} />
         )}
       </div>
 

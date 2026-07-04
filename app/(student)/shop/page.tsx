@@ -8,16 +8,14 @@ export default async function ShopPage() {
   const profile = await requireRole("student", "admin");
   const supabase = await createClient();
 
-  const { data: listings } = await supabase
-    .from("shop_listings")
-    .select("id, species_id, chain_id, price, display_order")
-    .eq("is_active", true)
-    .order("display_order");
-
-  const { data: pets } = await supabase
-    .from("student_pokemon")
-    .select("chain_id")
-    .eq("student_id", profile.id);
+  const [{ data: listings }, { data: pets }] = await Promise.all([
+    supabase
+      .from("shop_listings")
+      .select("id, species_id, chain_id, price, display_order")
+      .eq("is_active", true)
+      .order("display_order"),
+    supabase.from("student_pokemon").select("chain_id").eq("student_id", profile.id),
+  ]);
   const ownedChains = new Set((pets ?? []).map((p: any) => p.chain_id));
 
   const info = await getSpeciesInfo((listings ?? []).map((l: any) => l.species_id));

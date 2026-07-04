@@ -7,31 +7,38 @@ export default async function AdminQuestionsPage() {
   await requireRole("admin");
   const supabase = await createClient();
 
-  const [{ data: classes }, { data: people }, { data: questions }, { data: targets }, { data: answers }] =
+  const [{ data: classes }, { data: questions }, { data: stats, error: statsErr }] =
     await Promise.all([
       supabase.from("classes").select("id, name").order("name"),
-      supabase.from("profiles").select("id, display_name, role"),
       supabase
         .from("questions")
         .select("id, body, kind, is_active, xp_reward, created_at")
         .order("created_at", { ascending: false }),
+      supabase.rpc("admin_question_stats"),
+    ]);
+
+  const classOpts = (classes ?? []).map((c: any) => ({ id: c.id, name: c.name }));
+
+  // 발송/응답 수 — 집계 RPC(0015). 미적용 시 행 단위 폴백(소규모에선 무해).
+  const targetCount = new Map<string, number>();
+  const answerCount = new Map<string, number>();
+  if (!statsErr) {
+    (stats ?? []).forEach((s: any) => {
+      targetCount.set(s.question_id, Number(s.target_count));
+      answerCount.set(s.question_id, Number(s.answer_count));
+    });
+  } else {
+    const [{ data: targets }, { data: answers }] = await Promise.all([
       supabase.from("question_targets").select("question_id"),
       supabase.from("question_answers").select("question_id"),
     ]);
-
-  const students = (people ?? [])
-    .filter((p: any) => p.role === "student")
-    .map((p: any) => ({ id: p.id, name: p.display_name }));
-  const classOpts = (classes ?? []).map((c: any) => ({ id: c.id, name: c.name }));
-
-  const targetCount = new Map<string, number>();
-  (targets ?? []).forEach((t: any) =>
-    targetCount.set(t.question_id, (targetCount.get(t.question_id) ?? 0) + 1),
-  );
-  const answerCount = new Map<string, number>();
-  (answers ?? []).forEach((a: any) =>
-    answerCount.set(a.question_id, (answerCount.get(a.question_id) ?? 0) + 1),
-  );
+    (targets ?? []).forEach((t: any) =>
+      targetCount.set(t.question_id, (targetCount.get(t.question_id) ?? 0) + 1),
+    );
+    (answers ?? []).forEach((a: any) =>
+      answerCount.set(a.question_id, (answerCount.get(a.question_id) ?? 0) + 1),
+    );
+  }
 
   return (
     <div className="space-y-6">
@@ -42,7 +49,7 @@ export default async function AdminQuestionsPage() {
         </p>
       </div>
 
-      <CreateQuestionForm classes={classOpts} students={students} />
+      <CreateQuestionForm classes={classOpts} />
 
       <div>
         <h2 className="mb-2 font-semibold">보낸 질문</h2>
