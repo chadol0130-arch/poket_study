@@ -3,9 +3,32 @@
 /* eslint-disable @next/next/no-img-element */
 import { useState, useTransition } from "react";
 import Link from "next/link";
-import { battleTurn } from "@/lib/actions/battle";
+import { battleTurn, useItem, fleeBattle } from "@/lib/actions/battle";
 import { typeKo, categoryKo } from "@/lib/i18n";
 import { STATUS_KO, type StatusKind } from "@/lib/battle/effects";
+
+export interface InvItem {
+  itemKey: string;
+  nameKo: string;
+  description: string;
+  kind: "ball" | "potion";
+  effect: number;
+  qty: number;
+}
+
+function ItemIcon({ itemKey, kind }: { itemKey: string; kind: "ball" | "potion" }) {
+  const [broken, setBroken] = useState(false);
+  if (broken) return <span className="text-xl">{kind === "ball" ? "🔴" : "🧪"}</span>;
+  return (
+    <img
+      src={`/items/${itemKey}.png`}
+      alt=""
+      className="h-7 w-7 object-contain"
+      style={{ imageRendering: "pixelated" }}
+      onError={() => setBroken(true)}
+    />
+  );
+}
 
 interface Mv {
   key: string;
@@ -102,17 +125,23 @@ export function BattleArena({
   battleId,
   initialState,
   initialStatus,
+  kind = "wild",
+  inventory = [],
 }: {
   battleId: string;
   initialState: BState;
-  initialStatus: "ongoing" | "won" | "lost";
+  initialStatus: "ongoing" | "won" | "lost" | "fled";
+  kind?: "boss" | "wild";
+  inventory?: InvItem[];
 }) {
   const [state, setState] = useState<BState>(initialState);
-  const [status, setStatus] = useState(initialStatus);
+  const [status, setStatus] = useState<"ongoing" | "won" | "lost" | "fled">(initialStatus);
   const [caught, setCaught] = useState<string | null>(null);
   const [reward, setReward] = useState<{ xp: number; coin: number } | null>(null);
   const [error, setError] = useState<string | null>(null);
   const [pending, startTransition] = useTransition();
+  const [menu, setMenu] = useState<"root" | "fight" | "items">("root");
+  const [inv, setInv] = useState<InvItem[]>(inventory);
 
   // 애니메이션 상태
   const [eAnim, setEAnim] = useState("");
@@ -190,6 +219,54 @@ export function BattleArena({
     });
   }
 
+  function doUseItem(itemKey: string) {
+    if (status !== "ongoing" || pending) return;
+    setError(null);
+    const prevS = state.student.hp;
+    startTransition(async () => {
+      const res = await useItem(battleId, itemKey);
+      if (res.error) return setError(res.error);
+      if (typeof res.remainingQty === "number") {
+        setInv((prev) =>
+          prev.map((it) => (it.itemKey === itemKey ? { ...it, qty: res.remainingQty! } : it)),
+        );
+      }
+      const ns = res.state as BState;
+      if (ns) {
+        setState(ns);
+        // 아이템 사용 후 적 반격 데미지만 연출
+        const sDmg = prevS > ns.student.hp ? prevS - ns.student.hp : 0;
+        if (sDmg > 0) {
+          playE("lunge-down", 360);
+          window.setTimeout(() => {
+            setSPop(sDmg);
+            setPopKey((k) => k + 1);
+            playS("hit-shake", 400);
+          }, 140);
+        }
+        if (res.status === "won") playE("faint", 700);
+        if (res.status === "lost") window.setTimeout(() => playS("faint", 700), 500);
+      }
+      if (res.status) setStatus(res.status);
+      if (res.status === "won") {
+        setReward({ xp: res.rewardXp ?? 0, coin: res.rewardCoin ?? 0 });
+        setCaught(res.caughtName ?? null);
+      }
+      if (res.status === "ongoing") setMenu("root");
+    });
+  }
+
+  function doFlee() {
+    if (status !== "ongoing" || pending) return;
+    setError(null);
+    startTransition(async () => {
+      const res = await fleeBattle(battleId);
+      if (res.error) return setError(res.error);
+      if (res.state) setState(res.state as BState);
+      if (res.status) setStatus(res.status);
+    });
+  }
+
   const { student, enemy } = state;
 
   return (
@@ -250,23 +327,102 @@ export function BattleArena({
 
       {error && <p className="text-sm text-poke-red">{error}</p>}
 
-      {/* 결과 또는 기술 */}
+      {/* 결과 또는 행동 메뉴 */}
       {status === "ongoing" ? (
-        <div className="grid grid-cols-2 gap-2">
-          {student.moves.map((m) => (
+        menu === "root" ? (
+          <div className="grid grid-cols-3 gap-2">
             <button
-              key={m.key}
-              onClick={() => useMove(m.key)}
+              onClick={() => setMenu("fight")}
               disabled={pending}
-              className="rounded-xl border border-slate-300 bg-white px-3 py-3 text-left text-sm font-semibold hover:border-poke-red disabled:opacity-50"
+              className="rounded-xl border-2 border-poke-red bg-white px-3 py-4 text-center font-bold text-poke-red hover:bg-poke-red/5 disabled:opacity-50"
             >
-              {m.name_ko}
-              <span className="ml-1 text-xs font-normal text-slate-400">
-                {typeKo(m.type)} · {m.power > 0 ? m.power : categoryKo(m.category)}
-              </span>
+              ⚔️<br />싸우기
             </button>
-          ))}
-        </div>
+            <button
+              onClick={() => setMenu("items")}
+              disabled={pending}
+              className="rounded-xl border-2 border-poke-blue bg-white px-3 py-4 text-center font-bold text-poke-blue hover:bg-poke-blue/5 disabled:opacity-50"
+            >
+              🎒<br />도구
+            </button>
+            <button
+              onClick={doFlee}
+              disabled={pending}
+              className="rounded-xl border-2 border-slate-300 bg-white px-3 py-4 text-center font-bold text-slate-500 hover:bg-slate-50 disabled:opacity-50"
+            >
+              🏃<br />도망치기
+            </button>
+          </div>
+        ) : menu === "fight" ? (
+          <div className="space-y-2">
+            <div className="grid grid-cols-2 gap-2">
+              {student.moves.map((m) => (
+                <button
+                  key={m.key}
+                  onClick={() => useMove(m.key)}
+                  disabled={pending}
+                  className="rounded-xl border border-slate-300 bg-white px-3 py-3 text-left text-sm font-semibold hover:border-poke-red disabled:opacity-50"
+                >
+                  {m.name_ko}
+                  <span className="ml-1 text-xs font-normal text-slate-400">
+                    {typeKo(m.type)} · {m.power > 0 ? m.power : categoryKo(m.category)}
+                  </span>
+                </button>
+              ))}
+            </div>
+            <button
+              onClick={() => setMenu("root")}
+              disabled={pending}
+              className="w-full rounded-lg border border-slate-200 py-1.5 text-xs font-semibold text-slate-500 hover:bg-slate-50"
+            >
+              ← 뒤로
+            </button>
+          </div>
+        ) : (
+          <div className="space-y-2">
+            {inv.length === 0 ? (
+              <p className="rounded-xl border border-dashed border-slate-300 p-4 text-center text-sm text-slate-400">
+                가진 도구가 없어요.{" "}
+                <Link href="/shop" className="font-semibold text-poke-blue">
+                  상점에서 사보세요 →
+                </Link>
+              </p>
+            ) : (
+              inv.map((it) => {
+                const ballBlocked = it.kind === "ball" && kind !== "wild";
+                const disabled = pending || it.qty < 1 || ballBlocked;
+                return (
+                  <button
+                    key={it.itemKey}
+                    onClick={() => doUseItem(it.itemKey)}
+                    disabled={disabled}
+                    className="flex w-full items-center gap-3 rounded-xl border border-slate-300 bg-white px-3 py-2.5 text-left text-sm hover:border-poke-blue disabled:opacity-40"
+                  >
+                    <ItemIcon itemKey={it.itemKey} kind={it.kind} />
+                    <span className="min-w-0 flex-1">
+                      <span className="font-semibold">{it.nameKo}</span>
+                      <span className="ml-1 text-xs text-slate-400">
+                        {ballBlocked
+                          ? "야생 전용"
+                          : it.kind === "ball"
+                            ? "포획 시도 (HP가 낮을수록 잘 잡힘)"
+                            : `HP +${it.effect}`}
+                      </span>
+                    </span>
+                    <span className="text-xs font-bold text-slate-500">×{it.qty}</span>
+                  </button>
+                );
+              })
+            )}
+            <button
+              onClick={() => setMenu("root")}
+              disabled={pending}
+              className="w-full rounded-lg border border-slate-200 py-1.5 text-xs font-semibold text-slate-500 hover:bg-slate-50"
+            >
+              ← 뒤로
+            </button>
+          </div>
+        )
       ) : (
         <div className="rounded-2xl border border-slate-200 bg-white p-5 text-center">
           {status === "won" ? (
@@ -277,11 +433,24 @@ export function BattleArena({
                   +{reward.xp} XP · +{reward.coin} 코인
                 </p>
               )}
-              {caught && (
+              {caught ? (
                 <p className="mt-1 font-semibold text-poke-blue">
                   {caught}을(를) 잡았다! 도감에 추가됨 ✨
                 </p>
+              ) : (
+                kind === "wild" && (
+                  <p className="mt-1 text-xs text-slate-400">
+                    쓰러진 포켓몬은 잡을 수 없어요. 다음엔 몬스터볼로 잡아보자!
+                  </p>
+                )
               )}
+            </>
+          ) : status === "fled" ? (
+            <>
+              <p className="text-2xl font-black text-slate-500">무사히 도망쳤다! 🏃</p>
+              <p className="mt-1 text-sm text-slate-500">
+                다음에 다시 도전해요. 도구를 챙겨 오면 더 유리해요!
+              </p>
             </>
           ) : (
             <>

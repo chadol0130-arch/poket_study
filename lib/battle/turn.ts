@@ -221,6 +221,38 @@ function endOfTurn(c: Combatant, log: string[]) {
   }
 }
 
+/** 아이템 사용/포획 실패 후 적만 1회 행동(도트 포함). 학생은 행동하지 않는다. */
+export function enemyFreeAttack(
+  studentIn: Combatant,
+  enemyIn: Combatant,
+  chart: TypeChart,
+  rng: RNG = Math.random,
+): RoundResult {
+  const student = ensure({ ...studentIn, stages: { ...(studentIn.stages ?? zeroStages()) } });
+  const enemy = ensure({ ...enemyIn, stages: { ...(enemyIn.stages ?? zeroStages()) } });
+  const log: string[] = [];
+
+  const ePool = enemy.moves.length ? enemy.moves : [{ key: "STRUGGLE", name_ko: "발버둥", power: 30, type: "normal", category: 0 }];
+  const eMove = ePool[Math.floor(rng() * ePool.length)];
+  if (enemy.hp > 0 && student.hp > 0) act(enemy, student, eMove, chart, rng, log);
+
+  if (student.hp > 0 && enemy.hp > 0) {
+    endOfTurn(student, log);
+    endOfTurn(enemy, log);
+  }
+
+  let status: Outcome = "ongoing";
+  if (enemy.hp <= 0) {
+    log.push(`${enemy.name}을(를) 쓰러뜨렸다!`);
+    status = "won";
+  } else if (student.hp <= 0) {
+    log.push(`${student.name}이(가) 쓰러졌다…`);
+    status = "lost";
+  }
+
+  return { student, enemy, log, status };
+}
+
 /** 학생 기술키로 한 라운드 진행. enemyMoveKey 없으면 적 기술 랜덤. */
 export function resolveRound(
   studentIn: Combatant,
