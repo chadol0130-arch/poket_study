@@ -74,3 +74,20 @@ body {
   100% { opacity: 0; }
 }
 .screen-flash { animation: screen-flash 350ms ease-out forwards; }
+
+/* ===== 진화 연출 (어나더레드식) ===== */
+
+/* 실루엣 점멸: 하얗게 → 원래대로 반복하며 커졌다 작아졌다 */
+@keyframes evolve-flicker {
+  0%, 100% { filter: brightness(0) invert(1); transform: scale(1); }
+  50% { filter: brightness(0) invert(1) drop-shadow(0 0 14px #fff); transform: scale(1.15); }
+}
+.evolve-flicker { animation: evolve-flicker 500ms ease-in-out infinite; }
+
+/* 새 모습 공개: 빛과 함께 확대 등장 */
+@keyframes evolve-reveal {
+  0% { filter: brightness(3); transform: scale(0.6); opacity: 0.4; }
+  60% { filter: brightness(1.6); transform: scale(1.25); opacity: 1; }
+  100% { filter: brightness(1); transform: scale(1); opacity: 1; }
+}
+.evolve-reveal { animation: evolve-reveal 900ms ease-out forwards; }

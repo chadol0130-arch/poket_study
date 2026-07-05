@@ -4,6 +4,7 @@ import { requireRole } from "@/lib/auth";
 import { createClient } from "@/lib/supabase/server";
 import { getSpeciesInfo } from "@/lib/queries";
 import { PendingQuestions } from "@/components/questions/PendingQuestions";
+import { EvolutionWatcher } from "@/components/pokemon/EvolutionWatcher";
 import { DailyMissions } from "@/components/engagement/DailyMissions";
 import { CoinBalance } from "@/components/ui/CoinBalance";
 
@@ -115,6 +116,12 @@ export default async function DashboardPage() {
       <div className="grid gap-6 sm:grid-cols-2">
         <div>
           <h2 className="mb-2 text-sm font-semibold text-slate-500">내 대표 포켓몬</h2>
+          <EvolutionWatcher
+            petId={active.id}
+            speciesId={active.current_species_id}
+            name={activeInfo?.nameKo || activeInfo?.name || "포켓몬"}
+            spriteUrl={activeInfo?.spriteUrl ?? null}
+          />
           <PendingQuestions
             studentId={profile.id}
             initialPending={pendingQuestions}
