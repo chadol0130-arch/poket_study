@@ -13,7 +13,7 @@ import {
   zeroStages,
 } from "@/lib/battle/engine";
 import { selectBattleMoves } from "@/lib/battle/moveset";
-import { resolveRound } from "@/lib/battle/turn";
+import { resolveRound, enemyFreeAttack } from "@/lib/battle/turn";
 
 type Admin = ReturnType<typeof createAdminClient>;
 
@@ -264,10 +264,12 @@ export interface TurnResult {
   ok?: true;
   error?: string;
   state?: any;
-  status?: "ongoing" | "won" | "lost";
+  status?: "ongoing" | "won" | "lost" | "fled";
   caughtName?: string | null;
   rewardXp?: number;
   rewardCoin?: number;
+  /** useItem 후 남은 보유 수량 */
+  remainingQty?: number;
 }
 
 /** 한 턴 진행: 내 기술 → (적 생존 시) 적 반격 → 승패 판정/보상/포획 */
@@ -305,7 +307,8 @@ export async function battleTurn(battleId: string, moveKey: string): Promise<Tur
   let caughtName: string | null = null;
   if (status === "won") {
     await grantBattleRewards(admin, b);
-    if (st.catchable) caughtName = await catchPokemon(admin, b);
+    // 보스만 클리어 시 자동 포획. 야생은 배틀 중 몬스터볼로만 잡힌다.
+    if (b.kind === "boss" && st.catchable) caughtName = await catchPokemon(admin, b);
   }
 
   return {
@@ -316,6 +319,122 @@ export async function battleTurn(battleId: string, moveKey: string): Promise<Tur
     rewardXp: status === "won" ? b.reward_xp : 0,
     rewardCoin: status === "won" ? b.reward_coin : 0,
   };
+}
+
+/** 배틀 중 도구 사용: 상처약=회복 후 적 프리턴, 몬스터볼=포획 시도(야생만). */
+export async function useItem(battleId: string, itemKey: string): Promise<TurnResult> {
+  const uid = await currentUid();
+  if (!uid) return { error: "로그인이 필요합니다." };
+  const admin = createAdminClient();
+
+  const { data: b } = await admin.from("battles").select("*").eq("id", battleId).maybeSingle();
+  if (!b || b.student_id !== uid) return { error: "배틀을 찾을 수 없습니다." };
+  if (b.status !== "ongoing") return { ok: true, state: b.state, status: b.status };
+
+  const { data: item } = await admin
+    .from("items")
+    .select("*")
+    .eq("item_key", itemKey)
+    .eq("is_active", true)
+    .maybeSingle();
+  if (!item) return { error: "사용할 수 없는 도구예요." };
+
+  const st = b.state as any;
+  const student = st.student as Combatant;
+  const enemy = st.enemy as Combatant;
+
+  if (item.kind === "ball" && !(b.kind === "wild" && st.catchable)) {
+    return { error: "몬스터볼은 야생 포켓몬에게만 쓸 수 있어요." };
+  }
+  if (item.kind === "potion" && student.hp >= student.maxHp) {
+    return { error: "HP가 가득 차 있어요." };
+  }
+
+  // 보유 수량 원자적 차감 (consume_item RPC — 동시 사용/치팅 방지)
+  const { data: remaining, error: cErr } = await admin.rpc("consume_item", {
+    p_student: uid,
+    p_item_key: itemKey,
+  });
+  if (cErr) return { error: cErr.message };
+  if ((remaining ?? -1) < 0) return { error: "가지고 있지 않은 도구예요. 상점에서 사보세요!" };
+  const remainingQty = remaining as number;
+
+  const chart = await loadTypeChart(admin);
+  const log: string[] = [];
+  let status: "ongoing" | "won" | "lost" = "ongoing";
+
+  if (item.kind === "potion") {
+    const heal = Math.min(item.effect, student.maxHp - student.hp);
+    student.hp = Math.min(student.maxHp, student.hp + item.effect);
+    log.push(`${item.name_ko}을(를) 사용했다! ${student.name}의 HP가 ${heal} 회복됐다!`);
+    const res = enemyFreeAttack(student, enemy, chart);
+    st.student = res.student;
+    st.enemy = res.enemy;
+    log.push(...res.log);
+    status = res.status;
+  } else {
+    // 몬스터볼: HP가 낮을수록 잘 잡힌다 (기본 effect% + 최대 +55%p, 상한 95%)
+    const hpRatio = enemy.hp / Math.max(1, enemy.maxHp);
+    const chance = Math.min(95, item.effect + Math.floor((1 - hpRatio) * 55));
+    log.push(`${item.name_ko}을(를) 던졌다!`);
+    if (Math.random() * 100 < chance) {
+      log.push(`잡았다! ${enemy.name}을(를) 손에 넣었다! ✨`);
+      st.student = student;
+      st.enemy = enemy;
+      status = "won";
+    } else {
+      log.push(`앗! ${enemy.name}이(가) 볼에서 나와버렸다!`);
+      const res = enemyFreeAttack(student, enemy, chart);
+      st.student = res.student;
+      st.enemy = res.enemy;
+      log.push(...res.log);
+      status = res.status;
+    }
+  }
+
+  st.turn = (st.turn ?? 1) + 1;
+  st.log = [...(st.log ?? []), ...log].slice(-40);
+  const update: Record<string, any> = { state: st, status };
+  if (status !== "ongoing") update.finished_at = new Date().toISOString();
+  await admin.from("battles").update(update).eq("id", battleId);
+
+  let caughtName: string | null = null;
+  if (status === "won") {
+    await grantBattleRewards(admin, b);
+    // 볼로 잡았거나, (드물게) 도트로 쓰러진 보스가 catchable 인 경우
+    if (item.kind === "ball" && st.catchable) caughtName = await catchPokemon(admin, b);
+    else if (b.kind === "boss" && st.catchable) caughtName = await catchPokemon(admin, b);
+  }
+
+  return {
+    ok: true,
+    state: st,
+    status,
+    caughtName,
+    rewardXp: status === "won" ? b.reward_xp : 0,
+    rewardCoin: status === "won" ? b.reward_coin : 0,
+    remainingQty,
+  };
+}
+
+/** 도망치기: 배틀 종료(보상·포획 없음). 야생은 오늘 기회 소진, 보스는 재도전 가능. */
+export async function fleeBattle(battleId: string): Promise<TurnResult> {
+  const uid = await currentUid();
+  if (!uid) return { error: "로그인이 필요합니다." };
+  const admin = createAdminClient();
+
+  const { data: b } = await admin.from("battles").select("*").eq("id", battleId).maybeSingle();
+  if (!b || b.student_id !== uid) return { error: "배틀을 찾을 수 없습니다." };
+  if (b.status !== "ongoing") return { ok: true, state: b.state, status: b.status };
+
+  const st = b.state as any;
+  st.log = [...(st.log ?? []), "무사히 도망쳤다!"].slice(-40);
+  await admin
+    .from("battles")
+    .update({ state: st, status: "fled", finished_at: new Date().toISOString() })
+    .eq("id", battleId);
+
+  return { ok: true, state: st, status: "fled" };
 }
 
 /** 승리 보상: 활성 포켓몬 경험치 + 코인 (멱등: source_id=battle.id) */

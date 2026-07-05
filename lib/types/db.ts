@@ -122,6 +122,24 @@ export interface Submission {
   coin_awarded: number;
 }
 
+export interface Item {
+  item_key: string;
+  name_ko: string;
+  description: string;
+  kind: "ball" | "potion";
+  price: number;
+  effect: number;
+  display_order: number;
+  is_active: boolean;
+}
+
+export interface StudentItem {
+  id: string;
+  student_id: string;
+  item_key: string;
+  qty: number;
+}
+
 export type FeedbackCategory = "bug" | "idea" | "question" | "etc";
 export type FeedbackStatus = "open" | "in_progress" | "resolved" | "wontfix";
 
