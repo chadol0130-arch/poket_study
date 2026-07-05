@@ -13,6 +13,8 @@ export async function purchasePokemon(listingId: string): Promise<ActionResult> 
   if (error) {
     if (error.message.includes("insufficient")) return { error: "코인이 부족합니다." };
     if (error.message.includes("not available")) return { error: "판매 중이 아닙니다." };
+    if (error.message.includes("already owned"))
+      return { error: "이미 가지고 있는 포켓몬이에요. (중복 보유 방지)" };
     return { error: error.message };
   }
   revalidatePath("/shop");

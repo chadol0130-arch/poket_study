@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { PokemonCard, type PokemonCardData } from "./PokemonCard";
+import { QuickActiveButton } from "./QuickActiveButton";
 
 export interface CollectionPet extends PokemonCardData {
   id: string;
@@ -21,7 +22,11 @@ export function CollectionGrid({ pets }: { pets: CollectionPet[] }) {
           <PokemonCard
             data={pet}
             footer={
-              <p className="text-center text-xs font-medium text-slate-400">자세히 보기 →</p>
+              pet.isActive ? (
+                <p className="text-center text-xs font-medium text-slate-400">자세히 보기 →</p>
+              ) : (
+                <QuickActiveButton petId={pet.id} />
+              )
             }
           />
         </Link>

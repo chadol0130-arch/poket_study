@@ -225,9 +225,40 @@ export async function startWildBattle(dateKST: string): Promise<BattleStartResul
     .maybeSingle();
   if (!pet) return { error: "활성 포켓몬이 없어요. 먼저 스타터를 선택하세요." };
 
-  const { data: allSp } = await admin.from("pokemon_species").select("id");
+  // 상대 선택: ① 미보유 진화라인만(중복 포획 상황 예방) ② 내 대표와 종족값이 비슷한 종만
+  // (좁은 밴드부터 넓혀가며 반드시 후보 확보 → 항상 비슷한 급이 출현)
+  const [{ data: allSp }, { data: stages }, { data: myPets }] = await Promise.all([
+    admin.from("pokemon_species").select("id, base_stats"),
+    admin.from("evolution_stages").select("species_id, chain_id"),
+    admin.from("student_pokemon").select("chain_id").eq("student_id", uid),
+  ]);
   if (!allSp || allSp.length === 0) return { error: "포켓몬 데이터가 없어요." };
-  const enemySpecies = allSp[Math.floor(Math.random() * allSp.length)].id;
+
+  const chainBySpecies = new Map<string, string>(
+    (stages ?? []).map((s: any) => [s.species_id, s.chain_id]),
+  );
+  const ownedChains = new Set((myPets ?? []).map((p: any) => p.chain_id));
+  const statTotal = (bs: Record<string, number> | null | undefined) =>
+    Object.values(bs ?? {}).reduce((a, b) => a + (typeof b === "number" ? b : 0), 0);
+  const myTotal = statTotal(
+    (allSp.find((s: any) => s.id === pet.current_species_id) as any)?.base_stats,
+  );
+
+  const unowned = allSp.filter((s: any) => !ownedChains.has(chainBySpecies.get(s.id) ?? ""));
+  const pool = unowned.length > 0 ? unowned : allSp; // 전부 보유 시 폴백(포획은 중복가드가 막음)
+  let candidates: any[] = pool;
+  if (myTotal > 0) {
+    for (const band of [0.15, 0.3, 0.5, Number.POSITIVE_INFINITY]) {
+      const within = pool.filter(
+        (s: any) => Math.abs(statTotal(s.base_stats) - myTotal) <= myTotal * band,
+      );
+      if (within.length > 0) {
+        candidates = within;
+        break;
+      }
+    }
+  }
+  const enemySpecies = candidates[Math.floor(Math.random() * candidates.length)].id;
   const enemyLevel = Math.max(2, pet.level + (Math.floor(Math.random() * 5) - 2));
 
   const student = await buildCombatant(admin, pet.current_species_id, pet.level);
@@ -345,6 +376,25 @@ export async function useItem(battleId: string, itemKey: string): Promise<TurnRe
 
   if (item.kind === "ball" && !(b.kind === "wild" && st.catchable)) {
     return { error: "몬스터볼은 야생 포켓몬에게만 쓸 수 있어요." };
+  }
+  if (item.kind === "ball") {
+    // 중복 포획 방지: 같은 진화라인 보유 시 볼 소모 전에 안내
+    const { data: stage } = await admin
+      .from("evolution_stages")
+      .select("chain_id")
+      .eq("species_id", b.enemy_species_id)
+      .limit(1)
+      .maybeSingle();
+    if (stage) {
+      const { data: dup } = await admin
+        .from("student_pokemon")
+        .select("id")
+        .eq("student_id", uid)
+        .eq("chain_id", stage.chain_id)
+        .limit(1)
+        .maybeSingle();
+      if (dup) return { error: "이미 가지고 있는 포켓몬이에요! (중복 포획 방지)" };
+    }
   }
   if (item.kind === "potion" && student.hp >= student.maxHp) {
     return { error: "HP가 가득 차 있어요." };
@@ -498,7 +548,7 @@ async function grantBattleRewards(admin: Admin, b: any) {
   }
 }
 
-/** 포획: 적 종을 컬렉션에 추가 (이미 잡았으면 skip) */
+/** 포획: 적 종을 컬렉션에 추가 (이미 잡았거나 같은 진화라인 보유 시 skip — 중복 방지) */
 async function catchPokemon(admin: Admin, b: any): Promise<string | null> {
   if (b.caught_species_id) return null; // 이미 처리됨
   const { data: stage } = await admin
@@ -508,6 +558,15 @@ async function catchPokemon(admin: Admin, b: any): Promise<string | null> {
     .limit(1)
     .maybeSingle();
   if (!stage) return null;
+
+  const { data: dup } = await admin
+    .from("student_pokemon")
+    .select("id")
+    .eq("student_id", b.student_id)
+    .eq("chain_id", stage.chain_id)
+    .limit(1)
+    .maybeSingle();
+  if (dup) return null; // 같은 진화라인 이미 보유 — 중복 포획 방지
 
   await admin.from("student_pokemon").insert({
     student_id: b.student_id,

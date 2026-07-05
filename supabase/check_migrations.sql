@@ -32,4 +32,6 @@ select name as "마이그레이션", case when ok then '✅ 적용됨' else '❌
          exists(select 1 from pg_proc where proname='admin_analytics')
   union all select '0016 도구(몬스터볼·상처약)·배틀 메뉴',
          exists(select 1 from information_schema.tables  where table_schema='public' and table_name='items')
+  union all select '0017 중복 보유 방지',
+         exists(select 1 from pg_proc where proname='purchase_pokemon' and pg_get_functiondef(oid) like '%already owned%')
 ) s;
