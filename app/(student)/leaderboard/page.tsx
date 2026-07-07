@@ -9,8 +9,14 @@ export default async function LeaderboardPage() {
   await requireRole("student", "admin");
   const supabase = await createClient();
 
-  const { data: rows } = await supabase.rpc("weekly_leaderboard");
+  const [{ data: rows }, { data: pvpRows, error: pvpErr }] = await Promise.all([
+    supabase.rpc("weekly_leaderboard"),
+    supabase.rpc("pvp_leaderboard"),
+  ]);
   const list = (rows ?? []) as any[];
+  // 0019 미적용이면 조용히 숨김. 대결 경험이 전무한 반도 숨김.
+  const pvpList = pvpErr ? [] : ((pvpRows ?? []) as any[]);
+  const showPvp = pvpList.some((r) => Number(r.wins) + Number(r.losses) > 0);
 
   return (
     <div className="mx-auto max-w-xl space-y-4">
@@ -55,6 +61,40 @@ export default async function LeaderboardPage() {
             </li>
           ))}
         </ol>
+      )}
+
+      {/* PvP 승수 랭킹 (전체 기간) */}
+      {showPvp && (
+        <section className="space-y-2 pt-2">
+          <div>
+            <h2 className="text-xl font-bold">대결 랭킹 ⚔️</h2>
+            <p className="text-sm text-slate-500">친구와의 1:1 대결 승수 순위예요.</p>
+          </div>
+          <ol className="space-y-2">
+            {pvpList.map((r, i) => (
+              <li
+                key={r.student_id}
+                className={`flex items-center justify-between rounded-2xl border p-3 ${
+                  r.is_me
+                    ? "border-poke-blue bg-poke-blue/5 ring-1 ring-poke-blue/30"
+                    : "border-slate-200 bg-white"
+                }`}
+              >
+                <div className="flex items-center gap-3">
+                  <span className="w-8 text-center text-lg font-bold">{MEDAL[i] ?? i + 1}</span>
+                  <p className="font-semibold">
+                    {r.display_name}
+                    {r.is_me && <span className="ml-1 text-xs text-poke-blue">(나)</span>}
+                  </p>
+                </div>
+                <span className="text-sm font-bold">
+                  <span className="text-poke-blue">{Number(r.wins)}승</span>{" "}
+                  <span className="text-slate-400">{Number(r.losses)}패</span>
+                </span>
+              </li>
+            ))}
+          </ol>
+        </section>
       )}
     </div>
   );

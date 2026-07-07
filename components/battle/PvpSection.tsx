@@ -23,17 +23,34 @@ export interface OutgoingChallenge {
   id: string;
   opponentName: string;
 }
+export interface SpectateBattle {
+  id: string;
+  aName: string;
+  bName: string;
+}
+export interface RecentPvp {
+  id: string;
+  otherName: string;
+  won: boolean;
+  date: string;
+}
 
 export function PvpSection({
   classmates,
   incoming,
   ongoing,
   outgoing,
+  spectate = [],
+  record = null,
+  recent = [],
 }: {
   classmates: Classmate[];
   incoming: IncomingChallenge[];
   ongoing: OngoingPvp[];
   outgoing: OutgoingChallenge[];
+  spectate?: SpectateBattle[];
+  record?: { wins: number; losses: number } | null;
+  recent?: RecentPvp[];
 }) {
   const router = useRouter();
   const [error, setError] = useState<string | null>(null);
@@ -68,10 +85,32 @@ export function PvpSection({
 
   return (
     <section className="space-y-3">
-      <h2 className="text-sm font-semibold text-slate-500">⚔️ 친구와 대결 (실시간 1:1)</h2>
+      <div className="flex items-center justify-between">
+        <h2 className="text-sm font-semibold text-slate-500">⚔️ 친구와 대결 (실시간 1:1)</h2>
+        {record && (
+          <span className="rounded-full bg-slate-100 px-2.5 py-1 text-xs font-bold text-slate-600">
+            내 전적 <span className="text-poke-blue">{record.wins}승</span>{" "}
+            <span className="text-poke-red">{record.losses}패</span>
+          </span>
+        )}
+      </div>
 
       {error && <p className="rounded-lg bg-poke-red/5 p-2 text-sm text-poke-red">{error}</p>}
       {msg && <p className="rounded-lg bg-green-50 p-2 text-sm text-green-700">{msg}</p>}
+
+      {/* 관전: 반 친구들의 진행 중 대결 */}
+      {spectate.map((s) => (
+        <Link
+          key={s.id}
+          href={`/pvp/${s.id}`}
+          className="flex items-center justify-between rounded-2xl border border-purple-200 bg-purple-50 p-3 hover:bg-purple-100"
+        >
+          <span className="text-sm font-semibold">
+            👀 {s.aName} vs {s.bName} — 대결 중!
+          </span>
+          <span className="text-sm font-bold text-purple-600">관전하기 →</span>
+        </Link>
+      ))}
 
       {/* 받은 도전장 */}
       {incoming.length > 0 && (
@@ -154,6 +193,30 @@ export function PvpSection({
           하루 3회 · 같은 친구에겐 1회 · 승리 +{20} XP / 패배 +{5} XP
         </p>
       </div>
+
+      {/* 최근 대결 기록 */}
+      {recent.length > 0 && (
+        <div className="rounded-2xl border border-slate-200 bg-white p-3">
+          <p className="mb-1 text-xs font-semibold text-slate-400">최근 대결</p>
+          <ul className="divide-y divide-slate-100">
+            {recent.map((r) => (
+              <li key={r.id} className="flex items-center justify-between py-1.5 text-sm">
+                <span>
+                  vs <b>{r.otherName}</b>
+                  <span className="ml-1.5 text-xs text-slate-400">{r.date}</span>
+                </span>
+                <span
+                  className={`rounded-full px-2 py-0.5 text-xs font-bold ${
+                    r.won ? "bg-green-100 text-green-700" : "bg-slate-100 text-slate-500"
+                  }`}
+                >
+                  {r.won ? "승리" : "패배"}
+                </span>
+              </li>
+            ))}
+          </ul>
+        </div>
+      )}
     </section>
   );
 }
