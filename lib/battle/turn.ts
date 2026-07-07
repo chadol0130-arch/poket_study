@@ -221,6 +221,27 @@ function endOfTurn(c: Combatant, log: string[]) {
   }
 }
 
+/** PvP 교대 턴: 공격자 1행동 + 행동자 본인 도트. 승패 판정은 호출측이 HP로 수행. */
+export function pvpAction(
+  attackerIn: Combatant,
+  defenderIn: Combatant,
+  moveKey: string,
+  chart: TypeChart,
+  rng: RNG = Math.random,
+): { attacker: Combatant; defender: Combatant; log: string[] } {
+  const attacker = ensure({ ...attackerIn, stages: { ...(attackerIn.stages ?? zeroStages()) } });
+  const defender = ensure({ ...defenderIn, stages: { ...(defenderIn.stages ?? zeroStages()) } });
+  const log: string[] = [];
+
+  const move = attacker.moves.find((m) => m.key === moveKey) ?? attacker.moves[0];
+  act(attacker, defender, move, chart, rng, log);
+
+  // 행동자 본인의 독/화상 도트 (교대 턴제: 자기 행동 후 1회)
+  if (attacker.hp > 0 && defender.hp > 0) endOfTurn(attacker, log);
+
+  return { attacker, defender, log };
+}
+
 /** 아이템 사용/포획 실패 후 적만 1회 행동(도트 포함). 학생은 행동하지 않는다. */
 export function enemyFreeAttack(
   studentIn: Combatant,

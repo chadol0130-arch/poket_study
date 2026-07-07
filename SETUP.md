@@ -81,8 +81,10 @@ Supabase는 회원·데이터·사진을 저장하는 무료 백엔드예요.
 17. **New query** → **`supabase/migrations/0016_items.sql`** 붙여넣고 **Run**
    → 상점에 **몬스터볼·상처약(도구)** 이 생기고, 배틀에 **싸우기|도구|도망치기** 메뉴가 켜져요 ⚔️
    (야생 포켓몬은 이제 몬스터볼을 던져야 잡혀요 — HP를 깎을수록 잘 잡힘!)
-18. 마지막으로 **New query** → **`supabase/migrations/0017_no_duplicates.sql`** 붙여넣고 **Run**
+18. **New query** → **`supabase/migrations/0017_no_duplicates.sql`** 붙여넣고 **Run**
    → **중복 보유 방지**가 켜져요 (이미 가진 진화라인은 상점 재구매·재포획 불가) ✅
+19. 마지막으로 **New query** → **`supabase/migrations/0018_pvp.sql`** 붙여넣고 **Run**
+   → 배틀 탭에 **친구와 1:1 실시간 대결**이 생겨요 ⚔️ (같은 반, 하루 3회, 승리 +20 XP)
 
 > 🚀 **학생 수가 수천 명 이상으로 커지면:** 코드는 준비돼 있지만 **무료 요금제로는 불가**해요.
 > Supabase **Pro**(월 $25 — 무료는 DB 500MB·1주 미사용 시 일시정지)와 Vercel **Pro**(월 $20)로
