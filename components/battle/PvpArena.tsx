@@ -52,6 +52,7 @@ export function PvpArena({
   initialTurn,
   initialTurnNo,
   initialUpdatedAt,
+  spectator = false,
 }: {
   battleId: string;
   myRole: Role;
@@ -60,6 +61,7 @@ export function PvpArena({
   initialTurn: string | null;
   initialTurnNo: number;
   initialUpdatedAt: string;
+  spectator?: boolean;
 }) {
   const router = useRouter();
   const [state, setState] = useState<PState>(initialState);
@@ -156,10 +158,14 @@ export function PvpArena({
   const foe = state[other(myRole)];
   const names = state.playerNames ?? { challenger: "도전자", opponent: "친구" };
   const foeName = names[other(myRole)];
-  const myTurn = status === "active" && currentTurn === myRole;
+  const myTurn = !spectator && status === "active" && currentTurn === myRole;
   const iWon =
     (status === "won_challenger" && myRole === "challenger") ||
     (status === "won_opponent" && myRole === "opponent");
+  const turnName =
+    currentTurn === "challenger" ? names.challenger : currentTurn === "opponent" ? names.opponent : "";
+  const winnerName =
+    status === "won_challenger" ? names.challenger : status === "won_opponent" ? names.opponent : "";
 
   return (
     <div className="mx-auto max-w-lg space-y-4">
@@ -207,7 +213,7 @@ export function PvpArena({
           <span>
             {me.name} <span className="text-slate-400">Lv{me.level}</span>
             <span className="ml-1.5 rounded bg-poke-blue/10 px-1.5 py-0.5 text-[10px] font-bold text-poke-blue">
-              나
+              {spectator ? names[myRole] : "나"}
             </span>
           </span>
           <span className="text-xs text-slate-400">
@@ -227,7 +233,17 @@ export function PvpArena({
       {error && <p className="text-sm text-poke-red">{error}</p>}
 
       {status === "active" ? (
-        myTurn ? (
+        spectator ? (
+          <div className="rounded-2xl border border-slate-200 bg-white p-4 text-center">
+            <p className="text-sm font-semibold text-slate-500">
+              👀 관전 중 — {turnName}이(가) 기술을 고르는 중…{" "}
+              <span className="text-slate-400">({waitSec}초)</span>
+            </p>
+            <Link href="/battles" className="mt-2 inline-block text-xs font-semibold text-poke-blue">
+              ← 배틀로 돌아가기
+            </Link>
+          </div>
+        ) : myTurn ? (
           <div className="space-y-2">
             <p className="text-center text-sm font-bold text-poke-red">내 차례! 기술을 고르세요</p>
             <div className="grid grid-cols-2 gap-2">
@@ -290,7 +306,12 @@ export function PvpArena({
         )
       ) : (
         <div className="rounded-2xl border border-slate-200 bg-white p-5 text-center">
-          {iWon ? (
+          {spectator ? (
+            <>
+              <p className="text-2xl font-black text-green-600">{winnerName} 승리! 🏆</p>
+              <p className="mt-1 text-sm text-slate-500">멋진 대결이었어요. 나도 도전해볼까?</p>
+            </>
+          ) : iWon ? (
             <>
               <p className="text-2xl font-black text-green-600">승리! 🏆</p>
               <p className="mt-1 text-sm text-amber-600">+20 XP — 주간 랭킹에도 반영돼요!</p>
