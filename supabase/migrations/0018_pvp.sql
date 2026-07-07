@@ -24,6 +24,11 @@ create table public.pvp_battles (
 create index idx_pvp_challenger on public.pvp_battles(challenger_id, created_at desc);
 create index idx_pvp_opponent   on public.pvp_battles(opponent_id, created_at desc);
 
+-- 한 쌍(방향 무관)당 열린 대결(pending/active)은 1개만 — 동시 도전 경합의 DB 백스톱
+create unique index uniq_pvp_open_pair on public.pvp_battles
+  (least(challenger_id, opponent_id), greatest(challenger_id, opponent_id))
+  where status in ('pending','active');
+
 -- RLS: 참가자·admin 읽기만. 쓰기 정책 없음 → service-role(서버 액션) 전용.
 alter table public.pvp_battles enable row level security;
 create policy "pvp read own" on public.pvp_battles for select

@@ -111,12 +111,33 @@ export async function createChallenge(opponentId: string): Promise<PvpResult> {
     .maybeSingle();
   if (!myPet) return { error: "대표 포켓몬이 없어요. 먼저 스타터를 선택하세요." };
 
-  const { error } = await admin.from("pvp_battles").insert({
-    challenger_id: uid,
-    opponent_id: opponentId,
-    challenger_pokemon_id: myPet.id,
-  });
-  if (error) return { error: error.message };
+  const { data: ins, error } = await admin
+    .from("pvp_battles")
+    .insert({
+      challenger_id: uid,
+      opponent_id: opponentId,
+      challenger_pokemon_id: myPet.id,
+    })
+    .select("id")
+    .single();
+  if (error || !ins) {
+    // 동시 도전 경합 → uniq_pvp_open_pair(0018) 위반
+    if (error?.code === "23505" || /uniq_pvp_open_pair|duplicate/i.test(error?.message ?? ""))
+      return { error: "이 친구와는 이미 진행 중인 대결(또는 도전장)이 있어요." };
+    return { error: error?.message ?? "도전장 생성 실패" };
+  }
+
+  // 하루 3회 캡 경합 백스톱: 삽입 후 재검증 — 초과면 방금 만든 것 롤백 (fail-safe)
+  const { data: recount } = await admin
+    .from("pvp_battles")
+    .select("id")
+    .eq("challenger_id", uid)
+    .gte("created_at", `${today}T00:00:00+09:00`)
+    .lte("created_at", `${today}T23:59:59+09:00`);
+  if ((recount ?? []).length > DAILY_CHALLENGES) {
+    await admin.from("pvp_battles").delete().eq("id", ins.id);
+    return { error: `오늘 도전 ${DAILY_CHALLENGES}회를 모두 썼어요. 내일 다시 도전해요!` };
+  }
 
   const myName = await displayName(admin, uid);
   await notify(admin, opponentId, "⚔️ 대결 신청!", `${myName}이(가) 배틀을 걸어왔어요! 수락하러 가볼까요?`, "/battles");
@@ -136,14 +157,27 @@ export async function respondChallenge(battleId: string, accept: boolean): Promi
   const cName = await displayName(admin, b.challenger_id);
   const oName = await displayName(admin, b.opponent_id);
 
+  // pending 상태일 때만 거절로 전이 (수락과의 경합에서 active 배틀을 파괴하지 않도록 CAS)
+  async function declineIfPending(): Promise<boolean> {
+    const { data: row } = await admin
+      .from("pvp_battles")
+      .update({ status: "declined", updated_at: new Date().toISOString() })
+      .eq("id", battleId)
+      .eq("status", "pending")
+      .select("id")
+      .maybeSingle();
+    return Boolean(row);
+  }
+
   // 만료(24시간)
   if (Date.now() - new Date(b.created_at).getTime() > CHALLENGE_EXPIRY_MS) {
-    await admin.from("pvp_battles").update({ status: "declined", updated_at: new Date().toISOString() }).eq("id", battleId);
+    await declineIfPending();
     return { error: "만료된 도전장이에요." };
   }
 
   if (!accept) {
-    await admin.from("pvp_battles").update({ status: "declined", updated_at: new Date().toISOString() }).eq("id", battleId);
+    const done = await declineIfPending();
+    if (!done) return { error: "이미 처리된 도전장이에요." };
     await notify(admin, b.challenger_id, "대결이 거절됐어요", `${oName}이(가) 다음을 기약했어요.`, "/battles");
     return { ok: true };
   }
@@ -155,7 +189,7 @@ export async function respondChallenge(battleId: string, accept: boolean): Promi
   ]);
   if (!oPet) return { error: "대표 포켓몬이 없어요. 먼저 스타터를 선택하세요." };
   if (!cPet) {
-    await admin.from("pvp_battles").update({ status: "declined", updated_at: new Date().toISOString() }).eq("id", battleId);
+    await declineIfPending();
     return { error: "도전자의 대표 포켓몬이 없어 대결이 취소됐어요." };
   }
 
@@ -178,7 +212,7 @@ export async function respondChallenge(battleId: string, accept: boolean): Promi
     ],
   };
 
-  const { error } = await admin
+  const { data: accepted, error } = await admin
     .from("pvp_battles")
     .update({
       status: "active",
@@ -190,8 +224,11 @@ export async function respondChallenge(battleId: string, accept: boolean): Promi
       updated_at: new Date().toISOString(),
     })
     .eq("id", battleId)
-    .eq("status", "pending");
+    .eq("status", "pending")
+    .select("id")
+    .maybeSingle();
   if (error) return { error: error.message };
+  if (!accepted) return { error: "이미 처리된 도전장이에요." };
 
   await notify(admin, b.challenger_id, "🔥 대결 수락!", `${oName}이(가) 도전을 받아들였어요! 대결장으로!`, `/pvp/${battleId}`);
   return { ok: true, battleId };
@@ -327,7 +364,12 @@ async function runAction(
     .eq("status", "active")
     .select("id")
     .maybeSingle();
-  if (flipped) await grantPvpXp(admin, b, winner, LOSER_XP);
+  if (!flipped) {
+    // 경합에서 밀림(다른 턴/기권이 먼저 처리) — 조작된 결과 대신 실제 DB 상태 반환
+    const { data: fresh } = await admin.from("pvp_battles").select("*").eq("id", b.id).maybeSingle();
+    return fresh ? snapshot(fresh) : { error: "배틀을 찾을 수 없습니다." };
+  }
+  await grantPvpXp(admin, b, winner, LOSER_XP);
 
   return { ok: true, state: st, status: newStatus, currentTurn: null, turnNo: b.turn_no + 1 };
 }
