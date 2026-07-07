@@ -2,6 +2,13 @@ import { requireRole } from "@/lib/auth";
 import { createClient } from "@/lib/supabase/server";
 import { getSpeciesInfo } from "@/lib/queries";
 import { BattleEntry, type BossCard } from "@/components/battle/BattleEntry";
+import {
+  PvpSection,
+  type Classmate,
+  type IncomingChallenge,
+  type OngoingPvp,
+  type OutgoingChallenge,
+} from "@/components/battle/PvpSection";
 import { SubTabs } from "@/components/SubTabs";
 import { POKEMON_TABS } from "@/lib/hubTabs";
 
@@ -9,8 +16,8 @@ export default async function BattlesPage() {
   const profile = await requireRole("student", "admin");
   const supabase = await createClient();
 
-  // 나에게 배치된 활성 보스(날짜 무관) + 클리어한 보스 — 서로 독립이라 병렬 조회
-  const [{ data: tgts }, { data: wonRows }] = await Promise.all([
+  // 보스/클리어/반 친구(랭킹 RPC)/내 PvP — 서로 독립이라 병렬 조회
+  const [{ data: tgts }, { data: wonRows }, { data: mates }, { data: pvps }] = await Promise.all([
     supabase
       .from("encounter_targets")
       .select(
@@ -23,6 +30,12 @@ export default async function BattlesPage() {
       .eq("student_id", profile.id)
       .eq("status", "won")
       .not("encounter_id", "is", null),
+    supabase.rpc("weekly_leaderboard"),
+    supabase
+      .from("pvp_battles")
+      .select("id, challenger_id, opponent_id, status, current_turn, created_at")
+      .in("status", ["pending", "active"])
+      .order("created_at", { ascending: false }),
   ]);
 
   const encs = (tgts ?? [])
@@ -52,15 +65,48 @@ export default async function BattlesPage() {
   // 미클리어 먼저, 그다음 레벨 오름차순
   bosses.sort((a, b) => Number(a.won) - Number(b.won) || a.level - b.level);
 
+  // PvP 데이터 (이름은 랭킹 RPC 결과로 해석 — 같은 반만 대결하므로 커버됨)
+  const nameById = new Map<string, string>(
+    (mates ?? []).map((m: any) => [m.student_id, m.display_name]),
+  );
+  const classmates: Classmate[] = (mates ?? [])
+    .filter((m: any) => !m.is_me)
+    .map((m: any) => ({ id: m.student_id, name: m.display_name, level: m.level }));
+
+  const rows = (pvps ?? []) as any[];
+  const incoming: IncomingChallenge[] = rows
+    .filter((b) => b.status === "pending" && b.opponent_id === profile.id)
+    .map((b) => ({ id: b.id, challengerName: nameById.get(b.challenger_id) ?? "친구" }));
+  const outgoing: OutgoingChallenge[] = rows
+    .filter((b) => b.status === "pending" && b.challenger_id === profile.id)
+    .map((b) => ({ id: b.id, opponentName: nameById.get(b.opponent_id) ?? "친구" }));
+  const ongoing: OngoingPvp[] = rows
+    .filter((b) => b.status === "active")
+    .map((b) => {
+      const myRole = b.challenger_id === profile.id ? "challenger" : "opponent";
+      const otherId = myRole === "challenger" ? b.opponent_id : b.challenger_id;
+      return {
+        id: b.id,
+        otherName: nameById.get(otherId) ?? "친구",
+        myTurn: b.current_turn === myRole,
+      };
+    });
+
   return (
-    <div className="mx-auto max-w-2xl space-y-4">
+    <div className="mx-auto max-w-2xl space-y-5">
       <SubTabs tabs={POKEMON_TABS} />
       <div>
         <h1 className="text-2xl font-bold">배틀 ⚔️</h1>
         <p className="text-slate-500">
-          야생 포켓몬과 만나거나 시험 보스에 도전하세요. 공부로 강해질수록 이기기 쉬워져요!
+          친구와 대결하고, 야생 포켓몬을 만나고, 시험 보스에 도전하세요!
         </p>
       </div>
+      <PvpSection
+        classmates={classmates}
+        incoming={incoming}
+        ongoing={ongoing}
+        outgoing={outgoing}
+      />
       <BattleEntry bosses={bosses} />
     </div>
   );
