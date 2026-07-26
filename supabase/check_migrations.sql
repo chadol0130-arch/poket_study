@@ -38,4 +38,6 @@ select name as "마이그레이션", case when ok then '✅ 적용됨' else '❌
          exists(select 1 from information_schema.tables  where table_schema='public' and table_name='pvp_battles')
   union all select '0019 전적·승수랭킹·관전',
          exists(select 1 from pg_proc where proname='pvp_leaderboard')
+  union all select '0020 행동 추적(이탈 분석)',
+         exists(select 1 from information_schema.tables  where table_schema='public' and table_name='app_events')
 ) s;

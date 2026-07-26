@@ -1,3 +1,4 @@
+import Link from "next/link";
 import { requireRole } from "@/lib/auth";
 import { createAdminClient } from "@/lib/supabase/admin";
 import { getSpeciesInfo } from "@/lib/queries";
@@ -67,6 +68,11 @@ export default async function AnalyticsPage() {
       <div>
         <h1 className="text-2xl font-bold">분석 대시보드 📊</h1>
         <p className="text-slate-500">학생 참여 지표 — 무엇이 학생을 움직이는지 살펴보세요. (실시간 집계)</p>
+        <p className="mt-1 text-sm">
+          <Link href="/admin/behavior" className="text-poke-blue hover:underline">
+            👣 화면 이동·이탈 지점은 행동 분석에서 →
+          </Link>
+        </p>
       </div>
 
       <div className="grid grid-cols-2 gap-3 sm:grid-cols-4">
