@@ -141,7 +141,7 @@ export interface StudentItem {
 }
 
 export type FeedbackCategory = "bug" | "idea" | "question" | "etc";
-export type FeedbackStatus = "open" | "in_progress" | "resolved" | "wontfix";
+export type FeedbackStatus = "open" | "in_progress" | "resolved" | "wontfix" | "accepted";
 
 export interface Feedback {
   id: string;

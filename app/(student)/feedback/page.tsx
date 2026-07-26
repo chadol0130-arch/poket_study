@@ -14,6 +14,7 @@ const STATUS_KO: Record<string, { label: string; cls: string }> = {
   in_progress: { label: "확인 중", cls: "bg-amber-100 text-amber-700" },
   resolved: { label: "반영 완료", cls: "bg-green-100 text-green-700" },
   wontfix: { label: "보류", cls: "bg-slate-100 text-slate-500" },
+  accepted: { label: "채택! 💡", cls: "bg-purple-100 text-purple-700" },
 };
 
 export default async function FeedbackPage() {

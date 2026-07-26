@@ -44,4 +44,6 @@ select name as "마이그레이션", case when ok then '✅ 적용됨' else '❌
          exists(select 1 from pg_proc where proname='claim_mission_bonus')
   union all select '0022 자동 리마인더(pg_cron)',
          exists(select 1 from pg_extension where extname='pg_cron')
+  union all select '0023 도전과제 보상·건의 채택',
+         exists(select 1 from pg_proc where proname='claim_achievement')
 ) s;
