@@ -5,6 +5,7 @@ import { NavShell } from "@/components/NavShell";
 const items = [
   { href: "/admin", label: "홈", icon: "🏠" },
   { href: "/admin/analytics", label: "분석", icon: "📊" },
+  { href: "/admin/behavior", label: "행동", icon: "👣" },
   { href: "/admin/users", label: "계정", icon: "👤" },
   { href: "/admin/classes", label: "반 관리", icon: "🏫" },
   { href: "/admin/feedback", label: "문의함", icon: "💌" },
