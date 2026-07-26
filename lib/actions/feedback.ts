@@ -31,3 +31,16 @@ export async function updateFeedbackStatus(
   revalidatePath("/admin/feedback");
   return { ok: true };
 }
+
+/** 관리자: 건의 채택 — 학생에게 코인 100 + "아이디어 채택!" 알림. 중복 지급은 DB가 차단. */
+export async function acceptFeedback(id: string): Promise<ActionResult> {
+  await requireRole("admin");
+
+  const supabase = await createClient();
+  const { data, error } = await supabase.rpc("accept_feedback", { p_feedback_id: id });
+  if (error) return { error: error.message };
+  if (data?.already) return { error: "이미 채택된 건의예요." };
+
+  revalidatePath("/admin/feedback");
+  return { ok: true };
+}
