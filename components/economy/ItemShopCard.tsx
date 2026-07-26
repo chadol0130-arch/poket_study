@@ -9,7 +9,7 @@ export interface ShopItemInfo {
   itemKey: string;
   nameKo: string;
   description: string;
-  kind: "ball" | "potion";
+  kind: "ball" | "potion" | "charm";
   price: number;
   effect: number;
   ownedQty: number;
@@ -34,7 +34,9 @@ export function ItemShopCard({ item, balance }: { item: ShopItemInfo; balance: n
   return (
     <div className="flex items-center gap-3 rounded-2xl border border-slate-200 bg-white p-3">
       {broken ? (
-        <span className="text-3xl">{item.kind === "ball" ? "🔴" : "🧪"}</span>
+        <span className="text-3xl">
+          {item.kind === "ball" ? "🔴" : item.kind === "charm" ? "❄️" : "🧪"}
+        </span>
       ) : (
         <img
           src={`/items/${item.itemKey}.png`}

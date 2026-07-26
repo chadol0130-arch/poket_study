@@ -27,15 +27,18 @@ export default async function BattlePage({
   if (!battle) notFound();
 
   // 활성 도구 전체를 보유 수량과 함께 (0개도 표시해 상점 유도)
+  // charm(스트릭 보호권 등)은 배틀용이 아니라 제외 — 자동 사용 아이템.
   const qtyByKey = new Map<string, number>((owned ?? []).map((o: any) => [o.item_key, o.qty]));
-  const inventory: InvItem[] = (items ?? []).map((it: any) => ({
-    itemKey: it.item_key,
-    nameKo: it.name_ko,
-    description: it.description ?? "",
-    kind: it.kind,
-    effect: it.effect,
-    qty: qtyByKey.get(it.item_key) ?? 0,
-  }));
+  const inventory: InvItem[] = (items ?? [])
+    .filter((it: any) => it.kind === "ball" || it.kind === "potion")
+    .map((it: any) => ({
+      itemKey: it.item_key,
+      nameKo: it.name_ko,
+      description: it.description ?? "",
+      kind: it.kind,
+      effect: it.effect,
+      qty: qtyByKey.get(it.item_key) ?? 0,
+    }));
 
   return (
     <BattleArena

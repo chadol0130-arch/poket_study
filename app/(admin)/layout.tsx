@@ -17,6 +17,7 @@ const items = [
   // 관리자도 선생님 기능(숙제 검사/수업·숙제내기)을 바로 쓸 수 있게.
   { href: "/queue", label: "검사", icon: "✅" },
   { href: "/classes", label: "수업·숙제", icon: "👨‍🏫" },
+  { href: "/nudge", label: "독려", icon: "📣" },
 ];
 
 export default async function AdminLayout({

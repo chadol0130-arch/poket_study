@@ -40,4 +40,8 @@ select name as "마이그레이션", case when ok then '✅ 적용됨' else '❌
          exists(select 1 from pg_proc where proname='pvp_leaderboard')
   union all select '0020 행동 추적(이탈 분석)',
          exists(select 1 from information_schema.tables  where table_schema='public' and table_name='app_events')
+  union all select '0021 보너스 상자·스트릭 보호권',
+         exists(select 1 from pg_proc where proname='claim_mission_bonus')
+  union all select '0022 자동 리마인더(pg_cron)',
+         exists(select 1 from pg_extension where extname='pg_cron')
 ) s;

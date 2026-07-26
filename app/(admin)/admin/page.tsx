@@ -32,6 +32,7 @@ const GROUPS: { title: string; items: { href: string; label: string; icon: strin
     items: [
       { href: "/queue", label: "검사 큐", icon: "✅", desc: "숙제·일일기록 통과/반려" },
       { href: "/classes", label: "수업 반·숙제 내기", icon: "👨‍🏫", desc: "반별 숙제 만들기(마감일)" },
+      { href: "/nudge", label: "독려", icon: "📣", desc: "미제출·미출석 명단 + 반톡용 문구 복사" },
     ],
   },
 ];

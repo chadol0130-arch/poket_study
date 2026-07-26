@@ -28,6 +28,7 @@ export default async function DashboardPage() {
     { count: subTodayCount },
     { count: dlTodayCount },
     { count: ansTodayCount },
+    { count: claimCount },
   ] = await Promise.all([
     supabase.from("student_pokemon").select("*").eq("student_id", profile.id),
     // 미답변 질문 수 (활성 포켓몬에 ! 표시) — SECURITY DEFINER 함수로 견고하게 조회
@@ -63,6 +64,12 @@ export default async function DashboardPage() {
       .select("id", { count: "exact", head: true })
       .eq("student_id", profile.id)
       .gte("answered_at", startKST),
+    // 오늘 미션 보너스 상자를 이미 열었는지 (0021 미적용이면 에러 → count null → 미수령 취급)
+    supabase
+      .from("mission_claims")
+      .select("id", { count: "exact", head: true })
+      .eq("student_id", profile.id)
+      .eq("claim_date", todayKST),
   ]);
 
   // 포켓몬이 없으면 스타터 선택으로.
@@ -93,7 +100,9 @@ export default async function DashboardPage() {
 
   const checkedIn = (checkinCount ?? 0) > 0;
   const submittedToday = (subTodayCount ?? 0) + (dlTodayCount ?? 0) > 0;
-  const answeredToday = (ansTodayCount ?? 0) > 0;
+  // 질문 미션: 오늘 답했거나, 답할 질문이 없는 날도 완료로 인정 (상자를 못 여는 날 방지)
+  const answeredToday = (ansTodayCount ?? 0) > 0 || pendingQuestions === 0;
+  const bonusClaimed = (claimCount ?? 0) > 0;
 
   return (
     <div className="space-y-6">
@@ -111,6 +120,7 @@ export default async function DashboardPage() {
         checkedIn={checkedIn}
         submittedToday={submittedToday}
         answeredToday={answeredToday}
+        bonusClaimed={bonusClaimed}
       />
 
       <div className="grid gap-6 sm:grid-cols-2">
