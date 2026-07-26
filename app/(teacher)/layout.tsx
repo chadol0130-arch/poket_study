@@ -4,6 +4,7 @@ import { NavShell } from "@/components/NavShell";
 const items = [
   { href: "/queue", label: "검사", icon: "✅" },
   { href: "/classes", label: "수업·숙제 내기", icon: "👨‍🏫" },
+  { href: "/nudge", label: "독려", icon: "📣" },
 ];
 
 export default async function TeacherLayout({
